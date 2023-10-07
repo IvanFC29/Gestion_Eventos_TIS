@@ -11,11 +11,12 @@ use App\Http\Controllers\InicioController;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
+Route::get('/'', [App\Http\Controllers\Frontend\FrontendController::class,'index']);
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.index');
 });
 
-
-//Route::get('/', [InicioController::class, 'index']);
+//Route::get('/'',[]);
+//Route::get('/', [App\Http\Controllers\Frontend\FrontendController::class,'index']);

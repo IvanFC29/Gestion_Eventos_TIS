@@ -1,0 +1,17 @@
+
+.custom-navbar {
+  background-color: #085394;
+  }
+.color-tittle{
+  color: #ffffff; /* Cambiar el color del texto a blanco */
+
+}
+/* Estilo por defecto del sidebar (oculto) */
+.sidebar {
+  display: none;
+}
+
+/* Estilo del sidebar cuando se le aplica la clase "show-sidebar" */
+.show-sidebar {
+  display: block;
+}
