@@ -38,8 +38,7 @@
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">Personal</a></li>
                 <li><a class="dropdown-item" href="#">Participante</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                
               </ul>
             </li>
             
@@ -81,7 +80,7 @@
               
               <div class="mb-3">
                 <label for="message-text" class="col-form-label">Descripción del evento:</label>
-                <textarea class="form-control" id="message-text" name="nombrepersonal"></textarea>
+                <textarea class="form-control" id="message-text" name="descripcionevento"></textarea>
               </div>
               <div class="mb-3">
                 <label>Fecha a realizarse:<span class="date-danger">*</span></label>
@@ -100,7 +99,7 @@
               </div>
               <div class="mb-3">
                 <label for="recipient-name" class="col-form-label">Afiche del evento:</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                <input type="file" name="aficheevento"class="form-control-file" >
               </div>
               <div class="mb-3">
                 <label >E-mail de contacto:<span class="text-danger">*</span></label><br>
@@ -108,7 +107,7 @@
               </div>
               <div class="mb-3">
                 <label >Telefono/Celular de contacto:<span class="text-danger">*</span></label>
-                <input type="text" name="telefonopersonal" class="form-control input_user" value="" placeholder="Ingrese numero telef/cel"
+                <input type="text" name="telefonoevento" class="form-control input_user" value="" placeholder="Ingrese numero telef/cel"
                         oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); this.value = this.value.replace(/[^0-9]/,'')" minlength ="7" maxlength ="8" min="40000000" max="79999999" required>
                     
               </div>             
