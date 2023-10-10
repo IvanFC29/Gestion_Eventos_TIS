@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" TYPE="text/css">   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
-    <nav class="navbar custom-navbar navbar-expand-lg ">
+    <nav class="navbar custom-navbar navbar-expand-lg " >
       <div class="container-fluid ">
-      <i class="bi bi-list"></i>
+        <i class="bi bi-braces"></i>
         <a class="navbar-brand " href="#">BCBuilders</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -62,7 +63,7 @@
 
     </div>
     
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="eventoModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -102,10 +103,15 @@
                 <input type="file" class="form-control-file" id="exampleFormControlFile1">
               </div>
               <div class="mb-3">
-                <label >Correo Electronico:<span class="text-danger">*</span></label><br>
+                <label >E-mail de contacto:<span class="text-danger">*</span></label><br>
                 <input type="text" name="email" class="form-control input_user" value="" placeholder= "ej: gpmcheco@mail.com" required maxlength="50">
               </div>
-                            
+              <div class="mb-3">
+                <label >Telefono/Celular de contacto:<span class="text-danger">*</span></label>
+                <input type="text" name="telefonopersonal" class="form-control input_user" value="" placeholder="Ingrese numero telef/cel"
+                        oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); this.value = this.value.replace(/[^0-9]/,'')" minlength ="7" maxlength ="8" min="40000000" max="79999999" required>
+                    
+              </div>             
             </form>
           </div>
           <div class="modal-footer">
