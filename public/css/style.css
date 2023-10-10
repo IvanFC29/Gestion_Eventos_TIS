@@ -6,12 +6,8 @@
   color: #ffffff; /* Cambiar el color del texto a blanco */
 
 }
-/* Estilo por defecto del sidebar (oculto) */
-.sidebar {
-  display: none;
-}
-
-/* Estilo del sidebar cuando se le aplica la clase "show-sidebar" */
-.show-sidebar {
-  display: block;
+.img-dimesiones{
+  width: 100%; /* La imagen ocupará el 100% del ancho del contenedor */
+    height: auto; /* La altura se ajustará automáticamente para mantener la relación de aspecto original */
+    object-fit: cover;
 }
