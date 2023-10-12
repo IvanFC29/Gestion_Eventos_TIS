@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BCB</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}" TYPE="text/css">   
+    
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" TYPE="text/css">  
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-</head>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
+    </head>
 <body>
     <nav class="navbar custom-navbar navbar-expand-lg " >
       <div class="container-fluid ">
@@ -33,14 +34,21 @@
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Login
+                Iniciar Sesión
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Personal</a></li>
-                <li><a class="dropdown-item" href="#">Participante</a></li>
+                <li>
+                <button type="button" class="dropdown-item " data-toggle="modal" data-target="#loginPersonalModal" data-whatever="@getbootstrap">Personal</button>
+
+                </li>
+                <li><button type="button" class="dropdown-item " data-toggle="modal" data-target="#loginParticipanteModal" data-whatever="@getbootstrap">Participante</button>
+
+                
+                </li>
                 
               </ul>
             </li>
+            <li></li>
             
           </ul>
             
@@ -58,25 +66,32 @@
     </div>
     <div class="container textcenter">
     <h1></h1>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Crear evento</button>
+    
 
     </div>
-    
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="eventoModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Evento</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form>
-            
-                    <div class="mb-3">
-                    <label>Nombre del Evento:<span class="text-danger">*</span></label>
-                          <input type="text" name="nombrepersonal" class="form-control " value="" placeholder= "Ingrese nombre"  
-                          oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')"  minlength ="3" maxlength ="30" required>
-                    </div>
+
+    <!--modal crear evento-->
+    <div>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#eventoModal" data-whatever="@mdo">Crear Evento</button>
+    </div>
+    <div>
+      
+      <div class="modal fade" id="eventoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Nuevo Evento</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+              <div class="mb-3">
+                <label>Nombre del Evento:<span class="text-danger">*</span></label>
+                <input type="text" name="nombrepersonal" class="form-control " value="" placeholder= "Ingrese nombre"  
+                   oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')"  minlength ="3" maxlength ="30" required>
+              </div>
               
               <div class="mb-3">
                 <label for="message-text" class="col-form-label">Descripción del evento:</label>
@@ -110,17 +125,53 @@
                 <input type="text" name="telefonoevento" class="form-control input_user" value="" placeholder="Ingrese numero telef/cel"
                         oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); this.value = this.value.replace(/[^0-9]/,'')" minlength ="7" maxlength ="8" min="40000000" max="79999999" required>
                     
-              </div>             
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            <button type="submit_name" class="btn btn-primary">Crear Evento</button>
+              </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary">Guardar</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!--modal inicio de sesion-->
+    <div>
+      <div class="modal fade" id="loginPersonalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header" style="padding:35px 50px;">
+              <h4><span class="glyphicon glyphicon-lock"></span> Inicio de Sesión</h4>
+            </div>
+            <div class="modal-body" style="padding:40px 50px;">
+              <form role="form">
+                <div class="form-group">
+                  <label for="usrname"><span class="glyphicon glyphicon-user"></span> Nombre de usuario:</label>
+                  <input type="text" class="form-control" id="usrname" placeholder="Ingrese nombre de usuario o contraseña">
+                </div>
+                <div class="form-group">
+                  <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Contraseña:</label>
+                  <input type="text" class="form-control" id="psw" placeholder="Ingrese contraseña">
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" value="" checked>Recordar contraseña</label>
+                </div>
+                  <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Ingresar</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+              <p>¿Olvidó su nombre de usuario o contraseña? <a href="#">Recuperar</a></p>
+            </div>
+            
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
     
+
 </body>
 </html>
