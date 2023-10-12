@@ -3,15 +3,21 @@
   background-color: #085394;
   }
 .color-tittle{
-  color: #ffffff; /* Cambiar el color del texto a blanco */
+  color: #ffffff !important; /* Cambiar el color del texto a blanco */
 
 }
-/* Estilo por defecto del sidebar (oculto) */
-.sidebar {
-  display: none;
+.img-dimesiones{
+  width: 100%; /* La imagen ocupará el 100% del ancho del contenedor */
+    height: auto; /* La altura se ajustará automáticamente para mantener la relación de aspecto original */
+    object-fit: cover;
 }
-
-/* Estilo del sidebar cuando se le aplica la clase "show-sidebar" */
-.show-sidebar {
-  display: block;
-}
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #6a11cb;
+  
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+  }

@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InicioController;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +19,6 @@ Route::get('/'', [App\Http\Controllers\Frontend\FrontendController::class,'index
 Route::get('/', function () {
     return view('frontend.index');
 });
+Route::get('/admin',[Admin\AdminController::class, 'index']);
 
-//Route::get('/'',[]);
-//Route::get('/', [App\Http\Controllers\Frontend\FrontendController::class,'index']);
+
