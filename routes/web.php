@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InicioController;
+use App\Http\Controllers\eventviewController;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,5 +19,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('eventos', [eventviewController::class , 'index']);
+
+Route::get('eventos/create', [eventviewController::class , 'create']);
+
+Route::get('eventos/show', [eventviewController::class , 'show']);
 
 //Route::get('/', [InicioController::class, 'index']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
