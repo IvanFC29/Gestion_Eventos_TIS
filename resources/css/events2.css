@@ -1,0 +1,16 @@
+.divEvents {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 75%;
+  }
+  
+  #eventsviews{
+    margin-top: 50% !important;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .jodienda{
+    color: darkkhaki;
+  }
+  
