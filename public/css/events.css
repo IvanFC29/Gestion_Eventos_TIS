@@ -29,7 +29,7 @@
   .user-img{
     width: 50px;
     border-radius: 100%;
-    border: 1px solid black;
+    border: 1px solid #12171e;
   }
 
   .sidebar{
@@ -98,7 +98,7 @@
 
   .user p {
     color: #fff;
-    opacity: 1;
+    opacity: 0;
     margin-left: 1rem;
   }
 
@@ -182,5 +182,66 @@
     left: 80px;
     transition: all 0.5s ease;
     width: calc(100% -80px);
-    padding: 1rem;
+    /*padding: 1rem;*/
+    padding: 0;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  display: flex;
+  justify-content: space-between;
+  max-width: 80%;
+}
+
+/* Estilo del título a la izquierda */
+.navbar .titulo {
+  float: left;
+  padding: 14px 16px;
+  color: white;
+}
+
+/* Estilo de los botones a la derecha */
+.navbar .botones {
+  float: right;
+}
+
+.navbar .boton {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 14px 16px;
+  margin: 8px;
+  cursor: pointer;
+}
+
+.navbar .boton:hover {
+  background-color: #45a049;
+}
+
+/* Estilos para hacer el menú responsive en pantallas pequeñas */
+@media screen and (max-width: 600px) {
+  .navbar .titulo, .navbar .botones {
+      float: none;
+      text-align: center;
+  }
+  .navbar .botones {
+      margin-top: 8px;
+  }
+}
+
+.bodyEvents{
+  display: flex; /* Utilizamos Flexbox */
+  justify-content: center; /* Centramos horizontalmente */
+  align-items: center; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 25px;
+}
+
+.cards{
+  margin-left: auto;
+  margin-right: auto;
 }
