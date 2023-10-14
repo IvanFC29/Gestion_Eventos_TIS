@@ -52,7 +52,11 @@
     width: 250px;
   }
 
-
+.section{
+  padding: 5%;
+  width: 70%;
+  background-color: rgb(220, 230, 80);
+}
 
 
   .sidebar #btn {
@@ -153,6 +157,7 @@
     opacity: 1;
   }
 
+/*
   .sidebar ul li .tooltip {
     position: absolute;
     left: 125px;
@@ -164,7 +169,7 @@
     line-height: 1.8rem;
     z-index: 20;
     opacity: 0;
-}
+}*/
 
 .sidebar ul li:hover .tooltip {
     opacity: 1;

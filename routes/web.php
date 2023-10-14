@@ -1,9 +1,10 @@
-<<<<<<< HEAD
-=======
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\InicioController;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\EventoController;
+use App\Http\Controllers\Admin\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,11 +17,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.index');
 });
 
+/* Rodri este es el tuyo xd
 Route::get('/eventos', function () {
     return view('eventos-vista');
-});
+});*/
 
->>>>>>> 3d199e02e95f1413b8e0242c4a28931a3a6bc559
+Route::get('/admin',[Admin\AdminController::class, 'index']);
+
+// Rutas relacionadas a los Eventos
+Route::get('/eventos', [EventoController::class, 'index'])->name('eventos.index');
+
+Route::get('/crear-evento', [EventoController::class, 'crearEvento'])->name('eventos.crearEvento');
+
+Route::post('/guardar-evento', [EventoController::class, 'guardarEvento'])->name('eventos.guardarEvento');
