@@ -22,11 +22,12 @@ class EventoController extends Controller
         $evento->fecha_inicio = $request->input('fechaEventoInicio');
         $evento->fecha_fin = $request->input('fechaEventoFin');
         $evento->tipo = $request->input('tipoEvento');
-        $evento->estado = true;
+        $evento->editable = true;
+        $evento->correo_referencia = $request->input('email');
+        $evento->cel_referencia = $request->input('telefonoevento');
+        $evento->id_trabajo = 2;
         $evento->save();
 
-        return redirect('/')->with('success', 'Evento creado exitosamente');
-
-        return "Evento guardado en la base de datos.";
+        return redirect('/eventos')->with('success', 'Evento creado exitosamente');
     }
 }

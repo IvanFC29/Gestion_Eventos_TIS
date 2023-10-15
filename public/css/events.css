@@ -180,6 +180,7 @@
 }
 
 .main-content{
+    margin-left: 8%;
     position: relative;
     background-color: #eee;
     min-height: 100vh;

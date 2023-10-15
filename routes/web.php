@@ -33,3 +33,8 @@ Route::get('/eventos', [EventoController::class, 'index'])->name('eventos.index'
 Route::get('/crear-evento', [EventoController::class, 'crearEvento'])->name('eventos.crearEvento');
 
 Route::post('/guardar-evento', [EventoController::class, 'guardarEvento'])->name('eventos.guardarEvento');
+
+
+
+
+Route::get('/ver-eventos-editables', [EventoController::class, 'verEditables'])->name('eventos.verEditables');
