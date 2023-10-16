@@ -46,7 +46,7 @@
                 </a>
             </li>
             <li>
-                <a type="button" href="#">
+                <a type="button" href="{{ route('eventos.verEditables') }}">
                     <i class="bx bx-edit-alt"></i>
                     <span class="nav-item">Eventos Editables</span>
                 </a>

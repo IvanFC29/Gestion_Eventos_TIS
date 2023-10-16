@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class EventoController extends Controller
 {
     public function index(){
-        return view('layouts.eventos_admin'); 
+        $lista = Evento::all();
+        return view('layouts.eventos_admin', compact('lista')); 
     }
 
     public function crearEvento(){
@@ -29,5 +30,10 @@ class EventoController extends Controller
         $evento->save();
 
         return redirect('/eventos')->with('success', 'Evento creado exitosamente');
+    }
+
+    public function verEditables(){
+        $lista_editables = Evento::where('editable',1)->get();
+        return view('layouts.lista_editables', compact('lista_editables'));
     }
 }

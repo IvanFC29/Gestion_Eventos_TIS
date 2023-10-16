@@ -32,15 +32,20 @@
   </aside>
   <div class="container mt-4">
     <div class="row">
-      <div class="col-md-4">
-        <div class="card">
-          <img src="https://via.placeholder.com/150" alt="Card Image">
-          <div class="card-body">
-            <h5 class="card-title">Tarjeta 1</h5>
-            <p class="card-text">Descripción de la tarjeta 1.</p>
+      @foreach ($lista_editables as $i)
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://via.placeholder.com/150" alt="Card Image">
+            <div class="card-body">
+              <h5 class="card-title">{{ $i->nombre }}</h5>
+              <p class="card-text">{{ $i->descripcion }}</p>
+              <p class="card-text">{{ $i->fecha_inicio }}</p>
+              <p class="card-text">{{ $i->fecha_fin }}</p>
+            </div>
           </div>
         </div>
-      </div>
+      @endforeach
+      
       <div class="col-md-4">
         <div class="card">
           <img src="https://via.placeholder.com/150" alt="Card Image">

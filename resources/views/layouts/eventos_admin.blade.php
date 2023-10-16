@@ -43,7 +43,7 @@
                 </a>
             </li>
             <li>
-                <a type="button" href="#">
+                <a type="button" href="{{ route('eventos.verEditables') }}">
                     <i class="bx bx-edit-alt"></i>
                     <span class="nav-item">Eventos Editables</span>
                 </a>
@@ -51,6 +51,24 @@
         </ul>
     </div>
 </aside>
+
+<!-- Para rescatar los datos -->
+<div class="container mt-4">
+    <div class="row">
+      @foreach ($lista as $i)
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://via.placeholder.com/150" alt="Card Image">
+            <div class="card-body">
+              <h5 class="card-title">{{ $i->nombre }}</h5>
+              <p class="card-text">{{ $i->descripcion }}</p>
+              <p class="card-text">{{ $i->fecha_inicio }}</p>
+              <p class="card-text">{{ $i->fecha_fin }}</p>
+            </div>
+          </div>
+        </div>
+      @endforeach
+</div>
 
 </body>
 <script>
