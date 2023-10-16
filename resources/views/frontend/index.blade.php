@@ -20,13 +20,14 @@
                     <a class="nav-link" href="#">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Eventos</a>
+                    <a class="nav-link" href="/eventos">Eventos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Competencias</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Iniciar Sesion</a>
+                    <a class="nav-link" href="/login">Iniciar Sesion</a>
+                   
                 </li>
             </ul>
         </div>

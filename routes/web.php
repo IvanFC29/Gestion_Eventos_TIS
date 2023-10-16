@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Admin\AdminController;
-
+use App\Http\Controllers\EventoController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 /*
@@ -46,5 +46,14 @@ Route::get('/logout', [SessionsController::class, 'destroy'])
     ->name('login.destroy');
 
 
+Route::get('/admin',[Admin\AdminController::class, 'index']);
 
+// Rutas relacionadas a los Eventos
+Route::get('/eventos', [EventoController::class, 'index'])->name('eventos.index');
+
+Route::get('/crear-evento', [EventoController::class, 'crearEvento'])->name('eventos.crearEvento');
+
+Route::post('/guardar-evento', [EventoController::class, 'guardarEvento'])->name('eventos.guardarEvento');
+
+Route::get('/ver-eventos-editables', [EventoController::class, 'verEditables'])->name('eventos.verEditables');
 

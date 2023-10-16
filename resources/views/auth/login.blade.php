@@ -31,7 +31,7 @@
         </div>
         <div class="modal-footer">
           
-          <button type="button" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+          
           <p>¿Olvidó su nombre de usuario o contraseña? <a href="#">Recuperar</a></p>
         </div>
       </div>

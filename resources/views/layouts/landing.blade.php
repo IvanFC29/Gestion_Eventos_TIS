@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BCB</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>@yield('title')</title>
     
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" TYPE="text/css">  
@@ -15,57 +20,50 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
     </head>
 <body>
-    <nav class="navbar custom-navbar navbar-expand-lg " >
-      <div class="container-fluid ">
-        <i class="bi bi-braces"></i>
-        <a class="navbar-brand " href="#">BCBuilders</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+   <nav class="navbar navbar-expand-lg  custom-navbar">
+        <a class="navbar-brand" href="#">BCBuilders</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Eventos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Competencias</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Iniciar Sesión
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                    <a href="/login" class="dropdown-item">Personal</a>
-                </li> 
-                <li>
-                    <a href="/" class="dropdown-item">Participante</a>
-
-               </li>
-                
-              </ul>
-            </li>
-            <li></li>
-            
-          </ul>
-            
-            <form class="d-flex" role="search">
-            
-            </form>
+        <div class="collapse navbar-collapse color-letra" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/eventos">Eventos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Competencias</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Iniciar Sesion</a>
+                   
+                </li>
+            </ul>
         </div>
-      </div>
     </nav>
-    <div class="img">
-      @yield('content')
-    <img src="{{ asset('images/Min-fcyt.jpg') }}" alt="Mi Imagen" class="img-dimesiones">
-      
-    </div>
-    <div>
-        Acerca de.....
-    </div>
+        <!-- Encabezado -->
+    <header class="jumbotron text-center">
+        <h1>Bienvenido a ICPC</h1>
+        <p>Eventos de competencias de programacion.</p>
+        <a href="#" class="btn btn-color">Más información</a>
+    </header>
+
+
+   
+   <section class="container">
+         @yield('content')
+    </section>
+
+    <!-- Pie de página -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>Redes Sociales..</p>
+    </footer>
+
+    <!-- Scripts de Bootstrap y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     
   
 
