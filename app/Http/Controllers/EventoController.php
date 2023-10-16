@@ -23,7 +23,7 @@ class EventoController extends Controller
         $evento->fecha_inicio = $request->input('fechaEventoInicio');
         $evento->fecha_fin = $request->input('fechaEventoFin');
         $evento->tipo = $request->input('tipoEvento');
-        $evento->editable = true;
+        $evento->editable = $request->input('editable');
         $evento->correo_referencia = $request->input('email');
         $evento->cel_referencia = $request->input('telefonoevento');
         $evento->id_trabajo = 2;

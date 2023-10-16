@@ -119,8 +119,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Guardar</button>
-                <button type="submit" class="btn btn-secondary">Editar mas tarde</button>
+                <button type="submit" class="btn btn-primary" name="editable" value="0">Guardar</button>
+                <button type="submit" class="btn btn-secondary" name="editable" value="1">Editar mas tarde</button>
                 <button type="button" class="btn btn-primary">Cancelar</button>
             </div>
         </form>
