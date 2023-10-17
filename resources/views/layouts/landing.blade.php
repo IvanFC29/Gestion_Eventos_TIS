@@ -43,12 +43,7 @@
             </ul>
         </div>
     </nav>
-        <!-- Encabezado -->
-    <header class="jumbotron text-center">
-        <h1>Bienvenido a ICPC</h1>
-        <p>Eventos de competencias de programacion.</p>
-        <a href="#" class="btn btn-color">Más información</a>
-    </header>
+     
 
 
    
@@ -57,9 +52,16 @@
     </section>
 
     <!-- Pie de página -->
-    <footer class="bg-dark text-white text-center py-3">
-        <p>Redes Sociales..</p>
+    <footer>
+        <p>Contáctanos:</p>
+        <div class="contact-icons">
+            <a href="#"><i class="fa fa-envelope"></i>Correo</a>
+            <a href="#"><i class="fa fa-phone"></i>Telefono</a>
+            <a href="#"><i class="fa fa-facebook"></i>Facebook</a>
+            <a href="#"><i class="fa fa-twitter"></i>Twitter</a>
+        </div>
     </footer>
+      
 
     <!-- Scripts de Bootstrap y jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -16,7 +16,7 @@ class SessionsController extends Controller {
         
         if(auth()->attempt(request(['email', 'password'])) == false) {
             return back()->withErrors([
-                'message' => 'The email or password is incorrect, please try again',
+                'message' => 'El email o la contraseña son incorrectas, por favor intente de nuevo',
             ]);
 
         } else {
