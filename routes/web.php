@@ -21,9 +21,9 @@ Route::get('/'', [App\Http\Controllers\Frontend\FrontendController::class,'index
 Route::view('/','frontend.index');
 
 
-Route::get('/home', function () {
+/*Route::get('/home', function () {
     return view('home');
-})->middleware('auth');
+})->middleware('auth');*/
 
 Route::get('/register', [RegisterController::class, 'create'])
     ->middleware('guest')
@@ -49,7 +49,13 @@ Route::get('/logout', [SessionsController::class, 'destroy'])
 Route::get('/admin',[Admin\AdminController::class, 'index']);
 
 // Rutas relacionadas a los Eventos
-Route::get('/eventos', [EventoController::class, 'index'])->name('eventos.index');
+Route::get('/home', [EventoController::class, 'index'])
+->name('eventos.index')
+->middleware('auth');;
+
+Route::get('/eventos', [EventoController::class, 'index'])
+->name('eventos.index')
+->middleware('auth');;
 
 Route::get('/crear-evento', [EventoController::class, 'crearEvento'])->name('eventos.crearEvento');
 
