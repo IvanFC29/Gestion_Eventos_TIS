@@ -36,8 +36,8 @@
                 <li class="dropdown">
                     <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Eventos <span class="caret"></span></a>
                     <ul class="dropdown-menu animated fadeInLeft" role="menu">
-                    <li><a href="#pictures" class="dropdown-item " data-toggle="modal" data-target="#eventoModal" data-whatever="@getbootstrap">Crear Evento</a></li>
-                    <li><a href="#videos">Editar Evento</a></li>
+                    <li><a href="/crear-evento" class="dropdown-item ">Crear Evento</a></li>
+                    <li><a href="/ver-eventos-editables">Eventos Editables</a></li>
                     </ul>
                 </li>
                 <li><a href="#about">Reportes</a></li>
