@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Home</title>
   <link rel="stylesheet" href="{{ asset('css/style.css') }}" TYPE="text/css">  
+  <link rel="stylesheet" href="{{ asset('css/eventos_admin.css') }}" TYPE="text/css">  
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -58,7 +59,9 @@
                 <!-- Page Content -->
                 <nav class="navbar custom-navbar navbar-expand-lg">
                   <div class="container-fluid">
-                   
+                    <div class="divtitulom">
+                      <h1 class="titulomalo">CP-Bol</h1>
+                    </div>
                   </div>
                 </nav>
                 
@@ -71,13 +74,13 @@
                   <div class="container">
                       <div class="row">
                           <div class="col-lg-8 col-lg-offset-2">
-                              <h1>Admin Page</h1>
+                              <h1></h1>
                           </div>
                       </div>
                   </div>
               </div>
               <!-- /#page-content-wrapper -->
-
+        </div>
     </div>
 
       <!--modal crear evento
@@ -86,9 +89,9 @@
           <div class="row">
             @foreach ($lista as $i)
               <div class="col-md-4">
-                <div class="card">
-                  <img src="https://via.placeholder.com/150" alt="Card Image">
-                  <div class="card-body">
+                <div class="card eventocard">
+                  <img src="{{ asset('images/eventos.jpg') }}" alt="Card Image" class="imgevento">
+                  <div class="card-body eventobodycard">
                     <h5 class="card-title">{{ $i->nombre }}</h5>
                     <p class="card-text">{{ $i->descripcion }}</p>
                     <p class="card-text">{{ $i->fecha_inicio }}</p>
