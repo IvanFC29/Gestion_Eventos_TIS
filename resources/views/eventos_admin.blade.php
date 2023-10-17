@@ -11,6 +11,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
     </head>
     
+    <!-- Tailwind CSS Link -->
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css">
 <body>
       
       <!--MENU SIDEBAR-->  
@@ -38,20 +41,27 @@
                 </li>
                 <li><a href="#about">Reportes</a></li>
                 <li><a href="#events">Calendario</a></li>
-                <li><a href="#team">Cerrar Sesión</a></li>
+                @if(auth()->check())
+                    <li>
+                      <a href="{{ route('login.destroy') }}" >Cerrar Sesion</a>
+                    </li>
+                    @else
+                    <li class="mx-6">
+                      <a href="{{ route('login.index') }}" class="font-semibold hover-bg-indigo-700 py-3 px-4 rounded-md">Log In</a>
+                    </li>
+                    @endif
                 
                 </ul>
             </nav>
                 <!-- /#sidebar-wrapper -->
 
                 <!-- Page Content -->
-                <nav class="navbar custom-navbar navbar-expand-lg " >
-            <div class="container-fluid ">
-
-            
-
-            </div>
-        </nav>
+                <nav class="navbar custom-navbar navbar-expand-lg">
+                  <div class="container-fluid">
+                   
+                  </div>
+                </nav>
+                
               <div id="page-content-wrapper">
                   <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
                       <span class="hamb-top"></span>
