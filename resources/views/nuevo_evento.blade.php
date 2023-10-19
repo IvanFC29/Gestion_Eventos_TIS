@@ -127,12 +127,12 @@
                         </select>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <!--<div class="col-md-6">
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Afiche del evento:</label>
                         <input type="file" name="aficheEvento" class="form-control-file">
                     </div>
-                </div>
+                </div>-->
             </div>
             <div class="row">
                 <div class="col-md-6">

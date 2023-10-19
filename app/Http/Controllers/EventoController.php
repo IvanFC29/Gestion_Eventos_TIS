@@ -26,7 +26,7 @@ class EventoController extends Controller
         $evento->editable = $request->input('editable');
         $evento->correo_referencia = $request->input('email');
         $evento->cel_referencia = $request->input('telefonoevento');
-        $evento->id_trabajo = 2;
+        
         $evento->save();
 
         return redirect('/eventos')->with('success', 'Evento creado exitosamente');

@@ -1,15 +1,16 @@
 .section{
     padding: 5%;
     width: 70%;
-    background-color: rgb(247, 255, 137);
+    background-color: rgb(155, 218, 232);
     margin: auto;
     max-height: 75%;
     padding-top: 2% !important;
   }
 
-  body {
-    background: linear-gradient(to bottom, #ffffff, #ed0000);
-  }
+body {
+  background: linear-gradient(to bottom, #ffffff, #ed0000);
+  background-color: aquamarine;
+}
   
   .titulomalo {
     font-size: 150%;
