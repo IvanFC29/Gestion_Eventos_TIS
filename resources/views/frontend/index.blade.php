@@ -59,7 +59,7 @@
     </section>
 
     <!-- Pie de página -->
-    <footer class="bg-dark text-white text-center py-3">
+    <footer class="bg-dark text-white text-center py-3 footer">
         <p>Redes Sociales..</p>
     </footer>
 
