@@ -151,7 +151,7 @@
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary guardar" name="editable" value="0">Guardar</button>
                 <button type="submit" class="btn btn-secondary editar" name="editable" value="1">Editar más tarde</button>
-                <button type="button" class="btn btn-primary cancelar">Cancelar</button>
+                <a type="button" href="/eventos" class="btn btn-primary cancelar">Cancelar</a>
             </div>
         </form>
 	</div>
