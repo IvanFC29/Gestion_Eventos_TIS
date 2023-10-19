@@ -6,11 +6,13 @@
     <title>BCB</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" TYPE="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
-<body>
+<body >
+    <div class="content">
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg  custom-navbar">
-        <a class="navbar-brand" href="#">BCBuilders</a>
+        <a class="navbar-brand" href="/index">BCBuilders</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -27,7 +29,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/login">Iniciar Sesion</a>
-                   
                 </li>
             </ul>
         </div>
@@ -48,7 +49,7 @@
                 <p>Descripción ....</p>
             </div>
             <div class="col-md-4">
-                <h3>ICPC-BOlIVIA</h3>
+                <h3>ICPC-BOLIVIA</h3>
                 <p>Descripción ....</p>
             </div>
             <div class="col-md-4">
@@ -57,14 +58,39 @@
             </div>
         </div>
     </section>
+    
+    </div>
+    
+        <!-- Pie de página -->
+<footer class="bg-dark text-white text-center py-0 footer">
+        <div>
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="text-left">
+        <p >
+            &copy; 2023 BCBuilders. Todos los derechos reservados.
 
-    <!-- Pie de página -->
-    <footer class="bg-dark text-white text-center py-3 footer">
-        <p>Redes Sociales..</p>
+        </p>
+        <p >
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            bc.builders.100@gmail.com
+            
+        </p>
+        <p>
+        <i class="fa fa-phone" aria-hidden="true"></i>
+            +591 71761280, +591 76906952, +591 77933620
+        </p>
+        </div>
+        
     </footer>
+    
+    
 
     <!-- Scripts de Bootstrap y jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
