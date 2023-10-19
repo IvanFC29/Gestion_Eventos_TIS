@@ -50,14 +50,17 @@
             <div class="col-md-4">
                 <h3>ICPC-FCYT</h3>
                 <p>Descripción ....</p>
+                <a href="https://www.umss.edu.bo/competencia-latinoamericana-de-programacion-icpc-2022/" class="btn btn-primary">Ir</a>
             </div>
             <div class="col-md-4">
                 <h3>ICPC-BOLIVIA</h3>
                 <p>Descripción ....</p>
+                <a href="https://umsa-2023.clei.org/inicio/eventos-asociados/clp/" class="btn btn-primary">Ir</a>
             </div>
-            <div class="col-md-4">
-                <h3>ICPC-Mundial</h3>
+            <div class="col-md-4" >
+                <h3 >ICPC-Mundial </h3>
                 <p>Descripción ....</p>
+                <a href="https://icpc.global/" class="btn btn-primary">Ir</a>
             </div>
         </div>
     </section>
