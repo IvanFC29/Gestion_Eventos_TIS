@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
 <body >
-    <div class="content">
+    <div class="d-flex flex-column">
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg  custom-navbar">
         <a class="navbar-brand" href="/index">BCBuilders</a>
@@ -35,14 +35,17 @@
     </nav>
 
     <!-- Encabezado -->
-    <header class="jumbotron text-center">
-        <h1>Bienvenido a ICPC</h1>
-        <p>Eventos de competencias de programacion.</p>
-        <a href="#" class="btn btn-color">Más información</a>
-    </header>
+    <header class="jumbotron text-center header-bg " style="z-index: 1; position: relative;">
+    
 
+    <h1>Bienvenido a ICPC</h1>
+    <p>Eventos de competencias de programación.</p>
+    <a href="/register" class="btn btn-color">Regístrate</a>
+    
+    </header>
+    
     <!-- Sección de características -->
-    <section class="container">
+    <section class="container dimensiones">
         <div class="row">
             <div class="col-md-4">
                 <h3>ICPC-FCYT</h3>
@@ -62,28 +65,17 @@
     </div>
     
         <!-- Pie de página -->
-<footer class="bg-dark text-white text-center py-0 footer">
+        <footer class="bg-dark text-white text-center py-4">
         <div>
             <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
             <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
             <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
         </div>
         <div class="text-left">
-        <p >
-            &copy; 2023 BCBuilders. Todos los derechos reservados.
-
-        </p>
-        <p >
-            <i class="fa fa-envelope" aria-hidden="true"></i>
-            bc.builders.100@gmail.com
-            
-        </p>
-        <p>
-        <i class="fa fa-phone" aria-hidden="true"></i>
-            +591 71761280, +591 76906952, +591 77933620
-        </p>
+            <p>&copy; 2023 BCBuilders. Todos los derechos reservados.</p>
+            <p><i class="fa fa-envelope" aria-hidden="true"></i> bc.builders.100@gmail.com</p>
+            <p><i class="fa fa-phone" aria-hidden="true"></i> +591 71761280, +591 76906952, +591 77933620</p>
         </div>
-        
     </footer>
     
     

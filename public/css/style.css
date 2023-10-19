@@ -491,3 +491,46 @@ footer {
   color: #fff; /* Color de los iconos */
   font-size: 24px; /* Tamaño de fuente de los iconos */
 }
+.header1-bg {
+  background-image: url('/images/Min-fcyt.jpg'); /* Ruta a tu imagen de fondo */
+  background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el encabezado */
+  background-position: center; /* Centra la imagen en el encabezado */
+  color: #fff; /* Color del texto */
+  height: 50px;
+}
+/* Estilo para las diapositivas del carrusel */
+#slide1 .carousel-background {
+  background-image: url('/images/Min-fcyt.jpg');
+}
+
+#slide2 .carousel-background {
+  background-image: url('/images/eventos.jpg');
+}
+
+#slide3 .carousel-background {
+  background-image: url('/images/imagen3.jpg');
+}
+
+.carousel-background {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 500px;
+}
+/* Estilo para el contenedor principal */
+.container-flex {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Estilo para el contenido principal (flex-grow) */
+.container-flex > * {
+  flex: 1;
+}
+
+.dimensiones{
+  height: 245px;
+}
+
