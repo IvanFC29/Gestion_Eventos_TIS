@@ -98,6 +98,7 @@
                     <p class="card-text">{{ $i->fecha_fin }}</p>
                   </div>
                 </div>
+                <br>
               </div>
             @endforeach
       </div>

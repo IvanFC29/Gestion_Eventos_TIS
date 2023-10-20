@@ -94,6 +94,11 @@
 
 <div class="bg-sky-500">
   	<div class="section">
+         @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
   		<form method="post" action="{{ route('eventos.guardarEvento') }}" enctype="multipart/form-data">
             @csrf
             <div class="containerTitulo">      

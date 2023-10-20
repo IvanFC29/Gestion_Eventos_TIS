@@ -9,7 +9,7 @@ use Carbon\Carbon;
 class EventoController extends Controller
 {
     public function index(){
-        $lista = Evento::all();
+        $lista = Evento::where('editable',0)->get();
 
         foreach ($lista as $i) {
             $i->fecha_inicio = Carbon::parse($i->fecha_inicio);
@@ -33,9 +33,15 @@ class EventoController extends Controller
         $evento->correo_referencia = $request->input('email');
         $evento->cel_referencia = $request->input('telefonoevento');
         
-        $evento->save();
-
-        return redirect('/eventos')->with('success', 'Evento creado exitosamente');
+        // Buscar eventos repetidos
+        $evento_existente = Evento::where('nombre', $evento->nombre)->count();
+        if ($evento_existente > 0) {
+            return view('nuevo_evento')->with('error', 'El nombre del evento ya existe en la base de datos');        
+        }else{
+             $evento->save();
+            return redirect('/eventos')->with('success', 'Evento creado exitosamente');
+        }
+         
     }
 
     public function verEditables(){
