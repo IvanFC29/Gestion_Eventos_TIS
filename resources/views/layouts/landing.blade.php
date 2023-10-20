@@ -38,7 +38,7 @@
                     <a class="nav-link" href="#">Competencias</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">Iniciar Sesion</a>
+                    <a class="nav-link" href="/login">Iniciar Sesión</a>
                    
                 </li>
             </ul>
