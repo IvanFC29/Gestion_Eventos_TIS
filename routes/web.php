@@ -63,3 +63,67 @@ Route::post('/guardar-evento', [EventoController::class, 'guardarEvento'])->name
 
 Route::get('/ver-eventos-editables', [EventoController::class, 'verEditables'])->name('eventos.verEditables');
 
+
+// Rutas Kevin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Rutas Rodri
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Rutas Fab
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Rutas Ivan
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Fin rutas
