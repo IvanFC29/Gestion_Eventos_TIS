@@ -6,7 +6,8 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="{{ asset('css/eventos_admin.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('css/eventos-lista.css') }}" type="text/css">
+    
+    <link rel="stylesheet" href="{{ asset('css/nuevo_evento.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">  
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
     <script src="{{ asset('js/nuevo_evento.js') }}"></script>
@@ -15,7 +16,8 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
-    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <!-- Tailwind CSS Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css">
   <title>Eventos</title> 
@@ -89,20 +91,31 @@
               </div>
           </div>
           <!-- /#page-content-wrapper -->
-
 </div>
 
 <div class="bg-sky-500">
-  	<div class="section">
-         @if (session('error'))
-            <div class="alert alert-danger">
-                {{ session('error') }}
+    @if (session('error'))
+        <div id='mensaje'>
+            <div class='alert alert-success alert-dismissible fade show' role='alert'>
+                <strong> {{ session('error') }}</strong>
+                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'> </button>
             </div>
-        @endif
-  		<form method="post" action="{{ route('eventos.guardarEvento') }}" enctype="multipart/form-data">
+        </div>
+    @endif
+    @if (session('success'))
+        <div id='mensaje'>
+            <div class='alert alert-success alert-dismissible fade show' role='alert'>
+                <strong> {{ session('success') }}</strong>
+                <a href="/eventos" type="button"> Ver Eventos</a>
+                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'> </button>
+            </div>
+        </div>
+    @endif
+  	<div class="section">
+       	<form method="post" action="{{ route('eventos.guardarEvento') }}" enctype="multipart/form-data">
             @csrf
             <div class="containerTitulo">      
-                <h1> <b> Crear Evento </b></h1>  
+                <h1> <b>CREAR EVENTO</b> </h1>
             </div>
             <div class="row">
                 <div class="col-md-6">
@@ -117,12 +130,12 @@
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <label>Fecha a realizarse:<span class="date-danger">*</span></label>
-                        <input type="date" name="fechaEventoInicio" class="form-control" id="fechaInicio" min="<?php echo date('Y-m-d'); ?>">
+                        <label>Fecha a realizarse:<span class="text-danger">*</span></label>
+                        <input type="date" name="fechaEventoInicio" class="form-control" id="fechaInicio" min="<?php echo date('Y-m-d'); ?>" required>
                     </div>
                     <div class="mb-3">
-                        <label>Fecha de culminación:<span class="date-danger">*</span></label>
-                        <input type="date" name="fechaEventoFin" class="form-control" id="fechaFin" min="<?php echo date('Y-m-d'); ?>">
+                        <label>Fecha de culminación:<span class="text-danger">*</span></label>
+                        <input type="date" name="fechaEventoFin" class="form-control" id="fechaFin" min="<?php echo date('Y-m-d'); ?>" required>
                     </div>
                 </div>
             </div>
@@ -134,8 +147,8 @@
                             <option></option>
                             <option>Convocatoria</option>
                             <option>Capacitación</option>
-                            <option>Entrenamiento</option>
                             <option>Clasificación</option>
+                            <option>Competencia</option>
                         </select>
                     </div>
                 </div>
@@ -162,13 +175,13 @@
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary guardar" name="editable" value="0">Guardar</button>
-                <button type="submit" class="btn btn-secondary editar" name="editable" value="1">Editar luego</button>
-                <a type="button" href="/eventos" class="btn btn-primary cancelar">Cancelar</a>
+                <button type="submit" class="btn btn-primary editar" name="editable" value="1">Editar luego</button>
+                <a type="button" href="/eventos" class="btn btn-secondary cancelar">Cancelar</a>
             </div>
-        </form>
+        </form>   
 	</div>
-<!-- /#wrapper -->
 </div>
+
 <script>
     $(document).ready(function () {
       var trigger = $('.hamburger'),

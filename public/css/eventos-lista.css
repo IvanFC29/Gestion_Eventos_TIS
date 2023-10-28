@@ -1,48 +1,23 @@
-.section{
-    padding: 5%;
-    width: 70%;
-    background-color: rgb(155, 218, 232);
-    margin: auto;
-    max-height: 75%;
-    padding-top: 2% !important;
-  }
-
 body {
   background: linear-gradient(to bottom, #ffffff, #ed0000);
   background-color: aquamarine;
 }
   
-  .titulomalo {
-    font-size: 150%;
-    margin-left: 5%;
-    width: 100%;
-  }
-  .divtitulom {
-    width: 100%;
-  }
+.titulomalo {
+  font-size: 150%;
+  margin-left: 5%;
+  width: 100%;
+}
 
-  .btn {
-    min-width: 16%;
-    min-height: 10%;
-    height: auto;
-  }
+.divtitulom {
+  width: 100%;
+}
 
-  .containerTitulo {
-    display: flex; /* Activa el modelo de caja flexible */
-    justify-content: center; /* Centra elementos horizontalmente */
-    margin-bottom: 2%;
+.btn {
+  min-width: 16%;
+  min-height: 10%;
+  height: auto;
+}
 
-  }
 
-  .guardar{
-    background-color: rgb(45, 197, 45) !important;
-  }
-
-  .editar{
-    background-color: rgb(103, 39, 104) !important;
-  }
-
-  .cancelar{
-    background-color: rgb(219, 31, 31) !important;
-  }
 

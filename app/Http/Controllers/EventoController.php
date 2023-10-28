@@ -36,12 +36,12 @@ class EventoController extends Controller
         // Buscar eventos repetidos
         $evento_existente = Evento::where('nombre', $evento->nombre)->count();
         if ($evento_existente > 0) {
-            return view('nuevo_evento')->with('error', 'El nombre del evento ya existe en la base de datos');        
+            session()->flash('error', 'El nombre del evento ya existe en la base de datos');
         }else{
-             $evento->save();
-            return redirect('/eventos')->with('success', 'Evento creado exitosamente');
+            $evento->save();
+            session()->flash('success', '¡Evento guardado!');
         }
-         
+        return view('nuevo_evento');
     }
 
     public function verEditables(){
