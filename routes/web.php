@@ -82,6 +82,7 @@ Route::get('/ver-eventos-editables', [EventoController::class, 'verEditables'])-
 
 // Rutas Rodri
 
+Route::get('/usuario-eventos', [EventoController::class, 'uEventos'])->name('eventos.uEventos');
 
 
 

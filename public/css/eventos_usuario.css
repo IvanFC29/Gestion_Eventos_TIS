@@ -1,0 +1,15 @@
+
+.cerrareu {
+    width: 80px !important;
+    text-align: center; /* Centra el texto horizontalmente dentro del botón */
+    line-height: 40px;
+    padding-bottom: 8% !important;
+}
+
+.modal-footer {
+    margin-right: 10px;
+}
+
+.modal-header {
+    margin-right: 10px;
+}
