@@ -27,9 +27,16 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Competencias</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">Iniciar Sesion</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Iniciar Sesion
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/login">Administrador</a>
+                    <a class="dropdown-item" href="#">Participante</a>
+                    
                 </li>
+                
             </ul>
         </div>
     </nav>
