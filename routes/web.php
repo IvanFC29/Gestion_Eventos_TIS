@@ -130,4 +130,11 @@ Route::get('/nuevoUsuario',[UserController::class, 'nuevoU']);
 
 
 
-// Fin rutas
+  // Fin rutas
+  Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/eventos', function () {
+    return view('eventos-vista');
+});
