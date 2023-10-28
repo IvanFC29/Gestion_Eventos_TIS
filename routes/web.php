@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\EventoController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\UserController;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -67,8 +69,10 @@ Route::get('/ver-eventos-editables', [EventoController::class, 'verEditables'])-
 // Rutas Kevin
 
 
-
-
+Route::get('/nuevoUsuario',[UserController::class, 'nuevoU']);
+//Route::get('/login', [SessionsController::class, 'create'])
+    //->middleware('guest')
+    //->name('nuevoUsuario.index');
 
 
 
