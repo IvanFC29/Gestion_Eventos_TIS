@@ -8,6 +8,7 @@ use App\Http\Controllers\EventoController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CoachController;
 use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
@@ -70,9 +71,8 @@ Route::get('/ver-eventos-editables', [EventoController::class, 'verEditables'])-
 
 
 Route::get('/nuevoUsuario',[UserController::class, 'nuevoU']);
-//Route::get('/login', [SessionsController::class, 'create'])
-    //->middleware('guest')
-    //->name('nuevoUsuario.index');
+Route::get('/nuevoCoach',[CoachController::class, 'nuevoC']);
+
 
 
 

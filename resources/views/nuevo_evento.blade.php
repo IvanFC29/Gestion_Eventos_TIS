@@ -82,11 +82,8 @@
                             
                 </button>
             </div>
-          <!-- /#page-content-wrapper -->
 
-</div>
-   	
-  	<div class="section">
+            <div class="section">
   		<form method="post" action="{{ route('eventos.guardarEvento') }}" enctype="multipart/form-data">
             @csrf
             <div class="containerTitulo">      
@@ -155,6 +152,11 @@
             </div>
         </form>
 	</div>
+          <!-- /#page-content-wrapper -->
+
+</div>
+   	
+  	
 <!-- /#wrapper -->
 <script>
     $(document).ready(function () {

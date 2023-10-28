@@ -82,7 +82,6 @@
                             
                 </button>
             </div>
-
             <div class="section">
   		<form method="post" action="{{ route('eventos.guardarEvento') }}" enctype="multipart/form-data">
             @csrf
