@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
     </head>
-	<title>Crear Evento</title>
+	<title>Crear Usuario</title>
 </head>
 <body>
 
@@ -90,65 +90,47 @@
   		<form method="post" action="{{ route('eventos.guardarEvento') }}" enctype="multipart/form-data">
             @csrf
             <div class="containerTitulo">      
-                <h1> Crear Evento</h1>  
+                <h1> Nueva Cuenta</h1>  
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <label>Nombre del Evento:<span class="text-danger">*</span></label>
+                        <label>Nombre:<span class="text-danger">*</span></label>
                         <input type="text" name="nombre" class="form-control" value="" placeholder="Ingrese nombre" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="30" required>
                     </div>
                     <div class="mb-3">
-                        <label for="message-text" class="col-form-label">Descripción del evento:</label>
-                        <textarea class="form-control" id="message-text" name="descripcionevento"></textarea>
+                        <label>Apellido Paterno:<span class="text-danger">*</span></label>
+                        <input type="text" name="apellidoP" class="form-control" value="" placeholder="Ingrese apellido paterno" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="30" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Apellido Paterno:<span class="text-danger">*</span></label>
+                        <input type="text" name="apellidoM" class="form-control" value="" placeholder="Ingrese apellido materno" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="30" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Fecha de nacimiento:<span class="date-danger">*</span></label>
+                        <input type="date" name="fechaEventoInicio" class="form-control" id="fechaInicio" max="<?php echo date('Y-m-d'); ?>">
                     </div>
                 </div>
+                
                 <div class="col-md-6">
+                    
                     <div class="mb-3">
-                        <label>Fecha a realizarse:<span class="date-danger">*</span></label>
-                        <input type="date" name="fechaEventoInicio" class="form-control" id="fechaInicio" min="<?php echo date('Y-m-d'); ?>" >
-                    </div>
-                    <div class="mb-3">
-                        <label>Fecha de culminación:<span class="date-danger">*</span></label>
-                        <input type="date" name="fechaEventoFin" class="form-control" id="fechaFin" min="<?php echo date('Y-m-d'); ?>">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label>Tipo de evento:<span class="text-danger col-form-label">*</span></label>
-                        <select name="tipoEvento" class="form-control form-control-lg">
-                            <option></option>
-                            <option>Convocatoria</option>
-                            <option>Capacitación</option>
-                            <option>Entrenamiento</option>
-                            <option>Clasificación</option>
-                        </select>
-                    </div>
-                </div>
-                <!--<div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Afiche del evento:</label>
-                        <input type="file" name="aficheEvento" class="form-control-file">
-                    </div>
-                </div>-->
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label>E-mail de contacto:<span class="text-danger">*</span></label>
+                        <label>Correo Electronico:<span class="text-danger">*</span></label>
                         <input type="text" name="email" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
                     </div>
-                </div>
-                <div class="col-md-6">
                     <div class="mb-3">
-                        <label>Telefono/Celular de contacto:<span class="text-danger">*</span></label>
+                        <label>Telefono/Celular:<span class="text-danger">*</span></label>
                         <input type="text" name="telefonoevento" class="form-control input_user" value="" placeholder="Ingrese numero telef/cel" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); this.value = this.value.replace(/[^0-9]/,'')" minlength="7" maxlength="8" min="40000000" max="79999999" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Universidad:<span class="text-danger">*</span></label>
+                        <input type="text" name="nombre" class="form-control" value="" placeholder="Ingrese su universidad" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="30" required>
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
+            
+            
+            <div class="modal-footer mb-3">
                 <button type="submit" class="btn btn-primary guardar" name="editable" value="0">Guardar</button>
                 <button type="submit" class="btn btn-secondary editar" name="editable" value="1">Editar más tarde</button>
                 <a type="button" href="/eventos" class="btn btn-primary cancelar">Cancelar</a>
