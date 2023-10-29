@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use App\Models\User;
+use App\Mail\testMail;
 
 class SessionsController extends Controller {
     
@@ -11,23 +14,42 @@ class SessionsController extends Controller {
         
         return view('auth.login');
     }
-
-    public function store() {
+     public function recuperarC() {
         
-        if(auth()->attempt(request(['email', 'password'])) == false) {
-            return back()->withErrors([
-                'message' => 'El email o la contraseña son incorrectas, por favor intente de nuevo',
-            ]);
-
-        } else {
-
-            if(auth()->user()->role == 'admin') {
-                return redirect()->route('admin.index');
-            } else {
-                return redirect()->to('/home');
-            }
-        }
+        return view('auth.RecuperarContra');
     }
+    public function sendmail(){
+        $details="Hola este es una correo";
+        $mailR= request('email');
+        Mail::to($mailR)->send(new testMail($details));
+        return "Correo electronico enviado";
+    }
+    public function store() {
+        $email = request('email');
+        $password = request('password');
+    
+        // Buscar el usuario por correo electrónico
+        $user = User::where('email', $email)->first();
+        
+        if (!$user) {
+            return back()->withErrors([
+                'message' => 'El correo electrónico no existe en nuestra base de datos. Por favor, verifique su correo.',
+            ]);
+        }
+    
+        // Verificar la contraseña
+        if (!Hash::check($password, $user->password)) {
+            return back()->withErrors([
+                'message' => 'La contraseña es incorrecta. Por favor, intente de nuevo.',
+            ]);
+        }
+    
+        // Si llegas a este punto, el correo y la contraseña son correctos
+        auth()->login($user);
+    
+        return redirect('/home');
+    }
+    
 
     public function destroy() {
 
