@@ -130,4 +130,11 @@ Route::post('enviar-correo',  [SessionsController::class, 'sendmail'])->name('en
 
 
 
-// Fin rutas
+  // Fin rutas
+  Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/eventos', function () {
+    return view('eventos-vista');
+});

@@ -14,17 +14,8 @@ function validarFechaFin() {
     });
 }
 
-function sidebar_despliegue(){
-    let btn = document.querySelector('#btn');
-    let sidebar = document.querySelector('.sidebar');
-
-    btn.onclick = function (){
-        sidebar.classList.toggle('active');
-    };
-}
 
 // Llamar a las funciónes
 document.addEventListener('DOMContentLoaded', function() {
     validarFechaFin();
-    sidebar_despliegue();
 });
