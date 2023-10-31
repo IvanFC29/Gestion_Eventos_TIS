@@ -23,9 +23,9 @@ Route::get('/'', [App\Http\Controllers\Frontend\FrontendController::class,'index
 Route::view('/','frontend.index');
 
 
-/*Route::get('/home', function () {
+Route::get('/home', function () {
     return view('home');
-})->middleware('auth');*/
+})->middleware('auth');
 
 Route::get('/register', [RegisterController::class, 'create'])
     ->middleware('guest')
@@ -116,7 +116,7 @@ Route::get('/nuevoUsuario',[UserController::class, 'nuevoU']);
 
 
 // Rutas Ivan
-
+Route::post('/guardar-usuario', [UserController::class, 'guardarUsuario'])->name('user.guardarUsuario');
 
 
 
@@ -131,10 +131,4 @@ Route::get('/nuevoUsuario',[UserController::class, 'nuevoU']);
 
 
   // Fin rutas
-  Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/eventos', function () {
-    return view('eventos-vista');
-});
+  

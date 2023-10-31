@@ -47,7 +47,7 @@
 
     <h1>Bienvenido a ICPC</h1>
     <p>Eventos de competencias de programación.</p>
-    <a href="/register" class="btn btn-color">Regístrate</a>
+    <a href="/nuevoUsuario" class="btn btn-color">Regístrate</a>
     
     </header>
     
