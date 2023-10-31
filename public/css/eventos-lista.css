@@ -1,0 +1,23 @@
+body {
+  background: linear-gradient(to bottom, #ffffff, #ed0000);
+  background-color: aquamarine;
+}
+  
+.titulomalo {
+  font-size: 150%;
+  margin-left: 5%;
+  width: 100%;
+}
+
+.divtitulom {
+  width: 100%;
+}
+
+.btn {
+  min-width: 16%;
+  min-height: 10%;
+  height: auto;
+}
+
+
+
