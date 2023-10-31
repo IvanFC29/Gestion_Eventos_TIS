@@ -25,8 +25,7 @@ class UserController extends Controller
         
         // Guardar usuario
         $participante->save();
-        return $request;
-        /*
-        */
+        session()->flash('success', '¡Cuenta creada!');
+        return view('user.nuevoUsuario');
     }
 }
