@@ -19,7 +19,7 @@ class testMail extends Mailable
     
      public function __construct($details)
     {
-        $this->$details=$details;
+        $this->details=$details;
     }
 
     /**
@@ -29,6 +29,6 @@ class testMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Prueba de correo')->view('auth.testEmail');
+        return $this->subject('Recuperacion de Contraseña')->view('auth.testEmail');
     }
 }

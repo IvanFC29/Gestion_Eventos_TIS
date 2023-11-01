@@ -5,9 +5,12 @@
     <title>correo Electronico</title>
 </head>
 <body>
-    <h1>{{$details}}</h1>
+    <h1>Estimado Usuario ha solicitado recuperar su contraseña</h1>
+    <p>Su contraseña es la siguiente :  {{$details}} </p>
   
     <br>
-    <p>Gracias por su atentcion</p>
+    <p>Gracias por su atencion, que tenga un buen dia!!
+
+    </p>
 </body>
 </html>

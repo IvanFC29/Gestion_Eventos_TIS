@@ -6,7 +6,7 @@
 
 <div class="login-container">
   <img src="admin-image.jpg" >
-  <h2>Admin</h2>
+  <h2>Coach</h2>
   <form action="" method="post">
     @csrf
       <input type="email" name="email" placeholder="Correo Electrónico" required>

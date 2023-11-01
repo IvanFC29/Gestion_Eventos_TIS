@@ -105,8 +105,10 @@ Route::get('/RecuperarContraseña', [SessionsController::class, 'recuperarC']);
 //Route::get('/send', [SessionsController::class, 'sendmail']);    
 Route::post('enviar-correo',  [SessionsController::class, 'sendmail'])->name('enviar-correo');  
 
-
-
+Route::get('/loginCoach', [SessionsController::class, 'loginC']);
+Route::get('/loginEstudiante', [SessionsController::class, 'loginE']);
+Route::post('/loginCoach', [SessionsController::class, 'store'])
+    ->name('login.store');
 
 
 

@@ -10,6 +10,14 @@ use App\Mail\testMail;
 
 class SessionsController extends Controller {
     
+    public function loginE() {
+        
+        return view('auth.loginParticipante');
+    }
+    public function loginC() {
+        
+        return view('auth.loginCoach');
+    }
     public function create() {
         
         return view('auth.login');
@@ -19,11 +27,23 @@ class SessionsController extends Controller {
         return view('auth.RecuperarContra');
     }
     public function sendmail(){
-        $details="Hola este es una correo";
+       
         $mailR= request('email');
-        Mail::to($mailR)->send(new testMail($details));
-        return "Correo electronico enviado";
-    }
+        $user = User::where('email', $mailR)->first();
+
+        if ($user) {
+            $details = $user->password;
+            Mail::to($mailR)->send(new testMail($details));
+            session()->flash('success', 'Su contraseña se  envio a su correo electrónico, verifique su correo.');
+            return redirect()->back();
+        }
+        
+        else{
+            return back()->withErrors([
+                  'message' => 'El correo electrónico no existe en nuestra base de datos. Por favor, verifique su correo.',
+            ]);
+        }
+}
     public function store() {
         $email = request('email');
         $password = request('password');
@@ -38,7 +58,7 @@ class SessionsController extends Controller {
         }
     
         // Verificar la contraseña
-        if (!Hash::check($password, $user->password)) {
+        if ($password != $user->password) {
             return back()->withErrors([
                 'message' => 'La contraseña es incorrecta. Por favor, intente de nuevo.',
             ]);
@@ -55,6 +75,6 @@ class SessionsController extends Controller {
 
         auth()->logout();
 
-        return redirect()->to('/');
+        return redirect()->to('/home');
     }
 }
