@@ -99,19 +99,19 @@
                         <input type="text" name="apellidoP" class="form-control" value="" placeholder="Ingrese apellido paterno" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="30" required>
                     </div>
                     <div class="mb-3">
-                        <label>Apellido Paterno:<span class="text-danger">*</span></label>
+                        <label>Apellido Materno:<span class="text-danger">*</span></label>
                         <input type="text" name="apellidoM" class="form-control" value="" placeholder="Ingrese apellido materno" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="30" required>
                     </div>
                     <div class="mb-3">
-                        <label>Fecha de nacimiento:<span class="date-danger">*</span></label>
-                        <input type="date" name="fechaEventoInicio" class="form-control" id="fechaInicio" max="<?php echo date('Y-m-d'); ?>">
+                        <label>Dirección:<span class="text-danger">*</span></label>
+                        <input type="text" name="apellidoM" class="form-control" value="" placeholder="Ingrese direccion" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="30" required>
                     </div>
                 </div>
                 
                 <div class="col-md-6">
                     
                     <div class="mb-3">
-                        <label>Correo Electronico:<span class="text-danger">*</span></label>
+                        <label>Correo Institucional:<span class="text-danger">*</span></label>
                         <input type="text" name="email" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
                     </div>
                     <div class="mb-3">
@@ -119,7 +119,7 @@
                         <input type="text" name="telefonoevento" class="form-control input_user" value="" placeholder="Ingrese numero telef/cel" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); this.value = this.value.replace(/[^0-9]/,'')" minlength="7" maxlength="8" min="40000000" max="79999999" required>
                     </div>
                     <div class="mb-3">
-                        <label>Universidad:<span class="text-danger">*</span></label>
+                        <label>Institución:<span class="text-danger">*</span></label>
                         <input type="text" name="nombre" class="form-control" value="" placeholder="Ingrese su universidad" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="30" required>
                     </div>
                 </div>
@@ -128,7 +128,7 @@
             
             <div class="modal-footer mb-3">
                 <button type="submit" class="btn btn-primary guardar" name="editable" value="0">Guardar</button>
-                <button type="submit" class="btn btn-secondary editar" name="editable" value="1">Editar más tarde</button>
+                
                 <a type="button" href="/eventos" class="btn btn-primary cancelar">Cancelar</a>
             </div>
         </form>

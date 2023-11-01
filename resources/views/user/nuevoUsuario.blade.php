@@ -100,7 +100,7 @@
                         <input type="text" name="apellidoP" class="form-control" value="" placeholder="Ingrese apellido paterno" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="30" required>
                     </div>
                     <div class="mb-3">
-                        <label>Apellido Paterno:<span class="text-danger">*</span></label>
+                        <label>Apellido Materno:<span class="text-danger">*</span></label>
                         <input type="text" name="apellidoM" class="form-control" value="" placeholder="Ingrese apellido materno" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="30" required>
                     </div>
                     <div class="mb-3">
@@ -129,7 +129,6 @@
             
             <div class="modal-footer mb-3">
                 <button type="submit" class="btn btn-primary guardar" name="editable" value="0">Guardar</button>
-                <button type="submit" class="btn btn-secondary editar" name="editable" value="1">Editar más tarde</button>
                 <a type="button" href="/eventos" class="btn btn-primary cancelar">Cancelar</a>
             </div>
         </form>
