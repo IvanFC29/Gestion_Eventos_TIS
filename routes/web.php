@@ -116,7 +116,7 @@ Route::get('/nuevoUsuario',[UserController::class, 'nuevoU']);
 
 
 // Rutas Ivan
-Route::post('/guardar-usuario', [UserController::class, 'guardarUsuario'])->name('user.guardarUsuario');
+Route::post('/guardar-participante', [UserController::class, 'guardarUsuario'])->name('user.guardarUsuario');
 
 
 
