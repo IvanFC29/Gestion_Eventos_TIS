@@ -1,7 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\InicioController;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\EventoController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\UserController;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,13 +18,119 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
+Route::get('/'', [App\Http\Controllers\Frontend\FrontendController::class,'index']);
 */
+Route::view('/','frontend.index');
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/eventos', function () {
-    return view('eventos-vista');
-});
+Route::get('/home', function () {
+    return view('home');
+})->middleware('auth');
 
+Route::get('/register', [RegisterController::class, 'create'])
+    ->middleware('guest')
+    ->name('register.index');
+
+Route::post('/register', [RegisterController::class, 'store'])
+    ->name('register.store');
+
+
+
+Route::get('/login', [SessionsController::class, 'create'])
+    ->middleware('guest')
+    ->name('login.index');
+
+Route::post('/login', [SessionsController::class, 'store'])
+    ->name('login.store');
+
+Route::get('/logout', [SessionsController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('login.destroy');
+
+
+Route::get('/admin',[Admin\AdminController::class, 'index']);
+
+// Rutas relacionadas a los Eventos
+Route::get('/home', [EventoController::class, 'index'])
+->name('eventos.index')
+->middleware('auth');;
+
+Route::get('/eventos', [EventoController::class, 'index'])
+->name('eventos.index')
+->middleware('auth');;
+
+Route::get('/crear-evento', [EventoController::class, 'crearEvento'])->name('eventos.crearEvento');
+
+Route::post('/guardar-evento', [EventoController::class, 'guardarEvento'])->name('eventos.guardarEvento');
+
+Route::get('/ver-eventos-editables', [EventoController::class, 'verEditables'])->name('eventos.verEditables');
+
+
+// Rutas Kevin
+
+
+Route::get('/nuevoUsuario',[UserController::class, 'nuevoU']);
+//Route::get('/login', [SessionsController::class, 'create'])
+    //->middleware('guest')
+    //->name('nuevoUsuario.index');
+
+
+
+
+
+
+
+
+
+
+
+// Rutas Rodri
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Rutas Fab
+Route::get('/RecuperarContraseña', [SessionsController::class, 'recuperarC']);
+//Route::get('/send', [SessionsController::class, 'sendmail']);    
+Route::post('enviar-correo',  [SessionsController::class, 'sendmail'])->name('enviar-correo');  
+
+Route::get('/loginCoach', [SessionsController::class, 'loginC']);
+Route::get('/loginEstudiante', [SessionsController::class, 'loginE']);
+Route::post('/loginCoach', [SessionsController::class, 'store'])
+    ->name('login.store');
+
+
+
+
+
+
+
+
+// Rutas Ivan
+Route::post('/guardar-participante', [UserController::class, 'guardarUsuario'])->name('user.guardarUsuario');
+Route::post('/initSesion-participante', [UserController::class, 'store']);
+
+
+
+
+
+
+
+
+
+
+
+
+  // Fin rutas
+  
