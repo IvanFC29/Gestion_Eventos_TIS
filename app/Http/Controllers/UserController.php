@@ -28,4 +28,28 @@ class UserController extends Controller
         session()->flash('success', '¡Cuenta creada!');
         return view('user.nuevoUsuario');
     }
+
+    public function store(){
+        $email = request('email');
+        $password = request('password');
+        // Buscar el usuario por correo electrónico
+        $user = Participante::where('email', $email)->first();
+        
+        if (!$user) {
+            return back()->withErrors([
+                'message' => 'El correo electrónico no existe en nuestra base de datos. Por favor, verifique su correo.',
+            ]);
+        }
+    
+        // Verificar el carnet
+        if ($password != $user->carnet) {
+            return back()->withErrors([
+                'message' => 'La contraseña es incorrecta. Por favor, intente de nuevo.',
+            ]);
+        }
+    
+        auth()->login($user);
+    
+        return redirect('/home');
+    }
 }

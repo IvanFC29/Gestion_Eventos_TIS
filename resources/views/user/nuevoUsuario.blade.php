@@ -33,7 +33,7 @@
             <h1 class="titulomalo">CP-Bol</h1>
         </div>
         <div>
-            <a href="/home">ATRAS</a>
+            <a href="/">ATRAS</a>
         </div>
     </div>                
 </nav>

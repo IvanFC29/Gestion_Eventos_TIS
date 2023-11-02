@@ -438,3 +438,7 @@ footer {
 .divtitulom {
   width: 100%;
 }
+
+.dropdown-item:hover{
+  background-color:#FDBA31 !important;
+}

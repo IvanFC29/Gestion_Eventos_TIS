@@ -34,8 +34,8 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/login">Administrador</a>
-                    <a class="dropdown-item" href="#">Participante</a>
-                    
+                    <a class="dropdown-item" href="/loginEstudiante">Participante</a>
+                    <a class="dropdown-item" href="#">Coach</a>
                 </li>
                 
             </ul>
