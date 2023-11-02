@@ -23,9 +23,9 @@ Route::get('/'', [App\Http\Controllers\Frontend\FrontendController::class,'index
 Route::view('/','frontend.index');
 
 
-/*Route::get('/home', function () {
+Route::get('/home', function () {
     return view('home');
-})->middleware('auth');*/
+})->middleware('auth');
 
 Route::get('/register', [RegisterController::class, 'create'])
     ->middleware('guest')
@@ -118,7 +118,7 @@ Route::post('/loginCoach', [SessionsController::class, 'store'])
 
 
 // Rutas Ivan
-
+Route::post('/guardar-participante', [UserController::class, 'guardarUsuario'])->name('user.guardarUsuario');
 
 
 
@@ -133,10 +133,4 @@ Route::post('/loginCoach', [SessionsController::class, 'store'])
 
 
   // Fin rutas
-  Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/eventos', function () {
-    return view('eventos-vista');
-});
+  

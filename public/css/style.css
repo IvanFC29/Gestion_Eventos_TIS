@@ -429,3 +429,12 @@ footer {
   height: 200px;
 }
 
+.titulomalo {
+  font-size: 150%;
+  margin-left: 5%;
+  width: 100%;
+}
+
+.divtitulom {
+  width: 100%;
+}
