@@ -43,3 +43,8 @@ body{
   justify-content: center; /* Centra elementos horizontalmente */
   margin-bottom: 2%;
 }
+
+#opciones_post_evento{
+  color: black;
+  text-align: right;
+}

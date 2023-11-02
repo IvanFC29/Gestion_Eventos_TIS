@@ -118,6 +118,10 @@ Route::get('/nuevoUsuario',[UserController::class, 'nuevoU']);
 // Rutas Ivan
 Route::post('/guardar-usuario', [UserController::class, 'guardarUsuario'])->name('user.guardarUsuario');
 
+Route::get('/canvas', function () {
+    return view('lienzo.canvas');
+});
+
 
 
 

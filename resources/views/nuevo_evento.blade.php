@@ -9,9 +9,8 @@
     
     <link rel="stylesheet" href="{{ asset('css/formulario.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">  
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
-    <script src="{{ asset('js/nuevo_evento.js') }}"></script>
-
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -106,13 +105,16 @@
         <div id='mensaje'>
             <div class='alert alert-success alert-dismissible fade show' role='alert'>
                 <strong> {{ session('success') }}</strong>
-                <a href="/eventos" type="button"> Ver Eventos</a>
+                <div id="opciones_post_evento">
+                    <a href="/eventos" type="button"> Ver Eventos </a>
+                    <a href="/canvas" type="button"> Realizar Afiche </a>
+                </div>
                 <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'> </button>
             </div>
         </div>
     @endif
     <div class="section">
-        <form method="post" action="{{ route('eventos.guardarEvento') }}" enctype="multipart/form-data">
+        <form id="formEvento" method="post" action="{{ route('eventos.guardarEvento') }}" enctype="multipart/form-data">
             @csrf
             <div class="containerTitulo">      
                 <h1> <b>CREAR EVENTO</b> </h1>
@@ -121,7 +123,7 @@
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label>Nombre del Evento:<span class="text-danger">*</span></label>
-                        <input type="text" name="nombre" class="form-control" value="" placeholder="Ingrese nombre" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="30" required>
+                        <input type="text" name="nombre" id="nombre" class="form-control" value="" placeholder="Ingrese nombre" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ-\á\é\í\ó\ú ]/g,'')" minlength="3" maxlength="80" required>
                     </div>
                     <div class="mb-3">
                         <label for="message-text" class="col-form-label">Descripción del evento:</label>
@@ -163,13 +165,13 @@
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label>E-mail de contacto:<span class="text-danger">*</span></label>
-                        <input type="text" name="email" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
+                        <input type="text" name="email" id="email" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label>Telefono/Celular de contacto:<span class="text-danger">*</span></label>
-                        <input type="text" name="telefonoevento" class="form-control input_user" value="" placeholder="Ingrese numero telef/cel" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); this.value = this.value.replace(/[^0-9]/,'')" minlength="7" maxlength="8" min="40000000" max="79999999" required>
+                        <input type="text" name="telefonoevento" id="cel" class="form-control input_user" value="" placeholder="Ingrese numero telef/cel" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); this.value = this.value.replace(/[^0-9]/,'')" minlength="7" maxlength="8" min="40000000" max="79999999" required>
                     </div>
                 </div>
             </div>
@@ -212,7 +214,6 @@
       });  
     });
 </script>
-
-
+<script src="{{ asset('js/nuevo_evento.js') }}"></script>
 </body>
 </html>
