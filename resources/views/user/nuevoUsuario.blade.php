@@ -107,11 +107,6 @@
 </div>
 
 
- <button type="submit" class="btn btn-primary guardar">Guardar</button>
-            </div>
-        </form>
-	</div>
-</div>
 <br>
 <footer class="bg-dark text-white text-center py-4">
         <div>
