@@ -53,6 +53,31 @@ class EventoController extends Controller
         return view('lista_editables', compact('lista_editables'));
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     public function uEventos()
     {
         $listados = Evento::get();
