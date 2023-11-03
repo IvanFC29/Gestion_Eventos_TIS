@@ -32,7 +32,7 @@ class UserController extends Controller
     public function store(){
         $email = request('email');
         $password = request('password');
-        // Buscar el usuario por correo electrónico
+        // Buscar el usuario por correo elecztrónico
         $user = Participante::where('email', $email)->first();
         
         if (!$user) {

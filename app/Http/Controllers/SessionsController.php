@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Models\User;
+use App\Models\Participante;
 use App\Mail\testMail;
 
 class SessionsController extends Controller {
@@ -76,5 +77,28 @@ class SessionsController extends Controller {
         auth()->logout();
 
         return redirect()->to('/home');
+    }
+    public function store1(){
+        $email = request('email');
+        $password = request('password');
+        // Buscar el usuario por correo elecztrónico
+        $user = Participante::where('email', $email)->first();
+        
+        if (!$user) {
+            return back()->withErrors([
+                'message' => 'El correo electrónico no existe en nuestra base de datos. Por favor, verifique su correo.',
+            ]);
+        }
+    
+        // Verificar el carnet
+        if ($password != $user->carnet) {
+            return back()->withErrors([
+                'message' => 'La contraseña es incorrecta. Por favor, intente de nuevo.',
+            ]);
+        }
+    
+        auth()->login($user);
+    
+        return redirect('/home');
     }
 }
