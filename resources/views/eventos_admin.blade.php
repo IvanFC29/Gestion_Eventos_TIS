@@ -40,6 +40,13 @@
                     <li><a href="/ver-eventos-editables">Eventos Editables</a></li>
                     </ul>
                 </li>
+                <li class="dropdown">
+                    <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Coachs <span class="caret"></span></a>
+                    <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                    <li><a href="/registerCoach" class="dropdown-item ">Nuevo Coach</a></li>
+                    <li><a href="#">Ver coachs</a></li>
+                    </ul>
+                </li>
                 <li><a href="#about">Reportes</a></li>
                 <li><a href="#events">Calendario</a></li>
                 @if(auth()->check())

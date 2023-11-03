@@ -9,6 +9,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CoachController;
+use App\Http\Controllers\NuevocoachController;
 use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
@@ -72,6 +73,7 @@ Route::get('/ver-eventos-editables', [EventoController::class, 'verEditables'])-
 
 Route::get('/nuevoUsuario',[UserController::class, 'nuevoU']);
 Route::get('/nuevoCoach',[CoachController::class, 'nuevoC']);
+Route::get('/registerCoach',[NuevocoachController::class, 'nCoach']);
 
 
 
