@@ -75,8 +75,20 @@
                 </div>
               </div>
             </nav>
-            
-          <div id="page-content-wrapper">
+             <div id="page-content-wrapper">
+                <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
+                            <span class="hamb-top"></span>
+                    
+                            <span class="hamb-middle"></span>
+                            <span class="hamb-bottom"></span>
+                            
+                </button>
+            </div>
+
+            <div class="section">
+  		<form method="post" action="{{ route('eventos.guardarEvento') }}" enctype="multipart/form-data">
+
+  <div id="page-content-wrapper">
               <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
                   <span class="hamb-top"></span>
             <span class="hamb-middle"></span>
@@ -178,10 +190,10 @@
                 <button type="submit" class="btn btn-primary editar" name="editable" value="1">Editar luego</button>
                 <a type="button" href="/eventos" class="btn btn-secondary cancelar">Cancelar</a>
             </div>
-        </form>   
+
+    </form>   
     </div>
 </div>
-
 <script>
     $(document).ready(function () {
       var trigger = $('.hamburger'),

@@ -46,9 +46,10 @@
                 <strong> {{ session('success') }}</strong>
                 <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'> </button>
             </div>
-        </div>
+              </div>
     @endif
-  	<div class="section">
+
+<div class="section">
   		<form method="post" action="{{ route('user.guardarUsuario') }}" enctype="multipart/form-data">
             @csrf
             <div class="containerTitulo">      
@@ -65,8 +66,9 @@
                         <input type="text" name="apellidoP" class="form-control" value="" placeholder="Ingrese apellido paterno" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="30">
                     </div>
                     <div class="mb-3">
-                        <label>Apellido Materno:</label>
+                    <label>Apellido Materno:</label>
                         <input type="text" name="apellidoM" class="form-control" value="" placeholder="Ingrese apellido materno" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="30">
+
                     </div>
                     <div class="mb-3">
                         <label>Fecha de nacimiento:<span class="date-danger">*</span></label>
@@ -95,7 +97,17 @@
                 </div>
             </div>
             <div class="modal-footer mb-3">
-                <button type="submit" class="btn btn-primary guardar">Guardar</button>
+            <button type="submit" class="btn btn-primary guardar" name="editable" value="0">Guardar</button>
+                <a type="button" href="/eventos" class="btn btn-primary cancelar">Cancelar</a>
+            </div>
+        </form>
+	</div>
+          <!-- /#page-content-wrapper -->
+
+</div>
+
+
+ <button type="submit" class="btn btn-primary guardar">Guardar</button>
             </div>
         </form>
 	</div>
