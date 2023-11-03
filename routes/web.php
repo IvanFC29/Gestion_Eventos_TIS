@@ -24,9 +24,9 @@ Route::get('/'', [App\Http\Controllers\Frontend\FrontendController::class,'index
 Route::view('/','frontend.index');
 
 
-/*Route::get('/home', function () {
+Route::get('/home', function () {
     return view('home');
-})->middleware('auth');*/
+})->middleware('auth');
 
 Route::get('/register', [RegisterController::class, 'create'])
     ->middleware('guest')
@@ -101,12 +101,14 @@ Route::get('/nuevoCoach',[CoachController::class, 'nuevoC']);
 
 
 // Rutas Fab
+Route::get('/RecuperarContraseña', [SessionsController::class, 'recuperarC']);
+//Route::get('/send', [SessionsController::class, 'sendmail']);    
+Route::post('enviar-correo',  [SessionsController::class, 'sendmail'])->name('enviar-correo');  
 
-
-
-
-
-
+Route::get('/loginCoach', [SessionsController::class, 'loginC']);
+Route::get('/loginEstudiante', [SessionsController::class, 'loginE']);
+Route::post('/loginCoach', [SessionsController::class, 'store'])
+    ->name('login.store');
 
 
 
@@ -116,6 +118,8 @@ Route::get('/nuevoCoach',[CoachController::class, 'nuevoC']);
 
 
 // Rutas Ivan
+Route::post('/guardar-participante', [UserController::class, 'guardarUsuario'])->name('user.guardarUsuario');
+Route::post('/initSesion-participante', [UserController::class, 'store']);
 
 
 
@@ -128,6 +132,5 @@ Route::get('/nuevoCoach',[CoachController::class, 'nuevoC']);
 
 
 
-
-
-// Fin rutas
+  // Fin rutas
+  

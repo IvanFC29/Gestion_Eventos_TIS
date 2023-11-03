@@ -1,0 +1,45 @@
+body{
+  background-color: rgba(232, 232, 232) !important;
+}
+
+/* Botones del Formulario */
+.guardar{
+  background-color: rgb(73, 148, 148) !important;
+  color: black !important;
+}
+
+.editar{
+  background-color: rgb(73, 148, 148)  !important;
+  color: black !important;
+}
+
+.cancelar{
+  background-color: rgb(210, 210, 210) !important;
+  color: black !important;
+}
+
+#mensaje{
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+.section{
+  padding: 3%;
+  width: 70%;
+  background-color: rgb(155, 218, 232);
+  margin: auto;
+  max-height: 75%; 
+}
+
+.btn {
+  min-width: 16%;
+  min-height: 10%;
+  height: auto;
+}
+
+
+.containerTitulo {
+  display: flex; /* Activa el modelo de caja flexible */
+  justify-content: center; /* Centra elementos horizontalmente */
+  margin-bottom: 2%;
+}

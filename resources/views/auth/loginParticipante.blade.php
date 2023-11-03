@@ -6,8 +6,8 @@
 
 <div class="login-container">
   <img src="admin-image.jpg" >
-  <h2>Admin</h2>
-  <form action="" method="post">
+  <h2>Estudiante</h2>
+  <form action="/initSesion-participante" method="post">
     @csrf
       <input type="email" name="email" placeholder="Correo Electrónico" required>
       <div class="password-container">

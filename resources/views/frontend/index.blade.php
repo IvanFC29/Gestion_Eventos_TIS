@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BCB</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" TYPE="text/css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/modal.css') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
@@ -33,8 +34,8 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/login">Administrador</a>
-                    <a class="dropdown-item" href="#">Participante</a>
-                    
+                    <a class="dropdown-item" href="/loginEstudiante">Participante</a>
+                    <a class="dropdown-item" href="#">Coach</a>
                 </li>
                 
             </ul>
@@ -47,9 +48,42 @@
 
     <h1>Bienvenido a ICPC</h1>
     <p>Eventos de competencias de programación.</p>
-    <a href="/register" class="btn btn-color">Regístrate</a>
+    <a href="#" id="modalUser" class="btn btn-color">Regístrate</a>
     
-    </header>
+   <div id="modal" class="modal">
+        <div class="modal-content">
+            <h5 class="modal-title" id="exampleModalLabel">¿Qué tipo de Rol cumples?</h5>
+            <span id="closeModalBtn" class="close">&times;</span>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <img src="{{ asset('images/grupo_icpc.png') }}" width="120%">
+                        </div>
+                        <div class="mb-3">
+                            <p>Participan en concursos y competencias de programación</p>
+                            <p>Inscripciones a talleres de todo tipo para fomentar su conocimiento</p>
+                        </div><br><br>
+                        <div class="mb-3">
+                            <a href="/nuevoUsuario" class="btn btn-color"> Participante </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <img src="{{ asset('images/coach_icpc.png') }}" width="70%">
+                        </div>
+                        <div class="mb-3">
+                            <p>Preparan a los participantes para competencias importantes, ayudándoles a perfeccionar su estrategia, velocidad de codificación y capacidad de resolución de problemas.</p>
+                        </div>
+                        <div class="mb-3">
+                            <a href="#" class="btn btn-color"> Coach </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
     
     <!-- Sección de características -->
     <section class="container dimensiones">
@@ -93,6 +127,22 @@
     <!-- Scripts de Bootstrap y jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById("modalUser").addEventListener("click", function() {
+            document.getElementById("modal").style.display = "block";
+        });
+
+        document.getElementById("closeModalBtn").addEventListener("click", function() {
+            document.getElementById("modal").style.display = "none";
+        });
+
+        window.addEventListener("click", function(event) {
+            if (event.target === document.getElementById("modal")) {
+                document.getElementById("modal").style.display = "none";
+            }
+        });
+
+    </script>
 </body>
 
 </html>
