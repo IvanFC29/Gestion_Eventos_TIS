@@ -86,6 +86,7 @@ Route::get('/nuevoCoach',[CoachController::class, 'nuevoC']);
 
 // Rutas Rodri
 
+Route::get('/usuario-eventos', [EventoController::class, 'uEventos'])->name('eventos.uEventos');
 
 
 

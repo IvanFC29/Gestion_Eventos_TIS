@@ -52,4 +52,42 @@ class EventoController extends Controller
         }
         return view('lista_editables', compact('lista_editables'));
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    public function uEventos()
+    {
+        $listados = Evento::get();
+
+        foreach ($listados as $i) {
+            $i->fecha_inicio = Carbon::parse($i->fecha_inicio);
+            $i->fecha_fin = Carbon::parse($i->fecha_fin);
+        }
+    
+        return view('eventosusuario', compact('listados'));
+        
+    }
 }
