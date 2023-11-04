@@ -123,7 +123,7 @@ Route::post('/loginCoach', [SessionsController::class, 'store'])
 // Rutas Ivan
 Route::post('/guardar-participante', [UserController::class, 'guardarUsuario'])->name('user.guardarUsuario');
 Route::post('/initSesion-participante', [UserController::class, 'store']);
-
+Route::post('/guardar-coach', [CoachController::class, 'guardarCoach']);
 
 
 
