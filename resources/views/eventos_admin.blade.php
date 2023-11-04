@@ -84,7 +84,7 @@
     </div>
 
       <!--modal crear evento
-      Para rescatar los datos-->
+      Para rescatar los datos--
       <div class="container mt-4">
           <div class="row">
             @foreach ($lista as $i)
@@ -102,6 +102,48 @@
               </div>
             @endforeach
       </div>
+       CHAT GPT -->
+       <div class="container mt-4">
+          <div class="row">
+              @foreach ($lista as $evento)
+                  <div class="modal" id="modal-{{ $evento->id }}">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <h5 class="modal-title">{{ $evento->nombre }}</h5>
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              </div>
+                              <div class="modal-body">
+                                  <p>{{ $evento->descripcion }}</p>
+                                  <p>Fecha de inicio: {{ $evento->fecha_inicio }}</p>
+                                  <p>Fecha de fin: {{ $evento->fecha_fin }}</p>
+                                  <!-- Agrega aquí más detalles del evento si es necesario -->
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- Agrega un botón para abrir el modal -->
+                  <div class="col-md-4">
+                      <div class="card eventocard">
+                          <img src="{{ asset('images/eventos.jpg') }}" alt="Card Image" class="imgevento">
+                          <div class="card-body eventobodycard">
+                              <h5 class="card-title">{{ $evento->nombre }}</h5>
+                              <p class="card-text">{{ $evento->descripcion }}</p>
+                              <p class="card-text">{{ $evento->fecha_inicio }}</p>
+                              <p class="card-text">{{ $evento->fecha_fin }}</p>
+                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-{{ $evento->id }}">
+                                  Ver detalles
+                              </button>
+                          </div>
+                      </div>
+                        
+                      <br>
+                  </div>
+                @endforeach
+          </div>
+         </div>
+        </div>
     
 
 
@@ -136,6 +178,12 @@
                     $('#wrapper').toggleClass('toggled');
               });  
             });
+              $(document).ready(function() {
+                  // Cierra el modal al presionar el botón "Cerrar" dentro del modal
+                  $('.modal .close').on('click', function() {
+                      $(this).closest('.modal').modal('hide');
+                  });
+              });
           </script>
 </body>
 </html>
