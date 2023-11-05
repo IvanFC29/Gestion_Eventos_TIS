@@ -26,7 +26,7 @@ class Coach extends Model
     {
         return $this->password; // Nombre de la columna que almacena la contraseña real.
     }
-
+    
     public function getRememberToken()
     {
         return $this->remember_token; // Nombre de la columna que almacena el token de recordatorio.

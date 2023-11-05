@@ -110,8 +110,8 @@ Route::post('enviar-correo',  [SessionsController::class, 'sendmail'])->name('en
 
 Route::get('/loginCoach', [SessionsController::class, 'loginC']);
 Route::get('/loginEstudiante', [SessionsController::class, 'loginE']);
-Route::post('/loginCoach', [SessionsController::class, 'store'])
-    ->name('login.store');
+Route::post('/loginCoach', [CoachController::class, 'store']);
+   // ->name('login.store');
 
 
 
