@@ -24,15 +24,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    
 </head>
 <body>
-   <nav class="navbar navbar-expand-lg  custom-navbar">
-        <a class="navbar-brand" href="/">BCBuilders</a>
+      <!-- Barra de navegación -->
+      <nav class="navbar navbar-expand-lg  custom-navbar">
+        <a class="navbar-brand" href="/index">BCBuilders</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse color-letra" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Inicio</a>
+                    <a class="nav-link" href="#">Inicio</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/usuario-eventos">Eventos</a>
@@ -40,10 +41,16 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Competencias</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/login">Iniciar Sesión</a>
-                   
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Iniciar Sesion
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/login">Administrador</a>
+                    <a class="dropdown-item" href="/loginEstudiante">Participante</a>
+                    <a class="dropdown-item" href="/loginCoach">Coach</a>
                 </li>
+                
             </ul>
         </div>
     </nav>
@@ -85,7 +92,25 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     
-  
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById("modalUser").addEventListener("click", function() {
+            document.getElementById("modal").style.display = "block";
+        });
+
+        document.getElementById("closeModalBtn").addEventListener("click", function() {
+            document.getElementById("modal").style.display = "none";
+        });
+
+        window.addEventListener("click", function(event) {
+            if (event.target === document.getElementById("modal")) {
+                document.getElementById("modal").style.display = "none";
+            }
+        });
+
+    </script>
 
 </body>
 </html>
