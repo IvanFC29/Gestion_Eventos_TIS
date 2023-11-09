@@ -1,8 +1,9 @@
 
 .custom-navbar {
-  background-color: #085394 !important;
+  /*background-color: #085394 !important;*/
+  background: linear-gradient(to bottom, #085394, #007CB4);
   color:#fff !important;
-  height: 65px;
+  height: 40%;
   }
 .color-tittle{
   color: #ffffff !important; /* Cambiar el color del texto a blanco */
@@ -44,6 +45,26 @@
     z-index:9;
   }
   
+#titulo{
+  padding: 1%;
+  font-family: "Times New Roman", "Lucida", "Verdana";
+}
+
+#navbarNav{
+  padding-top: 4%;
+}
+.nav-link{
+  color: #fff !important;
+}
+.nav-link:hover{
+  color: #ffa !important;
+}
+
+#sidebarTitulo{
+  font-family: "Verdana", "Serif";
+}
+
+
   button {
     background:transparent;
     border:none;
@@ -117,8 +138,10 @@ display: none;
 /*     Sidebar nav styles        */
 /*-------------------------------*/
 .navbar {
-padding: 0;
+padding: 3%;
+height: 6s0%;
 }
+
 
 .sidebar-nav {
   position: absolute;
@@ -235,17 +258,9 @@ margin-right: 10px;
 /*       Hamburger-Cross         */
 /*-------------------------------*/
 
-.hamburger {
-position: fixed;
-top: 20px;  
-z-index: 999;
-display: block;
-width: 32px;
-height: 32px;
-margin-left: 15px;
-background: transparent;
-border: none;
-}
+.hamburger { position: fixed; top: 20px;  z-index: 999; display: block; width:
+ 32px; height: 32px; margin-left: 15px; background: transparent; border:
+ none; }
 .hamburger:hover,
 .hamburger:focus,
 .hamburger:active {

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BCB</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" TYPE="text/css">
+    <link rel="stylesheet" href="{{ asset('css/eventos_usuario.css') }}" TYPE="text/css">  
+
     <link rel="stylesheet" type="text/css" href="{{ asset('css/modal.css') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
@@ -13,14 +15,14 @@
     <div class="d-flex flex-column">
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg  custom-navbar">
-        <a class="navbar-brand" href="/index">BCBuilders</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div id="titulo">
+            <h2>Competencias - Programación Bolivia</h2>
+        </div>
+        <br>
         <div class="collapse navbar-collapse color-letra" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Inicio</a>
+                    <a class="nav-link" href="/">Inicio</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/usuario-eventos">Eventos</a>
@@ -30,32 +32,33 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Iniciar Sesion
+                    Iniciar Sesión
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/login">Administrador</a>
                     <a class="dropdown-item" href="/loginEstudiante">Participante</a>
                     <a class="dropdown-item" href="#">Coach</a>
                 </li>
-                
             </ul>
         </div>
     </nav>
 
-    <!-- Encabezado -->
-    <header class="jumbotron text-center header-bg " style="z-index: 1; position: relative;">
-    
 
+    <!-- Encabezado -->
+<header class="jumbotron text-center header-bg " style="z-index: 1; position: relative;">
+    
+<div id="sidebarTitulo">
     <h1>Bienvenido a ICPC</h1>
     <p>Eventos de competencias de programación.</p>
     <a href="#" id="modalUser" class="btn btn-color">Regístrate</a>
-    
+</div>
    <div id="modal" class="modal">
         <div class="modal-content">
-            <h5 class="modal-title" id="exampleModalLabel">¿Qué tipo de Rol cumples?</h5>
+            <h5 class="modal-title" id="exampleModalLabel">El rol del estudinte!!</h5>
             <span id="closeModalBtn" class="close">&times;</span>
             <div class="modal-body">
                 <div class="row">
+                    <center>
                     <div class="col-md-6">
                         <div class="mb-3">
                             <img src="{{ asset('images/grupo_icpc.png') }}" width="120%">
@@ -68,17 +71,7 @@
                             <a href="/nuevoUsuario" class="btn btn-color"> Participante </a>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <img src="{{ asset('images/coach_icpc.png') }}" width="70%">
-                        </div>
-                        <div class="mb-3">
-                            <p>Preparan a los participantes para competencias importantes, ayudándoles a perfeccionar su estrategia, velocidad de codificación y capacidad de resolución de problemas.</p>
-                        </div>
-                        <div class="mb-3">
-                            <a href="#" class="btn btn-color"> Coach </a>
-                        </div>
-                    </div>
+                    </center>
                 </div>
             </div>
         </div>
