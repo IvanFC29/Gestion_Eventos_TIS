@@ -43,3 +43,7 @@ body{
   justify-content: center; /* Centra elementos horizontalmente */
   margin-bottom: 2%;
 }
+
+.letratitulo {
+  font-family: Cambria;
+}

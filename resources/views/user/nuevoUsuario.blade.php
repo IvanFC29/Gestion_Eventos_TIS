@@ -27,6 +27,9 @@
 	<title>Crear Usuario</title>
 </head>
 <body>
+
+
+
 <nav class="navbar custom-navbar navbar-expand-lg " >
     <div class="container-fluid ">
         <div class="divtitulom">
@@ -37,6 +40,9 @@
         </div>
     </div>                
 </nav>
+
+
+
 <br>
 <div class="bg-sky-500">
 
@@ -53,7 +59,7 @@
   		<form method="post" action="{{ route('user.guardarUsuario') }}" enctype="multipart/form-data">
             @csrf
             <div class="containerTitulo">      
-                <h1> Nueva Cuenta</h1>  
+                <h1 class="letratitulo">Registro de Usuario</h1>  
             </div>
             <div class="row">
                 <div class="col-md-6">
@@ -97,7 +103,7 @@
                 </div>
             </div>
             <div class="modal-footer mb-3">
-            <button type="submit" class="btn btn-primary guardar" name="editable" value="0">Guardar</button>
+            <button type="submit" class="btn btn-primary guardar" name="editable" value="0">Registrar</button>
                 <a type="button" href="/eventos" class="btn btn-primary cancelar">Cancelar</a>
             </div>
         </form>
