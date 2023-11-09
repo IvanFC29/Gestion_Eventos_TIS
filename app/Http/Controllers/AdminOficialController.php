@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Models\User;
 use App\Mail\testMail;
 
-class SessionsController extends Controller {
+class AdminOficialController extends Controller {
     
     public function loginE() {
         

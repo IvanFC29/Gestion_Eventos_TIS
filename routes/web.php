@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\EventoController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\AdminOficialController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CoachController;
 use App\Http\Controllers\NuevocoachController;
@@ -38,19 +38,19 @@ Route::post('/register', [RegisterController::class, 'store'])
 
 
 
-Route::get('/login', [SessionsController::class, 'create'])
+Route::get('/login', [AdminOficialController::class, 'create'])
     ->middleware('guest')
     ->name('login.index');
 
-Route::post('/login', [SessionsController::class, 'store'])
+Route::post('/login', [AdminOficialController::class, 'store'])
     ->name('login.store');
 
-Route::get('/logout', [SessionsController::class, 'destroy'])
+Route::get('/logout', [AdminOficialController::class, 'destroy'])
     ->middleware('auth')
     ->name('login.destroy');
 
 
-Route::get('/admin',[Admin\AdminController::class, 'index']);
+//Route::get('/admin',[Admin\AdminController::class, 'index']);
 
 // Rutas relacionadas a los Eventos
 Route::get('/home', [EventoController::class, 'index'])
@@ -104,12 +104,12 @@ Route::get('/usuario-eventos', [EventoController::class, 'uEventos'])->name('eve
 
 
 // Rutas Fab
-Route::get('/RecuperarContraseña', [SessionsController::class, 'recuperarC']);
-//Route::get('/send', [SessionsController::class, 'sendmail']);    
-Route::post('enviar-correo',  [SessionsController::class, 'sendmail'])->name('enviar-correo');  
+Route::get('/RecuperarContraseña', [AdminOficialController::class, 'recuperarC']);
+//Route::get('/send', [AdminOficialController::class, 'sendmail']);    
+Route::post('enviar-correo',  [AdminOficialController::class, 'sendmail'])->name('enviar-correo');  
 
-Route::get('/loginCoach', [SessionsController::class, 'loginC']);
-Route::get('/loginEstudiante', [SessionsController::class, 'loginE']);
+Route::get('/loginCoach', [AdminOficialController::class, 'loginC']);
+Route::get('/loginEstudiante', [AdminOficialController::class, 'loginE']);
 Route::post('/loginCoach', [CoachController::class, 'store']);
    // ->name('login.store');
 
