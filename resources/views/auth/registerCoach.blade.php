@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
-  <link rel="stylesheet" href="{{ asset('css/style.css') }}" TYPE="text/css">  
+  <link rel="stylesheet" href="{{ asset('css/loginAdmin.css') }}" type="text/css">   
   <link rel="stylesheet" href="{{ asset('css/eventos_admin.css') }}" TYPE="text/css">  
   <link rel="stylesheet" href="{{ asset('css/fondoazulito.css') }}" TYPE="text/css">  
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -60,7 +60,7 @@
                     </li>
                     @else
                     <li class="mx-6">
-                      <a href="{{ route('login.index') }}" class="font-semibold hover-bg-indigo-700 py-3 px-4 rounded-md">Log In</a>
+                      <a href="{{ route('login.index') }}" class="font-semibold hover-bg-indigo-700 py-3 px-4 rounded-md">Iniciar Sesión</a>
                     </li>
                     @endif
                 
@@ -72,7 +72,7 @@
                 <nav class="navbar custom-navbar navbar-expand-lg">
                   <div class="container-fluid">
                     <div class="divtitulom">
-                      <h1 class="titulomalo">CP-Bol</h1>
+                      <h1 class="titulomalo">Competencias - Programación Bolivia</h1>
                     </div>
                   </div>
                 </nav>

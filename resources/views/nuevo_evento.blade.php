@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/eventos_admin.css') }}" type="text/css">
     
     <link rel="stylesheet" href="{{ asset('css/formulario.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">  
+    <link rel="stylesheet" href="{{ asset('css/loginAdmin.css') }}" type="text/css">  
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
     <script src="{{ asset('js/nuevo_evento.js') }}"></script>
 
@@ -144,7 +144,7 @@
                     <nav class="navbar custom-navbar navbar-expand-lg">
                     <div class="container-fluid">
                         <div class="divtitulom">
-                        <h1 class="titulomalo">CP-Bol</h1>
+                        <h1 class="titulomalo">Competencias - Programación Bolivia</h1>
                         </div>
                     </div>
                     </nav>
