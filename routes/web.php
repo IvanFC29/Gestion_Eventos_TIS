@@ -124,8 +124,8 @@ Route::post('/loginCoach', [CoachController::class, 'store']);
 Route::post('/guardar-participante', [UserController::class, 'guardarUsuario'])->name('user.guardarUsuario');
 Route::post('/initSesion-participante', [UserController::class, 'store']);
 Route::post('/guardar-coach', [CoachController::class, 'guardarCoach']);
-
-
+Route::get('/escribir-correo', [AdminController::class, 'editorCorreo']);
+Route::post('/enviar-cuenta-coach', [AdminController::class, 'sendmail']);
 
 
 

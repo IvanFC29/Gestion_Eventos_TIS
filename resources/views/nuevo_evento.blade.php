@@ -179,7 +179,9 @@
                     <div id='mensaje'>
                         <div class='alert alert-success alert-dismissible fade show' role='alert'>
                             <strong> {{ session('success') }}</strong>
-                            <a href="/eventos" type="button"> Ver Eventos</a>
+                            <div id="botonMensaje">
+                                <a href="/eventos" type="button"> Ver Eventos</a>    
+                            </div>
                             <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'> </button>
                         </div>
                     </div>

@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\testMail;
 
 
 class AdminController extends Controller
@@ -25,5 +26,28 @@ class AdminController extends Controller
         }else{
             return redirect()->to('admin.adminpage');
             }
+    }
+
+    public function editorCorreo(){
+        return view('enviarCorreoCoach');
+    }
+
+    public function sendmail(){
+        $mailR= request('email');
+        $details= request('contenido');
+
+        $user = User::where('email', $mailR)->first();
+
+        if ($user) {
+            Mail::to($mailR)->send(new testMail($details));
+            session()->flash('success', 'La cuenta fue enciada al coach con exito.');
+            return redirect()->back();
+        }
+        
+        else{
+            return back()->withErrors([
+                  'message' => 'Hubo un problema al enviar la cuenta, verifique el correo.',
+            ]);
+        }
     }
 }

@@ -95,7 +95,7 @@
                     </div>
                     <div class="mb-3">
                         <label>Universidad:<span class="text-danger">*</span></label>
-                        <input type="text" name="universidad" class="form-control" value="" placeholder="Ingrese su universidad" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="30" required>
+                        <input type="text" name="universidad" class="form-control" value="" placeholder="Ingrese su universidad" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="90" required>
                     </div>
                     <div class="mb-3">
                         <label>Carnet de Identidad:<span class="text-danger">*</span></label>
