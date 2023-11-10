@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BCB</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}" TYPE="text/css">
-    <link rel="stylesheet" href="{{ asset('css/eventos_usuario.css') }}" TYPE="text/css">  
+    <title>Competencias - Programación Bolivia</title>
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}" TYPE="text/css">
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/modal.css') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -101,17 +100,20 @@
     
     </div>
     
-        <!-- Pie de página -->
-        <footer class="bg-dark text-white text-center py-4">
+    <!-- Pie de página -->
+    <footer class="bg-dark text-white text-center py-4">
         <div>
             <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
             <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
             <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
         </div>
         <div class="text-left">
-            <p>&copy; 2023 BCBuilders. Todos los derechos reservados.</p>
+            <p><b>Contactanos</b></p>
             <p><i class="fa fa-envelope" aria-hidden="true"></i> bc.builders.100@gmail.com</p>
             <p><i class="fa fa-phone" aria-hidden="true"></i> +591 71761280, +591 76906952, +591 77933620</p>
+        </div>
+        <div class="text-center">
+            <p>&copy; 2023 BolCodeBuilders. Todos los derechos reservados.</p>
         </div>
     </footer>
     

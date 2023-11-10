@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}" TYPE="text/css"> 
+    <link rel="stylesheet" href="{{ asset('css/sinLogin.css') }}" TYPE="text/css"> 
 	<link rel="stylesheet" href="{{ asset('css/formulario.css') }}" TYPE="text/css">
 
 	<!-- Agrega el enlace a la hoja de estilos de Tailwind CSS -->

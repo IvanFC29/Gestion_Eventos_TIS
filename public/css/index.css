@@ -1,0 +1,127 @@
+/*Para el header del index*/
+
+.custom-navbar {
+  /*background-color: #085394 !important;*/
+  background: linear-gradient(to bottom, #085394, #007CB4);
+  color:#fff !important;
+  height: 10%;
+  }
+
+#titulo{
+  padding: 1%;
+  font-family: "Times New Roman", "Lucida", "Verdana";
+}
+
+#navbarNav{
+  padding-top: 3%;
+}
+.nav-link{
+  color: #fff !important;
+}
+.nav-link:hover{
+  color: #fdba31 !important;
+}
+
+#sidebarTitulo{
+  font-family: "Lucida Bright", "Verdana", "Serif";
+}
+
+
+/*Sidebar del  baner Bienvenido */
+.btn-color{
+  background: #FDBA31 !important;
+  outline: 1.5px solid #FDBA31;
+  outline-offset: 0.2rem;
+}
+
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.contact-icons {
+  font-size: 24px;
+  margin: 10px;
+}
+
+.contact-icons a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #333; /* Cambia esto al color que desees */
+  color: #fff; /* Color del texto */
+  text-align: center;
+
+  padding: 10px; /* Espacio alrededor del pie de página */
+}
+
+.social-icon {
+  margin: 0 10px; /* Ajusta el margen según tu preferencia */
+  color: #fff; /* Color de los iconos */
+  font-size: 24px; /* Tamaño de fuente de los iconos */
+}
+.header-bg {
+  /*background-image: url('/images/Min-fcyt.jpg'); /* Ruta a tu imagen de fondo */
+  /*background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el encabezado */
+  /*background-position: center; /* Centra la imagen en el encabezado */
+  /*color: #fff; /* Color del texto */
+  height: 300px;
+}
+/* Estilo para las diapositivas del carrusel */
+#slide1 .carousel-background {
+  background-image: url('/images/Min-fcyt.jpg');
+}
+
+#slide2 .carousel-background {
+  background-image: url('/images/eventos.jpg');
+}
+
+#slide3 .carousel-background {
+  background-image: url('/images/imagen3.jpg');
+}
+
+.carousel-background {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 500px;
+}
+/* Estilo para el contenedor principal */
+.container-flex {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Estilo para el contenido principal (flex-grow) */
+.container-flex > * {
+  flex: 1;
+}
+
+.dimensiones{
+  height: 200px;
+}
+
+.titulomalo {
+  font-size: 150%;
+  margin-left: 5%;
+  width: 100%;
+}
+
+.divtitulom {
+  width: 100%;
+}
+
+.dropdown-item:hover{
+  background-color:#FDBA31 !important;
+}
