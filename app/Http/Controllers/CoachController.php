@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Coach;
+use App\Models\User;
 use Carbon\Carbon;
 class CoachController extends Controller
 {
@@ -13,12 +13,23 @@ class CoachController extends Controller
     }
 
     public function guardarCoach(Request $request){
-        $coach = new Coach();
-        $coach->email = $request->input('email');
-        $coach->password = $request->input('password');
+        $user = User::create([
+            'name' => $request->input('nombre'),
+            'apellidoP' => $request->input('apellidoP'),
+            'apellidoM' => $request->input('apellidoM'),
+            'email' => $request->input('email'),
+            'password' => $request->input('password'),
+            'carnet' => $request->input('ci'),
+            'universidad' => $request->input('universidad'),
+            'telefono' => $request->input('cel'),
+            'fechaN' => $request->input('nacimiento'),
+            'rol' => 'coach',
+            'direccion' => $request->input('direccion'),
+        ]);
         
+        auth()->login($user);
         // Guardar usuario
-        $coach->save();
+       
         session()->flash('success', '¡Cuenta creada!');
         return view('auth.registerCoach');
     }
@@ -27,7 +38,7 @@ class CoachController extends Controller
         $email = request('email');
         $password = request('password');
         // Buscar el usuario por correo electrónico
-        $user = Coach::where('email', $email)->first();
+        $user = User::where('email', $email)->first();
         
         if (!$user) {
             return back()->withErrors([
@@ -42,8 +53,8 @@ class CoachController extends Controller
             ]);
         }
     
-        //auth()->login($user);
+        auth()->login($user);
     
-        return redirect('/usuario-eventos');
+        return redirect('/home');
     }
 }

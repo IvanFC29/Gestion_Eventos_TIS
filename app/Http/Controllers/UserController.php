@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Participante;
+use App\Models\User;
 use Carbon\Carbon;
 
 class UserController extends Controller
@@ -13,27 +13,31 @@ class UserController extends Controller
     }
 
     public function guardarUsuario(Request $request){
-        $participante = new Participante();
-        $participante->nombre = $request->input('nombre');
-        $participante->apellidoP = $request->input('apellidoP');
-        $participante->apellidoM = $request->input('apellidoM');
-        $participante->email = $request->input('email');
-        $participante->carnet = $request->input('ci');
-        $participante->universidad = $request->input('universidad');
-        $participante->celular = $request->input('cel');
-        $participante->fecha_nacimiento = $request->input('nacimiento');
+            
+        $user = User::create([
+            'name' => $request->input('nombre'),
+            'apellidoP' => $request->input('apellidoP'),
+            'apellidoM' => $request->input('apellidoM'),
+            'email' => $request->input('email'),
+            'password' => $request->input('ci'),
+            'carnet' => $request->input('ci'),
+            'universidad' => $request->input('universidad'),
+            'telefono' => $request->input('cel'),
+            'fechaN' => $request->input('nacimiento'),
+            'rol' => 'estudiante',
+            'direccion' => $request->input('direccion'),
+        ]);
         
+       // auth()->login($user);
         // Guardar usuario
-        $participante->save();
         session()->flash('success', '¡Cuenta creada!');
         return view('user.nuevoUsuario');
     }
-
     public function store(){
         $email = request('email');
         $password = request('password');
         // Buscar el usuario por correo electrónico
-        $user = Participante::where('email', $email)->first();
+        $user = User::where('email', $email)->first();
         
         if (!$user) {
             return back()->withErrors([
@@ -42,7 +46,7 @@ class UserController extends Controller
         }
     
         // Verificar el carnet
-        if ($password != $user->carnet) {
+        if ($password != $user->password) {
             return back()->withErrors([
                 'message' => 'La contraseña es incorrecta. Por favor, intente de nuevo.',
             ]);
