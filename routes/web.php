@@ -25,9 +25,9 @@ Route::get('/'', [App\Http\Controllers\Frontend\FrontendController::class,'index
 Route::view('/','frontend.index');
 
 
-Route::get('/home', function () {
-    return view('home');
-})->middleware('auth');
+//Route::get('/home', function () {
+    //return view('home');
+//})->middleware('auth.admin');
 
 Route::get('/register', [RegisterController::class, 'create'])
     ->middleware('guest')
@@ -35,8 +35,6 @@ Route::get('/register', [RegisterController::class, 'create'])
 
 Route::post('/register', [RegisterController::class, 'store'])
     ->name('register.store');
-
-
 
 Route::get('/login', [AdminOficialController::class, 'create'])
     ->middleware('guest')
@@ -50,30 +48,34 @@ Route::get('/logout', [AdminOficialController::class, 'destroy'])
     ->name('login.destroy');
 
 
-//Route::get('/admin',[Admin\AdminController::class, 'index']);
-
 // Rutas relacionadas a los Eventos
 Route::get('/home', [EventoController::class, 'index'])
-->name('eventos.index')
-->middleware('auth');;
+->middleware('auth.admin')
+->name('eventos.index');
 
 Route::get('/eventos', [EventoController::class, 'index'])
 ->name('eventos.index')
-->middleware('auth');;
+->middleware('auth.admin');
 
-Route::get('/crear-evento', [EventoController::class, 'crearEvento'])->name('eventos.crearEvento');
+Route::get('/crear-evento', [EventoController::class, 'crearEvento'])
+->middleware('auth.admin')
+->name('eventos.crearEvento');
 
-Route::post('/guardar-evento', [EventoController::class, 'guardarEvento'])->name('eventos.guardarEvento');
+Route::post('/guardar-evento', [EventoController::class, 'guardarEvento'])
+->middleware('auth.admin')
+->name('eventos.guardarEvento');
 
-Route::get('/ver-eventos-editables', [EventoController::class, 'verEditables'])->name('eventos.verEditables');
+Route::get('/ver-eventos-editables', [EventoController::class, 'verEditables'])
+->middleware('auth.admin')
+->name('eventos.verEditables');
 
 
 // Rutas Kevin
 
 
-Route::get('/nuevoUsuario',[UserController::class, 'nuevoU']);
+Route::get('/nuevoUsuario',[UserController::class, 'nuevoU'])->middleware('auth.admin');
 Route::get('/nuevoCoach',[CoachController::class, 'nuevoC']);
-Route::get('/registerCoach',[NuevocoachController::class, 'nCoach']);
+Route::get('/registerCoach',[NuevocoachController::class, 'nCoach'])->middleware('auth.admin');
 
 
 
@@ -104,12 +106,16 @@ Route::get('/usuario-eventos', [EventoController::class, 'uEventos'])->name('eve
 
 
 // Rutas Fab
-Route::get('/RecuperarContraseña', [AdminOficialController::class, 'recuperarC']);
-//Route::get('/send', [AdminOficialController::class, 'sendmail']);    
-Route::post('enviar-correo',  [AdminOficialController::class, 'sendmail'])->name('enviar-correo');  
+Route::get('/RecuperarContraseña', [AdminOficialController::class, 'recuperarC'])
+->middleware('guest');
+  
+Route::post('enviar-correo',  [AdminOficialController::class, 'sendmail'])
+->name('enviar-correo');  
 
-Route::get('/loginCoach', [AdminOficialController::class, 'loginC']);
-Route::get('/loginEstudiante', [AdminOficialController::class, 'loginE']);
+Route::get('/loginCoach', [AdminOficialController::class, 'loginC'])
+->middleware('guest');
+Route::get('/loginEstudiante', [AdminOficialController::class, 'loginE'])
+->middleware('guest');
 Route::post('/loginCoach', [CoachController::class, 'store']);
    // ->name('login.store');
 

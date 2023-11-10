@@ -14,6 +14,7 @@ class AdminOficialController extends Controller {
         
         return view('auth.loginParticipante');
     }
+    
     public function loginC() {
         
         return view('auth.loginCoach');
