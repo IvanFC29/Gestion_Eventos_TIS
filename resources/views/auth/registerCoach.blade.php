@@ -20,7 +20,7 @@
 </head>
 <body>
   <div id="background-container">
-    <img src="{{ asset('images/fondo1.jpg') }}" alt="Fondo de la página">  
+    <img src="{{ asset('images/fondo3.jpg') }}" alt="Fondo de la página">  
   </div>
       <!--MENU SIDEBAR-->  
     <div id="wrapper">
