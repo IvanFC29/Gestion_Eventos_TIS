@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ asset('css/sinLogin.css') }}" TYPE="text/css"> 
 	<link rel="stylesheet" href="{{ asset('css/formulario.css') }}" TYPE="text/css">
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}" TYPE="text/css">
 
 	<!-- Agrega el enlace a la hoja de estilos de Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">

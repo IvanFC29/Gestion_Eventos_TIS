@@ -4,7 +4,7 @@
   /*background-color: #085394 !important;*/
   background: linear-gradient(to bottom, #085394, #007CB4);
   color:#fff !important;
-  height: 10%;
+  height: 70px !important;
   }
 
 #titulo{
@@ -115,7 +115,7 @@ footer {
 .titulomalo {
   font-size: 150%;
   margin-left: 5%;
-  width: 100%;
+  /*width: 100%;*/
 }
 
 .divtitulom {
