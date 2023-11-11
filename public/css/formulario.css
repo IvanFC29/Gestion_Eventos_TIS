@@ -23,6 +23,10 @@ body{
   margin-right: 30%;
 }
 
+#botonMensaje{
+  text-align: right;
+}
+
 .section{
   padding: 3%;
   width: 70%;

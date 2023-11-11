@@ -177,24 +177,26 @@
                         </div>
                     </div>
                     <!-- /#page-content-wrapper -->
-                    <div class="bg-sky-500">
-                    @if (session('error'))
-                        <div id='mensaje'>
-                            <div class='alert alert-success alert-dismissible fade show' role='alert'>
-                                <strong> {{ session('error') }}</strong>
-                                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'> </button>
-                            </div>
+                </div>
+        </div>
+            <div class="bg-sky-500">
+                @if (session('error'))
+                    <div id='mensaje'>
+                        <div class='alert alert-success alert-dismissible fade show' role='alert'>
+                            <strong> {{ session('error') }}</strong>
+                            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'> </button>
                         </div>
-                    @endif
-                    @if (session('success'))
-                        <div id='mensaje'>
-                            <div class='alert alert-success alert-dismissible fade show' role='alert'>
-                                <strong> {{ session('success') }}</strong>
-                                <a href="/eventos" type="button"> Ver Eventos</a>
-                                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'> </button>
-                            </div>
+                    </div>
+                @endif
+                @if (session('success'))
+                    <div id='mensaje'>
+                        <div class='alert alert-success alert-dismissible fade show' role='alert'>
+                            <strong> {{ session('success') }}</strong>
+                            <a href="/eventos" type="button"> Ver Eventos</a>
+                            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'> </button>
                         </div>
-                    @endif
+                    </div>
+                @endif
                 <div class="section">
                     <form method="post" action="{{ route('eventos.guardarEvento') }}" enctype="multipart/form-data">
                         @csrf

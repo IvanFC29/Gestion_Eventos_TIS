@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
   <link rel="stylesheet" href="{{ asset('css/loginAdmin.css') }}" type="text/css">   
+  <link rel="stylesheet" href="{{ asset('css/correo.css') }}" type="text/css">   
   <link rel="stylesheet" href="{{ asset('css/eventos_admin.css') }}" TYPE="text/css">  
-  <link rel="stylesheet" href="{{ asset('css/fondoazulito.css') }}" TYPE="text/css">  
+  <link rel="stylesheet" href="{{ asset('css/fondoazulito.css') }}" TYPE="text/css"> 
+   <link rel="stylesheet" href="{{ asset('css/formulario.css') }}" TYPE="text/css"> 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -83,63 +85,41 @@
                 <span class="hamb-middle"></span>
               <span class="hamb-bottom"></span>
                   </button>
-                  <div class="container">
-                      <div class="row">
-                          <div class="col-lg-8 col-lg-offset-2">
-                              <h1></h1>
-                          </div>
-                      </div>
-                  </div>
+                  
               </div>
               <!-- /#page-content-wrapper -->
         </div>
     </div>
 
+<div id="formCorreo">
+	<h2 class="large-heading">Envio de Cuentas</h2>
+    <br>
+    <form action="/enviar-cuenta-coach" method="POST">
+        @csrf
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="contenido">Mensaje:</label>
+        <textarea id="contenido" name="contenido" class="border border-gray-200 rounded-md bg-gray-200 w-full text-lg placeholder-gray-900 p-2 my-2 focus:bg-white" placeholder="___________ De parte de la administración del ICPC, le hacemos llegar su cuenta con la que podra hacer seguimiento del equipo que se le fue asignado." required rows="4" cols="40"></textarea>
+        <div class="button-container">
+            <br>
+            <button class="button" type="submit">Enviar correo</button>
+        </div>
+        @error('message')        
+      <p class="border border-red-500 rounded-md bg-red-100 w-full
+     text-red-600 p-2 my-2">* {{ $message }}</p>
+  @enderror
+        <div id="alert-container" style="display: none;"></div>
+     @if (session('success'))
+    <script>
+        document.getElementById('alert-container').style.display = 'block';
+        document.getElementById('alert-container').innerHTML = '<div class="alert alert-success">{{ session('success') }}</div>';
+    </script>
+    @endif
 
-          @if (session('success'))
-              <div id='mensaje'>
-                  <div class='alert alert-success alert-dismissible fade show' role='alert'>
-                      <strong> {{ session('success') }}</strong>
-                      <div id="botonMensaje">
-                        <a href="/escribir-correo" type="button"> Enviar cuenta </a>  
-                      </div>
-                      <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'> </button>
-                  </div>
-              </div>
-          @endif
-      <div class="block mx-auto my-12 p-8 bg-white w-1/3 border border-gray-200 
-      rounded-lg shadow-lg">
-
-        <h1 class="text-3xl text-center font-bold">Nuevo Coach</h1>
-
-      <div class="bg-sky-500">
-        <form class="mt-4" method="POST" action="/guardar-coach">
-          @csrf
-          <input type="email" class="border border-gray-200 rounded-md bg-gray-200 w-full
-          text-lg placeholder-gray-900 p-2 my-2 focus:bg-white" placeholder="Correo"
-          id="email" name="email">
-
-          @error('email')        
-            <p class="border border-red-500 rounded-md bg-red-100 w-full
-            text-red-600 p-2 my-2">* {{ $message }}</p>
-          @enderror
-
-          <input type="password" class="border border-gray-200 rounded-md bg-gray-200 w-full
-          text-lg placeholder-gray-900 p-2 my-2 focus:bg-white" placeholder="Password"
-          id="password" name="password">
-
-          @error('password')        
-            <p class="border border-red-500 rounded-md bg-red-100 w-full
-            text-red-600 p-2 my-2">* {{ $message }}</p>
-          @enderror
-          <button type="submit" class="rounded-md bg-indigo-500 w-full text-lg
-          text-white font-semibold p-2 my-3 hover:bg-indigo-600">Guardar</button>
-          </div>
-
-        </form>
-
-
-      </div>
+    </form>
+</div>
+    
+    
       <script>
             $(document).ready(function () {
               var trigger = $('.hamburger'),
