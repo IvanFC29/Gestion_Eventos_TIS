@@ -20,24 +20,42 @@
         <br>
         <div class="collapse navbar-collapse color-letra" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/usuario-eventos">Eventos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Competencias</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Iniciar Sesión
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/login">Administrador</a>
-                    <a class="dropdown-item" href="/loginEstudiante">Participante</a>
-                    <a class="dropdown-item" href="#">Coach</a>
-                </li>
+
+                
+
+              @if(auth()->check())
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <b>{{auth()->user()->name}}  {{auth()->user()->apellidoP}}      </b>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                   
+                <a class="dropdown-item" href="/loginEstudiante">Ver perfil</a>
+                <a class="dropdown-item" href="#">Editar Perfil</a>
+                <a class="dropdown-item" href="{{ route('login.destroy') }}" >Cerrar Sesion</a>
+            </li>
+            @else
+            <li class="nav-item">
+                <a class="nav-link" href="/">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/usuario-eventos">Eventos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Competencias</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Iniciar Sesión
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/login">Administrador</a>
+                <a class="dropdown-item" href="/loginEstudiante">Participante</a>
+                <a class="dropdown-item" href="#">Coach</a>
+            </li>
+            @endif
+                
             </ul>
         </div>
     </nav>

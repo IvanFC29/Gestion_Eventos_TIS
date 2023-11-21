@@ -101,6 +101,21 @@
         </button>
         <div class="collapse navbar-collapse color-letra" id="navbarNav">
             <ul class="navbar-nav ml-auto">
+
+
+              @if(auth()->check())
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <b>{{auth()->user()->name}} {{auth()->user()->apellidoP}}</b>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                   
+                <a class="dropdown-item" href="">Ver perfil</a>
+                <a class="dropdown-item" href="">Editar Perfil</a>
+                <a class="dropdown-item" href="{{ route('login.destroy') }}" >Cerrar Sesion</a>
+              </li>
+              @else
+              
                 <li class="nav-item">
                     <a class="nav-link" href="/">Inicio</a>
                 </li>
@@ -113,6 +128,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/login">Iniciar Sesion</a>
                 </li>
+              @endif
             </ul>
         </div>
     </nav>
