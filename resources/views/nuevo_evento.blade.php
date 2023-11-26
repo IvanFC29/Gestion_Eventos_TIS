@@ -46,10 +46,10 @@
 <body>
 
   <!--MENU SIDEBAR-->  
-        <!--<div id="wrapper">
+        <div id="wrapper">
             <div class="overlay"></div>
             
-            <-- Sidebar --
+          
                 <nav class="navbar navbar-inverse fixed-top" id="sidebar-wrapper" role="navigation">
                     <ul class="nav sidebar-nav">
                     <div class="sidebar-header">
@@ -82,9 +82,7 @@
                     
                     </ul>
                 </nav>
-                    <-- /#sidebar-wrapper --
-
-                    <-- Page Content --
+                    
                     <nav class="navbar custom-navbar navbar-expand-lg">
                     <div class="container-fluid">
                         <div class="divtitulom">
@@ -106,8 +104,8 @@
                 <form method="post" action="{{ route('eventos.guardarEvento') }}" enctype="multipart/form-data">
 
                     
-                <-- /#page-content-wrapper --
-        </div>-->
+                
+        </div>
         <div id="wrapper">
                 <div class="overlay"></div>
                 
@@ -153,31 +151,7 @@
                     </nav>
                         <!-- /#sidebar-wrapper -->
 
-                        <!-- Page Content -->
-                        <nav class="navbar custom-navbar navbar-expand-lg">
-                        <div class="container-fluid">
-                            <div class="divtitulom">
-                            <h1 class="titulomalo">CP-Bol</h1>
-                            </div>
-                        </div>
-                        </nav>
-                        
-                    <div id="page-content-wrapper">
-                        <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
-                            <span class="hamb-top"></span>
-                        <span class="hamb-middle"></span>
-                    <span class="hamb-bottom"></span>
-                        </button>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-8 col-lg-offset-2">
-                                    <h1></h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /#page-content-wrapper -->
-                </div>
+                       
         </div>
             <div class="bg-sky-500">
                 @if (session('error'))
@@ -192,7 +166,8 @@
                     <div id='mensaje'>
                         <div class='alert alert-success alert-dismissible fade show' role='alert'>
                             <strong> {{ session('success') }}</strong>
-                            <a href="/eventos" type="button"> Ver Eventos</a>
+                            <a href="/eventos" id="botonMensaje" type="button"> Ver Eventos</a>
+                            <a href="/afiches" id="botonMensaje" type="button"> Crear Afiche</a>
                             <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'> </button>
                         </div>
                     </div>

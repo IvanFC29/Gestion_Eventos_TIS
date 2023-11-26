@@ -1,0 +1,23 @@
+#canvas {
+    border: 1px solid #000;
+    margin-left: 30%;
+    margin-right: 20%;
+}
+
+#toolbar {
+    margin-left: 22%;
+    margin-right: 18%;
+    background-color: rgb(207,253,187);
+    padding: 1%;
+}
+
+#imageInput{
+    display: none;
+}
+
+/* Afiche.blade.php */
+#titulo_plantillas{
+    font-size: 130%;
+    padding-left: 4%;
+    padding-right: 4%;
+}

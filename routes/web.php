@@ -135,9 +135,13 @@ Route::post('/guardar-coach', [CoachController::class, 'guardarCoach']);
 Route::get('/escribir-correo', [AdminController::class, 'editorCorreo']);
 Route::post('/enviar-cuenta-coach', [AdminController::class, 'sendmail']);
 
+Route::get('/canvas', function () {
+    return view('lienzo.canvas');
+});
 
-
-
+Route::get('/lista-afiches', function () {
+    return view('lienzo.afiches');
+});
 
 
 
