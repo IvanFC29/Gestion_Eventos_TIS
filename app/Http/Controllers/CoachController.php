@@ -65,6 +65,8 @@ class CoachController extends Controller
          $user=User::findOrFail(auth()->user()->id) ;
         $data = $request->only('name', 'apellidoP', 'apellidoM', 'carnet','telefono','direccion');       
         $user->update($data);
+        session()->flash('success', 'Se ha actualizado sus datos correctamente.');
+
         return redirect()->back();
     }
 }

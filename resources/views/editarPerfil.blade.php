@@ -137,6 +137,14 @@
 
 <div class="content-container">
     <div class="profile-container">
+       
+          <div id="alert-container" style="display: none; margin-left: 25%;"></div>
+    @if (session('success'))
+        <script>
+        document.getElementById('alert-container').style.display = 'block';
+        document.getElementById('alert-container').innerHTML = '<div class="alert alert-success">{{ session('success') }}</div>';
+        </script>
+    @endif
         <div class="form-title">
             <h2>Editar Datos</h2>
         </div>
@@ -145,7 +153,9 @@
             
 
             <form action="{{ route('update', auth()->user()->id) }}" method="post">
+            
                 @csrf
+
                 @method('PUT')
                 <div class="profile-field">
                     <label for="profile_picture">Foto de perfil:</label>
