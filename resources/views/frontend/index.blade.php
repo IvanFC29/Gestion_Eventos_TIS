@@ -51,8 +51,8 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="/login">Administrador</a>
-                <a class="dropdown-item" href="/loginEstudiante">Participante</a>
-                <a class="dropdown-item" href="#">Coach</a>
+                
+                <a class="dropdown-item" href="/loginCoach">Coach</a>
             </li>
             @endif
                 

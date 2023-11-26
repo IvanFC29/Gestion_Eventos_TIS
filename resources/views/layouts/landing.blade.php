@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>@yield('title')</title>
     
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}" TYPE="text/css">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/modal.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/sinLogin.css') }}" TYPE="text/css">  
     
     <link rel="stylesheet" href="{{ asset('css/login.css') }}" TYPE="text/css">  
@@ -30,30 +35,47 @@
     </div>
       <!-- Barra de navegación -->
       <nav class="navbar navbar-expand-lg  custom-navbar">
-        <a class="navbar-brand" href="/index">BCBuilders</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div id="titulo">
+            <h2>Competencias - Programación Bolivia</h2>
+        </div>
+        <br>
         <div class="collapse navbar-collapse color-letra" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/usuario-eventos">Eventos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Competencias</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Iniciar Sesion
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/login">Administrador</a>
-                    <a class="dropdown-item" href="/loginEstudiante">Participante</a>
-                    <a class="dropdown-item" href="/loginCoach">Coach</a>
-                </li>
+
+                
+
+              @if(auth()->check())
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <b>{{auth()->user()->name}}  {{auth()->user()->apellidoP}}      </b>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                   
+                <a class="dropdown-item" href="/loginEstudiante">Ver perfil</a>
+                <a class="dropdown-item" href="/editCoach">Editar Perfil</a>
+                <a class="dropdown-item" href="{{ route('login.destroy') }}" >Cerrar Sesion</a>
+            </li>
+            @else
+            <li class="nav-item">
+                <a class="nav-link" href="/">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/usuario-eventos">Eventos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Competencias</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Iniciar Sesión
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/login">Administrador</a>
+                
+                <a class="dropdown-item" href="/loginCoach">Coach</a>
+            </li>
+            @endif
                 
             </ul>
         </div>

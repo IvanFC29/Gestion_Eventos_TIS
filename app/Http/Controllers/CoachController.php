@@ -11,7 +11,10 @@ class CoachController extends Controller
         
         return view('user.nuevoCoach');
     }
-
+    public function editCoach() {
+        
+        return view('editarPerfil');
+    }
     public function guardarCoach(Request $request){
         $user = User::create([
             'name' => $request->input('nombre'),
@@ -56,5 +59,12 @@ class CoachController extends Controller
         auth()->login($user);
     
         return redirect('/home');
+    }
+    public function update(Request $request)
+    {
+         $user=User::findOrFail(auth()->user()->id) ;
+        $data = $request->only('name', 'apellidoP', 'apellidoM', 'carnet','telefono','direccion');       
+        $user->update($data);
+        return redirect()->back();
     }
 }

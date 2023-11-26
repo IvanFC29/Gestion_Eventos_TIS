@@ -10,10 +10,7 @@ use App\Mail\testMail;
 
 class AdminOficialController extends Controller {
     
-    public function loginE() {
-        
-        return view('auth.loginParticipante');
-    }
+   
     
     public function loginC() {
         
@@ -76,6 +73,6 @@ class AdminOficialController extends Controller {
 
         auth()->logout();
 
-        return redirect()->to('/home');
+        return redirect()->to('/');
     }
 }

@@ -12,7 +12,24 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
-    </head>
+    
+  
+    
+    
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}" TYPE="text/css">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/modal.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="{{ asset('css/fondoazulito.css') }}" TYPE="text/css">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    
+
+  </head>
     
     <!-- Tailwind CSS Link -->
     <link rel="stylesheet" 
@@ -24,8 +41,13 @@
         <div class="overlay"></div>
           
           <!-- Sidebar -->
+          
             <nav class="navbar navbar-inverse fixed-top" id="sidebar-wrapper" role="navigation">
-                <ul class="nav sidebar-nav">
+              
+              <ul class="nav sidebar-nav">
+                
+                
+              
                 <div class="sidebar-header">
                     <div class="sidebar-brand ">
                     <i class="bi bi-person-circle"></i>
@@ -71,7 +93,25 @@
                     <div class="divtitulom">
                       <h1 class="titulomalo">CP-Bol</h1>
                     </div>
+                   
                   </div>
+                  <div class="collapse navbar-collapse color-letra" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+        
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <b>{{auth()->user()->name}}  {{auth()->user()->apellidoP}}      </b>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                           
+                        <a class="dropdown-item" href="/perfil">Ver perfil</a>
+                        <a class="dropdown-item" href="/editarPerfil">Editar Perfil</a>
+                        <a class="dropdown-item" href="{{ route('login.destroy') }}" >Cerrar Sesion</a>
+                    </li>                 
+                        
+                    </ul>
+                </div>
+                  
                 </nav>
                 
               <div id="page-content-wrapper">
@@ -156,7 +196,7 @@
     
 
 
-
+          
           <!-- /#wrapper -->
           <script>
             $(document).ready(function () {
@@ -194,5 +234,6 @@
                   });
               });
           </script>
+            
 </body>
 </html>

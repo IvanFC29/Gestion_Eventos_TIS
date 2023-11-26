@@ -114,12 +114,14 @@ Route::post('enviar-correo',  [AdminOficialController::class, 'sendmail'])
 
 Route::get('/loginCoach', [AdminOficialController::class, 'loginC'])
 ->middleware('guest');
-Route::get('/loginEstudiante', [AdminOficialController::class, 'loginE'])
-->middleware('guest');
+
 Route::post('/loginCoach', [CoachController::class, 'store']);
    // ->name('login.store');
+Route::view('/perfil','verPerfil');
 
+Route::get('/editCoach', [CoachController::class, 'editCoach'])->name("editCoach");
 
+Route::put('/actualizarDatos', [CoachController::class, 'update'])->name("update");
 
 
 
