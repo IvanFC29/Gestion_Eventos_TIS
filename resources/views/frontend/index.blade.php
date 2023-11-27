@@ -48,7 +48,9 @@
     
 <div id="sidebarTitulo">
     <h1>Bienvenido a ICPC</h1>
+    <br>
     <p>Eventos de competencias de programación.</p>
+    <br>
     <a href="#" id="modalUser" class="btn btn-color">Regístrate</a>
 </div>
    <div id="modal" class="modal">
@@ -101,19 +103,31 @@
     </div>
     
     <!-- Pie de página -->
-    <footer class="bg-dark text-white text-center py-4">
-        <div>
-            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-        </div>
-        <div class="text-left">
-            <p><b>Contactanos</b></p>
-            <p><i class="fa fa-envelope" aria-hidden="true"></i> bc.builders.100@gmail.com</p>
-            <p><i class="fa fa-phone" aria-hidden="true"></i> +591 71761280, +591 76906952, +591 77933620</p>
-        </div>
-        <div class="text-center">
-            <p>&copy; 2023 BolCodeBuilders. Todos los derechos reservados.</p>
+    <footer class="footerlanding bg-dark text-white text-center py-4">
+        <!--<div class="column-right">
+            <div>
+                <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>-->
+        <div class="column-left">
+            <div class="text-left">
+                <p>
+                    <div class="iconos">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </p>
+                <p class="clearfix"><i class="fa fa-envelope" aria-hidden="true"></i> bc.builders.100@gmail.com
+                    
+                </p>
+                <p><i class="fa fa-phone" aria-hidden="true"></i> +591 71761280, +591 76906952, +591 77933620</p>
+            </div>
+            <div class="text-center">
+                <p>&copy; 2023 BolCodeBuilders. Todos los derechos reservados.</p>
+            </div>
         </div>
     </footer>
     

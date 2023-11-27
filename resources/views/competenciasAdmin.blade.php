@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eventos</title>
+  <title>Competencias</title>
   <link rel="stylesheet" href="{{ asset('css/sinLogin.css') }}" TYPE="text/css">  
-  <link rel="stylesheet" href="{{ asset('css/eventos_admin.css') }}" TYPE="text/css"> 
+  <link rel="stylesheet" href="{{ asset('css/competencias_admin.css') }}" TYPE="text/css"> 
   <link rel="stylesheet" href="{{ asset('css/eventos_usuario.css') }}" TYPE="text/css">  
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -156,9 +156,10 @@
                                   <!-- Agrega aquí más detalles del evento si es necesario -->
                               </div>
                                <!-- Botón para abrir el formulario en el modal -->
-                                <a href="{{ url('/registro-eventos', ['nombre' => $evento->nombre]) }}" class="btn btn-primary">
+                                <a href="{{ url('/formcompetencias', ['nombre' => $evento->nombre]) }}" class="btn btn-primary">
                                   Ver detalles
                                 </a>
+
                           </div>
                       </div>
                   </div>
