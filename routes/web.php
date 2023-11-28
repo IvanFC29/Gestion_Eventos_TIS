@@ -117,11 +117,11 @@ Route::get('/loginCoach', [AdminOficialController::class, 'loginC'])
 
 Route::post('/loginCoach', [CoachController::class, 'store']);
    // ->name('login.store');
-Route::view('/perfil','verPerfil');
+Route::view('/perfil','verPerfil')->middleware('auth.admin');
 
-Route::get('/editCoach', [CoachController::class, 'editCoach'])->name("editCoach");
+Route::get('/editCoach', [CoachController::class, 'editCoach'])->name("editCoach")->middleware('auth.admin');
 
-Route::put('/actualizarDatos', [CoachController::class, 'update'])->name("update");
+Route::put('/actualizarDatos', [CoachController::class, 'update'])->name("update")->middleware('auth.admin');
 
 
 
@@ -137,11 +137,11 @@ Route::post('/enviar-cuenta-coach', [AdminController::class, 'sendmail']);
 
 Route::get('/canvas', function () {
     return view('lienzo.canvas');
-});
+})->middleware('auth.admin');
 
 Route::get('/lista-afiches', function () {
     return view('lienzo.afiches');
-});
+})->middleware('auth.admin');
 
 
 
