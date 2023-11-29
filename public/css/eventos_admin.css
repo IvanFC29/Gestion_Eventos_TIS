@@ -1,7 +1,3 @@
-.eventocard {
-    
-    margin: 10px solid rgb(177, 177, 234) !important;
-}
 
 .eventobodycard {
     background-color: rgb(158, 223, 225);
@@ -9,6 +5,7 @@
     border-bottom-right-radius: 10px;
     max-height: 540px;
     min-height: 539px;
+    position: relative;
 }
 
 .card-title {
@@ -17,7 +14,6 @@
 }
 
 body {
-    background: linear-gradient(to bottom, #ffffff, #fbffcf);
     background-color: aquamarine;
 }
 
@@ -34,4 +30,13 @@ body {
 
 .divtitulom {
     width: 100%;
+}
+
+.abrirmodales {
+    max-height: 40px !important;
+    margin-top: auto;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    margin: 10px;
 }

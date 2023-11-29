@@ -157,7 +157,7 @@
                               </div>
                                <!-- Botón para abrir el formulario en el modal -->
                                 <a href="{{ url('/registro-eventos', ['nombre' => $evento->nombre]) }}" class="btn btn-primary">
-                                  Ver detalles
+                                  Registrase
                                 </a>
                           </div>
                       </div>

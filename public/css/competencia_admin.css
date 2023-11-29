@@ -1,25 +1,21 @@
 .eventocard {
     
-    margin: 10px solid rgb(177, 177, 234) !important;
-    min-height: 520px;
+    margin: 10px solid rgb(246, 199, 199) !important;
+    max-height: 10px !important;
 }
 
 .eventobodycard {
-    background-color: rgb(217, 212, 58) !important;
+    background-color: rgb(236, 231, 80) !important;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    max-height: 540px;
-    min-height: 539px;
+    max-height: 270px !important;
+    min-height: 269px !important;
+    position: relative;
 }
 
 .card-title {
     font-weight: bold;
     font-size: 16px;
-}
-
-body {
-    background: linear-gradient(to bottom, #ffffff, #fbffcf);
-    background-color: rgb(202, 247, 198);
 }
 
 .imgevento {
@@ -35,4 +31,13 @@ body {
 
 .divtitulom {
     width: 100%;
+}
+
+.abrirmodales {
+    max-height: 40px !important;
+    margin-top: auto;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    margin: 10px;
 }
