@@ -112,4 +112,7 @@ class EventoController extends Controller
         return view('formcompetencias')->with('nombre', $nombre);
     }
     
+    public function crearCompetencia(){
+        return view('nueva_Competencia');
+    }
 }
