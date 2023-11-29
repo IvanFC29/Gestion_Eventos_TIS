@@ -17,8 +17,11 @@
 .abrirmodales {
     width: auto;
     text-align: center;
-    margin-top: 3%;
     padding-bottom: 8% !important;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    margin: 10px;
 }
 .abrirmodales2 {
     width: 35%;

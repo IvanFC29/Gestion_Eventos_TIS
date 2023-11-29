@@ -125,3 +125,30 @@ footer {
 .dropdown-item:hover{
   background-color:#FDBA31 !important;
 }
+
+
+/*arreglos footer*/
+
+.column-left {
+  text-align: right;
+}
+
+.column-right {
+  text-align: right;
+}
+
+.iconos {
+  float: right;
+}
+
+/* Clearfix para solucionar problemas de flotación 
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}*/
+
+.footerlanding {
+  padding-bottom: 0px !important;
+  margin-bottom: -50px !important;
+}

@@ -90,25 +90,29 @@
 
     <!-- Pie de página -->
     <footer class="bg-dark text-white text-center py-0 footer">
-        <div>
-            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <div class="column-right">
+            <div>
+                <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            </div>
         </div>
-        <div class="text-left">
-        <p >
-            &copy; 2023 BCBuilders. Todos los derechos reservados.
+        <div class="column-left">
+            <div class="text-left">
+            <p >
+                &copy; 2023 BCBuilders. Todos los derechos reservados. HOLAAAAAAAAA
 
-        </p>
-        <p >
-            <i class="fa fa-envelope" aria-hidden="true"></i>
-            bc.builders.100@gmail.com
-            
-        </p>
-        <p>
-        <i class="fa fa-phone" aria-hidden="true"></i>
-            +591 71761280, +591 76906952, +591 77933620
-        </p>
+            </p>
+            <p >
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                bc.builders.100@gmail.com
+                
+            </p>
+            <p>
+            <i class="fa fa-phone" aria-hidden="true"></i>
+                +591 71761280, +591 76906952, +591 77933620
+            </p>
+            </div>
         </div>
         
     </footer>

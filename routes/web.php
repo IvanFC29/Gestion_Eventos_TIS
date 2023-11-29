@@ -93,9 +93,15 @@ Route::get('/registerCoach',[NuevocoachController::class, 'nCoach'])->middleware
 
 Route::get('/usuario-eventos', [EventoController::class, 'uEventos'])->name('eventos.uEventos');
 
+Route::get('/registro-eventos/{nombre}', [EventoController::class, 'mostrarFormularioRegistro'])->name('eventos.mostrarFormularioRegistro');
 
+Route::get('/competencias-adm', [EventoController::class, 'mostrarCompetenciasAdmin'])->name('eventos.mostrarCompetenciasAdmin');
 
+Route::get('/formcompetencias/{nombre}', [EventoController::class, 'mostrarFormulario'])->name('eventos.mostrarFormulario');
 
+Route::get('/crear-competencia', [EventoController::class, 'crearCompetencia'])
+/*->middleware('auth.admin')*/
+->name('eventos.crearCompetencia');
 
 
 
