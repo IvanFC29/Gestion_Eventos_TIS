@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Evento;
+use App\Models\Competencia;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -96,12 +97,12 @@ class EventoController extends Controller
     }
 
     public function mostrarCompetenciasAdmin() {
-        $listados = Evento::get();
+        $listados = Competencia::get();
 
-        foreach ($listados as $i) {
+        /*foreach ($listados as $i) {
             $i->fecha_inicio = Carbon::parse($i->fecha_inicio);
             $i->fecha_fin = Carbon::parse($i->fecha_fin);
-        }
+        }*/
     
         return view('competenciasAdmin', compact('listados'));
 
@@ -112,7 +113,43 @@ class EventoController extends Controller
         return view('formcompetencias')->with('nombre', $nombre);
     }
     
-    public function crearCompetencia(){
-        return view('nueva_Competencia');
+    public function crearCompetencias(){
+        
+        return view('nueva_Competencias');
+    }
+
+    public function guardarCompetencia(Request $request2){
+        $competencia = new Competencia();
+        $competencia->nombre = $request2->input('nombre');
+        $competencia->descripcion = $request2->input('descripcionCompetencia');
+        $competencia->fecha_inicio = $request2->input('fechaInicio');
+        $competencia->fecha_fin = $request2->input('fechaFin');
+        $competencia->ubicacion = $request2->input('ubicacionCompetencia');
+        $competencia->reglas = $request2->input('reglasCompetencia');
+        $competencia->requisitos = $request2->input('requisitosCompetencia');
+        $competencia->link = $request2->input('linkInsCompetencia');
+        $competencia->correo_referencia = $request2->input('email');
+        $competencia->cel_referencia = $request2->input('telefonoCompetencia');
+        
+        // Buscar competencias repetidas
+        $competencia_existente = Competencia::where('nombre', $competencia->nombre)->count();
+        if ($competencia_existente > 0) {
+            session()->flash('error', 'El nombre de la Competencia ya existe en la base de datos');
+        }else{
+            $competencia->save();
+            session()->flash('success', '¡Competencia guardado!');
+        }
+        return view('nueva_Competencias');
+    }
+    
+    public function registroUsuEvent(Request $request3){
+        $competencia = new Competencia();
+        $competencia->nombre = $request3->input('nombre');
+        $competencia->apellidos = $request3->input('apellidos');
+        $competencia->correo = $request3->input('correo');
+        $competencia->telefono = $request3->input('telefono');
+        $competencia->edad = $request3->input('edad');
+        
+        return view('frontend.index');
     }
 }
