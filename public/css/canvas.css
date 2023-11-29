@@ -4,6 +4,7 @@
     margin-right: 20%;
 }
 
+/* Panel de opciones  */
 #toolbar {
     margin-left: 22%;
     margin-right: 18%;
@@ -20,4 +21,12 @@
     font-size: 130%;
     padding-left: 4%;
     padding-right: 4%;
+}
+
+#img{
+    max-width: 50%;
+}
+
+#plantilla{
+    width: 30%;
 }

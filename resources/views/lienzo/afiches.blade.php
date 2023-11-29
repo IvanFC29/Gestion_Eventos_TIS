@@ -96,26 +96,24 @@
     <div id="titulo_plantillas"><b>Plantillas disponibles</b></div>
     <br>
     <div class="row">
-        <div class="col-md-4">
+        <div id="plantilla" class="col-md-4">
           <div class="card eventocard">
-              <img src="{{ asset('images/plantillas/afiche1.jpg') }}" alt="Card Image">
+              <img src="{{ asset('images/plantillas/afiche1.jpg') }}" id="img" alt="Card Image">
               <div class="card-body eventobodycard">
-                  <p class="card-text"></p>
-                  <button type="button" class="btn btn-secondary">
-                      Seleccionar plantilla
-                  </button>
+                <a href="/canvas" type="button" class="btn btn-secondary">
+                   Seleccionar plantilla
+                </a>
               </div>        
           </div>         
         </div>
         <br>
-        <div class="col-md-4">
+        <div id="pnatilla" class="col-md-4">
           <div class="card eventocard">
-              <img src="{{ asset('images/plantillas/afiche2.jpg') }}" alt="Card Image">
+              <img src="{{ asset('images/plantillas/afiche2.jpg') }}" id="img" alt="Card Image">
               <div class="card-body eventobodycard">
-                  <p class="card-text"></p>
-                  <button type="button" class="btn btn-secondary">
+                  <a href="{{ route('canvas', ['image' => 'afiche2.jpg']) }}" type="button" class="btn btn-secondary">
                       Seleccionar plantilla
-                  </button>
+                  </a>
               </div>        
           </div>         
         </div>

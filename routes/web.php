@@ -10,6 +10,7 @@ use App\Http\Controllers\AdminOficialController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CoachController;
 use App\Http\Controllers\NuevocoachController;
+use App\Http\Controllers\CanvasController;
 use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
@@ -135,9 +136,7 @@ Route::post('/guardar-coach', [CoachController::class, 'guardarCoach']);
 Route::get('/escribir-correo', [AdminController::class, 'editorCorreo']);
 Route::post('/enviar-cuenta-coach', [AdminController::class, 'sendmail']);
 
-Route::get('/canvas', function () {
-    return view('lienzo.canvas');
-})->middleware('auth.admin');
+Route::get('/canvas/{image}', [CanvasController::class, 'index'])->middleware('auth.admin')->name('canvas');
 
 Route::get('/lista-afiches', function () {
     return view('lienzo.afiches');

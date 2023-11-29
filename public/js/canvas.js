@@ -1,7 +1,24 @@
 // Declaramos el objeto fabric.Canvas
 const canvas = new fabric.Canvas('canvas');
 
-// Funciones para agregar texto, imagenes
+// Variable para la imagen de fondo
+let backgroundImage;
+
+// Cargar imagen de fondo al inicio
+const img = new Image();
+img.onload = function() {
+    backgroundImage = new fabric.Image(img, {
+        left: 0,
+        top: 0,
+        width: canvas.width,
+        height: canvas.height,
+        selectable: false, // La imagen de fondo no es seleccionable
+    });
+    canvas.add(backgroundImage);
+};
+img.src = imageUrl;
+
+// Funciones para agregar texto
 document.getElementById('addText').addEventListener('click', () => {
     const text = new fabric.Textbox('Texto de ejemplo', {
         left: 100,
@@ -12,8 +29,8 @@ document.getElementById('addText').addEventListener('click', () => {
     canvas.add(text);
 });
 
+// Función para agregar imagen
 document.getElementById('addImage').addEventListener('click', () => {
-    // Muestra el input de tipo file para seleccionar una imagen
     document.getElementById('imageInput').click();
 });
 
@@ -30,7 +47,6 @@ function handleImage(e) {
                 canvas.add(img);
             });
         };
-        canvas.setActiveObject(canvas.item(canvas.getObjects().length - 1));
         reader.readAsDataURL(file);
     }
 }
@@ -39,4 +55,15 @@ function handleImage(e) {
 document.getElementById('colorPicker').addEventListener('input', function() {
     canvas.backgroundColor = this.value;
     canvas.renderAll();
+});
+
+// Maneja el clic en el botón de guardar
+document.getElementById('saveButton').addEventListener('click', function() {
+    const dataURL = canvas.toDataURL({ format: 'png', quality: 0.8 });
+    const a = document.createElement('a');
+    a.href = dataURL;
+    a.download = 'canvas.png';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
 });
