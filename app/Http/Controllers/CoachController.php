@@ -16,6 +16,7 @@ class CoachController extends Controller
         return view('editarPerfil');
     }
     public function guardarCoach(Request $request){
+        $fotoPath = 'fotos/foto_default.jpg';
         $user = User::create([
             'name' => $request->input('nombre'),
             'apellidoP' => $request->input('apellidoP'),
@@ -28,8 +29,9 @@ class CoachController extends Controller
             'fechaN' => $request->input('nacimiento'),
             'rol' => 'coach',
             'direccion' => $request->input('direccion'),
+            'foto' => $fotoPath,  // foto por defecto
         ]);
-        
+
         auth()->login($user);
         // Guardar usuario
        

@@ -6,6 +6,7 @@ use App\Models\Evento;
 use App\Models\Competencia;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class EventoController extends Controller
 {
@@ -34,6 +35,10 @@ class EventoController extends Controller
         $evento->correo_referencia = $request->input('email');
         $evento->cel_referencia = $request->input('telefonoevento');
         
+        // afiche por defecto
+        $afichePath = 'afiches/aficheEdit.jpg';
+        $evento->afiche = $afichePath;
+  
         // Buscar eventos repetidos
         $evento_existente = Evento::where('nombre', $evento->nombre)->count();
         if ($evento_existente > 0) {
