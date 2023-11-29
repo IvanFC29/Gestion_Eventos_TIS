@@ -8,12 +8,10 @@ use Illuminate\Support\Facades\Mail;
 use App\Models\User;
 use App\Mail\testMail;
 
-class SessionsController extends Controller {
+class AdminOficialController extends Controller {
     
-    public function loginE() {
-        
-        return view('auth.loginParticipante');
-    }
+   
+    
     public function loginC() {
         
         return view('auth.loginCoach');
@@ -75,6 +73,6 @@ class SessionsController extends Controller {
 
         auth()->logout();
 
-        return redirect()->to('/home');
+        return redirect()->to('/');
     }
 }

@@ -52,4 +52,67 @@ class EventoController extends Controller
         }
         return view('lista_editables', compact('lista_editables'));
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    public function uEventos()
+    {
+        $listados = Evento::get();
+
+        foreach ($listados as $i) {
+            $i->fecha_inicio = Carbon::parse($i->fecha_inicio);
+            $i->fecha_fin = Carbon::parse($i->fecha_fin);
+        }
+    
+        return view('eventosusuario', compact('listados'));
+        
+    }
+    public function mostrarFormularioRegistro($nombre) {
+        // Puedes pasar el $id a la vista para usarlo en el formulario
+        return view('registro-eventos')->with('nombre', $nombre);
+    }
+
+    public function mostrarCompetenciasAdmin() {
+        $listados = Evento::get();
+
+        foreach ($listados as $i) {
+            $i->fecha_inicio = Carbon::parse($i->fecha_inicio);
+            $i->fecha_fin = Carbon::parse($i->fecha_fin);
+        }
+    
+        return view('competenciasAdmin', compact('listados'));
+
+    }
+
+    public function mostrarFormulario($nombre)
+    {
+        return view('formcompetencias')->with('nombre', $nombre);
+    }
+    
+    public function crearCompetencia(){
+        return view('nueva_Competencia');
+    }
 }

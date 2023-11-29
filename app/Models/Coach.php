@@ -3,14 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\Authenticatable;
 
-class Participante extends Model implements Authenticatable
+class Coach extends Model
 {
     use HasFactory;
-    protected $table = 'participante';
-    protected $filable = ['id', 'nombre', 'apellidoP', 'apellidoM', 'email', 'carnet', 'universidad', 'celular', 'fecha_nacimiento'];
+    protected $table = 'coach';
+    protected $filable = ['id', 'nombre', 'apellidoP', 'apellidoM', 'correoInstitucional', 'institucion', 'telefono', 'direccion', 'email', 'password'];
 
     public function getAuthIdentifierName()
     {
@@ -24,9 +24,9 @@ class Participante extends Model implements Authenticatable
 
     public function getAuthPassword()
     {
-        return $this->carnet; // Nombre de la columna que almacena la contraseña real.
+        return $this->password; // Nombre de la columna que almacena la contraseña real.
     }
-
+    
     public function getRememberToken()
     {
         return $this->remember_token; // Nombre de la columna que almacena el token de recordatorio.

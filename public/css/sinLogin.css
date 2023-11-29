@@ -1,0 +1,46 @@
+/*NavBar*/
+.custom-navbar {
+  /*background-color: #085394 !important;*/
+  background: linear-gradient(to bottom, #085394, #007CB4);
+  color:#fff !important;
+  }
+.color-tittle{
+  color: #ffffff !important; /* Cambiar el color del texto a blanco */
+
+}
+
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.contact-icons {
+  font-size: 24px;
+  margin: 10px;
+}
+
+.contact-icons a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #333; /* Cambia esto al color que desees */
+  color: #fff; /* Color del texto */
+  justify-content: space-between;
+
+  padding: 10px; /* Espacio alrededor del pie de página */
+}
+
+.social-icon {
+  margin: 0 10px; /* Ajusta el margen según tu preferencia */
+  color: #fff; /* Color de los iconos */
+  font-size: 24px; /* Tamaño de fuente de los iconos */
+}

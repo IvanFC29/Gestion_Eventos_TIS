@@ -1,3 +1,7 @@
+html{
+  scroll-behavior: smooth;
+}
+
 body{
   background-color: rgba(232, 232, 232) !important;
 }
@@ -23,6 +27,10 @@ body{
   margin-right: 30%;
 }
 
+#botonMensaje{
+  text-align: right;
+}
+
 .section{
   padding: 3%;
   width: 70%;
@@ -42,4 +50,8 @@ body{
   display: flex; /* Activa el modelo de caja flexible */
   justify-content: center; /* Centra elementos horizontalmente */
   margin-bottom: 2%;
+}
+
+.letratitulo {
+  font-family: Cambria;
 }

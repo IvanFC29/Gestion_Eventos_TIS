@@ -18,9 +18,9 @@
       <p class="border border-red-500 rounded-md bg-red-100 w-full
      text-red-600 p-2 my-2">* {{ $message }}</p>
   @enderror
+  <a href="/RecuperarContraseña">¿Olvidaste tu contraseña?</a>
       <input type="submit" value="Iniciar Sesión">
   </form>
-  <a href="olvidar_contrasena.html">¿Olvidaste tu contraseña?</a>
 </div>
 <script>
   function togglePasswordVisibility() {

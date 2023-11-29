@@ -1,0 +1,32 @@
+
+.cerrareu {
+    width: 80px !important;
+    text-align: center; /* Centra el texto horizontalmente dentro del botón */
+    line-height: 40px;
+    padding-bottom: 8% !important;
+}
+
+.modal-footer {
+    margin-right: 5px;
+}
+
+.modal-header {
+    margin-right: 5px;
+}
+
+.abrirmodales {
+    width: auto;
+    text-align: center;
+    padding-bottom: 8% !important;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    margin: 10px;
+}
+.abrirmodales2 {
+    width: 35%;
+    text-align: center;
+    margin-bottom: 3%;
+    margin-left: 3%;
+    padding-bottom: 7% !important;
+}

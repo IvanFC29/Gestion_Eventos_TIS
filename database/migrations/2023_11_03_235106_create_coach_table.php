@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateParticipanteTable extends Migration
+class CreateCoachTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,17 @@ class CreateParticipanteTable extends Migration
      */
     public function up()
     {
-        Schema::create('participante', function (Blueprint $table) {
+        Schema::create('coach', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
             $table->string('apellidoP');
             $table->string('apellidoM');
-            $table->string('email')->unique();
-            $table->string('carnet')->unique();
-            $table->string('universidad');
-            $table->string('celular');
-            $table->date('fecha_nacimiento');
+            $table->string('correoInstitucional')->unique();
+            $table->string('institucion');
+            $table->string('telefono');
+            $table->string('direccion');
+            $table->string('email');
+            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -35,6 +36,6 @@ class CreateParticipanteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('participante');
+        Schema::dropIfExists('coach');
     }
 }
