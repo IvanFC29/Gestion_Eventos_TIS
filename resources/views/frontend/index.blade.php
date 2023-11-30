@@ -67,9 +67,9 @@
 <div id="sidebarTitulo">
     <h1>Bienvenido a ICPC</h1>
     <br>
-    <p>Eventos de competencias de programación.</p>
+    <p></p>
     <br>
-    <a href="#" id="modalUser" class="btn btn-color">Regístrate</a>
+    <!--<a href="#" id="modalUser" class="btn btn-color">Regístrate</a>-->
 </div>
    <div id="modal" class="modal">
         <div class="modal-content">

@@ -33,8 +33,9 @@ body {
 }
 
 .abrirmodales {
-    max-height: 40px !important;
-    margin-top: auto;
+    width: auto;
+    text-align: center;
+    padding-bottom: 3% !important;
     position: absolute;
     bottom: 10px;
     left: 10px;

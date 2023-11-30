@@ -137,10 +137,10 @@
       @csrf
       <p class="titulo">{{ $nombre }}</p>
       <label for="nombre">Nombres:</label>
-      <input type="text" id="nombre" name="nombre" pattern="[A-Za-z]+" title="Solo se permiten letras" required>
+      <input type="text" id="nombre" name="nombre" title="Solo se permiten letras" required>
 
       <label for="apellidos">Apellidos:</label>
-      <input type="text" id="apellidos" name="apellidos" pattern="[A-Za-z]+" title="Solo se permiten letras" required>
+      <input type="text" id="apellidos" name="apellidos" title="Solo se permiten letras" required>
 
       <label for="correo">Correo:</label>
       <input type="email" id="correo" name="correo" required>

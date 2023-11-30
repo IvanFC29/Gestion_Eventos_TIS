@@ -104,7 +104,7 @@ Route::get('/crearcompetencias', [EventoController::class, 'crearCompetencias'])
 Route::post('/guardarCompetencia', [EventoController::class, 'guardarCompetencia'])
 ->name('eventos.guardarCompetencia');
 
-Route::post('/registrarUsuarioEvento', [EventoController::class, 'registroUsuEvent'])
+Route::post('/registrarUsuEvent', [EventoController::class, 'registroUsuEvent'])
 ->name('eventos.registroUsuEvent');
 
 

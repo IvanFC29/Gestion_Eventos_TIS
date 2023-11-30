@@ -68,6 +68,13 @@
                         <li><a href="/ver-eventos-editables">Eventos Editables</a></li>
                         </ul>
                     </li>
+                    <li class="dropdown">
+                    <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Competencias <span class="caret"></span></a>
+                    <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                    <li><a href="/competencias-adm" class="dropdown-item ">Ver Competencias</a></li>
+                    <li><a href="/crearcompetencias">Crear Competencia</a></li>
+                    </ul>
+                </li>
                     <li><a href="#about">Reportes</a></li>
                     <li><a href="#events">Calendario</a></li>
                     @if(auth()->check())
