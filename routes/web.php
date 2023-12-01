@@ -99,13 +99,15 @@ Route::get('/competencias-adm', [EventoController::class, 'mostrarCompetenciasAd
 
 Route::get('/formcompetencias/{nombre}', [EventoController::class, 'mostrarFormulario'])->name('eventos.mostrarFormulario');
 
-Route::get('/crear-competencia', [EventoController::class, 'crearCompetencia'])
-/*->middleware('auth.admin')*/
-->name('eventos.crearCompetencia');
+Route::get('/crearcompetencias', [EventoController::class, 'crearCompetencias'])->name('eventos.crearCompetencias');
 
+Route::post('/guardarCompetencia', [EventoController::class, 'guardarCompetencia'])
+->name('eventos.guardarCompetencia');
 
+Route::post('/registrarUsuEvent', [EventoController::class, 'registroUsuEvent'])
+->name('eventos.registroUsuEvent');
 
-
+Route::get('/buscar-eventos', [EventoController::class, 'buscarEventos'])->name('buscar.eventos');
 
 
 

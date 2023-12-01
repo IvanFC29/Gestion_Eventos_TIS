@@ -59,6 +59,13 @@
                     </ul>
                 </li>
                 <li class="dropdown">
+                    <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Competencias <span class="caret"></span></a>
+                    <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                    <li><a href="#" class="dropdown-item ">Ver Competencias</a></li>
+                    <li><a href="/crearcompetencias">Crear Competencia</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
                     <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Coachs <span class="caret"></span></a>
                     <ul class="dropdown-menu animated fadeInLeft" role="menu">
                     <li><a href="/registerCoach" class="dropdown-item ">Nuevo Coach</a></li>
@@ -111,27 +118,30 @@
 
       <div class="container mt-4">
           <div class="row">
-              @foreach ($listados as $evento)
+              @foreach ($listados as $competencias)
 
 
-                  <div class="modal" id="modal-{{ $evento->id }}">
+                  <div class="modal" id="modal-{{ $competencias->id }}">
                       <div class="modal-dialog">
                           <div class="modal-content">
                               <div class="modal-header">
-                                  <h5 class="modal-title">{{ $evento->nombre }}</h5>
+                                  <h5 class="modal-title">{{ $competencias->nombre }}</h5>
                                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                               </div>
                               <div class="modal-body">
-                                  <p>{{ $evento->descripcion }}</p>
+                                  <p>{{ $competencias->descripcion }}</p>
                                   <br>
-                                  <p>Fecha de inicio: {{ $evento->fecha_inicio }}</p>
-                                  <p>Fecha de fin: {{ $evento->fecha_fin }}</p>
-                                  <!-- Agrega aquí más detalles del evento si es necesario -->
+                                  <p class="card-text">Ubicación: {{ $competencias->ubicacion }}</p>
+                                  <br>
+                                  <p class="card-text">Referencias:</p>
+                                  <p class="card-text">{{ $competencias->correo_referencia }}</p>
+                                  <p class="card-text">{{ $competencias->cel_referencia }}</p>
+                                  <!-- Agrega aquí más detalles del competencias si es necesario -->
                               </div>
-                               <!-- Botón para abrir el formulario en el modal -->
-                                <a href="{{ url('/formcompetencias', ['nombre' => $evento->nombre]) }}" class="btn btn-primary">
+                               <!-- Botón para abrir el formulario en el modal 
+                                <a href="{{ url('/formcompetencias', ['nombre' => $competencias->nombre]) }}" class="btn btn-primary">
                                   Registrarse
-                                </a>
+                                </a>-->
 
                           </div>
                       </div>
@@ -144,11 +154,11 @@
                       <div class="card eventocard">
                           <img src="{{ asset('images/eventos.jpg') }}" alt="Card Image" class="imgevento">
                           <div class="card-body eventobodycard">
-                              <h5 class="card-title">{{ $evento->nombre }}</h5>
-                              <p class="card-text">{{ $evento->descripcion }}</p>
-                              <p class="card-text">{{ $evento->fecha_inicio }}</p>
-                              <p class="card-text">{{ $evento->fecha_fin }}</p>
-                              <button type="button" class="btn btn-primary abrirmodales" data-toggle="modal" data-target="#modal-{{ $evento->id }}">
+                              <h5 class="card-title">{{ $competencias->nombre }}</h5>
+                              <p class="card-text">{{ $competencias->descripcion }}</p>
+                              <p class="card-text">{{ $competencias->ubicacion }}</p>
+
+                              <button type="button" class="btn btn-primary abrirmodales" data-toggle="modal" data-target="#modal-{{ $competencias->id }}">
                                   Ver detalles
                               </button>
                           </div>

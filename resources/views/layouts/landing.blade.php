@@ -100,7 +100,7 @@
         <div class="column-left">
             <div class="text-left">
             <p >
-                &copy; 2023 BCBuilders. Todos los derechos reservados. HOLAAAAAAAAA
+                &copy; 2023 BCBuilders. Todos los derechos reservados.
 
             </p>
             <p >

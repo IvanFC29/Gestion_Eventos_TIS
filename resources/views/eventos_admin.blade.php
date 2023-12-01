@@ -18,7 +18,7 @@
     
     <link rel="stylesheet" href="{{ asset('css/index.css') }}" TYPE="text/css">
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/modal.css') }}">
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     
@@ -29,8 +29,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    
 
-  </head>
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
     <!-- Tailwind CSS Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css">
 <body>
@@ -61,6 +60,13 @@
                     <ul class="dropdown-menu animated fadeInLeft" role="menu">
                     <li><a href="/crear-evento" class="dropdown-item ">Crear Evento</a></li>
                     <li><a href="/ver-eventos-editables">Eventos Editables</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Competencias <span class="caret"></span></a>
+                    <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                    <li><a href="/competencias-adm" class="dropdown-item ">Ver Competencias</a></li>
+                    <li><a href="/crearcompetencias">Crear Competencia</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -163,6 +169,7 @@
                               </div>
                               <div class="modal-body">
                                   <p>{{ $evento->descripcion }}</p>
+                                  <br>
                                   <p>Fecha de inicio: {{ $evento->fecha_inicio }}</p>
                                   <p>Fecha de fin: {{ $evento->fecha_fin }}</p>
                                   <!-- Agrega aquí más detalles del evento si es necesario -->
@@ -180,7 +187,7 @@
                               <p class="card-text">{{ $evento->descripcion }}</p>
                               <p class="card-text">{{ $evento->fecha_inicio }}</p>
                               <p class="card-text">{{ $evento->fecha_fin }}</p>
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-{{ $evento->id }}">
+                              <button type="button" class="btn btn-primary abrirmodales" data-toggle="modal" data-target="#modal-{{ $evento->id }}">
                                   Ver detalles
                               </button>
                           </div>
