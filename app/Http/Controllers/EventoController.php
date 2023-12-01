@@ -157,4 +157,19 @@ class EventoController extends Controller
         
         return view('frontend.index');
     }
+
+    // EventoController.php
+
+    public function buscarEventos(Request $request)
+    {
+        $query = $request->input('query');
+
+        // Puedes utilizar el modelo para realizar la búsqueda en la base de datos
+        $resultados = Evento::where('nombre', 'LIKE', '%' . $query . '%')
+                        ->orWhere('descripcion', 'LIKE', '%' . $query . '%')
+                        ->get();
+
+        return view('resultados', ['resultados' => $resultados]);
+    }
+
 }

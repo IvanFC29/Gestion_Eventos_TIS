@@ -151,6 +151,11 @@
               </div>
             @endforeach
       </div>-->
+      <!-- Puedes colocar este formulario donde desees, por ejemplo, en tu barra de navegación -->
+      <form action="{{ route('buscar.eventos') }}" method="GET">
+          <input type="text" name="query" placeholder="Buscar eventos...">
+          <button type="submit">Buscar</button>
+      </form>
 
       <div class="container mt-4">
           <div class="row">
