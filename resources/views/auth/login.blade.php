@@ -12,7 +12,8 @@
       <input type="email" name="email" placeholder="Correo Electrónico" required>
       <div class="password-container">
           <input type="password" name="password" id="password" placeholder="Contraseña" required>
-          <span class="password-toggle" id="password-toggle" onclick="togglePasswordVisibility()">👁️</span>
+          <span class="password-toggle" id="password-toggle" onclick="togglePasswordVisibility()">👁️‍🗨️</span>
+
       </div>
       @error('message')        
       <p class="border border-red-500 rounded-md bg-red-100 w-full
@@ -29,13 +30,14 @@
 
       if (passwordInput.type === "password") {
           passwordInput.type = "text";
-          passwordToggle.textContent = "👁️ Mostrar contraseña";
+          passwordToggle.innerHTML = "🔒 ";
       } else {
           passwordInput.type = "password";
-          passwordToggle.textContent = "👁️ Ocultar contraseña";
+          passwordToggle.innerHTML = "👁️‍🗨️ ";
       }
   }
 </script>
+
 
 
 @endsection
