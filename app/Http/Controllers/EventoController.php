@@ -86,7 +86,7 @@ class EventoController extends Controller
     
     public function uEventos()
     {
-        $listados = Evento::get();
+        $listados = Evento::where('editable',0)->get();
 
         foreach ($listados as $i) {
             $i->fecha_inicio = Carbon::parse($i->fecha_inicio);

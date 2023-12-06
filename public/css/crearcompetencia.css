@@ -1,0 +1,11 @@
+.section2{
+    padding: 3%;
+    width: 70%;
+    background-color: rgb(255, 255, 255) !important;
+    margin: auto;
+    max-height: 75%; 
+    border-radius: 2%; /* Ajusta el valor según sea necesario para obtener el redondeo deseado */
+    border-color: gold;
+    border: 2px solid lightyellow; /* Puedes cambiar "lightyellow" a otro color según tus preferencias */
+    /*margin-bottom: 2%;*/
+}
