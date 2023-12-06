@@ -36,7 +36,7 @@ class EventoController extends Controller
         $evento->cel_referencia = $request->input('telefonoevento');
         
         // afiche por defecto
-        $afichePath = 'afiches/aficheEdit.jpg';
+        $afichePath = 'images/afiches/aficheEdit.jpg';
         $evento->afiche = $afichePath;
   
         // Buscar eventos repetidos

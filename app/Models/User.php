@@ -27,7 +27,8 @@ class User extends Authenticatable
          'universidad',
          'telefono',
          'fechaN',
-         'direccion'
+         'direccion',
+         'foto'
     ];
 
     /**

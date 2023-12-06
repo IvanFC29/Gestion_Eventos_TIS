@@ -160,11 +160,7 @@
                 <div class="profile-field">
                     <label for="profile_picture">Foto de perfil:</label>
                     <div class="profile-picture-container">
-                        @if(Storage::exists('public/' . auth()->user()->foto))
-                            <img class="profile-picture" src="{{ asset('storage/' . auth()->user()->foto) }}" alt="Profile Picture">
-                        @else
-                            <p>No se encontró la imagen</p>
-                        @endif  
+                        <img class="profile-picture" src="{{ asset(auth()->user()->foto) }}" alt="Profile Picture">
                         <input type="file" name="profile_picture">
                     </div>
                 </div>

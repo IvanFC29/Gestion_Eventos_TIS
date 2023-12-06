@@ -11,7 +11,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CoachController;
 use App\Http\Controllers\NuevocoachController;
 use App\Http\Controllers\CanvasController;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; 
+use App\Http\Controllers\ImagenController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,9 +27,7 @@ Route::get('/'', [App\Http\Controllers\Frontend\FrontendController::class,'index
 Route::view('/','frontend.index');
 
 
-//Route::get('/home', function () {
-    //return view('home');
-//})->middleware('auth.admin');
+
 
 Route::get('/register', [RegisterController::class, 'create'])
     ->middleware('guest')
@@ -150,8 +149,13 @@ Route::get('/lista-afiches', function () {
     return view('lienzo.afiches');
 })->middleware('auth.admin');
 
+// web.php
+Route::post('/guardar-imagen', [ImagenController::class, 'guardarImagen'])->middleware('auth.admin');
 
 
+Route::get('/menu', function () {
+    return view('admin.menu');
+}); //->middleware('auth.admin');
 
 
   // Fin rutas

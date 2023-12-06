@@ -189,12 +189,8 @@
                   <!-- Agrega un botón para abrir el modal -->
                   <div class="col-md-4">
                       <div class="card eventocard">
-                        @if(Storage::exists('public/' . $evento->afiche))
-                          <img src="{{ asset('storage/' . $evento->afiche) }}" alt="Card Image" class="imgevento">
-                        @else
-                          <p>No se encontró la imagen</p>
-                        @endif
-                        <div class="card-body eventobodycard">
+                          <img src="{{ asset( $evento->afiche ) }}" alt="Card Image" class="imgevento">
+                          <div class="card-body eventobodycard">
                               <h5 class="card-title">{{ $evento->nombre }}</h5>
                               <p class="card-text">{{ $evento->descripcion }}</p>
                               <p class="card-text">{{ $evento->fecha_inicio }}</p>

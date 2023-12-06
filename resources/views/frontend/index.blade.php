@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Competencias - Programación Bolivia</title>
     <link rel="stylesheet" href="{{ asset('css/index.css') }}" TYPE="text/css">
-
     <link rel="stylesheet" type="text/css" href="{{ asset('css/modal.css') }}">
+   
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
 <body >
-    <div class="d-flex flex-column">
+<div class="d-flex flex-column">
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg  custom-navbar">
         <div id="titulo">
@@ -19,16 +19,12 @@
         </div>
         <br>
         <div class="collapse navbar-collapse color-letra" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-
-                
-
+            <ul class="navbar-nav ml-auto"> 
               @if(auth()->check())
-
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <b>{{auth()->user()->name}}  {{auth()->user()->apellidoP}}      </b>
-                </a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <b>{{auth()->user()->name}}  {{auth()->user()->apellidoP}}      </b>
+                    </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                    
                 <a class="dropdown-item" href="/loginEstudiante">Ver perfil</a>
@@ -59,42 +55,12 @@
             </ul>
         </div>
     </nav>
-
+</div>
 
     <!-- Encabezado -->
 <header class="jumbotron text-center header-bg " style="z-index: 1; position: relative;">
-    
-<div id="sidebarTitulo">
-    <h1>Bienvenido a ICPC</h1>
-    <br>
-    <p>Eventos de competencias de programaciónn.</p>
-    <br>
-    <a href="#" id="modalUser" class="btn btn-color">Regí­strate</a>
-    <!--<a href="#" id="modalUser" class="btn btn-color">Regístrate</a>-->
-</div>
-   <div id="modal" class="modal">
-        <div class="modal-content">
-            <h5 class="modal-title" id="exampleModalLabel">El rol del estudinte!!</h5>
-            <span id="closeModalBtn" class="close">&times;</span>
-            <div class="modal-body">
-                <div class="row">
-                    <center>
-                    <div class="col-md-6">
-                        <div class="mb-3">
-                            <img src="{{ asset('images/grupo_icpc.png') }}" width="120%">
-                        </div>
-                        <div class="mb-3">
-                            <p>Participan en concursos y competencias de programación</p>
-                            <p>Inscripciones a talleres de todo tipo para fomentar su conocimiento</p>
-                        </div><br><br>
-                        <div class="mb-3">
-                            <a href="/nuevoUsuario" class="btn btn-color"> Participante </a>
-                        </div>
-                    </div>
-                    </center>
-                </div>
-            </div>
-        </div>
+    <div id="sidebarTitulo">
+        <br><br><h1>Bienvenido a ICPC</h1><br><br><br>
     </div>
 </header>
     
@@ -102,25 +68,24 @@
     <section class="container dimensiones">
         <div class="row">
             <div class="col-md-4">
-                <h3>ICPC-FCYT</h3>
-                <p>Descripción ....</p>
-                <a href="https://www.umss.edu.bo/competencia-latinoamericana-de-programacion-icpc-2022/" class="btn btn-primary">Ir</a>
+                <h4>ICPC-FCYT</h4>
+                <p>A nivel universitario, el ICPC es una oportunidad para que los estudiantes de informática de todas las universidades del mundo demuestren sus habilidades de programación. La competencia ayuda a los estudiantes a desarrollar sus habilidades de resolución de problemas, lógica, algoritmos y programación.</p>
+                <a href="https://www.umss.edu.bo/competencia-latinoamericana-de-programacion-icpc-2022/" class="btn btn-color">Ir</a>
             </div>
             <div class="col-md-4">
-                <h3>ICPC-BOLIVIA</h3>
-                <p>Descripción ....</p>
-                <a href="https://umsa-2023.clei.org/inicio/eventos-asociados/clp/" class="btn btn-primary">Ir</a>
+                <h4>ICPC-BOLIVIA</h4>
+                <p>A nivel nacional, el ICPC se organiza en diferentes países del mundo. En Bolivia, el ICPC se organiza por la Federación Boliviana de Ciencias de la Computación. La competencia nacional boliviana se celebra anualmente y los equipos ganadores clasifican para la fase regional de América Latina.</p>
+                <a href="https://umsa-2023.clei.org/inicio/eventos-asociados/clp/" class="btn btn-color">Ir</a>
             </div>
             <div class="col-md-4" >
-                <h3 >ICPC-Mundial </h3>
-                <p>Descripción ....</p>
-                <a href="https://icpc.global/" class="btn btn-primary">Ir</a>
+                <h4>ICPC-Mundial </h4>
+                <p>A nivel mundial, el ICPC se divide en dos fases: la fase regional y la fase mundial. En la fase regional, los equipos de estudiantes de universidades de todo el mundo compiten entre sí para clasificarse para la fase mundial. La fase regional se celebra en diferentes sedes de todo el mundo, en fechas y horarios diferentes.</p>
+                <a href="https://icpc.global/" class="btn btn-color">Ir</a>
             </div>
-        </div>
+        </div><br>
     </section>
-    
-    </div>
-    
+<div>
+    <br><br><br><br><br>
     <!-- Pie de página -->
     <footer class="footerlanding bg-dark text-white text-center py-4">
         <!--<div class="column-right">
@@ -149,11 +114,10 @@
             </div>
         </div>
     </footer>
+</div>
     
-    
-
-    <!-- Scripts de Bootstrap y jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Scripts de Bootstrap y jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         document.getElementById("modalUser").addEventListener("click", function() {

@@ -22,10 +22,14 @@
   color: #fdba31 !important;
 }
 
-#sidebarTitulo{
+#sidebarTitulo h1,p{
   font-family: "Lucida Bright", "Verdana", "Serif";
+  opacity: 1;
+}  
+#sidebarTitulo{
+ /* background-image: url('/images/foto_banner.png');*/
+  background-color: #fff;
 }
-
 
 /*Sidebar del  baner Bienvenido */
 .btn-color{
@@ -34,6 +38,9 @@
   outline-offset: 0.2rem;
 }
 
+.col-md-4{
+  text-align: center;
+}
 
 footer {
   background-color: #333;
@@ -62,6 +69,8 @@ footer {
   text-align: center;
 
   padding: 10px; /* Espacio alrededor del pie de página */
+  /* Ajustar el margen inferior del footer para que no se superponga con el contenido */
+  margin-bottom: -50%;
 }
 
 .social-icon {
@@ -97,6 +106,7 @@ footer {
   height: 500px;
 }
 /* Estilo para el contenedor principal */
+
 .container-flex {
   display: flex;
   flex-direction: column;

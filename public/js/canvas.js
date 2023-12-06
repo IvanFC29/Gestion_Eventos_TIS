@@ -67,3 +67,25 @@ document.getElementById('saveButton').addEventListener('click', function() {
     a.click();
     document.body.removeChild(a);
 });
+
+document.getElementById('guardarCanvas').addEventListener('click', function() {
+    const dataURL = canvas.toDataURL('image/png');
+
+    // Enviar la URL al servidor
+    $.ajax({
+        type: "POST",
+        url: "/guardar-imagen",
+        data: {
+            _token: $('meta[name="csrf-token"]').attr('content'),
+            imageUrl: dataURL
+        },
+        success: function(response) {
+            alert("Afiche guardado exitosamente");
+            console.log("URL de la imagen guardada exitosamente");
+        },
+        error: function(error) {
+            console.error("Error al guardar la URL de la imagen:", error);
+        }
+    });
+    
+});
