@@ -181,7 +181,7 @@
                   <!-- Agrega un botón para abrir el modal -->
                   <div class="col-md-4">
                       <div class="card eventocard">
-                          <img src="{{ asset('images/eventos.jpg') }}" alt="Card Image" class="imgevento">
+                          <img src="{{ asset( $evento->afiche ) }}" alt="Card Image" class="imgevento">
                           <div class="card-body eventobodycard">
                               <h5 class="card-title">{{ $evento->nombre }}</h5>
                               <p class="card-text">{{ $evento->descripcion }}</p>

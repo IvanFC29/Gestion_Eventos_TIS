@@ -191,11 +191,11 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label>Nombre del Evento:<span class="text-danger">*</span></label>
-                                    <input type="text" name="nombre" class="form-control" value="" placeholder="Ingrese nombre" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="30" required>
+                                    <input type="text" name="nombre" class="form-control" value="" placeholder="Ingrese nombre"  minlength="3" maxlength="100" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="message-text" class="col-form-label">Descripción del evento:</label>
-                                    <textarea class="form-control" id="message-text" name="descripcionevento"></textarea>
+                                    <label for="message-text" class="col-form-label">Descripción del evento:<span class="text-danger">*</span></label>
+                                    <textarea class="form-control" id="message-text" name="descripcionevento" required></textarea>
                                 </div>
                             </div>
                             <div class="col-md-6">

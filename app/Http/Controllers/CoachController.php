@@ -16,7 +16,6 @@ class CoachController extends Controller
         return view('editarPerfil');
     }
     public function guardarCoach(Request $request){
-        $fotoPath = 'fotos/foto_default.jpg';
         $user = User::create([
             'name' => $request->input('nombre'),
             'apellidoP' => $request->input('apellidoP'),
@@ -29,7 +28,7 @@ class CoachController extends Controller
             'fechaN' => $request->input('nacimiento'),
             'rol' => 'coach',
             'direccion' => $request->input('direccion'),
-            'foto' => $fotoPath,  // foto por defecto
+            'foto' => 'images/fotos/foto_default.jpg', 
         ]);
 
         auth()->login($user);
@@ -42,6 +41,7 @@ class CoachController extends Controller
     public function store(){
         $email = request('email');
         $password = request('password');
+        $fotoPath = 'images/fotos/foto_default.jpg';
         // Buscar el usuario por correo electrónico
         $user = User::where('email', $email)->first();
         
@@ -64,7 +64,7 @@ class CoachController extends Controller
     }
     public function update(Request $request)
     {
-         $user=User::findOrFail(auth()->user()->id) ;
+        $user=User::findOrFail(auth()->user()->id) ;
         $data = $request->only('name', 'apellidoP', 'apellidoM', 'carnet','telefono','direccion');       
         $user->update($data);
         session()->flash('success', 'Se ha actualizado sus datos correctamente.');

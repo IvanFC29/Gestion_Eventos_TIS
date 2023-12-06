@@ -105,9 +105,9 @@
     <div class="row">
         <div id="plantilla" class="col-md-4">
           <div class="card eventocard">
-              <img src="{{ asset('images/plantillas/afiche1.jpg') }}" id="img" alt="Card Image">
+              <img src="{{ asset('images/plantillas/afiche3.jpg') }}" id="img" alt="Card Image">
               <div class="card-body eventobodycard">
-                <a href="/canvas" type="button" class="btn btn-secondary">
+                <a href="{{ route('canvas', ['image' => 'afiche3.jpg']) }}" type="button" class="btn btn-secondary">
                    Seleccionar plantilla
                 </a>
               </div>        
