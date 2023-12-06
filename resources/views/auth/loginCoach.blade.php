@@ -30,13 +30,12 @@
 
       if (passwordInput.type === "password") {
           passwordInput.type = "text";
-          passwordToggle.textContent = "👁️ Mostrar contraseña";
+          passwordToggle.innerHTML = "🔒 ";
       } else {
           passwordInput.type = "password";
-          passwordToggle.textContent = "👁️ Ocultar contraseña";
+          passwordToggle.innerHTML = "👁️‍🗨️ ";
       }
   }
 </script>
-
 
 @endsection
