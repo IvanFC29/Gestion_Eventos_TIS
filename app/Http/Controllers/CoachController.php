@@ -78,7 +78,10 @@ class CoachController extends Controller
     
             // Obtener el nombre del archivo de la imagen
             $imageName = basename($imagePath);
-    
+            if($user->foto != '')
+            {
+                unlink(storage_path('app/public/images/fotosPerfil/'  . $user->foto));
+            }
             // Actualizar el campo 'foto' en el modelo User con el nombre de la nueva imagen
             $user->update(['foto' => $imageName]);
         }
