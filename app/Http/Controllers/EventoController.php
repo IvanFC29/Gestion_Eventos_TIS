@@ -150,6 +150,7 @@ class EventoController extends Controller
     
     public function registroUsuEvent(Request $request3){
         $registroevento = new RegistroEv();
+        $registroevento->eventoinscrito=$request3->input('eventoinscrito');
         $registroevento->nombre = $request3->input('nombre');
         $registroevento->apellidos = $request3->input('apellidos');
         $registroevento->correo = $request3->input('correo');
@@ -163,7 +164,7 @@ class EventoController extends Controller
             $registroevento->save();
             session()->flash('success', '¡Registro Completado!');
         }
-        return view('registro-evento');
+        return view('frontend.index');
     }
 
     // EventoController.php
