@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Evento;
 use App\Models\Competencia;
+use App\Models\RegistroEv;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
@@ -137,7 +138,7 @@ class EventoController extends Controller
         $competencia->cel_referencia = $request2->input('telefonoCompetencia');
         
         // Buscar competencias repetidas
-        $competencia_existente = Competencia::where('nombre', $competencia->nombre)->count();
+        $correo_existente = Competencia::where('nombre', $competencia->nombre)->count();
         if ($competencia_existente > 0) {
             session()->flash('error', 'El nombre de la Competencia ya existe en la base de datos');
         }else{
@@ -148,14 +149,21 @@ class EventoController extends Controller
     }
     
     public function registroUsuEvent(Request $request3){
-        $competencia = new Competencia();
-        $competencia->nombre = $request3->input('nombre');
-        $competencia->apellidos = $request3->input('apellidos');
-        $competencia->correo = $request3->input('correo');
-        $competencia->telefono = $request3->input('telefono');
-        $competencia->edad = $request3->input('edad');
+        $registroevento = new RegistroEv();
+        $registroevento->nombre = $request3->input('nombre');
+        $registroevento->apellidos = $request3->input('apellidos');
+        $registroevento->correo = $request3->input('correo');
+        $registroevento->telefono = $request3->input('telefono');
+        $registroevento->edad = $request3->input('edad');
         
-        return view('frontend.index');
+        $correo_existente = RegistroEv::where('correo', $registroevento->correo)->count();
+        if ($correo_existente > 0) {
+            session()->flash('error', 'Este correo ya está registrado en este Evento');
+        }else{
+            $registroevento->save();
+            session()->flash('success', '¡Registro Completado!');
+        }
+        return view('registro-evento');
     }
 
     // EventoController.php

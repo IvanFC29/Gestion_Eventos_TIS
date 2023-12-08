@@ -134,6 +134,26 @@
 
   <div class="centrar">
     <form method="post" action="{{ route('eventos.registroUsuEvent') }}" enctype="multipart/form-data">
+    @if (session('error'))
+                    <div id='mensaje'>
+                        <div class='alert alert-success alert-dismissible fade show' role='alert'>
+                            <strong> {{ session('error') }}</strong>
+                            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'> </button>
+                        </div>
+                    </div>
+                @endif
+                @if (session('success'))
+                    <div id='mensaje'>
+                        <div class='alert alert-success alert-dismissible fade show' role='alert'>
+                            <strong> {{ session('success') }}</strong>
+                            <div id="botonMensaje"> 
+                                <a href="/eventos" id="botonMensaje" type="button"> Ver Eventos</a>
+                                <a href="/lista-afiches" id="botonMensaje" type="button"> Crear Afiche</a>
+                            </div>
+                            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'> </button>
+                        </div>
+                    </div>
+                @endif
       @csrf
       <p class="titulo">{{ $nombre }}</p>
       <label for="nombre">Nombres:</label>
