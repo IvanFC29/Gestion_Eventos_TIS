@@ -152,7 +152,7 @@
         <div class="profile-column">
             
 
-            <form action="{{ route('update', auth()->user()->id) }}" method="post">
+            <form action="{{ route('update', auth()->user()->id) }}" method="POST" enctype="multipart/form-data">
             
                 @csrf
 
@@ -160,8 +160,9 @@
                 <div class="profile-field">
                     <label for="profile_picture">Foto de perfil:</label>
                     <div class="profile-picture-container">
-                        <img class="profile-picture" src="{{ asset(auth()->user()->foto) }}" alt="Profile Picture">
-                        <input type="file" name="profile_picture">
+                        <img class="profile-picture" src="{{ asset('storage/images/fotosPerfil/' . auth()->user()->foto) }}" alt="Profile Picture">
+
+                        <input type="file" name="foto">
                     </div>
                 </div>
                 

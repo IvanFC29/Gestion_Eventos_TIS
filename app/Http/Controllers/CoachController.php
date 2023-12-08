@@ -62,13 +62,31 @@ class CoachController extends Controller
     
         return redirect('/home');
     }
+   
     public function update(Request $request)
     {
-        $user=User::findOrFail(auth()->user()->id) ;
-        $data = $request->only('name', 'apellidoP', 'apellidoM', 'carnet','telefono','direccion');       
+        $user = User::findOrFail(auth()->user()->id);
+        $data = $request->only('name', 'apellidoP', 'apellidoM', 'carnet', 'telefono', 'direccion');
+    
+        // Actualizar otros datos
         $user->update($data);
+    
+        // Manejo de la imagen
+        if ($request->hasFile('foto')) {
+            // Almacenar la imagen en la carpeta public/images/fotoPerfil
+            $imagePath = $request->file('foto')->store('public/images/fotosPerfil');
+    
+            // Obtener el nombre del archivo de la imagen
+            $imageName = basename($imagePath);
+    
+            // Actualizar el campo 'foto' en el modelo User con el nombre de la nueva imagen
+            $user->update(['foto' => $imageName]);
+        }
+    
         session()->flash('success', 'Se ha actualizado sus datos correctamente.');
-
         return redirect()->back();
     }
+    
+
+    
 }
