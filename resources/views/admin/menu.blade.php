@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('css/eventos_admin.css') }}" TYPE="text/css">  
     <link rel="stylesheet" href="{{ asset('css/menu.css') }}" TYPE="text/css">  
+    
         
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -60,6 +61,8 @@
         <aside class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
             <div class="sidebar-sticky">
                 <!-- Contenido de tu barra de navegación izquierda -->
+            <nav class="navbar navbar-inverse" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
                 <div class="sidebar-header">
                     <div class="sidebar-brand ">
                     <i class="bi bi-person-circle"></i>
@@ -71,21 +74,21 @@
                         <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Eventos <span class="caret"></span></a>
                         <ul class="dropdown-menu animated fadeInLeft" role="menu">
                             <li><a href="/crear-evento" class="dropdown-item ">Crear Evento</a></li>
-                            <li><a href="/ver-eventos-editables">Eventos Editables</a></li>
+                            <li><a href="/ver-eventos-editables" class="dropdown-item">Lista de Eventos</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Competencias <span class="caret"></span></a>
                         <ul class="dropdown-menu animated fadeInLeft" role="menu">
                             <li><a href="/competencias-adm" class="dropdown-item ">Ver Competencias</a></li>
-                            <li><a href="/crearcompetencias">Crear Competencia</a></li>
+                            <li><a href="/crearcompetencias" class="dropdown-item ">Crear Competencia</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Coachs <span class="caret"></span></a>
                         <ul class="dropdown-menu animated fadeInLeft" role="menu">
                             <li><a href="/registerCoach" class="dropdown-item ">Nuevo Coach</a></li>
-                            <li><a href="#">Ver coachs</a></li>
+                            <li><a href="#" class="dropdown-item ">Ver coachs</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -108,8 +111,8 @@
                         </li>
                     @endif   
                 </ul>
-    
-                    <!-- ... (agrega más opciones según sea necesario) ... -->
+            </nav>
+            </ul>        <!-- ... (agrega más opciones según sea necesario) ... -->
             </div>
         </aside>
         

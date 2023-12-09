@@ -10,8 +10,8 @@
     background-color: rgb(158, 223, 225);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    max-height: 250px !important;
-    min-height: 249px !important;
+   /* max-height: 250px !important;
+    min-height: 249px !important;*/
     position: relative;
 }
 
@@ -22,7 +22,7 @@
 .modal-header {
     margin-right: 5px;
 }
-
+/*
 .abrirmodales {
     width: auto;
     text-align: center;
@@ -38,4 +38,29 @@
     margin-bottom: 3%;
     margin-left: 3%;
     padding-bottom: 7% !important;
+}
+
+/*Cambios de diseño a la vista de evento para que no este muy cargado*/
+.btn-color{
+    background: #FDBA31 !important;
+    outline: 1.5px solid #FDBA31;
+    outline-offset: 0.2rem;
+    margin: 4px;
+}
+  
+
+#contenedor{
+	background-color: rgb(158, 223, 225, 0.7);
+	margin: 20px;
+	padding: 20px;
+}
+
+#contenido{
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    background-color: azure;
 }

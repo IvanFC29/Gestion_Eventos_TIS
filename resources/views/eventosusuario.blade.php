@@ -163,10 +163,59 @@
       </div>
 
       <div class="container mt-4">
+      <div id="contenido">
+         <!-- Seccion de los eventos proximos o cercanos  -->
+        <div>
+          <h2> Próximos Eventos</h2>
+        </div>  <br>
+        <div class="row">
+          @foreach ($proximos as $evento)
+                 <div class="modal" id="modal-{{ $evento->id }}">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <h5 class="modal-title">{{ $evento->nombre }}</h5>
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              </div>
+                              <div class="modal-body">
+                                  <p>{{ $evento->descripcion }}</p>
+                                  <br>
+                                  <p>Fecha de inicio: {{ $evento->fecha_inicio }}</p>
+                                  <p>Fecha de fin: {{ $evento->fecha_fin }}</p>
+                                  <!-- Agrega aquí más detalles del evento si es necesario -->
+                              </div>
+                               <!-- Botón para abrir el formulario en el modal -->
+                                <a href="{{ url('/registro-eventos', ['nombre' => $evento->nombre]) }}" class="btn btn-color">
+                                  Registrase
+                                </a>
+                          </div>
+                      </div>
+                  </div>
+            <div class="col-md-4">
+                <div class="card eventocard">
+                    <img src="{{ asset( $evento->afiche ) }}" alt="Card Image" class="imgevento">
+                    <div class="card-body eventobodycard">
+                        <h5 class="card-title"><b>{{ $evento->nombre }}</b></h5>
+                        <!--<p class="card-text">{{ $evento->descripcion }}</p>
+                        <p class="card-text">{{ $evento->fecha_inicio }}</p>
+                        <p class="card-text">{{ $evento->fecha_fin }}</p>-->
+                        <p>
+                        <button type="button" class="btn btn-color abrirmodales" data-toggle="modal" data-target="#modal-{{ $evento->id }}">
+                          Detalles
+                        </button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+          @endforeach
+        </div>      
+        <br>
+    
+          <hr><div><br>
+            <h2> Eventos pasados </h2>
+          </div> <br>
           <div class="row">
               @foreach ($listados as $evento)
-
-
                   <div class="modal" id="modal-{{ $evento->id }}">
                       <div class="modal-dialog">
                           <div class="modal-content">
@@ -182,33 +231,30 @@
                                   <!-- Agrega aquí más detalles del evento si es necesario -->
                               </div>
                                <!-- Botón para abrir el formulario en el modal -->
-                                <a href="{{ url('/registro-eventos', ['nombre' => $evento->nombre]) }}" class="btn btn-primary">
+                                <a href="{{ url('/registro-eventos', ['nombre' => $evento->nombre]) }}" class="btn btn-color">
                                   Registrase
                                 </a>
                           </div>
                       </div>
                   </div>
-
                   
 
-                  <!-- Agrega un botón para abrir el modal -->
-                  <div class="col-md-4">
-                      <div class="card eventocard">
-                          <img src="{{ asset( $evento->afiche ) }}" alt="Card Image" class="imgevento">
-                          <div class="card-body eventobodycard">
-                              <h5 class="card-title">{{ $evento->nombre }}</h5>
-                              <p class="card-text">{{ $evento->descripcion }}</p>
-                              <p class="card-text">{{ $evento->fecha_inicio }}</p>
-                              <p class="card-text">{{ $evento->fecha_fin }}</p>
-                              <button type="button" class="btn btn-primary abrirmodales" data-toggle="modal" data-target="#modal-{{ $evento->id }}">
-                                  Ver detalles
-                              </button>
-                          </div>
-                      </div>
-                       
-                        
-                      <br>
+                <!-- Agrega un botón para abrir el modal -->  
+                <div class="col-md-4">
+                  <div class="card eventocard">
+                    <div id='contenedor'>
+                      <h5 class="card-title"><b>{{ $evento->nombre }}</b></h5>
+                        <p class="card-text">{{ $evento->descripcion }}</p>
+                    	  <!--<p class="card-text">{{ $evento->fecha_inicio }}</p>
+                        <p class="card-text">{{ $evento->fecha_fin }}</p>-->
+                        <p> <br>
+                        <button type="button" class="btn btn-color abrirmodales" data-toggle="modal" data-target="#modal-{{ $evento->id }}">
+                          Detalles
+                        </button>
+                      <hr>
+                    </div>
                   </div>
+                </div>
 
                   <div class="modal fade" id="modal-principal" tabindex="-1" role="dialog" aria-labelledby="modal-principal-label" aria-hidden="true">
                     <!-- ... (código anterior del modal principal) ... -->
@@ -238,6 +284,7 @@
                   
                 @endforeach
           </div>
+        </div>
       </div>
       
         

@@ -12,13 +12,32 @@ use Illuminate\Support\Facades\Storage;
 class EventoController extends Controller
 {
     public function index(){
-        $lista = Evento::where('editable',0)->get();
+        // Funcion para traer el evento mas proximo
+        $fecha_actual = now();
 
-        foreach ($lista as $i) {
+        $eventos_cercanos = Evento::where('editable', 0)
+        ->where('fecha_inicio', '>=', $fecha_actual)
+        ->orderBy('fecha_inicio', 'asc') 
+        ->get();
+        
+        // Funcion para mostrar los eventos pasados
+        $eventos_pasados = Evento::where('editable', 0)
+        ->where('fecha_inicio', '<', $fecha_actual)
+        ->orderBy('fecha_inicio', 'asc') 
+        ->get();
+
+        foreach ($eventos_cercanos as $i) {
             $i->fecha_inicio = Carbon::parse($i->fecha_inicio);
             $i->fecha_fin = Carbon::parse($i->fecha_fin);
         }
-        return view('eventos_admin', compact('lista')); 
+    
+        foreach ($eventos_pasados as $i) {
+            $i->fecha_inicio = Carbon::parse($i->fecha_inicio);
+            $i->fecha_fin = Carbon::parse($i->fecha_fin);
+        }
+
+    
+        return view('eventos_admin', compact('eventos_cercanos', 'eventos_pasados')); 
     }
 
     public function crearEvento(){
@@ -72,29 +91,25 @@ class EventoController extends Controller
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     
-    public function uEventos()
-    {
-        $listados = Evento::where('editable',0)->get();
+    public function uEventos(){
+        $fecha_actual = now();
+        $listados = Evento::where('editable', 0)
+        ->where('fecha_inicio', '<', $fecha_actual)
+        ->orderBy('fecha_inicio', 'asc') 
+        ->get();
 
+        $proximos = Evento::where('editable', 0)
+        ->where('fecha_inicio', '>=', $fecha_actual)
+        ->orderBy('fecha_inicio', 'asc') 
+        ->get();
+ 
         foreach ($listados as $i) {
             $i->fecha_inicio = Carbon::parse($i->fecha_inicio);
             $i->fecha_fin = Carbon::parse($i->fecha_fin);
         }
     
-        return view('eventosusuario', compact('listados'));
+        return view('eventosusuario', compact('listados', 'proximos'));
         
     }
     public function mostrarFormularioRegistro($nombre) {

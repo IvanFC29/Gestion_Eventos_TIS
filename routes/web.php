@@ -64,10 +64,10 @@ Route::get('/crear-evento', [EventoController::class, 'crearEvento'])
 Route::post('/guardar-evento', [EventoController::class, 'guardarEvento'])
 ->middleware('auth.admin')
 ->name('eventos.guardarEvento');
-
+/*
 Route::get('/ver-eventos-editables', [EventoController::class, 'verEditables'])
 ->middleware('auth.admin')
-->name('eventos.verEditables');
+->name('eventos.verEditables');*/
 
 
 // Rutas Kevin
@@ -149,7 +149,6 @@ Route::get('/lista-afiches', function () {
     return view('lienzo.afiches');
 })->middleware('auth.admin');
 
-// web.php
 Route::post('/guardar-imagen', [ImagenController::class, 'guardarImagen'])->middleware('auth.admin');
 
 
