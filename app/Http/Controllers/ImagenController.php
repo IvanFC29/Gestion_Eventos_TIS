@@ -25,7 +25,7 @@ public function guardarImagen(Request $request)
         file_put_contents(public_path("images/afiches/{$nombreEvento}.png"), $imagenContenido);
 
         // Actualiza la URL de la imagen en la base de datos asociada al último evento
-        $urlImagen = url("images/afiches/{$nombreEvento}.png");
+        $urlImagen = "images/afiches/{$nombreEvento}.png";
         $ultimoEvento->update(['afiche' => $urlImagen]);
 
         return response()->json(['success' => true]);

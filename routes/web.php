@@ -144,7 +144,7 @@ Route::get('/escribir-correo', [AdminController::class, 'editorCorreo']);
 Route::post('/enviar-cuenta-coach', [AdminController::class, 'sendmail']);
 
 Route::get('/canvas/{image}', [CanvasController::class, 'index'])->middleware('auth.admin')->name('canvas');
-
+Route::get('/canvas_new_version', [CanvasController::class, 'blanco'])->middleware('auth.admin')->name('canvas_new');
 Route::get('/lista-afiches', function () {
     return view('lienzo.afiches');
 })->middleware('auth.admin');

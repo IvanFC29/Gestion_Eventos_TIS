@@ -10,4 +10,8 @@ class CanvasController extends Controller
         return view('lienzo.canvas', ['image' => $image]);
     }
 
+    public function blanco(){
+        return view('lienzo.canvas_blanco');
+    }
+
 }
