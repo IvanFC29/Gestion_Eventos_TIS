@@ -1,13 +1,14 @@
 #canvas {
     border: 1px solid #000;
-    margin-left: 30%;
-    margin-right: 20%;
+    margin-left: 50%;
+    margin-right: 70%;
 }
 
 /* Panel de opciones  */
 #toolbar {
-    margin-left: 22%;
-    margin-right: 18%;
+    margin-left: 70%;
+    margin-right: 5%;
+    margin-top: -55%;
     background-color: rgb(207,253,187);
     padding: 1%;
 }
@@ -16,6 +17,14 @@
     display: none;
 }
 
+.btn-color{
+    background: #FDBA31 !important;
+    /*outline: 1.5px solid #FDBA31;
+    outline-offset: 0.2rem;*/
+    width: 30%;
+}
+  
+
 /* Afiche.blade.php */
 #titulo_plantillas{
     font-size: 130%;
@@ -23,10 +32,16 @@
     padding-right: 4%;
 }
 
-#img{
-    max-width: 50%;
+.eventocard{
+    width: 50%;
+    height: 60%;
 }
 
 #plantilla{
-    width: 30%;
+    width: 50%;
+    height: 60%;
+}
+
+.col-md-4{
+    width: 40px;
 }

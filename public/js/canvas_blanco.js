@@ -1,22 +1,6 @@
 // Declaramos el objeto fabric.Canvas
 const canvas = new fabric.Canvas('canvas');
 
-// Variable para la imagen de fondo
-let backgroundImage;
-
-// Cargar imagen de fondo al inicio
-const img = new Image();
-img.onload = function() {
-    backgroundImage = new fabric.Image(img, {
-        left: 0,
-        top: 0,
-        width: canvas.width,
-        height: canvas.height,
-        selectable: false, // La imagen de fondo no es seleccionable
-    });
-    canvas.add(backgroundImage);
-};
-img.src = imageUrl;
 
 // Funciones para agregar texto
 document.getElementById('addText').addEventListener('click', () => {
@@ -32,8 +16,8 @@ document.getElementById('addText').addEventListener('click', () => {
         left: 100,
         top: 100,
         fontSize: 20,
-        //fontFamily: 'Arial',
         ...estilo,
+        //fontFamily: 'Arial',
     });
     canvas.add(text);
 });

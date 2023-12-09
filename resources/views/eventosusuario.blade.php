@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eventos</title>
   <link rel="stylesheet" href="{{ asset('css/sinLogin.css') }}" TYPE="text/css">  
-  <link rel="stylesheet" href="{{ asset('css/eventos_admin.css') }}" TYPE="text/css"> 
-  <link rel="stylesheet" href="{{ asset('css/eventos_usuario.css') }}" TYPE="text/css">  
+  <link rel="stylesheet" href="{{ asset('css/eventos_usuario.css') }}" TYPE="text/css">
+  <link rel="stylesheet" href="{{ asset('css/elbuscar.css') }}" TYPE="text/css">  
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -151,17 +151,71 @@
               </div>
             @endforeach
       </div>-->
-      <!-- Puedes colocar este formulario donde desees, por ejemplo, en tu barra de navegación -->
-      <form action="{{ route('buscar.eventos') }}" method="GET">
-          <input type="text" name="query" placeholder="Buscar eventos...">
-          <button type="submit">Buscar</button>
-      </form>
+      <div class="elbuscar">
+        <div class="elotrobuscar">
+          <form action="{{ route('buscar.eventos') }}" method="GET">
+              <div class="cajadebuscar">
+                  <input type="text" name="query" placeholder="Buscar eventos...">
+              </div>
+              <button type="submit">Buscar</button>
+          </form>
+        </div>
+      </div>
 
       <div class="container mt-4">
+      <div id="contenido">
+         <!-- Seccion de los eventos proximos o cercanos  -->
+        <div>
+          <h2> Próximos Eventos</h2>
+        </div>  <br>
+        <div class="row">
+          @foreach ($proximos as $evento)
+                 <div class="modal" id="modal-{{ $evento->id }}">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <h5 class="modal-title">{{ $evento->nombre }}</h5>
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              </div>
+                              <div class="modal-body">
+                                  <p>{{ $evento->descripcion }}</p>
+                                  <br>
+                                  <p>Fecha de inicio: {{ $evento->fecha_inicio }}</p>
+                                  <p>Fecha de fin: {{ $evento->fecha_fin }}</p>
+                                  <!-- Agrega aquí más detalles del evento si es necesario -->
+                              </div>
+                               <!-- Botón para abrir el formulario en el modal -->
+                                <a href="{{ url('/registro-eventos', ['nombre' => $evento->nombre]) }}" class="btn btn-color">
+                                  Registrase
+                                </a>
+                          </div>
+                      </div>
+                  </div>
+            <div class="col-md-4">
+                <div class="card eventocard">
+                    <img src="{{ asset( $evento->afiche ) }}" alt="Card Image" class="imgevento">
+                    <div class="card-body eventobodycard">
+                        <h5 class="card-title"><b>{{ $evento->nombre }}</b></h5>
+                        <!--<p class="card-text">{{ $evento->descripcion }}</p>
+                        <p class="card-text">{{ $evento->fecha_inicio }}</p>
+                        <p class="card-text">{{ $evento->fecha_fin }}</p>-->
+                        <p>
+                        <button type="button" class="btn btn-color abrirmodales" data-toggle="modal" data-target="#modal-{{ $evento->id }}">
+                          Detalles
+                        </button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+          @endforeach
+        </div>      
+        <br>
+    
+          <hr><div><br>
+            <h2> Eventos pasados </h2>
+          </div> <br>
           <div class="row">
               @foreach ($listados as $evento)
-
-
                   <div class="modal" id="modal-{{ $evento->id }}">
                       <div class="modal-dialog">
                           <div class="modal-content">
@@ -177,37 +231,30 @@
                                   <!-- Agrega aquí más detalles del evento si es necesario -->
                               </div>
                                <!-- Botón para abrir el formulario en el modal -->
-                                <a href="{{ url('/registro-eventos', ['nombre' => $evento->nombre]) }}" class="btn btn-primary">
+                                <a href="{{ url('/registro-eventos', ['nombre' => $evento->nombre]) }}" class="btn btn-color">
                                   Registrase
                                 </a>
                           </div>
                       </div>
                   </div>
-
                   
 
-                  <!-- Agrega un botón para abrir el modal -->
-                  <div class="col-md-4">
-                      <div class="card eventocard">
-                        @if(Storage::exists('public/' . $evento->afiche))
-                          <img src="{{ asset('storage/' . $evento->afiche) }}" alt="Card Image" class="imgevento">
-                        @else
-                          <p>No se encontró la imagen</p>
-                        @endif
-                        <div class="card-body eventobodycard">
-                              <h5 class="card-title">{{ $evento->nombre }}</h5>
-                              <p class="card-text">{{ $evento->descripcion }}</p>
-                              <p class="card-text">{{ $evento->fecha_inicio }}</p>
-                              <p class="card-text">{{ $evento->fecha_fin }}</p>
-                              <button type="button" class="btn btn-primary abrirmodales" data-toggle="modal" data-target="#modal-{{ $evento->id }}">
-                                  Ver detalles
-                              </button>
-                          </div>
-                      </div>
-                       
-                        
-                      <br>
+                <!-- Agrega un botón para abrir el modal -->  
+                <div class="col-md-4">
+                  <div class="card eventocard">
+                    <div id='contenedor'>
+                      <h5 class="card-title"><b>{{ $evento->nombre }}</b></h5>
+                        <p class="card-text">{{ $evento->descripcion }}</p>
+                    	  <!--<p class="card-text">{{ $evento->fecha_inicio }}</p>
+                        <p class="card-text">{{ $evento->fecha_fin }}</p>-->
+                        <p> <br>
+                        <button type="button" class="btn btn-color abrirmodales" data-toggle="modal" data-target="#modal-{{ $evento->id }}">
+                          Detalles
+                        </button>
+                      <hr>
+                    </div>
                   </div>
+                </div>
 
                   <div class="modal fade" id="modal-principal" tabindex="-1" role="dialog" aria-labelledby="modal-principal-label" aria-hidden="true">
                     <!-- ... (código anterior del modal principal) ... -->
@@ -237,6 +284,7 @@
                   
                 @endforeach
           </div>
+        </div>
       </div>
       
         

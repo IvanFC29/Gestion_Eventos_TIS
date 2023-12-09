@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulario con Estilos</title>
+  <title>Registro Eventos</title>
 
   <link rel="stylesheet" href="{{ asset('css/loginAdmin.css') }}" type="text/css"> 
   <link rel="stylesheet" href="{{ asset('css/index.css') }}" type="text/css">  
@@ -134,8 +134,28 @@
 
   <div class="centrar">
     <form method="post" action="{{ route('eventos.registroUsuEvent') }}" enctype="multipart/form-data">
+    @if (session('error'))
+                    <div id='mensaje'>
+                        <div class='alert alert-success alert-dismissible fade show' role='alert'>
+                            <strong> {{ session('error') }}</strong>
+                            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'> </button>
+                        </div>
+                    </div>
+                @endif
+                @if (session('success'))
+                    <div id='mensaje'>
+                        <div class='alert alert-success alert-dismissible fade show' role='alert'>
+                            <strong> {{ session('success') }}</strong>
+                            <div id="botonMensaje"> 
+                                <a href="/eventos" id="botonMensaje" type="button"> Ver Eventos</a>
+                                <a href="/lista-afiches" id="botonMensaje" type="button"> Crear Afiche</a>
+                            </div>
+                            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'> </button>
+                        </div>
+                    </div>
+                @endif
       @csrf
-      <p class="titulo">{{ $nombre }}</p>
+      <p class="titulo" >{{ $nombre }}</p>
       <label for="nombre">Nombres:</label>
       <input type="text" id="nombre" name="nombre" title="Solo se permiten letras" required>
 
@@ -150,6 +170,8 @@
 
       <label for="edad">Edad:</label>
       <input type="number" id="edad" name="edad" min="1" required>
+
+      <input type="hidden" name="eventoinscrito" value="{{ $nombre }}">
 
       <button type="submit">Enviar</button>
     </form>

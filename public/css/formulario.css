@@ -37,6 +37,7 @@ body{
   background-color: rgb(155, 218, 232);
   margin: auto;
   max-height: 75%; 
+  margin-bottom: 2%;
 }
 
 .btn {

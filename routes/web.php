@@ -11,7 +11,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CoachController;
 use App\Http\Controllers\NuevocoachController;
 use App\Http\Controllers\CanvasController;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; 
+use App\Http\Controllers\ImagenController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,9 +27,7 @@ Route::get('/'', [App\Http\Controllers\Frontend\FrontendController::class,'index
 Route::view('/','frontend.index');
 
 
-//Route::get('/home', function () {
-    //return view('home');
-//})->middleware('auth.admin');
+
 
 Route::get('/register', [RegisterController::class, 'create'])
     ->middleware('guest')
@@ -65,10 +64,10 @@ Route::get('/crear-evento', [EventoController::class, 'crearEvento'])
 Route::post('/guardar-evento', [EventoController::class, 'guardarEvento'])
 ->middleware('auth.admin')
 ->name('eventos.guardarEvento');
-
+/*
 Route::get('/ver-eventos-editables', [EventoController::class, 'verEditables'])
 ->middleware('auth.admin')
-->name('eventos.verEditables');
+->name('eventos.verEditables');*/
 
 
 // Rutas Kevin
@@ -145,13 +144,17 @@ Route::get('/escribir-correo', [AdminController::class, 'editorCorreo']);
 Route::post('/enviar-cuenta-coach', [AdminController::class, 'sendmail']);
 
 Route::get('/canvas/{image}', [CanvasController::class, 'index'])->middleware('auth.admin')->name('canvas');
-
+Route::get('/canvas_new_version', [CanvasController::class, 'blanco'])->middleware('auth.admin')->name('canvas_new');
 Route::get('/lista-afiches', function () {
     return view('lienzo.afiches');
 })->middleware('auth.admin');
 
+Route::post('/guardar-imagen', [ImagenController::class, 'guardarImagen'])->middleware('auth.admin');
 
 
+Route::get('/menu', function () {
+    return view('admin.menu');
+}); //->middleware('auth.admin');
 
 
   // Fin rutas

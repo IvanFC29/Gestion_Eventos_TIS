@@ -135,8 +135,8 @@
                         </div>
                     </div>
                 @endif
-                <div class="section">
-                    <form method="post" action="{{ route('eventos.guardarCompetencia') }}" enctype="multipart/form-data">
+            <div class="section">
+                <form method="post" action="{{ route('eventos.guardarCompetencia') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="containerTitulo">      
                             <h1> <b>CREAR COMPETENCIA</b> </h1>
@@ -209,16 +209,63 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row opcional" id="costo">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Costo:</label>
+                                    <input type="text" name="costo" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row opcional" id="actividades">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Actividades:</label>
+                                    <input type="text" name="actividades" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Agrega campos adicionales para las otras opciones -->
+                        <div class="section2">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Campos adicionales:</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="chkCosto" name="chkCosto">
+                                        <label class="form-check-label" for="chkCosto">Costo</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="chkActividades" name="chkActividades">
+                                        <label class="form-check-label" for="chkActividades">Actividades</label>
+                                    </div>
+                                    <!-- Agrega checkboxes para las otras opciones -->
+                                </div>
+                            </div>
+                        </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary guardar" name="editable" value="0">Guardar</button>
                             <a type="button" href="/competencias-adm" class="btn btn-secondary cancelar">Cancelar</a>
                         </div>
 
-                    </form>   
-                </div>
+                </form>   
+            </div>
         </div>
         
 
+    <!-- Agrega este script al final de tu formulario -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Oculta inicialmente los campos opcionales
+            $('.opcional').hide();
+
+            // Maneja el cambio en los checkboxes
+            $('input[type="checkbox"]').change(function () {
+                var campo = $(this).attr('id').substring(3).toLowerCase(); // Obtiene el nombre del campo
+                $('#' + campo).toggle(); // Muestra u oculta el campo según el estado del checkbox
+            });
+        });
+    </script>
     <script>
                 $(document).ready(function () {
                     var trigger = $('.hamburger'),

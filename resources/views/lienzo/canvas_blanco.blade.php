@@ -105,6 +105,12 @@
 	</div>
 </div>	
 
+<div class="bg-sky-500">
+    <div class="section">
+	    <canvas id="canvas" width="610" height="690"></canvas>
+    </div>
+</div>
+<br>
 <div id="toolbar">
 	<button type="button" id="saveButton" class="btn btn-success" title="Descargar">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
@@ -152,13 +158,8 @@
    	
    	<label for="colorPicker">Color de fondo</label>
    	<input type="color" id="colorPicker" value="#ffffff"> 
-</div>
-<br>
-<div class="bg-sky-500">
-	<div class="section">
-		<canvas id="canvas" width="610" height="690"></canvas>
-	</div>
-</div>
+</div>	
+
 
 <script>
     $(document).ready(function () {
@@ -190,10 +191,7 @@
       });  
     });
 </script>
-<script>
-  const ctx = canvas.getContext('2d');
-  const imageUrl = "{{ asset('images/plantillas/') }}/{{ $image }}";
-</script>
-<script src="{{ asset('js/canvas.js') }}"></script>
+
+<script src="{{ asset('js/canvas_blanco.js') }}"></script>
 </body>
 </html>

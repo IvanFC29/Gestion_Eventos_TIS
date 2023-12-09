@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Evento;
 use App\Models\Competencia;
+use App\Models\RegistroEv;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
@@ -11,13 +12,32 @@ use Illuminate\Support\Facades\Storage;
 class EventoController extends Controller
 {
     public function index(){
-        $lista = Evento::where('editable',0)->get();
+        // Funcion para traer el evento mas proximo
+        $fecha_actual = now();
 
-        foreach ($lista as $i) {
+        $eventos_cercanos = Evento::where('editable', 0)
+        ->where('fecha_inicio', '>=', $fecha_actual)
+        ->orderBy('fecha_inicio', 'asc') 
+        ->get();
+        
+        // Funcion para mostrar los eventos pasados
+        $eventos_pasados = Evento::where('editable', 0)
+        ->where('fecha_inicio', '<', $fecha_actual)
+        ->orderBy('fecha_inicio', 'asc') 
+        ->get();
+
+        foreach ($eventos_cercanos as $i) {
             $i->fecha_inicio = Carbon::parse($i->fecha_inicio);
             $i->fecha_fin = Carbon::parse($i->fecha_fin);
         }
-        return view('eventos_admin', compact('lista')); 
+    
+        foreach ($eventos_pasados as $i) {
+            $i->fecha_inicio = Carbon::parse($i->fecha_inicio);
+            $i->fecha_fin = Carbon::parse($i->fecha_fin);
+        }
+
+    
+        return view('eventos_admin', compact('eventos_cercanos', 'eventos_pasados')); 
     }
 
     public function crearEvento(){
@@ -36,7 +56,7 @@ class EventoController extends Controller
         $evento->cel_referencia = $request->input('telefonoevento');
         
         // afiche por defecto
-        $afichePath = 'afiches/aficheEdit.jpg';
+        $afichePath = 'images/afiches/aficheEdit.jpg';
         $evento->afiche = $afichePath;
   
         // Buscar eventos repetidos
@@ -71,29 +91,25 @@ class EventoController extends Controller
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     
-    public function uEventos()
-    {
-        $listados = Evento::get();
+    public function uEventos(){
+        $fecha_actual = now();
+        $listados = Evento::where('editable', 0)
+        ->where('fecha_inicio', '<', $fecha_actual)
+        ->orderBy('fecha_inicio', 'asc') 
+        ->get();
 
+        $proximos = Evento::where('editable', 0)
+        ->where('fecha_inicio', '>=', $fecha_actual)
+        ->orderBy('fecha_inicio', 'asc') 
+        ->get();
+ 
         foreach ($listados as $i) {
             $i->fecha_inicio = Carbon::parse($i->fecha_inicio);
             $i->fecha_fin = Carbon::parse($i->fecha_fin);
         }
     
-        return view('eventosusuario', compact('listados'));
+        return view('eventosusuario', compact('listados', 'proximos'));
         
     }
     public function mostrarFormularioRegistro($nombre) {
@@ -137,7 +153,7 @@ class EventoController extends Controller
         $competencia->cel_referencia = $request2->input('telefonoCompetencia');
         
         // Buscar competencias repetidas
-        $competencia_existente = Competencia::where('nombre', $competencia->nombre)->count();
+        $correo_existente = Competencia::where('nombre', $competencia->nombre)->count();
         if ($competencia_existente > 0) {
             session()->flash('error', 'El nombre de la Competencia ya existe en la base de datos');
         }else{
@@ -148,13 +164,21 @@ class EventoController extends Controller
     }
     
     public function registroUsuEvent(Request $request3){
-        $competencia = new Competencia();
-        $competencia->nombre = $request3->input('nombre');
-        $competencia->apellidos = $request3->input('apellidos');
-        $competencia->correo = $request3->input('correo');
-        $competencia->telefono = $request3->input('telefono');
-        $competencia->edad = $request3->input('edad');
+        $registroevento = new RegistroEv();
+        $registroevento->eventoinscrito=$request3->input('eventoinscrito');
+        $registroevento->nombre = $request3->input('nombre');
+        $registroevento->apellidos = $request3->input('apellidos');
+        $registroevento->correo = $request3->input('correo');
+        $registroevento->telefono = $request3->input('telefono');
+        $registroevento->edad = $request3->input('edad');
         
+        $correo_existente = RegistroEv::where('correo', $registroevento->correo)->count();
+        if ($correo_existente > 0) {
+            session()->flash('error', 'Este correo ya está registrado en este Evento');
+        }else{
+            $registroevento->save();
+            session()->flash('success', '¡Registro Completado!');
+        }
         return view('frontend.index');
     }
 

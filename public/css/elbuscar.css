@@ -1,0 +1,49 @@
+.elbuscar {
+    display: flex;
+}
+
+.elotrobuscar {
+    flex: 1;
+    margin-left: 70%;
+    margin-top: 2%;
+}
+
+/* Estilos para la caja de búsqueda */
+.cajadebuscar {
+    display: inline-block;
+    position: relative;
+}
+
+.cajadebuscar input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #000;
+    border-radius: 5px;
+     /* Fondo gris */
+    color: #000000; /* Texto blanco */
+    width: 300px; /* Ajusta el ancho según sea necesario */
+}
+
+/* Estilos para el botón */
+/*button {
+    /*padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #000;
+    background-color: #808080;
+    border-radius: 5px;
+    color: #000; /* Texto negro 
+    cursor: pointer;
+    border-radius: 5px;
+}*/
+
+button:hover {
+    background-color: #dddddd; /* Cambio de color en el hover */
+}
+
+#mensaje .alert{
+    background-color: rgb(199, 35, 35) !important;
+}
+
+#botonMensaje {
+    color: #000;
+}
