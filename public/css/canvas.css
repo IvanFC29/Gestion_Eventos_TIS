@@ -1,7 +1,7 @@
 #canvas {
     border: 1px solid #000;
-    margin-left: 50%;
-    margin-right: 70%;
+    margin-left: 10%;
+    margin-right: 20%;
 }
 
 /* Panel de opciones  */
@@ -17,12 +17,13 @@
     display: none;
 }
 
+/*
 .btn-color{
     background: #FDBA31 !important;
-    /*outline: 1.5px solid #FDBA31;
-    outline-offset: 0.2rem;*/
+    outline: 1.5px solid #FDBA31;
+    outline-offset: 0.2rem;
     width: 30%;
-}
+}*/
   
 
 /* Afiche.blade.php */
@@ -32,16 +33,3 @@
     padding-right: 4%;
 }
 
-.eventocard{
-    width: 50%;
-    height: 60%;
-}
-
-#plantilla{
-    width: 50%;
-    height: 60%;
-}
-
-.col-md-4{
-    width: 40px;
-}
