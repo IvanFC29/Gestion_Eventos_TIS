@@ -150,6 +150,7 @@ class EventoController extends Controller
     
     public function registroUsuEvent(Request $request3){
         $registroevento = new RegistroEv();
+        $registroevento->eventoinscrito=$request3->input('eventoinscrito');
         $registroevento->nombre = $request3->input('nombre');
         $registroevento->apellidos = $request3->input('apellidos');
         $registroevento->correo = $request3->input('correo');
@@ -180,4 +181,7 @@ class EventoController extends Controller
         return view('resultados', ['resultados' => $resultados]);
     }
 
+    public function registrarUsCompetencia(){
+        return view('registro_competencias');
+    }
 }

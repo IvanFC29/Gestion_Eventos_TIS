@@ -8,5 +8,5 @@ class RegistroEv extends Model
 {
     public $timestamps = false;
     protected $table = 'registro_eventos';
-    protected $fillable = ['nombre', 'apellidos', 'correo', 'telefono', 'edad'];
+    protected $fillable = ['eventoinscrito', 'nombre', 'apellidos', 'correo', 'telefono', 'edad'];
 }
