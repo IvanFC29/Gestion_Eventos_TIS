@@ -155,7 +155,7 @@
                     </div>
                 @endif
       @csrf
-      <p class="titulo">{{ $nombre }}</p>
+      <p class="titulo" >{{ $nombre }}</p>
       <label for="nombre">Nombres:</label>
       <input type="text" id="nombre" name="nombre" title="Solo se permiten letras" required>
 
@@ -170,6 +170,8 @@
 
       <label for="edad">Edad:</label>
       <input type="number" id="edad" name="edad" min="1" required>
+
+      <input type="hidden" name="eventoinscrito" value="{{ $nombre }}">
 
       <button type="submit">Enviar</button>
     </form>

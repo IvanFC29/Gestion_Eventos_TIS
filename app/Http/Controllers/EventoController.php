@@ -164,7 +164,7 @@ class EventoController extends Controller
             $registroevento->save();
             session()->flash('success', '¡Registro Completado!');
         }
-        return view('registro-evento');
+        return view('frontend.index');
     }
 
     // EventoController.php
