@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
+  <title>Notificar Cambio</title>
   <link rel="stylesheet" href="{{ asset('css/menu.css') }}" TYPE="text/css">  
   <link rel="stylesheet" href="{{ asset('css/correo.css') }}" type="text/css">   
   <link rel="stylesheet" href="{{ asset('css/eventos_admin.css') }}" TYPE="text/css">  
@@ -127,23 +127,25 @@
             <!-- Contenido principal de tu página -->
             <br>
             <div id="formCorreo">
-	              <h2 class="large-heading">Envio de Cuentas</h2>
+	              <h2 class="large-heading">Notificación de Cambio</h2>
                 <br>
-                <form action="/enviar-cuenta-coach" method="POST">
+                <form action="/enviar-cambio" method="POST">
                 @csrf
-                    <label for="email">Correo Electrónico:</label>
-                    <input type="email" id="email" name="email" required>
+                    <label for="email">Correo Electrónico del Coach:</label>
+                    <input type="email" id="email" name="email" value="{{ $coach->email }}" required>
                     
+                    <label for="email">Nombre del Coach:</label>
+                    <input type="text" id="info" name="info" value="{{ $coach->name . ' ' . $coach->apellidoP . ' ' . $coach->apellidoM }}" required>
+
+                    <br>
                     <label for="contenido">Mensaje:</label>
-                    <textarea id="contenido" name="contenido" class="border border-gray-200 rounded-md bg-gray-200 w-full text-lg placeholder-gray-900 p-2 my-2 focus:bg-white"  required rows="4" cols="40">Coach ___________ De parte de la administración del ICPC, le hacemos llegar su cuenta con la que podra hacer seguimiento del equipo que se le fue asignado.
-                      Correo:
-                      Contraseña:
+                    <textarea id="contenido" name="contenido" class="border border-gray-200 rounded-md bg-gray-200 w-full text-lg placeholder-gray-900 p-2 my-2 focus:bg-white"  required rows="4" cols="40">El evento: {{ $evento->nombre }} ha tenido cambios
                     </textarea>
                     <div class="button-container">
                       <br>
                           <button class="button" type="submit">Enviar correo</button>
                     </div>
-                @error('message')        
+                    @error('message')        
                     <p class="border border-red-500 rounded-md bg-red-100 w-full
                               text-red-600 p-2 my-2">* {{ $message }}</p>
                 @enderror
@@ -154,7 +156,7 @@
                             document.getElementById('alert-container').innerHTML = '<div class="alert alert-success">{{ session('success') }}</div>';
                           </script>
                         @endif
-                  </form>
+                </form>
             </div>
         </main>
     </div>

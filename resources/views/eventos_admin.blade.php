@@ -175,9 +175,9 @@ CHAT GPT -->
                 <button type="button" class="btn btn-color abrirmodales" data-toggle="modal" data-target="#modal-{{ $proximo->id }}">
                   Detalles
                 </button>
-                <button type="button" class="btn btn-color">
+                <a type="button" href="{{ route('editar-Evento', ['id' => $proximo->id]) }}" class="btn btn-color">
                   Editar
-                </button>
+                </a>
               </p>
           </div>
         </div>
@@ -220,9 +220,9 @@ CHAT GPT -->
                 <button type="button" class="btn btn-color abrirmodales" data-toggle="modal" data-target="#modal-{{ $evento->id }}">
                     Detalles
                 </button>
-                <button type="button" class="btn btn-color">
-                    Editar
-                </button></p>
+                <a type="button" href="{{ route('editar-Evento', ['id' => $evento->id]) }}" class="btn btn-color">
+                  Editar
+                </a></p>
               <hr>
             </div>
           
