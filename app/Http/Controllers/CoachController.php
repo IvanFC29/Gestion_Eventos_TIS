@@ -38,10 +38,10 @@ class CoachController extends Controller
         return view('auth.registerCoach');
     }
 
-    public function store(){
+    public function storeCoach() {
         $email = request('email');
         $password = request('password');
-        $fotoPath = 'images/fotos/foto_default.jpg';
+    
         // Buscar el usuario por correo electrónico
         $user = User::where('email', $email)->first();
         
@@ -55,6 +55,13 @@ class CoachController extends Controller
         if ($password != $user->password) {
             return back()->withErrors([
                 'message' => 'La contraseña es incorrecta. Por favor, intente de nuevo.',
+            ]);
+        }
+    
+        // Si llegas a este punto, el correo y la contraseña son correctos
+        if ('coach' != $user->rol) {
+            return back()->withErrors([
+                'message' => 'Datos incorrectos',
             ]);
         }
     

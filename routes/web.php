@@ -124,7 +124,7 @@ Route::post('enviar-correo',  [AdminOficialController::class, 'sendmail'])
 Route::get('/loginCoach', [AdminOficialController::class, 'loginC'])
 ->middleware('guest');
 
-Route::post('/loginCoach', [CoachController::class, 'store']);
+Route::post('/loginCoach', [CoachController::class, 'storeCoach']);
    // ->name('login.store');
 Route::view('/perfil','verPerfil')->middleware('auth.admin');
 
