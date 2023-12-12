@@ -131,139 +131,63 @@
     </div>
   </div>
 
-<!--modal crear evento
-Para rescatar los datos--
-<div class="container mt-4">
-<div class="row">
-@foreach ($eventos_pasados as $i)
-<div class="col-md-4">
-  <div class="card eventocard">
-    <img src="{{ asset('images/eventos.jpg') }}" alt="Card Image" class="imgevento">
-    <div class="card-body eventobodycard">
-      <h5 class="card-title">{{ $i->nombre }}</h5>
-      <p class="card-text">{{ $i->descripcion }}</p>
-      <p class="card-text">{{ $i->fecha_inicio }}</p>
-      <p class="card-text">{{ $i->fecha_fin }}</p>
-    </div>
-  </div>
-  <br>
-</div>
-@endforeach
-</div>
-CHAT GPT -->
-<div class="container mt-4">
- <div id="contenido">
-   <!-- Seccion de los eventos proximos o cercanos  -->
-  <div>
-    <h2> Próximos Eventos</h2>
-  </div>  <br>
-  <div class="row">
-    @foreach ($eventos_cercanos as $proximo)
-    <div class="modal" id="modal-{{ $proximo->id }}">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">{{ $proximo->nombre }}</h5>
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                  <p>{{ $proximo->descripcion }}</p>
-                  <br>
-                  <p>Fecha de inicio: {{ $proximo->fecha_inicio }}</p>
-                  <p>Fecha de fin: {{ $proximo->fecha_fin }}</p>
-                  <!-- Agrega aquí más detalles del evento si es necesario -->
-                </div>
-              </div>
-            </div>
-          </div>
-      <div class="col-md-4">
-        <div class="card eventocard">
-          <img src="{{ asset( $proximo->afiche ) }}" alt="Card Image" class="imgevento">
-          <div class="card-body eventobodycard">
-          <h5 class="card-title">{{ $proximo->nombre }}</h5>
-              <!--<p class="card-text">{{ $proximo->descripcion }}</p>
-              <p class="card-text">{{ $proximo->fecha_inicio }}</p>
-              <p class="card-text">{{ $proximo->fecha_fin }}</p>-->
-              <p>
-                <button type="button" class="btn btn-color abrirmodales" data-toggle="modal" data-target="#modal-{{ $proximo->id }}">
-                  Detalles
-                </button>
-                <button type="button" class="btn btn-color">
-                  Editar
-                </button>
-              </p>
-          </div>
+
+  <div class="container mt-4">
+    <div id="contenido">
+        <!-- Sección de los eventos próximos o cercanos  -->
+        <div>
+            <h2 class="titulo-grande">Lista de eventos</h2>
         </div>
-      </div>
-    @endforeach
-  </div>      
-  <br>
-  <hr>
-  <br>
-  <!-- Seccion de los eventos pasados  -->
-  <div class="row">
-  <div>
-    <h2> Eventos pasados </h2>
-  </div>
-        @foreach ($eventos_pasados as $evento)
-          <div class="modal" id="modal-{{ $evento->id }}">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">{{ $evento->nombre }}</h5>
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                  <p>{{ $evento->descripcion }}</p>
-                  <br>
-                  <p>Fecha de inicio: {{ $evento->fecha_inicio }}</p>
-                  <p>Fecha de fin: {{ $evento->fecha_fin }}</p>
-                  <!-- Agrega aquí más detalles del evento si es necesario -->
-                </div>
-              </div>
-            </div>
-          </div>
-          
-            <div id='contenedor'>
-                <h5 class="card-title">{{ $evento->nombre }}</h5>
-                <p class="card-text">{{ $evento->descripcion }}</p>
-                <!--<p class="card-text">{{ $evento->fecha_inicio }}</p>
-                <p class="card-text">{{ $evento->fecha_fin }}</p>-->
-                <p> <br>
-                <button type="button" class="btn btn-color abrirmodales" data-toggle="modal" data-target="#modal-{{ $evento->id }}">
-                    Detalles
-                </button>
-                <button type="button" class="btn btn-color">
-                    Editar
-                </button></p>
-              <hr>
-            </div>
-          
-          <!-- Agrega un botón para abrir el modal -->
-    <!--<div class="col-md-4">
-        <div class="card eventocard">
-            <img src="{{ asset( $evento->afiche ) }}" alt="Card Image" class="imgevento">
-            <div class="card-body eventobodycard">
-                <h5 class="card-title">{{ $evento->nombre }}</h5>
-                <p class="card-text">{{ $evento->descripcion }}</p>
-                <p class="card-text">{{ $evento->fecha_inicio }}</p>
-                <p class="card-text">{{ $evento->fecha_fin }}</p>
-                <p>
-                <button type="button" class="btn btn-color abrirmodales" data-toggle="modal" data-target="#modal-{{ $evento->id }}">
-                    Detalles
-                </button>
-                <button type="button" class="btn btn-color">
-                    Editar
-                </button></p>
-            </div>
-        </div>
+        
         <br>
-      </div>-->
-      @endforeach
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Fecha Inicio</th>
+                    <th>Fecha Fin</th>
+                    <th>Imprimir</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($eventos as $evento)
+                    <tr>
+                        <td>{{ $evento->id }}</td>
+                        <td>{{ $evento->nombre }}</td>
+                        <td>{{ $evento->fecha_inicio }}</td>
+                        <td>{{ $evento->fecha_fin }}</td>
+                        <td>
+                          <!-- Enlace para imprimir con estilos de hoja de estilos -->
+                          <a href="#" onclick="imprimirEvento('{{ $evento->nombre}}')" class="btn btn-info">Imprimir</a>
+                      </td>
+                      
+
+
+                      
+
+                        <td>
+                            <!-- Botón para editar -->
+                            <span class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal_editar_evento" onclick="editarEvento('{{ $evento->id }}')">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </span>
+                        </td>
+                        <td>
+                            <!-- Agrega aquí tu lógica para eliminar -->
+                            <!-- Puedes colocar un botón o enlace según tu preferencia -->
+                            <span class="btn btn-danger">Eliminar</span>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
-  </div>
- </div>
 </div>
+
+
     
 
 
@@ -305,6 +229,30 @@ CHAT GPT -->
         });
     });
 </script>
+<!-- Agrega esta función en una sección de scripts -->
+<!-- Agrega esta función en una sección de scripts -->
+<!-- Agrega esta función en una sección de scripts -->
+<script>
+  function imprimirEvento(nombre) {
+      // Redirigir a la página de registros en PDF con el ID como parámetro
+      window.location.href = '/reportePDF?nombre=' + nombre;
+  }
+</script>
+
+
+
+
+
+<style>
+  .titulo-grande {
+      font-size: 28px; /* Tamaño de fuente más grande según tu preferencia */
+      font-weight: bold; /* Opcional: Puedes hacerlo en negrita */
+      /* Otros estilos que desees aplicar */
+  }
+  /* En tu hoja de estilos CSS o en la sección de estilos de tu HTML */
+
+
+</style>
             
 </body>
 </html>
