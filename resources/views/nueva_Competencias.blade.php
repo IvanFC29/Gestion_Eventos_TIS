@@ -209,6 +209,38 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row opcional" id="requisitos">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Requisitos:</label>
+                                    <input type="text" name="requisitos" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row opcional" id="reglas">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Reglas:</label>
+                                    <input type="text" name="reglas" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row opcional" id="links">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Links:</label>
+                                    <input type="text" name="links" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row opcional" id="infextra">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Información Extra:</label>
+                                    <input type="text" name="infextra" class="form-control">
+                                </div>
+                            </div>
+                        </div>
                         <div class="row opcional" id="costo">
                             <div class="col-md-6">
                                 <div class="mb-3">
@@ -230,15 +262,26 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>Campos adicionales:</label>
+                                    <label>Campos adicionales:</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="chkRequisitos" name="chkRequisitos">
+                                        <label class="form-check-label" for="chkRequisitos">Requisitos</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="chkReglas" name="chkReglas">
+                                        <label class="form-check-label" for="chkReglas">Reglas</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label></label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="chkLinks" name="chkLinks">
+                                        <label class="form-check-label" for="chkLinks">Links</label>
+                                    </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="chkCosto" name="chkCosto">
                                         <label class="form-check-label" for="chkCosto">Costo</label>
                                     </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="chkActividades" name="chkActividades">
-                                        <label class="form-check-label" for="chkActividades">Actividades</label>
-                                    </div>
-                                    <!-- Agrega checkboxes para las otras opciones -->
                                 </div>
                             </div>
                         </div>
