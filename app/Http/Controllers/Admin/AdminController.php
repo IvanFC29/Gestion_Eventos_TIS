@@ -7,7 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\testMail;
-
+use App\Mail\EmailCoach;
 
 class AdminController extends Controller
 {
@@ -39,8 +39,8 @@ class AdminController extends Controller
         $user = User::where('email', $mailR)->first();
 
         if ($user) {
-            Mail::to($mailR)->send(new testMail($details));
-            session()->flash('success', 'La cuenta fue enciada al coach con exito.');
+            Mail::to($mailR)->send(new EmailCoach($details));
+            session()->flash('success', 'La cuenta fue enviada al coach con exito.');
             return redirect()->back();
         }
         

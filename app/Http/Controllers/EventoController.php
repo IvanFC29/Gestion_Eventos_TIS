@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Evento;
+use App\Models\User;
 use App\Models\Competencia;
 use App\Models\RegistroEv;
 use Illuminate\Http\Request;
@@ -36,7 +37,6 @@ class EventoController extends Controller
             $i->fecha_inicio = Carbon::parse($i->fecha_inicio);
             $i->fecha_fin = Carbon::parse($i->fecha_fin);
         }
-
     
         return view('eventos_admin', compact('eventos_cercanos', 'eventos_pasados')); 
     }
@@ -55,7 +55,9 @@ class EventoController extends Controller
         $evento->editable = $request->input('editable');
         $evento->correo_referencia = $request->input('email');
         $evento->cel_referencia = $request->input('telefonoevento');
-        
+        $evento->costo = $request->input('costoevento');
+        $evento->emailCoach = $request->input('elcoach');
+
         // afiche por defecto
         $afichePath = 'images/afiches/aficheEdit.jpg';
         $evento->afiche = $afichePath;
@@ -80,19 +82,38 @@ class EventoController extends Controller
         return view('lista_editables', compact('lista_editables'));
     }
 
+    public function editarEvento($id) {
+        $evento_editar = Evento::find($id);
+        return view('editarEvento', ['id' => $id], compact('evento_editar'));
+    }
 
+    public function modificar(Request $request, $id){
+        $evento = Evento::findOrFail($id);
 
+        // Actualizar los campos del evento con los datos del formulario
+        $evento->nombre = $request->input('nombre');
+        $evento->descripcion = $request->input('descripcionevento');
+        $evento->fecha_inicio = $request->input('fechaEventoInicio');
+        $evento->fecha_fin = $request->input('fechaEventoFin');
+        $evento->tipo = $request->input('tipoEvento');
+        $evento->costo = $request->input('costoevento');
+        $evento->correo_referencia = $request->input('email');
+        $evento->cel_referencia = $request->input('telefonoevento');
+        $evento->emailCoach = $request->input('elcoach');
 
-
-
-
-
-
-
-
-
-
+        // Guardar el evento actualizado en la base de datos
+        $evento->save();
+        session()->flash('success', '¡Evento editado exitosamente!');
     
+        return redirect()->back();    
+    }
+    
+    public function notificarCambio($emailCoach, $id) {
+        $coach = User::where('email', $emailCoach)->first();
+        $evento = Evento::find($id);
+        return view('correoEventEdit', compact('evento','coach'));
+    }
+
     public function uEventos(){
         $fecha_actual = now();
         $listados = Evento::where('editable', 0)

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\Admin2Controller;
 use App\Http\Controllers\EventoController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AdminOficialController;
@@ -157,6 +158,8 @@ Route::get('/menu', function () {
     return view('admin.menu');
 }); //->middleware('auth.admin');
 
+Route::get('/editar-Evento{id}', [EventoController::class, 'editarEvento'])->middleware('auth.admin')->name('editar-Evento');
+Route::post('/modificar-evento{id}', [EventoController::class, 'modificar'])->middleware('auth.admin')->name('eventos.modificar');
 
-  // Fin rutas
-  
+Route::get('/notificar/{emailCoach}/{id}', [EventoController::class, 'notificarCambio'])->middleware('auth.admin')->name('notificar');
+Route::post('/enviar-cambio', [Admin2Controller::class, 'sendmail']);

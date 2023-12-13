@@ -6,7 +6,7 @@
   <title>Eventos</title>
   
   <link rel="stylesheet" href="{{ asset('css/eventos_admin.css') }}" TYPE="text/css">  
-  <link rel="stylesheet" href="{{ asset('css/loginAdmin.css') }}" type="text/css"> 
+  <link rel="stylesheet" href="{{ asset('css/menu.css') }}" TYPE="text/css">  
   
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -29,107 +29,33 @@
 <body>
       
   <!--MENU SIDEBAR-->  
-  <div id="wrapper">
-    <div class="overlay"></div>
-    
-    <!-- Sidebar -->
-    
-    <nav class="navbar navbar-inverse fixed-top" id="sidebar-wrapper" role="navigation">
-      
-      <ul class="nav sidebar-nav">
-        
-        
-        
-        <div class="sidebar-header">
-          <div class="sidebar-brand ">
-            <i class="bi bi-person-circle"></i>
-            <a href="#">Admin</a>
-          </div>        
-        </div>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Inicio</a>
-        </li>
-        <li class="dropdown">
-          <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Eventos <span class="caret"></span></a>
-          <ul class="dropdown-menu animated fadeInLeft" role="menu">
-            <li><a href="/crear-evento" class="dropdown-item ">Crear Evento</a></li>
-            <!--<li><a href="/ver-eventos-editables">Eventos Editables</a></li>-->
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Competencias <span class="caret"></span></a>
-          <ul class="dropdown-menu animated fadeInLeft" role="menu">
-            <li><a href="/competencias-adm" class="dropdown-item ">Ver Competencias</a></li>
-            <li><a href="/crearcompetencias">Crear Competencia</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Coachs <span class="caret"></span></a>
-          <ul class="dropdown-menu animated fadeInLeft" role="menu">
-            <li><a href="/registerCoach" class="dropdown-item ">Nuevo Coach</a></li>
-            <li><a href="#">Ver coachs</a></li>
-          </ul>
-        </li>
-        <li><a href="/reporte">Reportes</a></li>
-        <li><a href="#events">Calendario</a></li>
-        @if(auth()->check())
-        <li>
-          <a href="{{ route('login.destroy') }}" >Cerrar Sesion</a>
-        </li>
-        @else
-        <li class="mx-6">
-          <a href="{{ route('login.index') }}" class="font-semibold hover-bg-indigo-700 py-3 px-4 rounded-md">Log In</a>
-        </li>
-        @endif
-        
-      </ul>
-    </nav>
-    <!-- /#sidebar-wrapper -->
 
+<header>
+    <!-- Contenido del encabezado (header) -->
     <!-- Page Content -->
     <nav class="navbar custom-navbar navbar-expand-lg">
-      <div class="container-fluid">
-        <div class="divtitulom">
-          <h1 class="titulomalo">CP-Bol</h1>
-        </div>
-        
-      </div>
-      <div class="collapse navbar-collapse color-letra" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <b>{{auth()->user()->name}}  {{auth()->user()->apellidoP}}      </b>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-             
-              <a class="dropdown-item" href="/perfil">Ver perfil</a>
-              <a class="dropdown-item" href="/editCoach">Editar Perfil</a>
-              <a class="dropdown-item" href="{{ route('login.destroy') }}" >Cerrar Sesion</a>
-            </li>                 
-            
-          </ul>
-        </div>
-        
-      </nav>
-      
-      <div id="page-content-wrapper">
-        <button type="button" class="hamburger animated fadeInLeft is-closed" data-toggle="offcanvas">
-          <span class="hamb-top"></span>
-          <span class="hamb-middle"></span>
-          <span class="hamb-bottom"></span>
-        </button>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-              <h1></h1>
+        <div class="container-fluid">
+            <div class="divtitulom">
+                <h1 class="titulomalo">CP Bol - Competencias Programación Bolivia</h1>
             </div>
-          </div>
         </div>
-      </div>
-      <!-- /#page-content-wrapper -->
-    </div>
-  </div>
+        <div class="collapse navbar-collapse color-letra" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <b>{{auth()->user()->name}}  {{auth()->user()->apellidoP}}      </b>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">   
+                        <a class="dropdown-item" href="/perfil">Ver perfil</a>
+                        <a class="dropdown-item" href="/editarPerfil">Editar Perfil</a>
+                        <a class="dropdown-item" href="{{ route('login.destroy') }}" >Cerrar Sesion</a>
+                    </div>    
+                </li>                   
+            </ul>
+        </div>              
+    </nav>
+</header>
+ 
 
 <!--modal crear evento
 Para rescatar los datos--
@@ -151,6 +77,68 @@ Para rescatar los datos--
 @endforeach
 </div>
 CHAT GPT -->
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Barra de navegación izquierda (aside) -->
+        <aside class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <!-- Contenido de tu barra de navegación izquierda -->
+            <nav class="navbar navbar-inverse" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <div class="sidebar-header">
+                    <div class="sidebar-brand ">
+                    <i class="bi bi-person-circle"></i>
+                    <a href="#">Admin</a>
+                    </div>        
+                </div>
+                <ul class="nav flex-column">
+                    <li class="dropdown">
+                        <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Eventos <span class="caret"></span></a>
+                        <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                            <li><a href="/crear-evento" class="dropdown-item ">Crear Evento</a></li>
+                            <li><a href="/eventos" class="dropdown-item">Lista de Eventos</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Competencias <span class="caret"></span></a>
+                        <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                            <li><a href="/competencias-adm" class="dropdown-item ">Ver Competencias</a></li>
+                            <li><a href="/crearcompetencias" class="dropdown-item ">Crear Competencia</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Coachs <span class="caret"></span></a>
+                        <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                            <li><a href="/registerCoach" class="dropdown-item ">Nuevo Coach</a></li>
+                            <li><a href="#" class="dropdown-item ">Ver coachs</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/reporte"> 
+                            Reportes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Calendario
+                        </a>
+                    </li>
+                    @if(auth()->check())
+                        <li>
+                            <a href="{{ route('login.destroy') }}" >Cerrar Sesion</a>
+                        </li>
+                    @else
+                        <li class="mx-6">
+                            <a href="{{ route('login.index') }}" class="font-semibold hover-bg-indigo-700 py-3 px-4 rounded-md">Log In</a>
+                        </li>
+                    @endif   
+                </ul>
+            </nav>
+            </ul>        <!-- ... (agrega más opciones según sea necesario) ... -->
+            </div>
+        </aside>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
 <div class="container mt-4">
  <div id="contenido">
    <!-- Seccion de los eventos proximos o cercanos  -->
@@ -188,9 +176,9 @@ CHAT GPT -->
                 <button type="button" class="btn btn-color abrirmodales" data-toggle="modal" data-target="#modal-{{ $proximo->id }}">
                   Detalles
                 </button>
-                <button type="button" class="btn btn-color">
+                <a type="button" href="{{ route('editar-Evento', ['id' => $proximo->id]) }}" class="btn btn-color">
                   Editar
-                </button>
+                </a>
               </p>
           </div>
         </div>
@@ -233,9 +221,9 @@ CHAT GPT -->
                 <button type="button" class="btn btn-color abrirmodales" data-toggle="modal" data-target="#modal-{{ $evento->id }}">
                     Detalles
                 </button>
-                <button type="button" class="btn btn-color">
-                    Editar
-                </button></p>
+                <a type="button" href="{{ route('editar-Evento', ['id' => $evento->id]) }}" class="btn btn-color">
+                  Editar
+                </a></p>
               <hr>
             </div>
           
@@ -264,40 +252,15 @@ CHAT GPT -->
   </div>
  </div>
 </div>
+    </main>
+  </div>
+</div>
     
 
 
           
 <!-- /#wrapper -->
-<script>
-    $(document).ready(function () {
-        var trigger = $('.hamburger'),
-        overlay = $('.overlay'),
-        isClosed = false;
-
-        trigger.click(function () {
-          hamburger_cross();      
-        });
-
-        function hamburger_cross() {
-          if (isClosed == true) {          
-            overlay.hide();
-            trigger.removeClass('is-open');
-            trigger.addClass('is-closed');
-            isClosed = false;
-          } else {   
-            overlay.show();
-            trigger.removeClass('is-closed');
-            trigger.addClass('is-open');
-            isClosed = true;
-          }
-        }
-              
-        $('[data-toggle="offcanvas"]').click(function () {
-            $('#wrapper').toggleClass('toggled');
-        });  
-    });
-              
+<script>      
     $(document).ready(function() {
         // Cierra el modal al presionar el botón "Cerrar" dentro del modal
         $('.modal .close').on('click', function() {
