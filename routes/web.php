@@ -14,6 +14,7 @@ use App\Http\Controllers\NuevocoachController;
 use App\Http\Controllers\CanvasController;
 use Illuminate\Http\Request; 
 use App\Http\Controllers\ImagenController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -124,7 +125,7 @@ Route::post('enviar-correo',  [AdminOficialController::class, 'sendmail'])
 Route::get('/loginCoach', [AdminOficialController::class, 'loginC'])
 ->middleware('guest');
 
-Route::post('/loginCoach', [CoachController::class, 'store']);
+Route::post('/loginCoach', [CoachController::class, 'storeCoach']);
    // ->name('login.store');
 Route::view('/perfil','verPerfil')->middleware('auth.admin');
 
@@ -132,10 +133,10 @@ Route::get('/editCoach', [CoachController::class, 'editCoach'])->name("editCoach
 
 Route::put('/actualizarDatos', [CoachController::class, 'update'])->name("update")->middleware('auth.admin');
 
+Route::get('/reportePDF', [EventoController::class, 'mostrarRegistrosPDF']);
+Route::get('/reporte', [EventoController::class, 'listarEventos']);
 
-
-
-
+Route::get('/pdf', [EventoController::class, 'mostrarEventos']);
 
 // Rutas Ivan
 Route::post('/guardar-participante', [UserController::class, 'guardarUsuario'])->name('user.guardarUsuario');

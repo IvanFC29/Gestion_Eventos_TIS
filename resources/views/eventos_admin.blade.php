@@ -29,6 +29,7 @@
 <body>
       
   <!--MENU SIDEBAR-->  
+
 <header>
     <!-- Contenido del encabezado (header) -->
     <!-- Page Content -->
@@ -114,7 +115,7 @@ CHAT GPT -->
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">
+                        <a class="nav-link active" href="/reporte"> 
                             Reportes
                         </a>
                     </li>

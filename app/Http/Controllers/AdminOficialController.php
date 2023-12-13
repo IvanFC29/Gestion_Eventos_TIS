@@ -63,6 +63,12 @@ class AdminOficialController extends Controller {
         }
     
         // Si llegas a este punto, el correo y la contraseña son correctos
+        if ('admin' != $user->rol) {
+            return back()->withErrors([
+                'message' => 'Datos incorrectos',
+            ]);
+        }
+    
         auth()->login($user);
     
         return redirect('/home');

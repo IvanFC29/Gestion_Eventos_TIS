@@ -8,6 +8,7 @@ use App\Models\Competencia;
 use App\Models\RegistroEv;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Storage;
 
 class EventoController extends Controller
@@ -216,5 +217,44 @@ class EventoController extends Controller
 
         return view('resultados', ['resultados' => $resultados]);
     }
+    public function mostrarEventos()
+    {
+        $registros = RegistroEv::where('eventoinscrito', 'Curso de ORM gratis')->get();
+    $pdf= App::make ('dompdf.wrapper');
+    //$path=resource_path('views/eventos-vista');
+    $pdf->loadView('pdf',['registros' => $registros]);
+
+    return $pdf->stream();
+    }
+    public function listarEventos()
+    {
+        // Obtener eventos desde el modelo (o desde donde sea que los estés obteniendo)
+        $eventos = Evento::all();
+
+        // Pasar los eventos a la vista
+        return view('reporteEventos')->with('eventos', $eventos);
+    }
+    // En tu controlador para la página de registros en PDF
+    // En tu controlador para la página de registros en PDF
+    // En tu controlador para la página de registros en PDF
+    // En tu controlador para la página de registros en PDF
+    public function mostrarRegistrosPDF(Request $request) {
+        // Obtener el ID del evento desde la URL
+        $idEvento = $request->input('nombre');  
+        //dd($idEvento);
+        // Obtener registros asociados al evento
+        $registros = RegistroEv::where('eventoinscrito', $idEvento)->get();
+
+       // Devolver la vista de registros en PDF con los registros obtenidos
+        //return view('pdf')->with('registros', $registros);
+        $pdf= App::make ('dompdf.wrapper');
+        //$path=resource_path('views/eventos-vista');
+        $pdf->loadView('pdf',['registros' => $registros]);
+    
+        return $pdf->stream();
+    }
+
+
+
 
 }
