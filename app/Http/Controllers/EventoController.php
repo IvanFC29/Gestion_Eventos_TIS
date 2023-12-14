@@ -234,10 +234,7 @@ class EventoController extends Controller
         // Pasar los eventos a la vista
         return view('reporteEventos')->with('eventos', $eventos);
     }
-    // En tu controlador para la página de registros en PDF
-    // En tu controlador para la página de registros en PDF
-    // En tu controlador para la página de registros en PDF
-    // En tu controlador para la página de registros en PDF
+ 
     public function mostrarRegistrosPDF(Request $request) {
         // Obtener el ID del evento desde la URL
         $idEvento = $request->input('nombre');  
@@ -253,8 +250,29 @@ class EventoController extends Controller
     
         return $pdf->stream();
     }
+    public function listarCompetencias()
+    {
+        // Obtener eventos desde el modelo (o desde donde sea que los estés obteniendo)
+        $competencias = Competencia::all();
 
+        // Pasar los eventos a la vista
+        return view('reporteCompetencias')->with('competencias', $competencias);
+    }
 
+    public function mostrarRegistrosPDFCcom(Request $request) {
+        // Obtener el ID del evento desde la URL
+        $idEvento = $request->input('nombre');  
+        //dd($idEvento);
+        // Obtener registros asociados al evento
+        $registros = RegistroEv::where('eventoinscrito', $idEvento)->get();
 
+       // Devolver la vista de registros en PDF con los registros obtenidos
+        //return view('pdf')->with('registros', $registros);
+        $pdf= App::make ('dompdf.wrapper');
+        //$path=resource_path('views/eventos-vista');
+        $pdf->loadView('pdf',['registros' => $registros]);
+    
+        return $pdf->stream();
+    }
 
 }

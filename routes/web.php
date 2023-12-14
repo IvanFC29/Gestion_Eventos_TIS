@@ -116,7 +116,7 @@ Route::get('/buscar-eventos', [EventoController::class, 'buscarEventos'])->name(
 
 
 // Rutas Fab
-Route::get('/RecuperarContraseña', [AdminOficialController::class, 'recuperarC'])
+Route::get('/RecuperarContraseña', [AdminOficialController::class, 'recuperarC'])->name('recuperarContra')
 ->middleware('guest');
   
 Route::post('enviar-correo',  [AdminOficialController::class, 'sendmail'])
@@ -134,7 +134,8 @@ Route::get('/editCoach', [CoachController::class, 'editCoach'])->name("editCoach
 Route::put('/actualizarDatos', [CoachController::class, 'update'])->name("update")->middleware('auth.admin');
 
 Route::get('/reportePDF', [EventoController::class, 'mostrarRegistrosPDF']);
-Route::get('/reporte', [EventoController::class, 'listarEventos']);
+Route::get('/reporteEventos', [EventoController::class, 'listarEventos'])->name("reporteE");
+Route::get('/reporteCompetencias', [EventoController::class, 'listarCompetencias'])->name("reporteC");
 
 Route::get('/pdf', [EventoController::class, 'mostrarEventos']);
 

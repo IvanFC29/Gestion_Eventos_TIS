@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Reporte de Eventos</title>
+  <title>Reporte de Competencias </title>
   
   <link rel="stylesheet" href="{{ asset('css/eventos_admin.css') }}" TYPE="text/css">  
   <link rel="stylesheet" href="{{ asset('css/loginAdmin.css') }}" type="text/css"> 
@@ -142,7 +142,7 @@
     <div id="contenido">
         <!-- Sección de los eventos próximos o cercanos  -->
         <div>
-            <h2 class="titulo-grande">Lista de Eventos</h2>
+            <h2 class="titulo-grande">Lista de Competencias</h2>
         </div>
         
         <br>
@@ -160,21 +160,21 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($eventos as $evento)
+                @foreach ($competencias as $competencia)
                     <tr>
-                        <td>{{ $evento->id }}</td>
-                        <td>{{ $evento->nombre }}</td>
-                        <td>{{ $evento->fecha_inicio }}</td>
-                        <td>{{ $evento->fecha_fin }}</td>
+                        <td>{{ $competencia->id }}</td>
+                        <td>{{ $competencia->nombre }}</td>
+                        <td>{{ $competencia->fecha_inicio }}</td>
+                        <td>{{ $competencia->fecha_fin }}</td>
                         <td>
                           <!-- Enlace para imprimir con estilos de hoja de estilos -->
-                          <a href="#" onclick="imprimirEvento('{{ $evento->nombre}}')" class="btn btn-info">Imprimir </a>
+                          <a href="#" onclick="imprimirEvento('{{ $competencia->nombre}}')" class="btn btn-info">Imprimir </a>
                         </td>
 
 
                         <td>
                             <!-- Enlace para imprimir con estilos de hoja de estilos -->
-                          <a href="#" onclick="imprimirEvento('{{ $evento->nombre}}')" class="btn btn-info">Imprimir </a>
+                          <a href="#" onclick="imprimirEvento('{{ $competencia->nombre}}')" class="btn btn-info">Imprimir </a>
                         </td>
                         
                     </tr>
