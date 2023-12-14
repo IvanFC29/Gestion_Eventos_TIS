@@ -121,13 +121,6 @@ CHAT GPT -->
                         <li><a href="{{ route('reporteE') }}">Eventos</a></li>
                       </ul>
                     </li>
-                    <li class="dropdown">
-                        <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Reportes <span class="caret"></span></a>
-                        <ul class="dropdown-menu animated fadeInLeft" role="menu">
-                            <li><a href="{{ route('reporteC') }}" class="dropdown-item ">Competencias</a></li>
-                            <li><a href="{{ route('reporteE') }}">Eventos</a></li>
-                        </ul>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
                             Calendario

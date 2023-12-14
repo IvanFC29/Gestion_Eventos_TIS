@@ -153,7 +153,7 @@
     </div>
     <!-- Controles para el texto -->
     <div>
-        <label for="estilo">Estilo:</label>
+        <label for="estilo">Estilo:</label><br>
         <input type="checkbox" id="negrita"> Negrita
         <input type="checkbox" id="cursiva"> Cursiva
         <input type="checkbox" id="subrayado"> Subrayado
