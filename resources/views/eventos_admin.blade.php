@@ -122,7 +122,7 @@ CHAT GPT -->
                       </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="/full-calendar">
                             Calendario
                         </a>
                     </li>

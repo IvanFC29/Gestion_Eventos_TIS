@@ -14,7 +14,7 @@ use App\Http\Controllers\NuevocoachController;
 use App\Http\Controllers\CanvasController;
 use Illuminate\Http\Request; 
 use App\Http\Controllers\ImagenController;
-
+use App\Http\Controllers\CalendarController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -164,3 +164,5 @@ Route::post('/modificar-evento{id}', [EventoController::class, 'modificar'])->mi
 
 Route::get('/notificar/{emailCoach}/{id}', [EventoController::class, 'notificarCambio'])->middleware('auth.admin')->name('notificar');
 Route::post('/enviar-cambio', [Admin2Controller::class, 'sendmail']);
+
+Route::get('/full-calendar', [CalendarController::class, 'index']);

@@ -1,42 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Notificar Cambio</title>
-  <link rel="stylesheet" href="{{ asset('css/menu.css') }}" TYPE="text/css">  
-  <link rel="stylesheet" href="{{ asset('css/correo.css') }}" type="text/css">   
-  <link rel="stylesheet" href="{{ asset('css/eventos_admin.css') }}" TYPE="text/css">  
-  <link rel="stylesheet" href="{{ asset('css/fondoazulito.css') }}" TYPE="text/css"> 
-  <link rel="stylesheet" href="{{ asset('css/formulario.css') }}" TYPE="text/css"> 
+    <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario</title>
     
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ asset('css/eventos_admin.css') }}" TYPE="text/css">  
+    <link rel="stylesheet" href="{{ asset('css/menu.css') }}" TYPE="text/css">  
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
-        
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
-    <link rel="stylesheet" href="{{ asset('css/fondoazulito.css') }}" TYPE="text/css">  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
-    <!-- Tailwind CSS Link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css">
 </head>
 <body>
-  <div id="background-container">
-    <img src="{{ asset('images/fondo3.jpg') }}" alt="Fondo de la página">  
-  </div>
-  
-  <!--MENU SIDEBAR-->  
 
-  <header>
+
+<header>
     <!-- Contenido del encabezado (header) -->
     <!-- Page Content -->
     <nav class="navbar custom-navbar navbar-expand-lg">
@@ -60,8 +47,9 @@
             </ul>
         </div>              
     </nav>
-  </header>
-  <div class="container-fluid">
+</header>
+
+<div class="container-fluid">
     <div class="row">
         <!-- Barra de navegación izquierda (aside) -->
         <aside class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
@@ -105,7 +93,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/full-calendar">
+                        <a class="nav-link" href="#">
                             Calendario
                         </a>
                     </li>
@@ -127,41 +115,36 @@
         <!-- Contenido principal -->
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
             <!-- Contenido principal de tu página -->
-            <br>
-            <div id="formCorreo">
-	              <h2 class="large-heading">Notificación de Cambio</h2>
-                <br>
-                <form action="/enviar-cambio" method="POST">
-                @csrf
-                    <label for="email">Correo Electrónico del Coach:</label>
-                    <input type="email" id="email" name="email" value="{{ $coach->email }}" required>
-                    
-                    <label for="email">Nombre del Coach:</label>
-                    <input type="text" id="info" name="info" value="{{ $coach->name . ' ' . $coach->apellidoP . ' ' . $coach->apellidoM }}" required>
-
-                    <br>
-                    <label for="contenido">Mensaje:</label>
-                    <textarea id="contenido" name="contenido" class="border border-gray-200 rounded-md bg-gray-200 w-full text-lg placeholder-gray-900 p-2 my-2 focus:bg-white"  required rows="4" cols="40">El evento: {{ $evento->nombre }} ha tenido cambios
-                    </textarea>
-                    <div class="button-container">
-                      <br>
-                          <button class="button" type="submit">Enviar correo</button>
-                    </div>
-                    @error('message')        
-                    <p class="border border-red-500 rounded-md bg-red-100 w-full
-                              text-red-600 p-2 my-2">* {{ $message }}</p>
-                @enderror
-                    <div id="alert-container" style="display: none;"></div>
-                        @if (session('success'))
-                          <script>
-                            document.getElementById('alert-container').style.display = 'block';
-                            document.getElementById('alert-container').innerHTML = '<div class="alert alert-success">{{ session('success') }}</div>';
-                          </script>
-                        @endif
-                </form>
-            </div>
+            <div id="calendar"></div>
+            <!-- ... -->
         </main>
     </div>
-</div>    
+</div>
+<script>
+
+$(document).ready(function () {
+
+    $.ajaxSetup({
+        headers:{
+            'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    var calendar = $('#calendar').fullCalendar({
+        editable:true,
+        header:{
+            left:'prev,next today',
+            center:'title',
+            right:'month,agendaWeek,agendaDay'
+        },
+        events:'/full-calendar',
+        selectable:true,
+        selectHelper: true,
+
+    });
+    calendar.setUrlHash(null);
+
+});
+</script>
 </body>
 </html>
