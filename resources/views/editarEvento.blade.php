@@ -74,7 +74,7 @@
                         <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Eventos <span class="caret"></span></a>
                         <ul class="dropdown-menu animated fadeInLeft" role="menu">
                             <li><a href="/crear-evento" class="dropdown-item ">Crear Evento</a></li>
-                            <li><a href="/ver-eventos-editables" class="dropdown-item">Lista de Eventos</a></li>
+                            <li><a href="/eventos" class="dropdown-item">Lista de Eventos</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -91,10 +91,12 @@
                             <li><a href="#" class="dropdown-item ">Ver coachs</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">
-                            Reportes
-                        </a>
+                    <li class="dropdown">
+                        <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Reportes <span class="caret"></span></a>
+                        <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                            <li><a href="{{ route('reporteC') }}" class="dropdown-item ">Competencias</a></li>
+                            <li><a href="{{ route('reporteE') }}">Eventos</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
