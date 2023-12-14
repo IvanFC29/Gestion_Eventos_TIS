@@ -141,9 +141,6 @@
                         <div class="containerTitulo">      
                             <h1> <b>CREAR COMPETENCIA</b> </h1>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">Campos no obligatorios (*)</div>
-                        </div>
                         <br>
                         <div class="row">
                             <div class="col-md-6">
@@ -172,26 +169,6 @@
                                 <div class="mb-3">
                                     <label for="message-text" class="col-form-label">Ubicación de la Competencia:</label>
                                     <textarea class="form-control" id="message-text" name="ubicacionCompetencia"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">*Reglas de clasificación:</label>
-                                    <textarea class="form-control" id="message-text" name="reglasCompetencia"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="message-text" class="col-form-label">*Requisitos:</label>
-                                    <textarea class="form-control" id="message-text" name="requisitosCompetencia"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">*Link de inscripciones:</label>
-                                    <textarea class="form-control" id="message-text" name="linkInsCompetencia"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -257,11 +234,22 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row opcional" id="umss">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Los participantes deben ser obligatoriamente de la UMSS?:</label>
+                                    <select name="tipoEvento" class="form-control form-control-lg">
+                                        <option></option>
+                                        <option>Si</option>
+                                        <option>No</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                         <!-- Agrega campos adicionales para las otras opciones -->
                         <div class="section2">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label>Campos adicionales:</label>
                                     <label>Campos adicionales:</label>
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="chkRequisitos" name="chkRequisitos">
@@ -270,6 +258,10 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="chkReglas" name="chkReglas">
                                         <label class="form-check-label" for="chkReglas">Reglas</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="chkInfextra" name="chkInfextra">
+                                        <label class="form-check-label" for="chkInfextra">Información Extra</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -281,6 +273,10 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="chkCosto" name="chkCosto">
                                         <label class="form-check-label" for="chkCosto">Costo</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="chkUmss" name="chkUmss">
+                                        <label class="form-check-label" for="chkUmss">Los participantes deben pertenecer a la UMSS</label>
                                     </div>
                                 </div>
                             </div>

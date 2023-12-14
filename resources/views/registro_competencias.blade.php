@@ -55,78 +55,231 @@
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label>Nombre del Equipo:<span class="text-danger"></span></label>
-                                    <input type="text" name="nombre" class="form-control" value="" placeholder="Ingrese nombre" minlength="3" maxlength="100" required>
+                                    <input type="text" name="nombreEquipo" class="form-control" value="" placeholder="Ingrese nombre" minlength="3" maxlength="100" required>
                                 </div>
-                                <!--<div class="mb-3">
-                                    <label>Tipo de evento:<span class="text-danger col-form-label">*</span></label>
-                                    <select name="tipoEvento" class="form-control form-control-lg">
-                                        <option></option>
-                                        <option>Convocatoria</option>
-                                        <option>Capacitación</option>
-                                        <option>Clasificación</option>
-                                        <option>Competencia</option>
-                                    </select>
-                                </div>-->
                             </div>
                             <div class="col-md-12">
                                 <div class="mb-3">
-                                    <label>Primer integrante del Equipo:<span class="text-danger"></span></label>
+                                    <label>Integrantes del Equipo:<span class="text-danger"></span></label>
                                 </div>
                             </div>
-                            <div class="row" id="dynamic-columns">
-                                <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                        <label>Nombre:<span class="text-danger">*</span></label>
+                                        <input type="text" name="nombre1" class="form-control" value="" placeholder="Ingrese nombre" minlength="3" maxlength="100" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>E-mail de contacto:<span class="text-danger">*</span></label>
-                                        <input type="text" name="email" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
+                                        <input type="text" name="email1" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
                                     </div>
-                                    <button type="button" class="btn btn-primary" onclick="agregarColumna()">Agregar Columna</button>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                        <label>Número de celular:<span class="text-danger">*</span></label>
+                                        <input type="text" name="celular1" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                        <label>Código Sis:<span class="text-danger">*</span></label>
+                                        <input type="text" name="sis1" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label for="message-text" class="col-form-label">Descripción del evento:<span class="text-danger">*</span></label>
-                                    <textarea class="form-control" id="message-text" name="descripcionevento" required></textarea>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                        <label>Nombre:<span class="text-danger">*</span></label>
+                                        <input type="text" name="nombre2" class="form-control" value="" placeholder="Ingrese nombre" minlength="3" maxlength="100" required>
+                                    </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label>Fecha a realizarse:<span class="text-danger">*</span></label>
-                                    <input type="date" name="fechaEventoInicio" class="form-control" id="fechaInicio" min="<?php echo date('Y-m-d'); ?>" required>
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                        <label>E-mail de contacto:<span class="text-danger">*</span></label>
+                                        <input type="text" name="email2" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
+                                    </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label>Fecha de culminación:<span class="text-danger">*</span></label>
-                                    <input type="date" name="fechaEventoFin" class="form-control" id="fechaFin" min="<?php echo date('Y-m-d'); ?>" required>
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                        <label>Número de celular:<span class="text-danger">*</span></label>
+                                        <input type="text" name="celular2" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                        <label>Código Sis:<span class="text-danger">*</span></label>
+                                        <input type="text" name="sis2" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="mb-3">
-                                    <label>E-mail de contacto:<span class="text-danger">*</span></label>
-                                    <input type="text" name="email" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
+                            <div class="row botonesparticipante2">
+                                <div class="col-md-3">
+                                    <button type="button" class="btn btn-primary" onclick="agregarParticipante3()">Agregar Participante</button>
                                 </div>
-                                <div class="mb-3">
-                                    <label>Telefono/Celular de contacto:<span class="text-danger">*</span></label>
-                                    <input type="text" name="telefonoevento" class="form-control input_user" value="" placeholder="Ingrese numero telef/cel" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); this.value = this.value.replace(/[^0-9]/,'')" minlength="7" maxlength="8" min="40000000" max="79999999" required>
+                            </div>
+                            <div class="row participante3" style="display: none;">
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                        <label>Nombre:<span class="text-danger">*</span></label>
+                                        <input type="text" name="nombre3" class="form-control" value="" placeholder="Ingrese nombre" minlength="3" maxlength="100" required>
+                                    </div>
                                 </div>
+                                <div class="col-md-3">                                        <div class="mb-3">
+                                        <label>E-mail de contacto:<span class="text-danger">*</span></label>
+                                        <input type="text" name="email3" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                        <label>Número de celular:<span class="text-danger">*</span></label>
+                                        <input type="text" name="celular3" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                        <label>Código Sis:<span class="text-danger">*</span></label>
+                                        <input type="text" name="sis3" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row botonesparticipante3" style="display: none;">
+                                <div class="col-md-6">
+                                    <button type="button" class="btn btn-primary" onclick="agregarParticipante4()">Agregar Participante</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="button" class="btn btn-primary" onclick="quitarParticipante3()">Quitar Participante</button>
+                                </div>
+                            </div>
+                            <div class="row participante4" style="display: none;">
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                        <label>Nombre:<span class="text-danger">*</span></label>
+                                        <input type="text" name="nombre4" class="form-control" value="" placeholder="Ingrese nombre" minlength="3" maxlength="100" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                        <label>E-mail de contacto:<span class="text-danger">*</span></label>
+                                        <input type="text" name="email4" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                        <label>Número de celular:<span class="text-danger">*</span></label>
+                                        <input type="text" name="celular4" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="mb-3">
+                                        <label>Código Sis:<span class="text-danger">*</span></label>
+                                        <input type="text" name="sis4" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">                                        </div>
+                                    </div>
+                                </div>
+                            <div class="row botonesparticipante4" style="display: none;">
+                                <div class="col-md-3">
+                                    <button type="button" class="btn btn-primary" onclick="quitarParticipante4()">Quitar Participante</button>
+                                </div>
+                            </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="message-text" class="col-form-label">Nombre del Coach:<span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="coachcompentencia" name="descripcionevento" required></textarea>
                             </div>
                         </div>
+                    </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary guardar" name="editable" value="0">Guardar</button>
-                            <button type="submit" class="btn btn-primary editar" name="editable" value="1">Editar luego</button>
                             <a type="button" href="/eventos" class="btn btn-secondary cancelar">Cancelar</a>
                         </div>
                     </form>
    
                 </div>
         </div>
-                </div>
-        </div>
         
+        <!--<script>
+            function agregarParticipante3() {
+                // Ocultar botonesparticipante2
+                document.querySelector('.botonesparticipante2').style.display = 'none';
+
+                // Mostrar participante3 y botonesparticipante3
+                document.querySelector('.participante3').style.display = 'block';
+                document.querySelector('.botonesparticipante3').style.display = 'block';
+            }
+
+            function quitarParticipante3() {
+                // Ocultar participante3 y botonesparticipante3
+                document.querySelector('.participante3').style.display = 'none';
+                document.querySelector('.botonesparticipante3').style.display = 'none';
+
+                // Mostrar botonesparticipante2
+                document.querySelector('.botonesparticipante2').style.display = 'block';
+            }
+
+            function agregarParticipante4() {
+                // Ocultar botonesparticipante3
+                document.querySelector('.botonesparticipante3').style.display = 'none';
+
+                // Mostrar participante4 y botonesparticipante4
+                document.querySelector('.participante4').style.display = 'block';
+                document.querySelector('.botonesparticipante4').style.display = 'block';
+            }
+
+            function quitarParticipante4() {
+                // Ocultar participante4 y botonesparticipante4
+                document.querySelector('.participante4').style.display = 'none';
+                document.querySelector('.botonesparticipante4').style.display = 'none';
+
+                // Mostrar botonesparticipante3
+                document.querySelector('.botonesparticipante3').style.display = 'block';
+            }
+        </script>-->
+        <!-- ... (código anterior) ... -->
+
+<script>
+    function agregarParticipante3() {
+        // Ocultar botonesparticipante2
+        document.querySelector('.botonesparticipante2').style.display = 'none';
+
+        // Mostrar participante3 y botonesparticipante3
+        document.querySelector('.participante3').style.display = 'flex'; // Cambiado de 'block' a 'flex'
+        document.querySelector('.botonesparticipante3').style.display = 'flex'; // Cambiado de 'block' a 'flex'
+    }
+
+    function quitarParticipante3() {
+        // Ocultar participante3 y botonesparticipante3
+        document.querySelector('.participante3').style.display = 'none';
+        document.querySelector('.botonesparticipante3').style.display = 'none';
+
+        // Mostrar botonesparticipante2
+        document.querySelector('.botonesparticipante2').style.display = 'flex'; // Cambiado de 'block' a 'flex'
+    }
+
+    function agregarParticipante4() {
+        // Ocultar botonesparticipante3
+        document.querySelector('.botonesparticipante3').style.display = 'none';
+
+        // Mostrar participante4 y botonesparticipante4
+        document.querySelector('.participante4').style.display = 'flex'; // Cambiado de 'block' a 'flex'
+        document.querySelector('.botonesparticipante4').style.display = 'flex'; // Cambiado de 'block' a 'flex'
+    }
+
+    function quitarParticipante4() {
+        // Ocultar participante4 y botonesparticipante4
+        document.querySelector('.participante4').style.display = 'none';
+        document.querySelector('.botonesparticipante4').style.display = 'none';
+
+        // Mostrar botonesparticipante3
+        document.querySelector('.botonesparticipante3').style.display = 'flex'; // Cambiado de 'block' a 'flex'
+    }
+</script>
+
+<!-- ... (resto del código) ... -->
+
 
     
-    <script>
-        function agregarColumna() {
-            var nuevaColumna = '<div class="col-md-4"><div class="mb-3"><label>Nuevo Campo:<span class="text-danger">*</span></label><input type="text" name="nuevoCampo" class="form-control" value="" placeholder="Nuevo campo" required></div></div>';
-            $('#dynamic-columns').append(nuevaColumna);
-        }
-    </script>
 
 </body>
 </html>

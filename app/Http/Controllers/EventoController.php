@@ -35,6 +35,14 @@ class EventoController extends Controller
         $evento->editable = $request->input('editable');
         $evento->correo_referencia = $request->input('email');
         $evento->cel_referencia = $request->input('telefonoevento');
+        $evento->requisitos = $request->input('requisitos');
+        $evento->reglas = $request->input('reglas');
+        $evento->links = $request->input('links');
+        $evento->infextra = $request->input('infextra');
+        $evento->contenido = $request->input('contenido');
+        $evento->cronograma = $request->input('cronograma');
+        $evento->costo = $request->input('costo');
+        $evento->umss = $request->input('umss');
         
         // afiche por defecto
         $afichePath = 'images/afiches/aficheEdit.jpg';
@@ -130,12 +138,15 @@ class EventoController extends Controller
         $competencia->descripcion = $request2->input('descripcionCompetencia');
         $competencia->fecha_inicio = $request2->input('fechaInicio');
         $competencia->fecha_fin = $request2->input('fechaFin');
-        $competencia->ubicacion = $request2->input('ubicacionCompetencia');
-        $competencia->reglas = $request2->input('reglasCompetencia');
-        $competencia->requisitos = $request2->input('requisitosCompetencia');
-        $competencia->link = $request2->input('linkInsCompetencia');
         $competencia->correo_referencia = $request2->input('email');
         $competencia->cel_referencia = $request2->input('telefonoCompetencia');
+        $competencia->requisitos = $request2->input('requisitos');
+        $competencia->reglas = $request2->input('reglas');
+        $competencia->links = $request2->input('links');
+        $competencia->infextra = $request2->input('infextra');
+        $competencia->costo = $request2->input('costo');
+        $competencia->costo = $request2->input('actividades');
+        $competencia->umss = $request2->input('umss');
         
         // Buscar competencias repetidas
         $correo_existente = Competencia::where('nombre', $competencia->nombre)->count();
@@ -183,5 +194,35 @@ class EventoController extends Controller
 
     public function registrarUsCompetencia(){
         return view('registro_competencias');
+    }
+    public function registroUsuComp(Request $request4){
+        $registroCompetencia = new RegistroCompetencias();
+        //$registroCompetencia->eventoinscrito=$request3->input('eventoinscrito');
+        $registroCompetencia->nombre = $request4->input('nombreEquipo');
+        $registroCompetencia->apellidos = $request4->input('nombre1');
+        $registroCompetencia->correo = $request4->input('email1');
+        $registroCompetencia->telefono = $request4->input('celular1');
+        $registroCompetencia->edad = $request4->input('sis1');
+        $registroCompetencia->apellidos = $request4->input('nombre2');
+        $registroCompetencia->correo = $request4->input('email2');
+        $registroCompetencia->telefono = $request4->input('celular2');
+        $registroCompetencia->edad = $request4->input('sis2');
+        $registroCompetencia->apellidos = $request4->input('nombre3');
+        $registroCompetencia->correo = $request4->input('email3');
+        $registroCompetencia->telefono = $request4->input('celular3');
+        $registroCompetencia->edad = $request4->input('sis3');
+        $registroCompetencia->apellidos = $request4->input('nombre4');
+        $registroCompetencia->correo = $request4->input('email4');
+        $registroCompetencia->telefono = $request4->input('celular4');
+        $registroCompetencia->edad = $request4->input('sis4');
+        
+        $correo_existente = RegistroEv::where('correo', $registroCompetencia->correo)->count();
+        if ($correo_existente > 0) {
+            session()->flash('error', 'Este correo ya está registrado en este Evento');
+        }else{
+            $registroCompetencia->save();
+            session()->flash('success', '¡Registro Completado!');
+        }
+        return view('frontend.index');
     }
 }

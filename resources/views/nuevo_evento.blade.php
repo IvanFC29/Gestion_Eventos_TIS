@@ -279,7 +279,8 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label>Contenido:</label>
-                                    <input type="text" name="contenido" class="form-control">
+                                    <!--<input type="text" name="contenido" class="form-control">-->
+                                    <textarea class="form-control" name="contenido"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -334,6 +335,10 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="chkCronograma" name="chkCronograma">
                                         <label class="form-check-label" for="chkCronograma">Cronograma</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="chkUmss" name="chkUmss">
+                                        <label class="form-check-label" for="chkUmss">Los participantes deben pertenecer a la UMSS</label>
                                     </div>
                                 </div>
                             </div>
