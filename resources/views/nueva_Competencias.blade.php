@@ -146,7 +146,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label>Nombre de la Competencia:<span class="text-danger">*</span></label>
-                                    <input type="text" name="nombre" class="form-control" value="" placeholder="Ingrese nombre" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="30" required>
+                                    <input type="text" name="nombreComp" class="form-control" value="" placeholder="Ingrese nombre" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="30" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="message-text" class="col-form-label">Descripción de la Competencia:</label>
@@ -234,7 +234,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row opcional" id="umss">
+                        <div class="row" id="umss">
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label>Los participantes deben ser obligatoriamente de la UMSS?:</label>
@@ -273,10 +273,6 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="chkCosto" name="chkCosto">
                                         <label class="form-check-label" for="chkCosto">Costo</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="chkUmss" name="chkUmss">
-                                        <label class="form-check-label" for="chkUmss">Los participantes deben pertenecer a la UMSS</label>
                                     </div>
                                 </div>
                             </div>

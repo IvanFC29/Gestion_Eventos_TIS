@@ -125,23 +125,21 @@
                       <div class="modal-dialog">
                           <div class="modal-content">
                               <div class="modal-header">
-                                  <h5 class="modal-title">{{ $competencias->nombre }}</h5>
+                                  <h5 class="modal-title">{{ $competencias->nombreComp }}</h5>
                                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                               </div>
                               <div class="modal-body">
                                   <p>{{ $competencias->descripcion }}</p>
-                                  <br>
-                                  <p class="card-text">Ubicación: {{ $competencias->ubicacion }}</p>
                                   <br>
                                   <p class="card-text">Referencias:</p>
                                   <p class="card-text">{{ $competencias->correo_referencia }}</p>
                                   <p class="card-text">{{ $competencias->cel_referencia }}</p>
                                   <!-- Agrega aquí más detalles del competencias si es necesario -->
                               </div>
-                               <!-- Botón para abrir el formulario en el modal 
-                                <a href="{{ url('/formcompetencias', ['nombre' => $competencias->nombre]) }}" class="btn btn-primary">
+                               <!-- Botón para abrir el formulario en el modal-->
+                                <a href="{{ url('/formcompetencias', ['nombreComp' => $competencias->nombreComp]) }}" class="btn btn-primary">
                                   Registrarse
-                                </a>-->
+                                </a>
 
                           </div>
                       </div>
@@ -154,9 +152,8 @@
                       <div class="card eventocard">
                           <img src="{{ asset('images/eventos.jpg') }}" alt="Card Image" class="imgevento">
                           <div class="card-body eventobodycard">
-                              <h5 class="card-title">{{ $competencias->nombre }}</h5>
+                              <h5 class="card-title">{{ $competencias->nombreComp }}</h5>
                               <p class="card-text">{{ $competencias->descripcion }}</p>
-                              <p class="card-text">{{ $competencias->ubicacion }}</p>
 
                               <button type="button" class="btn btn-primary abrirmodales" data-toggle="modal" data-target="#modal-{{ $competencias->id }}">
                                   Ver detalles
@@ -170,26 +167,7 @@
 
                   <div class="modal fade" id="modal-principal" tabindex="-1" role="dialog" aria-labelledby="modal-principal-label" aria-hidden="true">
                     <!-- ... (código anterior del modal principal) ... -->
-                    <div class="modal-body">
-                        <!-- Formulario de registro (inicialmente oculto) -->
-                        <form id="registro-form" style="display: none">
-                            <h4>Registrarse a Evento</h4>
-                            <div class="form-group">
-                                <label for="nombre">Nombre:</label>
-                                <input type="text" class="form-control" id="nombre" name="nombre" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="correo">Correo Electrónico:</label>
-                                <input type="email" class="form-control" id="correo" name="correo" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="comentarios">Comentarios:</label>
-                                <textarea class="form-control" id="comentarios" name="comentarios"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Enviar</button>
-                            <button type="button" class="btn btn-secondary" id="close-form">Cerrar</button>
-                        </form>
-                    </div>
+                    
                   </div>
 
                                 

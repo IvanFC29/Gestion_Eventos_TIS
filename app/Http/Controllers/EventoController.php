@@ -122,9 +122,9 @@ class EventoController extends Controller
 
     }
 
-    public function mostrarFormulario($nombre)
+    public function mostrarFormulario($nombreComp)
     {
-        return view('formcompetencias')->with('nombre', $nombre);
+        return view('registro_competencias')->with('nombreComp', $nombreComp);
     }
     
     public function crearCompetencias(){
@@ -134,10 +134,11 @@ class EventoController extends Controller
 
     public function guardarCompetencia(Request $request2){
         $competencia = new Competencia();
-        $competencia->nombre = $request2->input('nombre');
+        $competencia->nombreComp = $request2->input('nombreComp');
         $competencia->descripcion = $request2->input('descripcionCompetencia');
         $competencia->fecha_inicio = $request2->input('fechaInicio');
         $competencia->fecha_fin = $request2->input('fechaFin');
+        $competencia->ubicacionCompetencia = $request2->input('ubicacionCompetencia');
         $competencia->correo_referencia = $request2->input('email');
         $competencia->cel_referencia = $request2->input('telefonoCompetencia');
         $competencia->requisitos = $request2->input('requisitos');
@@ -149,7 +150,7 @@ class EventoController extends Controller
         $competencia->umss = $request2->input('umss');
         
         // Buscar competencias repetidas
-        $correo_existente = Competencia::where('nombre', $competencia->nombre)->count();
+        $competencia_existente = Competencia::where('nombreComp', $competencia->nombreComp)->count();
         if ($competencia_existente > 0) {
             session()->flash('error', 'El nombre de la Competencia ya existe en la base de datos');
         }else{
@@ -197,7 +198,7 @@ class EventoController extends Controller
     }
     public function registroUsuComp(Request $request4){
         $registroCompetencia = new RegistroCompetencias();
-        //$registroCompetencia->eventoinscrito=$request3->input('eventoinscrito');
+        $registroCompetencia->nombreComp=$request3->input('nombreComp');
         $registroCompetencia->nombre = $request4->input('nombreEquipo');
         $registroCompetencia->apellidos = $request4->input('nombre1');
         $registroCompetencia->correo = $request4->input('email1');
@@ -216,13 +217,7 @@ class EventoController extends Controller
         $registroCompetencia->telefono = $request4->input('celular4');
         $registroCompetencia->edad = $request4->input('sis4');
         
-        $correo_existente = RegistroEv::where('correo', $registroCompetencia->correo)->count();
-        if ($correo_existente > 0) {
-            session()->flash('error', 'Este correo ya está registrado en este Evento');
-        }else{
-            $registroCompetencia->save();
-            session()->flash('success', '¡Registro Completado!');
-        }
+        $registroCompetencia->save();
         return view('frontend.index');
     }
 }

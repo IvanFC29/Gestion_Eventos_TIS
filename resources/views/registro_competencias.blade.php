@@ -46,10 +46,11 @@
                     </div>
                 @endif-->
                 <div class="section">
-                    <form method="post" action="{{ route('eventos.guardarEvento') }}" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('eventos.registroUsuComp') }}" enctype="multipart/form-data">
                         @csrf
-                        <div class="containerTitulo">      
-                            <h1><b>Registro a Competencia VARIABLE</b></h1>
+                        <div class="containerTitulo"> 
+                            <p class="titulo" >{{ $nombreComp }}</p>     
+                            <!--<h1><b>Registro a Competencia VARIABLE</b></h1>-->
                         </div>
                         <div class="row">
                             <div class="col-md-12">
@@ -191,52 +192,15 @@
                         </div>
                     </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary guardar" name="editable" value="0">Guardar</button>
+                            
+                            <button type="submit">Enviar</button>
+
                             <a type="button" href="/eventos" class="btn btn-secondary cancelar">Cancelar</a>
                         </div>
                     </form>
    
                 </div>
         </div>
-        
-        <!--<script>
-            function agregarParticipante3() {
-                // Ocultar botonesparticipante2
-                document.querySelector('.botonesparticipante2').style.display = 'none';
-
-                // Mostrar participante3 y botonesparticipante3
-                document.querySelector('.participante3').style.display = 'block';
-                document.querySelector('.botonesparticipante3').style.display = 'block';
-            }
-
-            function quitarParticipante3() {
-                // Ocultar participante3 y botonesparticipante3
-                document.querySelector('.participante3').style.display = 'none';
-                document.querySelector('.botonesparticipante3').style.display = 'none';
-
-                // Mostrar botonesparticipante2
-                document.querySelector('.botonesparticipante2').style.display = 'block';
-            }
-
-            function agregarParticipante4() {
-                // Ocultar botonesparticipante3
-                document.querySelector('.botonesparticipante3').style.display = 'none';
-
-                // Mostrar participante4 y botonesparticipante4
-                document.querySelector('.participante4').style.display = 'block';
-                document.querySelector('.botonesparticipante4').style.display = 'block';
-            }
-
-            function quitarParticipante4() {
-                // Ocultar participante4 y botonesparticipante4
-                document.querySelector('.participante4').style.display = 'none';
-                document.querySelector('.botonesparticipante4').style.display = 'none';
-
-                // Mostrar botonesparticipante3
-                document.querySelector('.botonesparticipante3').style.display = 'block';
-            }
-        </script>-->
-        <!-- ... (código anterior) ... -->
 
 <script>
     function agregarParticipante3() {
