@@ -124,51 +124,101 @@
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
             <!-- Contenido principal de tu página -->
 
-  <div class="container mt-4">
-    <div id="contenido">
-        <!-- Sección de los eventos próximos o cercanos  -->
-        <div>
-            <h2 class="titulo-grande">Lista de Eventos</h2>
-        </div>
-        
-        <br>
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Fecha Inicio</th>
-                    <th>Fecha Fin</th>
-                    <th>Reporte de Inscritos</th>
-                    <th>Reporte de Resultados</th>
-                 
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($eventos as $evento)
-                    <tr>
-                        <td>{{ $evento->id }}</td>
-                        <td>{{ $evento->nombre }}</td>
-                        <td>{{ $evento->fecha_inicio }}</td>
-                        <td>{{ $evento->fecha_fin }}</td>
-                        <td>
-                          <!-- Enlace para imprimir con estilos de hoja de estilos -->
-                          <a href="#" onclick="imprimirEvento('{{ $evento->nombre}}')" class="btn btn-info">Imprimir </a>
-                        </td>
-
-
-                        <td>
-                            <!-- Enlace para imprimir con estilos de hoja de estilos -->
-                          <a href="#" onclick="imprimirEvento('{{ $evento->nombre}}')" class="btn btn-info">Imprimir </a>
-                        </td>
+            <div class="container mt-4 ">
+                <div id="contenido">
+                    <!-- Sección de los eventos próximos o cercanos  -->
+                    <div>
+                        <h2 class="titulo-grande">Lista de Eventos</h2>
+                    </div>
+            
+                    <form action="{{ route('eventos.filtrar') }}" method="post">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                  <label for="fechaInicio">Fecha de Inicio:</label>
+                                  <input type="date" id="fechaInicio" name="fechaInicio" class="form-control" onchange="formatDate(this)">
+                                </div>
+                              </div>
                         
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-</div>
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                  <label for="fechaFin">Fecha de Fin:</label>
+                                  <input type="date" id="fechaFin" name="fechaFin" class="form-control" onchange="formatDate(this)">
+                                </div>
+                              </div>
+                    
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="filtroTipo">Tipo de Filtro:</label>
+                                    <select id="filtroTipo" name="filtroTipo" class="form-control">
+                                        <option value="nombre">Nombre</option>
+                                        <option value="tipoEvento">Tipo de Evento</option>
+                                        <option value="correoReferencia">Correo de Referencia</option>
+                                        <option value="numeroReferencia">Número de Referencia</option>
+                                    </select>
+                                </div>
+                            </div>
+                    
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="filtroTexto">Valor de Filtro:</label>
+                                    <input type="text" id="filtroTexto" name="filtroTexto" class="form-control">
+                                </div>
+                            </div>
+                    
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>&nbsp;</label>
+                                    <input type="submit" value="Filtrar" class="btn btn-primary btn-block">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    
+            
+                    <br>
+            
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Fin</th>
+                                <th>Tipo </th>
+                                <th>Reporte de Inscritos</th>
+                                <th>Reporte de Resultados</th>
+                             
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($eventos as $evento)
+                                <tr>
+                                    <td>{{ $evento->id }}</td>
+                                    <td>{{ $evento->nombre }}</td>
+                                    <td>{{ $evento->fecha_inicio }}</td>
+                                    <td>{{ $evento->fecha_fin }}</td>
+                                    <td>{{ $evento->tipo }}</td>
+                                    <td>
+                                      <!-- Enlace para imprimir con estilos de hoja de estilos -->
+                                      <a href="#" onclick="imprimirEvento('{{ $evento->nombre}}')" class="btn btn-info">Imprimir </a>
+                                    </td>
+            
+            
+                                    <td>
+                                        <!-- Enlace para imprimir con estilos de hoja de estilos -->
+                                      <a href="#" onclick="imprimirEvento('{{ $evento->nombre}}')" class="btn btn-info">Imprimir </a>
+                                    </td>
+                                    
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+  
 
     <!-- ... -->
     </main>
@@ -200,7 +250,16 @@
 
 
 
-
+<script>
+    function formatDate(input) {
+      // Obtener la fecha en formato YYYY-MM-DD
+      const date = new Date(input.value);
+      const formattedDate = date.toISOString().split('T')[0];
+      
+      // Asignar la fecha formateada al valor del input
+      input.value = formattedDate;
+    }
+  </script>
 <style>
   .titulo-grande {
       font-size: 28px; /* Tamaño de fuente más grande según tu preferencia */

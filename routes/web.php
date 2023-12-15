@@ -136,6 +136,7 @@ Route::put('/actualizarDatos', [CoachController::class, 'update'])->name("update
 Route::get('/reportePDF', [EventoController::class, 'mostrarRegistrosPDF']);
 Route::get('/reporteEventos', [EventoController::class, 'listarEventos'])->name("reporteE");
 Route::get('/reporteCompetencias', [EventoController::class, 'listarCompetencias'])->name("reporteC");
+Route::post('/reporteEventos', [EventoController::class, 'filtrarEventos'])->name('eventos.filtrar');
 
 Route::get('/pdf', [EventoController::class, 'mostrarEventos']);
 
