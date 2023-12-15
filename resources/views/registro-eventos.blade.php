@@ -156,23 +156,24 @@
                 @endif
       @csrf
       <p class="titulo" >{{ $nombre }}</p>
-      <label for="nombre">Nombres:</label>
-      <input type="text" id="nombre" name="nombre" title="Solo se permiten letras" required>
+      <label for="nombre">Nombre:<span class="text-danger">*</span></label>
+      <input type="text" id="nombre" name="nombre" title="Solo se permiten letras" placeholder="Ingrese su nombre" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="30" required>
 
-      <label for="apellidos">Apellidos:</label>
-      <input type="text" id="apellidos" name="apellidos" title="Solo se permiten letras" required>
+      <label for="apellidos">Apellidos:<span class="text-danger">*</span></label>
+      <input type="text" id="apellidos" name="apellidos" title="Solo se permiten letras" placeholder="Ingrese sus apellidos" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="30" required>
 
-      <label for="correo">Correo:</label>
-      <input type="email" id="correo" name="correo" required>
+      <label for="correo">Correo:<span class="text-danger">*</span></label>
+      <input type="email" id="correo" name="correo" placeholder="Ingrese su correo electronico" required>
 
-      <label for="telefono">Número de Celular:</label>
-      <input type="tel" id="telefono" name="telefono" pattern="[0-9]+" title="Solo se permiten números y caracteres especiales">
+      <label for="telefono">Número de Celular:<span class="text-danger">*</span></label>
+      <input type="tel" id="telefono" name="telefono" pattern="[0-9]+" title="Solo se permiten números y caracteres especiales"placeholder="Ingrese su numero de telefono" value="" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); this.value = this.value.replace(/[^0-9\+ ]/,'')" minlength="7" maxlength="12" min="40000000" max="79999999" required>
 
-      <label for="edad">Edad:</label>
-      <input type="number" id="edad" name="edad" min="1" required>
+      <label for="edad">Edad:<span class="text-danger">*</span></label>
+      <input type="number" id="edad" name="edad" placeholder="Ingrese su edad" oninput="validarEdad(this)" maxlength="2">
 
       <input type="hidden" name="eventoinscrito" value="{{ $nombre }}">
 
+      <label >(*)<span class="text-danger">*</span> Campos Obligatorios</label>
       <button type="submit">Enviar</button>
     </form>
   </div>
@@ -209,5 +210,17 @@
               });  
             });
   </script>
+  <script>
+    function validarEdad(input) {
+      // Elimina cualquier carácter que no sea un dígito
+      input.value = input.value.replace(/\D/g, '');
+    
+      // Limita la longitud del valor a dos dígitos
+      if (input.value.length > 2) {
+        input.value = input.value.slice(0, 2);
+      }
+    }
+  </script>
+
 </body>
 </html>
