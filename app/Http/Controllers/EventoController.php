@@ -173,11 +173,12 @@ class EventoController extends Controller
         $correo_existente = RegistroEv::where('correo', $registroevento->correo)->count();
         if ($correo_existente > 0) {
             session()->flash('error', 'Este correo ya está registrado en este Evento');
+            
         }else{
             $registroevento->save();
-            session()->flash('success', '¡Registro Completado!');
+            $request3->session()->flash('success', '¡Registro Completado! Los datos se han guardado correctamente.');
         }
-        return view('frontend.index');
+        return view('registro-eventos')->with('nombre', $request3->input('eventoinscrito'));
     }
 
     // EventoController.php
@@ -209,16 +210,17 @@ class EventoController extends Controller
         $registroCompetencia->email2 = $request4->input('email2');
         $registroCompetencia->celular2 = $request4->input('celular2');
         $registroCompetencia->sis2 = $request4->input('sis2');
-        /*$registroCompetencia->nombre3 = $request4->input('nombre3');
+        $registroCompetencia->nombre3 = $request4->input('nombre3');
         $registroCompetencia->email3 = $request4->input('email3');
         $registroCompetencia->celular3 = $request4->input('celular3');
         $registroCompetencia->sis3 = $request4->input('sis3');
         $registroCompetencia->nombre4 = $request4->input('nombre4');
         $registroCompetencia->email4 = $request4->input('email4');
         $registroCompetencia->celular4 = $request4->input('celular4');
-        $registroCompetencia->sis4 = $request4->input('sis4');*/
+        $registroCompetencia->sis4 = $request4->input('sis4');
         $registroCompetencia->coachEncargado = $request4->input('coachEncargado');
         $registroCompetencia->save();
-        return view('frontend.index');
+        $request4->session()->flash('success', '¡Registro exitoso! Tu equipo se ha inscrito correctamente.');
+        return view('registro_competencias')->with('nombreComp', $nombreComp);
     }
 }
