@@ -174,7 +174,7 @@
       <input type="hidden" name="eventoinscrito" value="{{ $nombre }}">
 
       <label >(*)<span class="text-danger">*</span> Campos Obligatorios</label>
-      <button type="submit">Enviar</button>
+      <button type="submit">Guardar</button>
     </form>
   </div>
 
