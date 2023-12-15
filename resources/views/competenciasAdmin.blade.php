@@ -137,7 +137,7 @@
                                   <!-- Agrega aquí más detalles del competencias si es necesario -->
                               </div>
                                <!-- Botón para abrir el formulario en el modal-->
-                                <a href="{{ url('/formcompetencias', ['nombreComp' => $competencias->nombreComp]) }}" class="btn btn-primary">
+                                <a href="{{ url('/registrarUsCompetencia', ['nombreComp' => $competencias->nombreComp]) }}" class="btn btn-primary">
                                   Registrarse
                                 </a>
 

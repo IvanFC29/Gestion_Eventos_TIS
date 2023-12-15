@@ -51,12 +51,13 @@
                         <div class="containerTitulo"> 
                             <p class="titulo" >{{ $nombreComp }}</p>     
                             <!--<h1><b>Registro a Competencia VARIABLE</b></h1>-->
+                            <input type="hidden" name="nombreComp" value="{{ $nombreComp }}">
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label>Nombre del Equipo:<span class="text-danger"></span></label>
-                                    <input type="text" name="nombreEquipo" class="form-control" value="" placeholder="Ingrese nombre" minlength="3" maxlength="100" required>
+                                    <input type="text" name="nombreEquipo" class="form-control" value="" placeholder="Ingrese nombre"  required>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -68,25 +69,25 @@
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Nombre:<span class="text-danger">*</span></label>
-                                        <input type="text" name="nombre1" class="form-control" value="" placeholder="Ingrese nombre" minlength="3" maxlength="100" required>
+                                        <input type="text" name="nombre1" class="form-control" value="" placeholder="Ingrese nombre"  required>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>E-mail de contacto:<span class="text-danger">*</span></label>
-                                        <input type="text" name="email1" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
+                                        <input type="text" name="email1" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Número de celular:<span class="text-danger">*</span></label>
-                                        <input type="text" name="celular1" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
+                                        <input type="text" name="celular1" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Código Sis:<span class="text-danger">*</span></label>
-                                        <input type="text" name="sis1" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
+                                        <input type="text" name="sis1" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required>
                                     </div>
                                 </div>
                             </div>
@@ -94,25 +95,25 @@
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Nombre:<span class="text-danger">*</span></label>
-                                        <input type="text" name="nombre2" class="form-control" value="" placeholder="Ingrese nombre" minlength="3" maxlength="100" required>
+                                        <input type="text" name="nombre2" class="form-control" value="" placeholder="Ingrese nombre" required>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>E-mail de contacto:<span class="text-danger">*</span></label>
-                                        <input type="text" name="email2" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
+                                        <input type="text" name="email2" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Número de celular:<span class="text-danger">*</span></label>
-                                        <input type="text" name="celular2" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
+                                        <input type="text" name="celular2" class="form-control input_user" value="" required >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Código Sis:<span class="text-danger">*</span></label>
-                                        <input type="text" name="sis2" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
+                                        <input type="text" name="sis2" class="form-control input_user" value="" required>
                                     </div>
                                 </div>
                             </div>
@@ -125,24 +126,24 @@
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Nombre:<span class="text-danger">*</span></label>
-                                        <input type="text" name="nombre3" class="form-control" value="" placeholder="Ingrese nombre" minlength="3" maxlength="100" required>
+                                        <input type="text" name="nombre3" class="form-control" value="" placeholder="Ingrese nombre">
                                     </div>
                                 </div>
                                 <div class="col-md-3">                                        <div class="mb-3">
                                         <label>E-mail de contacto:<span class="text-danger">*</span></label>
-                                        <input type="text" name="email3" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
+                                        <input type="text" name="email3" class="form-control input_user" value="">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Número de celular:<span class="text-danger">*</span></label>
-                                        <input type="text" name="celular3" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
+                                        <input type="text" name="celular3" class="form-control input_user" value="">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Código Sis:<span class="text-danger">*</span></label>
-                                        <input type="text" name="sis3" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
+                                        <input type="text" name="sis3" class="form-control input_user" value="">
                                     </div>
                                 </div>
                             </div>
@@ -158,25 +159,25 @@
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Nombre:<span class="text-danger">*</span></label>
-                                        <input type="text" name="nombre4" class="form-control" value="" placeholder="Ingrese nombre" minlength="3" maxlength="100" required>
+                                        <input type="text" name="nombre4" class="form-control" value="" placeholder="Ingrese nombre">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>E-mail de contacto:<span class="text-danger">*</span></label>
-                                        <input type="text" name="email4" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
+                                        <input type="text" name="email4" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Número de celular:<span class="text-danger">*</span></label>
-                                        <input type="text" name="celular4" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">
+                                        <input type="text" name="celular4" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Código Sis:<span class="text-danger">*</span></label>
-                                        <input type="text" name="sis4" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required maxlength="50">                                        </div>
+                                        <input type="text" name="sis4" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com">
                                     </div>
                                 </div>
                             <div class="row botonesparticipante4" style="display: none;">
@@ -184,16 +185,17 @@
                                     <button type="button" class="btn btn-primary" onclick="quitarParticipante4()">Quitar Participante</button>
                                 </div>
                             </div>
-                        <div class="col-md-4">
+                        
+                    </div>
+                    <div class="col-md-4">
                             <div class="mb-3">
                                 <label for="message-text" class="col-form-label">Nombre del Coach:<span class="text-danger">*</span></label>
-                                <textarea class="form-control" id="coachcompentencia" name="descripcionevento" required></textarea>
+                                <textarea class="form-control" id="coachcompentencia" name="coachEncargado" required></textarea>
                             </div>
-                        </div>
                     </div>
-                        <div class="modal-footer">
+                    <div class="modal-footer">
                             
-                            <button type="submit">Enviar</button>
+                            <button type="submit">Registrarse</button>
 
                             <a type="button" href="/eventos" class="btn btn-secondary cancelar">Cancelar</a>
                         </div>

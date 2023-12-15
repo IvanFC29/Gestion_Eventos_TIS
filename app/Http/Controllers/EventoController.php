@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Evento;
 use App\Models\Competencia;
 use App\Models\RegistroEv;
+use App\Models\RegistroCompetencias;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
@@ -193,30 +194,30 @@ class EventoController extends Controller
         return view('resultados', ['resultados' => $resultados]);
     }
 
-    public function registrarUsCompetencia(){
-        return view('registro_competencias');
+    public function registrarUsCompetencia($nombreComp){
+        return view('registro_competencias')->with('nombreComp', $nombreComp);
     }
     public function registroUsuComp(Request $request4){
         $registroCompetencia = new RegistroCompetencias();
-        $registroCompetencia->nombreComp=$request3->input('nombreComp');
-        $registroCompetencia->nombre = $request4->input('nombreEquipo');
-        $registroCompetencia->apellidos = $request4->input('nombre1');
-        $registroCompetencia->correo = $request4->input('email1');
-        $registroCompetencia->telefono = $request4->input('celular1');
-        $registroCompetencia->edad = $request4->input('sis1');
-        $registroCompetencia->apellidos = $request4->input('nombre2');
-        $registroCompetencia->correo = $request4->input('email2');
-        $registroCompetencia->telefono = $request4->input('celular2');
-        $registroCompetencia->edad = $request4->input('sis2');
-        $registroCompetencia->apellidos = $request4->input('nombre3');
-        $registroCompetencia->correo = $request4->input('email3');
-        $registroCompetencia->telefono = $request4->input('celular3');
-        $registroCompetencia->edad = $request4->input('sis3');
-        $registroCompetencia->apellidos = $request4->input('nombre4');
-        $registroCompetencia->correo = $request4->input('email4');
-        $registroCompetencia->telefono = $request4->input('celular4');
-        $registroCompetencia->edad = $request4->input('sis4');
-        
+        $registroCompetencia->nombreComp=$request4->input('nombreComp');
+        $registroCompetencia->nombreEquipo = $request4->input('nombreEquipo');
+        $registroCompetencia->nombre1 = $request4->input('nombre1');
+        $registroCompetencia->email1 = $request4->input('email1');
+        $registroCompetencia->celular1 = $request4->input('celular1');
+        $registroCompetencia->sis1 = $request4->input('sis1');
+        $registroCompetencia->nombre2 = $request4->input('nombre2');
+        $registroCompetencia->email2 = $request4->input('email2');
+        $registroCompetencia->celular2 = $request4->input('celular2');
+        $registroCompetencia->sis2 = $request4->input('sis2');
+        /*$registroCompetencia->nombre3 = $request4->input('nombre3');
+        $registroCompetencia->email3 = $request4->input('email3');
+        $registroCompetencia->celular3 = $request4->input('celular3');
+        $registroCompetencia->sis3 = $request4->input('sis3');
+        $registroCompetencia->nombre4 = $request4->input('nombre4');
+        $registroCompetencia->email4 = $request4->input('email4');
+        $registroCompetencia->celular4 = $request4->input('celular4');
+        $registroCompetencia->sis4 = $request4->input('sis4');*/
+        $registroCompetencia->coachEncargado = $request4->input('coachEncargado');
         $registroCompetencia->save();
         return view('frontend.index');
     }
