@@ -173,11 +173,12 @@ class EventoController extends Controller
         $correo_existente = RegistroEv::where('correo', $registroevento->correo)->count();
         if ($correo_existente > 0) {
             session()->flash('error', 'Este correo ya está registrado en este Evento');
+            
         }else{
             $registroevento->save();
-            session()->flash('success', '¡Registro Completado!');
+            $request3->session()->flash('success', '¡Registro Completado! Los datos se han guardado correctamente.');
         }
-        return view('frontend.index');
+        return view('registro-eventos')->with('nombre', $request3->input('eventoinscrito'));
     }
 
     // EventoController.php
