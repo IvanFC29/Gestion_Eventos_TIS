@@ -47,6 +47,14 @@
                 @endif-->
                 <div class="section">
                     <form method="post" action="{{ route('eventos.registroUsuComp') }}" enctype="multipart/form-data">
+                        @if (session('success'))
+                            <div class='alert alert-success alert-dismissible fade show' role='alert'>
+                                <strong>{{ session('success') }}</strong>
+                                <!-- Agrega aquí cualquier otro contenido o botones que desees mostrar en el mensaje -->
+                                <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+                            </div>
+                        @endif
+
                         @csrf
                         <div class="containerTitulo"> 
                             <p class="titulo" >{{ $nombreComp }}</p>     
