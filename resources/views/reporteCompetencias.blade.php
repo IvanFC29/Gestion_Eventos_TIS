@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reporte de Competencias </title>
+  <title> Reporte de Competencias</title>
   
   <link rel="stylesheet" href="{{ asset('css/eventos_admin.css') }}" TYPE="text/css">  
-  <link rel="stylesheet" href="{{ asset('css/menu.css') }}" TYPE="text/css">  
-
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ asset('css/menu.css') }}" TYPE="text/css">
+  
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
@@ -27,7 +27,7 @@
     <!-- Tailwind CSS Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css">
 <body>
-    
+      
 
 <header>
     <!-- Contenido del encabezado (header) -->
@@ -55,7 +55,7 @@
     </nav>
 </header>
 
-<!--MENU SIDEBAR-->   
+<!--MENU SIDEBAR-->  
 
 <div class="container-fluid">
     <div class="row">
@@ -124,54 +124,103 @@
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
             <!-- Contenido principal de tu página -->
 
-  <div class="container mt-4">
-    <div id="contenido">
-        <!-- Sección de los eventos próximos o cercanos  -->
-        <div>
-            <h2 class="titulo-grande">Lista de Competencias</h2>
-        </div>
-        
-        <br>
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Fecha Inicio</th>
-                    <th>Fecha Fin</th>
-                    <th>Reporte de Inscritos</th>
-                    <th>Reporte de Resultados</th>
-                 
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($competencias as $competencia)
-                    <tr>
-                        <td>{{ $competencia->id }}</td>
-                        <td>{{ $competencia->nombre }}</td>
-                        <td>{{ $competencia->fecha_inicio }}</td>
-                        <td>{{ $competencia->fecha_fin }}</td>
-                        <td>
-                          <!-- Enlace para imprimir con estilos de hoja de estilos -->
-                          <a href="#" onclick="imprimirEvento('{{ $competencia->nombre}}')" class="btn btn-info">Imprimir </a>
-                        </td>
-
-
-                        <td>
-                            <!-- Enlace para imprimir con estilos de hoja de estilos -->
-                          <a href="#" onclick="imprimirEvento('{{ $competencia->nombre}}')" class="btn btn-info">Imprimir </a>
-                        </td>
+            <div class="container mt-4 ">
+                <div id="contenido">
+                    <!-- Sección de los eventos próximos o cercanos  -->
+                    <div>
+                        <h2 class="titulo-grande">Lista de Competencias</h2>
+                    </div>
+            
+                    <form action="{{ route('competencias.filtrar') }}" method="post">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                  <label for="fechaInicio">Fecha de Inicio:</label>
+                                  <input type="date" id="fechaInicio" name="fechaInicio" class="form-control" onchange="formatDate(this)">
+                                </div>
+                              </div>
                         
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-</div>
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                  <label for="fechaFin">Fecha de Fin:</label>
+                                  <input type="date" id="fechaFin" name="fechaFin" class="form-control" onchange="formatDate(this)">
+                                </div>
+                              </div>
+                    
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="filtroTipo">Tipo de Filtro:</label>
+                                    <select id="filtroTipo" name="filtroTipo" class="form-control">
+                                        <option value="nombre">Nombre</option>                                    
+                                        <option value="correoReferencia">Correo de Referencia</option>
+                                        <option value="numeroReferencia">Número de Referencia</option>
+                                    </select>
+                                </div>
+                            </div>
+                    
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="filtroTexto">Valor de Filtro:</label>
+                                    <input type="text" id="filtroTexto" name="filtroTexto" class="form-control">
+                                </div>
+                            </div>
+                    
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>&nbsp;</label>
+                                    <input type="submit" value="Filtrar" class="btn btn-primary btn-block">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    
+            
+                    <br>
+            
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Fecha Inicio</th>
+                                <th>Celular de Referencia</th>
+                                <th>Correo de Referencia </th>
+                                <th>Reporte de Inscritos</th>
+                                <th>Reporte de Resultados</th>
+                             
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($competencias as $competencia)
+                                <tr>
+                                    <td>{{ $competencia->idComp }}</td>
+                                    <td>{{ $competencia->nombreComp }}</td>
+                                    <td>{{ $competencia->fecha_inicio }}</td>
+                                    <td>{{ $competencia->cel_referencia }}</td>
+                                    <td>{{ $competencia->correo_referencia }}</td>
+                                    <td>
+                                      <!-- Enlace para imprimir con estilos de hoja de estilos -->
+                                      <a href="#" onclick="imprimirEvento('{{ $competencia->nombre}}')" class="btn btn-info">Imprimir </a>
+                                    </td>
+            
+            
+                                    <td>
+                                        <!-- Enlace para imprimir con estilos de hoja de estilos -->
+                                      <a href="#" onclick="imprimirEvento('{{ $competencia->nombre}}')" class="btn btn-info">Imprimir </a>
+                                    </td>
+                                    
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+  
 
- <!-- ... -->
- </main>
+    <!-- ... -->
+    </main>
     </div>
 </div>
     
@@ -200,7 +249,16 @@
 
 
 
-
+<script>
+    function formatDate(input) {
+      // Obtener la fecha en formato YYYY-MM-DD
+      const date = new Date(input.value);
+      const formattedDate = date.toISOString().split('T')[0];
+      
+      // Asignar la fecha formateada al valor del input
+      input.value = formattedDate;
+    }
+  </script>
 <style>
   .titulo-grande {
       font-size: 28px; /* Tamaño de fuente más grande según tu preferencia */

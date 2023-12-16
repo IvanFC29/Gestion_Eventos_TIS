@@ -356,7 +356,55 @@ public function filtrarEventos(Request $request)
 }
 
 
+public function filtrarCompetencias(Request $request)
+{
+    $fechaInicio = $request->input('fechaInicio');
+    $fechaFin = $request->input('fechaFin');
+    $filtroTipo = $request->input('filtroTipo');
+    $filtroTexto = $request->input('filtroTexto');
 
+    // Convertir las fechas al formato deseado (YYYY-MM-DD)
+    $fechaInicio = $fechaInicio ? date('Y-m-d', strtotime($fechaInicio)) : null;
+    $fechaFin = $fechaFin ? date('Y-m-d', strtotime($fechaFin)) : null;
+
+    // Lógica para filtrar eventos
+    $competencias = Competencia::when($filtroTipo, function ($query) use ($filtroTipo, $filtroTexto) {
+        // Seleccionar el tipo de filtro y aplicar la condición correspondiente
+        switch ($filtroTipo) {
+            case 'nombre':
+                $query->where('nombreComp', 'LIKE', '%' . $filtroTexto . '%');
+                break;
+            
+            case 'correoReferencia':
+                $query->where('correo_referencia', 'LIKE', '%' . $filtroTexto . '%');
+                break;
+            case 'numeroReferencia':
+                $query->where('cel_referencia', 'LIKE', '%' . $filtroTexto . '%');
+                break;
+            // Puedes agregar más casos según sea necesario
+        }
+
+        return $query;
+    })
+    ->when(($fechaInicio && $fechaFin) || (!$fechaInicio && !$fechaFin), function ($query) use ($fechaInicio, $fechaFin) {
+        // Aplicar las condiciones de fecha solo si ambas fechas están presentes o ambas están ausentes
+        if ($fechaInicio && $fechaFin) {
+            $query->where(function ($subquery) use ($fechaInicio, $fechaFin) {
+                $subquery->whereBetween('fecha_inicio', [$fechaInicio, $fechaFin])
+                    ->orWhereBetween('fecha_fin', [$fechaInicio, $fechaFin])
+                    ->orWhere(function ($innerSubquery) use ($fechaInicio, $fechaFin) {
+                        $innerSubquery->where('fecha_inicio', '<=', $fechaInicio)
+                            ->where('fecha_fin', '>=', $fechaInicio);
+                    });
+            });
+        }
+
+        return $query;
+    })
+    ->get();
+
+    return view('reporteCompetencias', compact('competencias'));
+}
 
     
 }
