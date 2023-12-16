@@ -143,7 +143,7 @@ Route::get('/reporteEventos', [EventoController::class, 'listarEventos'])->name(
 Route::get('/reporteCompetencias', [EventoController::class, 'listarCompetencias'])->name("reporteC");
 Route::post('/reporteEventos', [EventoController::class, 'filtrarEventos'])->name('eventos.filtrar');
 Route::post('/reporteCompetencias', [EventoController::class, 'filtrarCompetencias'])->name('competencias.filtrar');
-
+Route::get('/reporteCompPDF', [EventoController::class, 'mostrarRegistrosComPDF']);
 
 Route::get('/pdf', [EventoController::class, 'mostrarEventos']);
 

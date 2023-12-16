@@ -445,6 +445,21 @@ public function filtrarCompetencias(Request $request)
         $registroCompetencia->coachEncargado = $request4->input('coachEncargado');
         $registroCompetencia->save();
         $request4->session()->flash('success', '¡Registro exitoso! Tu equipo se ha inscrito correctamente.');
-        return view('registro_competencias')->with('nombreComp', $nombreComp);
+        return view('registro_competencias')->with('nombreComp', $registroCompetencia->nombreComp);
+    }
+    public function mostrarRegistrosComPDF(Request $request) {
+        // Obtener el ID del evento desde la URL
+        $nombreC = $request->input('nombre');  
+        //dd($nombreC);
+        // Obtener registros asociados al evento
+        $registros = RegistroCompetencias::where('nombreComp', $nombreC)->get();
+    
+       // Devolver la vista de registros en PDF con los registros obtenidos
+        //return view('pdf')->with('registros', $registros);
+        $pdf= App::make ('dompdf.wrapper');
+        //$path=resource_path('views/eventos-vista');
+        $pdf->loadView('pdfCompetencia',['registros' => $registros]);
+    
+        return $pdf->stream();
     }
 }
