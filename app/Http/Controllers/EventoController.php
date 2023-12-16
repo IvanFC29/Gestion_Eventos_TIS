@@ -56,6 +56,14 @@ class EventoController extends Controller
         $evento->editable = $request->input('editable');
         $evento->correo_referencia = $request->input('email');
         $evento->cel_referencia = $request->input('telefonoevento');
+        $evento->requisitos = $request->input('requisitos');
+        $evento->reglas = $request->input('reglas');
+        $evento->links = $request->input('links');
+        $evento->infextra = $request->input('infextra');
+        $evento->contenido = $request->input('contenido');
+        $evento->cronograma = $request->input('cronograma');
+        $evento->costo = $request->input('costo');
+        $evento->umss = $request->input('umss');
         
         // afiche por defecto
         $afichePath = 'images/afiches/aficheEdit.jpg';
@@ -221,5 +229,222 @@ class EventoController extends Controller
 
         return view('resultados', ['resultados' => $resultados]);
     }
+    public function mostrarEventos()
+    {
+        $registros = RegistroEv::where('eventoinscrito', 'Curso de ORM gratis')->get();
+    $pdf= App::make ('dompdf.wrapper');
+    //$path=resource_path('views/eventos-vista');
+    $pdf->loadView('pdf',['registros' => $registros]);
 
+    return $pdf->stream();
+    }
+    public function listarEventos()
+    {
+        // Obtener eventos desde el modelo (o desde donde sea que los estés obteniendo)
+        $eventos = Evento::all();
+
+        // Pasar los eventos a la vista
+        return view('reporteEventos')->with('eventos', $eventos);
+    }
+ 
+    public function mostrarRegistrosPDF(Request $request) {
+        // Obtener el ID del evento desde la URL
+        $idEvento = $request->input('nombre');  
+        //dd($idEvento);
+        // Obtener registros asociados al evento
+        $registros = RegistroEv::where('eventoinscrito', $idEvento)->get();
+
+       // Devolver la vista de registros en PDF con los registros obtenidos
+        //return view('pdf')->with('registros', $registros);
+        $pdf= App::make ('dompdf.wrapper');
+        //$path=resource_path('views/eventos-vista');
+        $pdf->loadView('pdf',['registros' => $registros]);
+    
+        return $pdf->stream();
+    }
+    public function listarCompetencias()
+    {
+        // Obtener eventos desde el modelo (o desde donde sea que los estés obteniendo)
+        $competencias = Competencia::all();
+
+        // Pasar los eventos a la vista
+        return view('reporteCompetencias')->with('competencias', $competencias);
+    }
+
+    public function mostrarRegistrosPDFCcom(Request $request) {
+        // Obtener el ID del evento desde la URL
+        $idEvento = $request->input('nombre');  
+        //dd($idEvento);
+        // Obtener registros asociados al evento
+        $registros = RegistroEv::where('eventoinscrito', $idEvento)->get();
+
+       // Devolver la vista de registros en PDF con los registros obtenidos
+        //return view('pdf')->with('registros', $registros);
+        $pdf= App::make ('dompdf.wrapper');
+        //$path=resource_path('views/eventos-vista');
+        $pdf->loadView('pdf',['registros' => $registros]);
+    
+        return $pdf->stream();
+    }
+    public function filtrarEventosl(Request $request)
+{
+    $filtroTipo = $request->input('filtroTipo');
+    $filtroTexto = $request->input('filtroTexto');
+
+    // Lógica para filtrar eventos
+    $eventos = Evento::when($filtroTipo, function ($query) use ($filtroTipo, $filtroTexto) {
+        // Seleccionar el tipo de filtro y aplicar la condición correspondiente
+        switch ($filtroTipo) {
+            case 'nombre':
+                $query->where('nombre', 'LIKE', '%' . $filtroTexto . '%');
+                break;
+            case 'tipoEvento':
+                $query->where('tipo', 'LIKE', '%' . $filtroTexto . '%');
+                break;
+            case 'correoReferencia':
+                $query->where('correo_referencia', 'LIKE', '%' . $filtroTexto . '%');
+                break;
+            case 'numeroReferencia':
+                $query->where('cel_referencia', 'LIKE', '%' . $filtroTexto . '%');
+                break;
+            // Puedes agregar más casos según sea necesario
+        }
+
+        return $query;
+    })->get();
+
+    return view('reporteEventos', compact('eventos'));
+}
+public function filtrarEventos(Request $request)
+{
+    $fechaInicio = $request->input('fechaInicio');
+    $fechaFin = $request->input('fechaFin');
+    $filtroTipo = $request->input('filtroTipo');
+    $filtroTexto = $request->input('filtroTexto');
+
+    // Convertir las fechas al formato deseado (YYYY-MM-DD)
+    $fechaInicio = $fechaInicio ? date('Y-m-d', strtotime($fechaInicio)) : null;
+    $fechaFin = $fechaFin ? date('Y-m-d', strtotime($fechaFin)) : null;
+
+    // Lógica para filtrar eventos
+    $eventos = Evento::when($filtroTipo, function ($query) use ($filtroTipo, $filtroTexto) {
+        // Seleccionar el tipo de filtro y aplicar la condición correspondiente
+        switch ($filtroTipo) {
+            case 'nombre':
+                $query->where('nombre', 'LIKE', '%' . $filtroTexto . '%');
+                break;
+            case 'tipoEvento':
+                $query->where('tipo', 'LIKE', '%' . $filtroTexto . '%');
+                break;
+            case 'correoReferencia':
+                $query->where('correo_referencia', 'LIKE', '%' . $filtroTexto . '%');
+                break;
+            case 'numeroReferencia':
+                $query->where('cel_referencia', 'LIKE', '%' . $filtroTexto . '%');
+                break;
+            // Puedes agregar más casos según sea necesario
+        }
+
+        return $query;
+    })
+    ->when(($fechaInicio && $fechaFin) || (!$fechaInicio && !$fechaFin), function ($query) use ($fechaInicio, $fechaFin) {
+        // Aplicar las condiciones de fecha solo si ambas fechas están presentes o ambas están ausentes
+        if ($fechaInicio && $fechaFin) {
+            $query->where(function ($subquery) use ($fechaInicio, $fechaFin) {
+                $subquery->whereBetween('fecha_inicio', [$fechaInicio, $fechaFin])
+                    ->orWhereBetween('fecha_fin', [$fechaInicio, $fechaFin])
+                    ->orWhere(function ($innerSubquery) use ($fechaInicio, $fechaFin) {
+                        $innerSubquery->where('fecha_inicio', '<=', $fechaInicio)
+                            ->where('fecha_fin', '>=', $fechaInicio);
+                    });
+            });
+        }
+
+        return $query;
+    })
+    ->get();
+
+    return view('reporteEventos', compact('eventos'));
+}
+
+
+public function filtrarCompetencias(Request $request)
+{
+    $fechaInicio = $request->input('fechaInicio');
+    $fechaFin = $request->input('fechaFin');
+    $filtroTipo = $request->input('filtroTipo');
+    $filtroTexto = $request->input('filtroTexto');
+
+    // Convertir las fechas al formato deseado (YYYY-MM-DD)
+    $fechaInicio = $fechaInicio ? date('Y-m-d', strtotime($fechaInicio)) : null;
+    $fechaFin = $fechaFin ? date('Y-m-d', strtotime($fechaFin)) : null;
+
+    // Lógica para filtrar eventos
+    $competencias = Competencia::when($filtroTipo, function ($query) use ($filtroTipo, $filtroTexto) {
+        // Seleccionar el tipo de filtro y aplicar la condición correspondiente
+        switch ($filtroTipo) {
+            case 'nombre':
+                $query->where('nombreComp', 'LIKE', '%' . $filtroTexto . '%');
+                break;
+            
+            case 'correoReferencia':
+                $query->where('correo_referencia', 'LIKE', '%' . $filtroTexto . '%');
+                break;
+            case 'numeroReferencia':
+                $query->where('cel_referencia', 'LIKE', '%' . $filtroTexto . '%');
+                break;
+            // Puedes agregar más casos según sea necesario
+        }
+
+        return $query;
+    })
+    ->when(($fechaInicio && $fechaFin) || (!$fechaInicio && !$fechaFin), function ($query) use ($fechaInicio, $fechaFin) {
+        // Aplicar las condiciones de fecha solo si ambas fechas están presentes o ambas están ausentes
+        if ($fechaInicio && $fechaFin) {
+            $query->where(function ($subquery) use ($fechaInicio, $fechaFin) {
+                $subquery->whereBetween('fecha_inicio', [$fechaInicio, $fechaFin])
+                    ->orWhereBetween('fecha_fin', [$fechaInicio, $fechaFin])
+                    ->orWhere(function ($innerSubquery) use ($fechaInicio, $fechaFin) {
+                        $innerSubquery->where('fecha_inicio', '<=', $fechaInicio)
+                            ->where('fecha_fin', '>=', $fechaInicio);
+                    });
+            });
+        }
+
+        return $query;
+    })
+    ->get();
+
+    return view('reporteCompetencias', compact('competencias'));
+}
+
+    
+    public function registrarUsCompetencia($nombreComp){
+        return view('registro_competencias')->with('nombreComp', $nombreComp);
+    }
+    public function registroUsuComp(Request $request4){
+        $registroCompetencia = new RegistroCompetencias();
+        $registroCompetencia->nombreComp=$request4->input('nombreComp');
+        $registroCompetencia->nombreEquipo = $request4->input('nombreEquipo');
+        $registroCompetencia->nombre1 = $request4->input('nombre1');
+        $registroCompetencia->email1 = $request4->input('email1');
+        $registroCompetencia->celular1 = $request4->input('celular1');
+        $registroCompetencia->sis1 = $request4->input('sis1');
+        $registroCompetencia->nombre2 = $request4->input('nombre2');
+        $registroCompetencia->email2 = $request4->input('email2');
+        $registroCompetencia->celular2 = $request4->input('celular2');
+        $registroCompetencia->sis2 = $request4->input('sis2');
+        $registroCompetencia->nombre3 = $request4->input('nombre3');
+        $registroCompetencia->email3 = $request4->input('email3');
+        $registroCompetencia->celular3 = $request4->input('celular3');
+        $registroCompetencia->sis3 = $request4->input('sis3');
+        $registroCompetencia->nombre4 = $request4->input('nombre4');
+        $registroCompetencia->email4 = $request4->input('email4');
+        $registroCompetencia->celular4 = $request4->input('celular4');
+        $registroCompetencia->sis4 = $request4->input('sis4');
+        $registroCompetencia->coachEncargado = $request4->input('coachEncargado');
+        $registroCompetencia->save();
+        $request4->session()->flash('success', '¡Registro exitoso! Tu equipo se ha inscrito correctamente.');
+        return view('registro_competencias')->with('nombreComp', $nombreComp);
+    }
 }
