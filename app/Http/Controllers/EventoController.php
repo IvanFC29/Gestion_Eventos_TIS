@@ -184,6 +184,7 @@ class EventoController extends Controller
         $competencia->costo = $request2->input('costo');
         $competencia->costo = $request2->input('actividades');
         $competencia->umss = $request2->input('umss');
+        $competencia->numeroParticipantes = $request2->input('numeroParticipantes');
         
         // Buscar competencias repetidas
         $competencia_existente = Competencia::where('nombreComp', $competencia->nombreComp)->count();

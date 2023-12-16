@@ -46,7 +46,7 @@
                     </div>
                 @endif-->
                 <div class="section">
-                    <form method="post" action="{{ route('eventos.registroUsuComp') }}" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('eventos.registroUsuComp') }}" id="registroForm" enctype="multipart/form-data">
                         @if (session('success'))
                             <div class='alert alert-success alert-dismissible fade show' role='alert'>
                                 <strong>{{ session('success') }}</strong>
@@ -96,7 +96,7 @@
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Código Sis:<span class="text-danger">*</span></label>
-                                        <input type="text" name="sis1" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required>
+                                        <input type="text" name="sis1" id="sis1" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required>
                                     </div>
                                 </div>
                             </div>
@@ -122,7 +122,7 @@
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Código Sis:<span class="text-danger">*</span></label>
-                                        <input type="text" name="sis2" class="form-control input_user" value="" required>
+                                        <input type="text" name="sis2" id="sis2" class="form-control input_user" value="" required>
                                     </div>
                                 </div>
                             </div>
@@ -152,7 +152,7 @@
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Código Sis:<span class="text-danger">*</span></label>
-                                        <input type="text" name="sis3" class="form-control input_user" value="">
+                                        <input type="text" name="sis3" id="sis3" class="form-control input_user" value="">
                                     </div>
                                 </div>
                             </div>
@@ -186,7 +186,7 @@
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Código Sis:<span class="text-danger">*</span></label>
-                                        <input type="text" name="sis4" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com">
+                                        <input type="text" name="sis4" id="sis4" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com">
                                     </div>
                                 </div>
                             <div class="row botonesparticipante4" style="display: none;">
@@ -204,7 +204,7 @@
                     </div>
                     <div class="modal-footer">
                             
-                            <button type="submit">Registrarse</button>
+                            <button type="submit" onclick="validarSIS()">Registrarse</button>
 
                             <a type="button" href="/eventos" class="btn btn-secondary cancelar">Cancelar</a>
                         </div>

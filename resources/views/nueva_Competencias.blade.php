@@ -146,11 +146,11 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label>Nombre de la Competencia:<span class="text-danger">*</span></label>
-                                    <input type="text" name="nombreComp" class="form-control" value="" placeholder="Ingrese nombre" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="30" required>
+                                    <input type="text" name="nombreComp" class="form-control" value="" placeholder="Ingrese nombre" minlength="3" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="message-text" class="col-form-label">Descripción de la Competencia:</label>
-                                    <textarea class="form-control" id="message-text" name="descripcionCompetencia"></textarea>
+                                    <textarea class="form-control" id="message-text" name="descripcionCompetencia" required ></textarea>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -168,7 +168,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="message-text" class="col-form-label">Ubicación de la Competencia:</label>
-                                    <textarea class="form-control" id="message-text" name="ubicacionCompetencia"></textarea>
+                                    <textarea class="form-control" id="message-text" name="ubicacionCompetencia" required ></textarea>
                                 </div>
                             </div>
                         </div>
@@ -239,9 +239,18 @@
                                 <div class="mb-3">
                                     <label>Los participantes deben ser obligatoriamente de la UMSS?:</label>
                                     <select name="tipoEvento" class="form-control form-control-lg">
-                                        <option></option>
-                                        <option>Si</option>
                                         <option>No</option>
+                                        <option>Si</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Cantidad de participantes en la Competencia?:</label>
+                                    <select name="numeroParticipantes" class="form-control form-control-lg">
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
                                     </select>
                                 </div>
                             </div>
