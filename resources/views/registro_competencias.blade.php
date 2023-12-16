@@ -66,7 +66,7 @@
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label>Nombre del Equipo:<span class="text-danger"></span></label>
-                                    <input type="text" name="nombreEquipo" class="form-control" value="" placeholder="Ingrese nombre"  required>
+                                    <input type="text" name="nombreEquipo" class="form-control" value="" placeholder="Ingrese el nombre del equipo" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="50" required>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -78,7 +78,7 @@
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Nombre:<span class="text-danger">*</span></label>
-                                        <input type="text" name="nombre1" class="form-control" value="" placeholder="Ingrese nombre"  required>
+                                        <input type="text" name="nombre1" class="form-control" value="" placeholder="Ingrese nombre de competidor" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="30" required>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -90,13 +90,14 @@
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Número de celular:<span class="text-danger">*</span></label>
-                                        <input type="text" name="celular1" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required>
+                                        <input type="text" name="celular1" class="form-control input_user" value="" pattern="[0-9]+" title="Solo se permiten números y caracteres especiales"placeholder="Ingrese su numero de telefono" value="" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); this.value = this.value.replace(/[^0-9\+ ]/,'')" minlength="7" maxlength="20" required>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Código Sis:<span class="text-danger">*</span></label>
-                                        <input type="text" name="sis1" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required>
+                                        <input type="text" name="sis1" class="form-control input_user" value="" placeholder="ingrese su codigo sis" oninput="this.value = this.value.replace(/\D/g, '').substring(0, 10)"
+                                            minlength="3" maxlength="10" required >
                                     </div>
                                 </div>
                             </div>
@@ -104,7 +105,7 @@
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Nombre:<span class="text-danger">*</span></label>
-                                        <input type="text" name="nombre2" class="form-control" value="" placeholder="Ingrese nombre" required>
+                                        <input type="text" name="nombre2" class="form-control" value=""  placeholder="Ingrese nombre de competidor" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="30" required>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -116,26 +117,27 @@
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Número de celular:<span class="text-danger">*</span></label>
-                                        <input type="text" name="celular2" class="form-control input_user" value="" required >
+                                        <input type="text" name="celular2" class="form-control input_user" value="" pattern="[0-9]+" title="Solo se permiten números y caracteres especiales"placeholder="Ingrese su numero de telefono" value="" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); this.value = this.value.replace(/[^0-9\+ ]/,'')" minlength="7" maxlength="20" required >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Código Sis:<span class="text-danger">*</span></label>
-                                        <input type="text" name="sis2" class="form-control input_user" value="" required>
+                                        <input type="text" name="sis2" class="form-control input_user" value="" placeholder="ingrese su codigo sis" oninput="this.value = this.value.replace(/\D/g, '').substring(0, 10)"
+                                            minlength="3" maxlength="10" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="row botonesparticipante2">
                                 <div class="col-md-3">
-                                    <button type="button" class="btn btn-primary" onclick="agregarParticipante3()">Agregar Participante</button>
+                                    <button type="button" class="btn btn-outline-success" onclick="agregarParticipante3()">Agregar Participante</button>
                                 </div>
                             </div>
                             <div class="row participante3" style="display: none;">
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Nombre:<span class="text-danger">*</span></label>
-                                        <input type="text" name="nombre3" class="form-control" value="" placeholder="Ingrese nombre">
+                                        <input type="text" name="nombre3" class="form-control" value="" placeholder="Ingrese nombre de competidor" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="30" required>
                                     </div>
                                 </div>
                                 <div class="col-md-3">                                        <div class="mb-3">
@@ -146,29 +148,30 @@
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Número de celular:<span class="text-danger">*</span></label>
-                                        <input type="text" name="celular3" class="form-control input_user" value="">
+                                        <input type="text" name="celular3" class="form-control input_user" value=""pattern="[0-9]+" title="Solo se permiten números y caracteres especiales" placeholder="Ingrese su numero de telefono" value="" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); this.value = this.value.replace(/[^0-9\+ ]/,'')" minlength="7" maxlength="20" required>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Código Sis:<span class="text-danger">*</span></label>
-                                        <input type="text" name="sis3" class="form-control input_user" value="">
+                                        <input type="text" name="sis3" class="form-control input_user" value="" placeholder="ingrese su codigo sis" oninput="this.value = this.value.replace(/\D/g, '').substring(0, 10)"
+                                            minlength="3" maxlength="10" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="row botonesparticipante3" style="display: none;">
                                 <div class="col-md-6">
-                                    <button type="button" class="btn btn-primary" onclick="agregarParticipante4()">Agregar Participante</button>
+                                    <button type="button" class="btn btn-outline-success" onclick="agregarParticipante4()">Agregar Participante</button>
                                 </div>
                                 <div class="col-md-6">
-                                    <button type="button" class="btn btn-primary" onclick="quitarParticipante3()">Quitar Participante</button>
+                                    <button type="button" class="btn btn-outline-danger" onclick="quitarParticipante3()">Quitar Participante</button>
                                 </div>
                             </div>
                             <div class="row participante4" style="display: none;">
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Nombre:<span class="text-danger">*</span></label>
-                                        <input type="text" name="nombre4" class="form-control" value="" placeholder="Ingrese nombre">
+                                        <input type="text" name="nombre4" class="form-control" value=""  placeholder="Ingrese nombre de competidor" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="30" required>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -180,18 +183,19 @@
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Número de celular:<span class="text-danger">*</span></label>
-                                        <input type="text" name="celular4" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com">
+                                        <input type="text" name="celular4" class="form-control input_user" value="" pattern="[0-9]+" title="Solo se permiten números y caracteres especiales"placeholder="Ingrese su numero de telefono" value="" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); this.value = this.value.replace(/[^0-9\+ ]/,'')" minlength="7" maxlength="20" required>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Código Sis:<span class="text-danger">*</span></label>
-                                        <input type="text" name="sis4" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com">
+                                        <input type="text" name="sis4" class="form-control input_user" value="" placeholder="ingrese su codigo sis" oninput="this.value = this.value.replace(/\D/g, '').substring(0, 10)"
+                                            minlength="3" maxlength="10" required>
                                     </div>
                                 </div>
                             <div class="row botonesparticipante4" style="display: none;">
                                 <div class="col-md-3">
-                                    <button type="button" class="btn btn-primary" onclick="quitarParticipante4()">Quitar Participante</button>
+                                    <button type="button" class="btn btn-outline-danger" onclick="quitarParticipante4()">Quitar Participante</button>
                                 </div>
                             </div>
                         
@@ -199,7 +203,7 @@
                     <div class="col-md-4">
                             <div class="mb-3">
                                 <label for="message-text" class="col-form-label">Nombre del Coach:<span class="text-danger">*</span></label>
-                                <textarea class="form-control" id="coachcompentencia" name="coachEncargado" required></textarea>
+                                <textarea class="form-control" id="coachcompentencia" name="coachEncargado" placeholder="Ingrese nombre de Coach" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="30" required></textarea>
                             </div>
                     </div>
                     <div class="modal-footer">
