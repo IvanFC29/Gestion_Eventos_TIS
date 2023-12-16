@@ -110,6 +110,11 @@ Route::post('/registrarUsuEvent', [EventoController::class, 'registroUsuEvent'])
 
 Route::get('/buscar-eventos', [EventoController::class, 'buscarEventos'])->name('buscar.eventos');
 
+Route::get('/registrarUsCompetencia/{nombre}', [EventoController::class, 'registrarUsCompetencia'])
+->name('eventos.registrarUsCompetencia');
+
+Route::post('/registroUsuComp', [EventoController::class, 'registroUsuComp'])
+->name('eventos.registroUsuComp');
 
 
 

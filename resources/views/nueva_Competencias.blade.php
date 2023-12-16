@@ -141,15 +141,12 @@
                         <div class="containerTitulo">      
                             <h1> <b>CREAR COMPETENCIA</b> </h1>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">Campos no obligatorios (*)</div>
-                        </div>
                         <br>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label>Nombre de la Competencia:<span class="text-danger">*</span></label>
-                                    <input type="text" name="nombre" class="form-control" value="" placeholder="Ingrese nombre" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="30" required>
+                                    <input type="text" name="nombreComp" class="form-control" value="" placeholder="Ingrese nombre" oninput="this.value = this.value.replace(/[^\a-\z\A-\Z\ñ\Ñ ]/g,'')" minlength="3" maxlength="30" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="message-text" class="col-form-label">Descripción de la Competencia:</label>
@@ -174,26 +171,6 @@
                                     <textarea class="form-control" id="message-text" name="ubicacionCompetencia"></textarea>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">*Reglas de clasificación:</label>
-                                    <textarea class="form-control" id="message-text" name="reglasCompetencia"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="message-text" class="col-form-label">*Requisitos:</label>
-                                    <textarea class="form-control" id="message-text" name="requisitosCompetencia"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">*Link de inscripciones:</label>
-                                    <textarea class="form-control" id="message-text" name="linkInsCompetencia"></textarea>
-                                </div>
-                            </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
@@ -206,6 +183,38 @@
                                 <div class="mb-3">
                                     <label>Telefono/Celular de contacto:<span class="text-danger">*</span></label>
                                     <input type="text" name="telefonoCompetencia" class="form-control input_user" value="" placeholder="Ingrese numero telef/cel" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); this.value = this.value.replace(/[^0-9]/,'')" minlength="7" maxlength="8" min="40000000" max="79999999" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row opcional" id="requisitos">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Requisitos:</label>
+                                    <input type="text" name="requisitos" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row opcional" id="reglas">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Reglas:</label>
+                                    <input type="text" name="reglas" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row opcional" id="links">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Links:</label>
+                                    <input type="text" name="links" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row opcional" id="infextra">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Información Extra:</label>
+                                    <input type="text" name="infextra" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -225,20 +234,46 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row" id="umss">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Los participantes deben ser obligatoriamente de la UMSS?:</label>
+                                    <select name="tipoEvento" class="form-control form-control-lg">
+                                        <option></option>
+                                        <option>Si</option>
+                                        <option>No</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                         <!-- Agrega campos adicionales para las otras opciones -->
                         <div class="section2">
                             <div class="row">
                                 <div class="col-md-6">
                                     <label>Campos adicionales:</label>
                                     <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="chkRequisitos" name="chkRequisitos">
+                                        <label class="form-check-label" for="chkRequisitos">Requisitos</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="chkReglas" name="chkReglas">
+                                        <label class="form-check-label" for="chkReglas">Reglas</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="chkInfextra" name="chkInfextra">
+                                        <label class="form-check-label" for="chkInfextra">Información Extra</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label></label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="chkLinks" name="chkLinks">
+                                        <label class="form-check-label" for="chkLinks">Links</label>
+                                    </div>
+                                    <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="chkCosto" name="chkCosto">
                                         <label class="form-check-label" for="chkCosto">Costo</label>
                                     </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="chkActividades" name="chkActividades">
-                                        <label class="form-check-label" for="chkActividades">Actividades</label>
-                                    </div>
-                                    <!-- Agrega checkboxes para las otras opciones -->
                                 </div>
                             </div>
                         </div>
