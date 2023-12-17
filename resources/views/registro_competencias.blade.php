@@ -204,96 +204,128 @@
                                 </div>
                             </div>
                         
-                    </div>
-                    <div class="col-md-4">
-                            <div class="mb-3">
-                                <label for="message-text" class="col-form-label">Nombre del Coach:<span class="text-danger">*</span></label>
-                                <textarea class="form-control" id="coachcompentencia" name="coachEncargado" required></textarea>
-                            </div>
-                    </div>
-                    <div class="modal-footer">
-                            
-                            <button type="submit" onclick="validarSIS()">Registrarse</button>
+                        </div>
+                        <div class="col-md-4">
+                                <div class="mb-3">
+                                    <label for="message-text" class="col-form-label">Nombre del Coach:<span class="text-danger">*</span></label>
+                                    <textarea class="form-control" id="coachcompentencia" name="coachEncargado" required></textarea>
+                                </div>
+                        </div>
+                        <div class="modal-footer">
+                                
+                                <button type="submit" onclick="validarSIS()">Registrarse</button>
 
-                            <a type="button" href="/eventos" class="btn btn-secondary cancelar">Cancelar</a>
+                                <a type="button" href="/eventos" class="btn btn-secondary cancelar">Cancelar</a>
                         </div>
                     </form>
    
                 </div>
         </div>
         <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Obtener el valor de $umssValue
-        var umss = "{{ $umss }}";
+            document.addEventListener('DOMContentLoaded', function () {
+                var numIntegrantes = @json($numIntegrantes);
 
-        // Función para ocultar o mostrar campos según el valor de $umssValue
-        function toggleSisFields(umss) {
-            if (umss === "No") {
-                // Ocultar campos si $umssValue es "No"
-                document.querySelectorAll('.sis-field').forEach(function (element) {
-                    element.style.display = 'none';
-                });
-            } else {
-                // Mostrar campos si $umssValue no es "No"
-                document.querySelectorAll('.sis-field').forEach(function (element) {
-                    element.style.display = 'block';
-                });
+                function toggleBotones(numIntegrantes) {
+                    // Oculta todas las clases
+                    
+                    if (numIntegrantes == 2) {
+                        document.querySelector('.botonesparticipante2').style.display = 'none';
+                    } else if (numIntegrantes == 3) {
+                        document.querySelector('.botonesparticipante3').style.display = 'none';
+                    } else if (numIntegrantes == 4) {
+                        // No hace nada, puedes añadir lógica aquí si es necesario en el futuro
+                    }
+                }
+
+                toggleBotones(numIntegrantes);
+
+                // Puedes agregar un listener para cambios dinámicos si es necesario
+            });
+        </script>
+
+    
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Obtener el valor de $umssValue
+            var umss = "{{ $umss }}";
+
+            // Función para ocultar o mostrar campos según el valor de $umssValue
+            function toggleSisFields(umss) {
+                if (umss === "No") {
+                    // Ocultar campos si $umssValue es "No"
+                    document.querySelectorAll('.sis-field').forEach(function (element) {
+                        element.style.display = 'none';
+                    });
+                } else {
+                    // Mostrar campos si $umssValue no es "No"
+                    document.querySelectorAll('.sis-field').forEach(function (element) {
+                        element.style.display = 'block';
+                    });
+                }
+            }
+
+            // Llamar a la función inicialmente con el valor actual de $umssValue
+            toggleSisFields(umss);
+
+            // Agregar un listener al cambio del valor (por si cambia dinámicamente)
+            // Puedes ajustar el selector del elemento que contiene el valor de $umssValue
+            document.querySelector('#umss').addEventListener('change', function () {
+                umss = this.value;
+                toggleSisFields(umss);
+            });
+        });
+    </script>
+
+    <script>
+        function agregarParticipante3() {
+            var numIntegrantes = @json($numIntegrantes);
+            if (numIntegrantes == 3) {
+               document.querySelector('.botonesparticipante3').style.display = 'none';               
+               document.querySelector('.botonesparticipante2').style.display = 'none';
+               document.querySelector('.participante3').style.display = 'flex'; // Cambiado de 'block' a 'flex'
+            } else if (numIntegrantes == 4) {
+                    // No hace nada, puedes añadir lógica aquí si es necesario en el futuro
+                    // Ocultar botonesparticipante2
+                    document.querySelector('.botonesparticipante2').style.display = 'none';
+                    // Mostrar participante3 y botonesparticipante3
+                    document.querySelector('.participante3').style.display = 'flex'; // Cambiado de 'block' a 'flex'
+                    document.querySelector('.botonesparticipante3').style.display = 'flex'; // Cambiado de 'block' a 'flex'
             }
         }
 
-        // Llamar a la función inicialmente con el valor actual de $umssValue
-        toggleSisFields(umss);
+        function quitarParticipante3() {
+            // Ocultar participante3 y botonesparticipante3
+            document.querySelector('.participante3').style.display = 'none';
+            document.querySelector('.botonesparticipante3').style.display = 'none';
 
-        // Agregar un listener al cambio del valor (por si cambia dinámicamente)
-        // Puedes ajustar el selector del elemento que contiene el valor de $umssValue
-        document.querySelector('#umss').addEventListener('change', function () {
-            umss = this.value;
-            toggleSisFields(umss);
-        });
-    });
-</script>
+            // Mostrar botonesparticipante2
+            document.querySelector('.botonesparticipante2').style.display = 'flex'; // Cambiado de 'block' a 'flex'
+        }
 
-<script>
-    function agregarParticipante3() {
-        // Ocultar botonesparticipante2
-        document.querySelector('.botonesparticipante2').style.display = 'none';
+        function agregarParticipante4() {
+            // Ocultar botonesparticipante3
+            document.querySelector('.botonesparticipante3').style.display = 'none';
 
-        // Mostrar participante3 y botonesparticipante3
-        document.querySelector('.participante3').style.display = 'flex'; // Cambiado de 'block' a 'flex'
-        document.querySelector('.botonesparticipante3').style.display = 'flex'; // Cambiado de 'block' a 'flex'
-    }
+            // Mostrar participante4 y botonesparticipante4
+            document.querySelector('.participante4').style.display = 'flex'; // Cambiado de 'block' a 'flex'
+            document.querySelector('.botonesparticipante4').style.display = 'flex'; // Cambiado de 'block' a 'flex'
+        }
 
-    function quitarParticipante3() {
-        // Ocultar participante3 y botonesparticipante3
-        document.querySelector('.participante3').style.display = 'none';
-        document.querySelector('.botonesparticipante3').style.display = 'none';
+        function quitarParticipante4() {
+            // Ocultar participante4 y botonesparticipante4
+            document.querySelector('.participante4').style.display = 'none';
+            document.querySelector('.botonesparticipante4').style.display = 'none';
 
-        // Mostrar botonesparticipante2
-        document.querySelector('.botonesparticipante2').style.display = 'flex'; // Cambiado de 'block' a 'flex'
-    }
+            // Mostrar botonesparticipante3
+            document.querySelector('.botonesparticipante3').style.display = 'flex'; // Cambiado de 'block' a 'flex'
+        }
+    </script>
 
-    function agregarParticipante4() {
-        // Ocultar botonesparticipante3
-        document.querySelector('.botonesparticipante3').style.display = 'none';
+    <!-- ... (resto del código) ... -->
 
-        // Mostrar participante4 y botonesparticipante4
-        document.querySelector('.participante4').style.display = 'flex'; // Cambiado de 'block' a 'flex'
-        document.querySelector('.botonesparticipante4').style.display = 'flex'; // Cambiado de 'block' a 'flex'
-    }
-
-    function quitarParticipante4() {
-        // Ocultar participante4 y botonesparticipante4
-        document.querySelector('.participante4').style.display = 'none';
-        document.querySelector('.botonesparticipante4').style.display = 'none';
-
-        // Mostrar botonesparticipante3
-        document.querySelector('.botonesparticipante3').style.display = 'flex'; // Cambiado de 'block' a 'flex'
-    }
-</script>
-
-<!-- ... (resto del código) ... -->
-
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 
     
