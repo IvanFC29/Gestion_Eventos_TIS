@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Competencia;
 use App\Models\RegistroEv;
 use App\Models\RegistroCompetencias;
+use App\Models\Estudiantes;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
@@ -463,4 +464,19 @@ public function filtrarCompetencias(Request $request)
     
         return $pdf->stream();
     }
+
+
+
+
+
+
+
+
+    /*public function validarSIS(Request $request) {
+        $sis = $request->input('sis');
+
+        $exists = Estudiantes::where('codigosis', $sis)->exists();
+
+        return response()->json(['exists' => $exists]);
+    }*/
 }

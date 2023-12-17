@@ -36,7 +36,7 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css">
 <body>
       
-<div id="wrapper">
+  <div id="wrapper">
         <div class="overlay"></div>
           
           <!-- Sidebar -->
@@ -121,7 +121,7 @@
               @foreach ($listados as $competencias)
 
 
-                  <div class="modal" id="modal-{{ $competencias->id }}">
+                  <div class="modal" id="modal-{{ $competencias->idComp }}">
                       <div class="modal-dialog">
                           <div class="modal-content">
                               <div class="modal-header">
@@ -155,7 +155,7 @@
                               <h5 class="card-title">{{ $competencias->nombreComp }}</h5>
                               <p class="card-text">{{ $competencias->descripcion }}</p>
 
-                              <button type="button" class="btn btn-primary abrirmodales" data-toggle="modal" data-target="#modal-{{ $competencias->id }}">
+                              <button type="button" class="btn btn-primary abrirmodales" data-toggle="modal" data-target="#modal-{{ $competencias->idComp }}">
                                   Ver detalles
                               </button>
                           </div>

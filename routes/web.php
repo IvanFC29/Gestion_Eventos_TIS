@@ -116,6 +116,7 @@ Route::get('/registrarUsCompetencia/{nombre}', [EventoController::class, 'regist
 Route::post('/registroUsuComp', [EventoController::class, 'registroUsuComp'])
 ->name('eventos.registroUsuComp');
 
+//Route::post('/validar-sis', 'EventoController@validarSIS');
 
 
 

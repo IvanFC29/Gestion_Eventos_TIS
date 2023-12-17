@@ -251,8 +251,34 @@
     }
 </script>
 
-<!-- ... (resto del código) ... -->
+<!-- ... (resto del código) ... 
 
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+   function validarSIS() {
+      var sisValue = $('#sis1').val();
+
+      $.ajax({
+         type: 'POST',
+         url: '/validar-sis', // Ajusta la ruta según tu configuración
+         data: {
+            _token: '{{ csrf_token() }}',
+            sis: sisValue
+         },
+         success: function (response) {
+            if (response.exists) {
+               // El código SIS existe, puedes permitir el envío del formulario
+               $('#registroForm').submit();
+            } else {
+               alert('El código SIS no existe en la base de datos. Por favor, verifíquelo.');
+            }
+         },
+         error: function () {
+            alert('Error al validar el código SIS. Inténtelo de nuevo.');
+         }
+      });
+   }
+</script>-->
 
     
 
