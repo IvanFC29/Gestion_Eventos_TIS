@@ -238,7 +238,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label>Los participantes deben ser obligatoriamente de la UMSS?:</label>
-                                    <select name="tipoEvento" class="form-control form-control-lg">
+                                    <select name="umss" class="form-control form-control-lg">
                                         <option>No</option>
                                         <option>Si</option>
                                     </select>

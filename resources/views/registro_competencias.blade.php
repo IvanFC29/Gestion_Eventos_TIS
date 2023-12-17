@@ -100,10 +100,10 @@
                                         <input type="text" name="celular1" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 sis-field">
                                     <div class="mb-3">
                                         <label>Código Sis:<span class="text-danger">*</span></label>
-                                        <input type="text" name="sis1" id="sis1" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required>
+                                        <input type="text" name="sis1" id="sis1" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com">
                                     </div>
                                 </div>
                             </div>
@@ -126,10 +126,10 @@
                                         <input type="text" name="celular2" class="form-control input_user" value="" required >
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 sis-field">
                                     <div class="mb-3">
                                         <label>Código Sis:<span class="text-danger">*</span></label>
-                                        <input type="text" name="sis2" id="sis2" class="form-control input_user" value="" required>
+                                        <input type="text" name="sis2" id="sis2" class="form-control input_user" value="">
                                     </div>
                                 </div>
                             </div>
@@ -156,7 +156,7 @@
                                         <input type="text" name="celular3" class="form-control input_user" value="">
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3  sis-field">
                                     <div class="mb-3">
                                         <label>Código Sis:<span class="text-danger">*</span></label>
                                         <input type="text" name="sis3" id="sis3" class="form-control input_user" value="">
@@ -190,12 +190,14 @@
                                         <input type="text" name="celular4" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com">
                                     </div>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 sis-field">
                                     <div class="mb-3">
                                         <label>Código Sis:<span class="text-danger">*</span></label>
-                                        <input type="text" name="sis4" id="sis4" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com">
+                                        <input type="text" name="sis4" id="sis4" class="form-control input_user" value="">
                                     </div>
                                 </div>
+                                <!-- Repite lo mismo para los demás campos que quieres ocultar/mostrar -->
+
                             <div class="row botonesparticipante4" style="display: none;">
                                 <div class="col-md-3">
                                     <button type="button" class="btn btn-primary" onclick="quitarParticipante4()">Quitar Participante</button>
@@ -219,6 +221,37 @@
    
                 </div>
         </div>
+        <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Obtener el valor de $umssValue
+        var umss = "{{ $umss }}";
+
+        // Función para ocultar o mostrar campos según el valor de $umssValue
+        function toggleSisFields(umss) {
+            if (umss === "No") {
+                // Ocultar campos si $umssValue es "No"
+                document.querySelectorAll('.sis-field').forEach(function (element) {
+                    element.style.display = 'none';
+                });
+            } else {
+                // Mostrar campos si $umssValue no es "No"
+                document.querySelectorAll('.sis-field').forEach(function (element) {
+                    element.style.display = 'block';
+                });
+            }
+        }
+
+        // Llamar a la función inicialmente con el valor actual de $umssValue
+        toggleSisFields(umss);
+
+        // Agregar un listener al cambio del valor (por si cambia dinámicamente)
+        // Puedes ajustar el selector del elemento que contiene el valor de $umssValue
+        document.querySelector('#umss').addEventListener('change', function () {
+            umss = this.value;
+            toggleSisFields(umss);
+        });
+    });
+</script>
 
 <script>
     function agregarParticipante3() {

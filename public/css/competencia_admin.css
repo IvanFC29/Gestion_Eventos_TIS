@@ -1,7 +1,7 @@
 .eventocard {
     
     margin: 10px solid rgb(246, 199, 199) !important;
-    max-height: 10px !important;
+    /*max-height: 10px !important;*/
 }
 
 .eventobodycard {
