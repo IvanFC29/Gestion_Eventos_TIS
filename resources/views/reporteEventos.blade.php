@@ -208,7 +208,7 @@
             
                                     <td>
                                         <!-- Enlace para imprimir con estilos de hoja de estilos -->
-                                      <a href="#" onclick="imprimirEvento('{{ $evento->nombre}}')" class="btn btn-info">Imprimir </a>
+                                      <a href="#" onclick="imprimirEvento_res('{{ $evento->nombre}}')" class="btn btn-info">Imprimir </a>
                                     </td>
                                     
                                 </tr>
@@ -244,6 +244,10 @@
   function imprimirEvento(nombre) {
       // Redirigir a la página de registros en PDF con el ID como parámetro
       window.location.href = '/reportePDF?nombre=' + nombre;
+  }
+  function imprimirEvento_res(nombre) {
+      // Redirigir a la página de registros en PDF con el ID como parámetro
+      window.location.href = '/pdfEveRes?nombre=' + nombre;
   }
 </script>
 

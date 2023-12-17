@@ -464,6 +464,41 @@ public function filtrarCompetencias(Request $request)
     
         return $pdf->stream();
     }
+    public function mostrarResultadoC(Request $request)
+    {
+        // Obtener el ID del evento desde la URL
+        $nomCompetencia = $request->input('nombre');  
+        
+        // Obtener registros asociados al evento y ordenar por 'puntaje' de mayor a menor
+        $registros = RegistroCompetencias::where('nombreComp', $nomCompetencia)
+                               ->orderBy('puntaje', 'desc') // Ordenar por 'puntaje' de mayor a menor
+                               ->get();
+    
+        // Devolver la vista de registros en PDF con los registros obtenidos
+       // dd($registros);
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadView('pdfComRes', ['registros' => $registros]);
+    
+        return $pdf->stream();
+    }
+    public function mostrarResultadoE(Request $request)
+    {
+        // Obtener el ID del evento desde la URL
+        $nomEvento = $request->input('nombre');  
+        
+        // Obtener registros asociados al evento y ordenar por 'puntaje' de mayor a menor
+        $registros = RegistroEv::where('eventoinscrito', $nomEvento)
+                               ->orderBy('puntaje', 'desc') // Ordenar por 'puntaje' de mayor a menor
+                               ->get();
+    
+        // Devolver la vista de registros en PDF con los registros obtenidos
+       //dd($registros);
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadView('pdfEveRes', ['registros' => $registros]);
+    
+        return $pdf->stream();
+    }
+    
 
 
 
