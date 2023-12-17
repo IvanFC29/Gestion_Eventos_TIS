@@ -47,7 +47,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">   
                         <a class="dropdown-item" href="/perfil">Ver perfil</a>
-                        <a class="dropdown-item" href="/editarPerfil">Editar Perfil</a>
+                        <a class="dropdown-item" href="/editCoach">Editar Perfil</a>
                         <a class="dropdown-item" href="{{ route('login.destroy') }}" >Cerrar Sesion</a>
                     </div>    
                 </li>                   

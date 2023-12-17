@@ -97,7 +97,7 @@ Route::get('/usuario-eventos', [EventoController::class, 'uEventos'])->name('eve
 Route::get('/registro-eventos/{nombre}', [EventoController::class, 'mostrarFormularioRegistro'])->name('eventos.mostrarFormularioRegistro');
 
 Route::get('/competencias-adm', [EventoController::class, 'mostrarCompetenciasAdmin'])->name('eventos.mostrarCompetenciasAdmin');
-
+Route::get('/competencias-coach', [EventoController::class, 'mostrarCompetenciasCoach'])->name('eventos.mostrarCompetenciasCoach');
 Route::get('/formcompetencias/{nombre}', [EventoController::class, 'mostrarFormulario'])->name('eventos.mostrarFormulario');
 
 Route::get('/crearcompetencias', [EventoController::class, 'crearCompetencias'])->name('eventos.crearCompetencias');
@@ -116,7 +116,6 @@ Route::get('/registrarUsCompetencia/{nombre}', [EventoController::class, 'regist
 Route::post('/registroUsuComp', [EventoController::class, 'registroUsuComp'])
 ->name('eventos.registroUsuComp');
 
-//Route::post('/validar-sis', 'EventoController@validarSIS');
 
 
 
@@ -175,3 +174,4 @@ Route::get('/notificar/{emailCoach}/{id}', [EventoController::class, 'notificarC
 Route::post('/enviar-cambio', [Admin2Controller::class, 'sendmail']);
 
 Route::get('/full-calendar', [CalendarController::class, 'index']);
+Route::get('/calendarioC', [CalendarController::class, 'indexC']);

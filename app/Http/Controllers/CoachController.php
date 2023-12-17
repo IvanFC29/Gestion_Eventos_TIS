@@ -67,7 +67,7 @@ class CoachController extends Controller
     
         auth()->login($user);
     
-        return redirect('/home');
+        return redirect('/competencias-coach');
     }
    
     public function update(Request $request)
