@@ -548,4 +548,15 @@ public function filtrarCompetencias(Request $request)
 
         return response()->json(['exists' => $exists]);
     }*/
+    public function mostrarCompetenciasCoach() {
+        $listados = Competencia::get();
+
+        /*foreach ($listados as $i) {
+            $i->fecha_inicio = Carbon::parse($i->fecha_inicio);
+            $i->fecha_fin = Carbon::parse($i->fecha_fin);
+        }*/
+    
+        return view('vistaCoach', compact('listados'));
+
+    }
 }
