@@ -15,9 +15,10 @@
                 <th>Nombre Competencia</th>
                 <th>Nombre Equipo</th>
                 <th>Coach Encargado</th>               
-                <th>NombreParticipante_1</th>
-                <th>NombreParticipante_2</th>
-                <th>NombreParticipante_3</th>
+                <th>NombreP_1</th>
+                <th>NombreP_2</th>
+                <th>NombreP_3</th>
+                <th>Puntaje</th>
             </tr>
         </thead>
         <tbody>
@@ -30,6 +31,7 @@
                     <td>{{ $registro->nombre1 }}</td>
                     <td>{{ $registro->nombre2 }}</td>
                     <td>{{ $registro->nombre3 }}</td>
+                    <td>{{$registro->puntaje}}</td>
                    
                 </tr>
             @endforeach
