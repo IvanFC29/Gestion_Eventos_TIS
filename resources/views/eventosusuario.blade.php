@@ -180,8 +180,32 @@
                               <div class="modal-body">
                                   <p>{{ $evento->descripcion }}</p>
                                   <br>
+                                  <p>Tipo de Evento: {{ $evento->tipo }}</p>
+                                  <br>
+                                  <p>Celular de referencia: {{ $evento->cel_referencia }}</p>
+                                  <br>
                                   <p>Fecha de inicio: {{ $evento->fecha_inicio }}</p>
                                   <p>Fecha de fin: {{ $evento->fecha_fin }}</p>
+                                  @if(!empty($evento->actividades))  
+                                    <br>
+                                    <p>Cronograma: {{ $evento->cronograma }}</p>
+                                  @endif
+                                  @if(!empty($evento->reglas))
+                                    <br>
+                                    <p>Reglas: {{ $evento->reglas }}</p>
+                                  @endif
+                                  @if(!empty($evento->infextra))
+                                    <br>
+                                    <p>Información Extra: {{ $evento->infextra }}</p>
+                                  @endif
+                                  @if(!empty($evento->costo))
+                                    <br>
+                                    <p>Costo de Inscripción: {{ $evento->costo }}</p>
+                                  @endif
+                                  @if(!empty($evento->links))
+                                    <br>
+                                    <p>Links de Inscripción Externos: {{ $evento->links }}</p>
+                                  @endif
                                   <!-- Agrega aquí más detalles del evento si es necesario -->
                               </div>
                                <!-- Botón para abrir el formulario en el modal -->
@@ -196,9 +220,11 @@
                     <img src="{{ asset( $evento->afiche ) }}" alt="Card Image" class="imgevento">
                     <div class="card-body eventobodycard">
                         <h5 class="card-title"><b>{{ $evento->nombre }}</b></h5>
-                        <!--<p class="card-text">{{ $evento->descripcion }}</p>
-                        <p class="card-text">{{ $evento->fecha_inicio }}</p>
-                        <p class="card-text">{{ $evento->fecha_fin }}</p>-->
+                        <br>
+                        <p>Tipo de Evento: {{ $evento->tipo }}</p>
+                        <br>
+                        <p class="card-text">{{ $evento->descripcion }}</p>
+                        
                         <p>
                         <button type="button" class="btn btn-color abrirmodales" data-toggle="modal" data-target="#modal-{{ $evento->id }}">
                           Detalles
@@ -226,9 +252,33 @@
                               <div class="modal-body">
                                   <p>{{ $evento->descripcion }}</p>
                                   <br>
+                                  <p>Tipo de Evento: {{ $evento->tipo }}</p>
+                                  <br>
+                                  <p>Celular de referencia: {{ $evento->cel_referencia }}</p>
+                                  <br>
                                   <p>Fecha de inicio: {{ $evento->fecha_inicio }}</p>
                                   <p>Fecha de fin: {{ $evento->fecha_fin }}</p>
                                   <!-- Agrega aquí más detalles del evento si es necesario -->
+                                  @if(!empty($evento->cronograma))  
+                                    <br>
+                                    <p>Cronograma: {{ $evento->cronograma }}</p>
+                                  @endif
+                                  @if(!empty($evento->reglas))
+                                    <br>
+                                    <p>Reglas: {{ $evento->reglas }}</p>
+                                  @endif
+                                  @if(!empty($evento->infextra))
+                                    <br>
+                                    <p>Información Extra: {{ $evento->infextra }}</p>
+                                  @endif
+                                  @if(!empty($evento->costo))
+                                    <br>
+                                    <p>Costo de Inscripción: {{ $evento->costo }}</p>
+                                  @endif
+                                  @if(!empty($evento->links))
+                                    <br>
+                                    <p>Links de Inscripción Externos: {{ $evento->links }}</p>
+                                  @endif
                               </div>
                                <!-- Botón para abrir el formulario en el modal -->
                                 <a href="{{ url('/registro-eventos', ['nombre' => $evento->nombre]) }}" class="btn btn-color">
@@ -244,9 +294,13 @@
                   <div class="card eventocard">
                     <div id='contenedor'>
                       <h5 class="card-title"><b>{{ $evento->nombre }}</b></h5>
+                      <br>
+                        <p>Tipo de Evento: {{ $evento->tipo }}</p>
+                        <br>
                         <p class="card-text">{{ $evento->descripcion }}</p>
                     	  <!--<p class="card-text">{{ $evento->fecha_inicio }}</p>
                         <p class="card-text">{{ $evento->fecha_fin }}</p>-->
+                        
                         <p> <br>
                         <button type="button" class="btn btn-color abrirmodales" data-toggle="modal" data-target="#modal-{{ $evento->id }}">
                           Detalles

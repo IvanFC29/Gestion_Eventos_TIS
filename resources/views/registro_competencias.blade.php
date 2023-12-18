@@ -34,7 +34,15 @@
     <!-- Agrega esto en el head de tu documento HTML -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-    
+    <style>
+        form {
+            background-color: rgb(255, 249, 77) !important;
+        }
+        .section {
+            background-color: rgb(255, 249, 77) !important;
+            margin-top: 3%;
+        }
+    </style>
 </head>
 
 <body>
@@ -320,7 +328,7 @@
                         </div>
                         <div class="modal-footer">
                                 
-                                <button type="submit" onclick="validarSIS()">Registrarse</button>
+                                <button type="submit" onclick="validarSIS()" class="btn btn-secondary">Registrarse</button>
 
                                 <a type="button" href="/eventos" class="btn btn-secondary cancelar">Cancelar</a>
                         </div>

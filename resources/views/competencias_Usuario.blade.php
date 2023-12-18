@@ -103,9 +103,48 @@
                               <div class="modal-body">
                                   <p>{{ $competencias->descripcion }}</p>
                                   <br>
+                                  <p>Número de participantes: {{ $competencias->numeroParticipantes }}</p>
+                                  <br>
+                                  <p>Es requerido que los integrantes sean de la UMSS: {{ $competencias->umss }}</p>
+                                  <br>
                                   <p class="card-text">Referencias:</p>
                                   <p class="card-text">{{ $competencias->correo_referencia }}</p>
                                   <p class="card-text">{{ $competencias->cel_referencia }}</p>
+                                  @if(!empty($competencias->cronograma))  
+                                        <br>
+                                        <p>Cronograma: {{ $competencias->cronograma }}</p>
+                                    @endif
+
+                                    @if(!empty($competencias->requisitos))
+                                        <br>
+                                        <p>Requisitos: {{ $competencias->requisitos }}</p>
+                                    @endif
+
+                                    @if(!empty($competencias->reglas))
+                                        <br>
+                                        <p>Reglas: {{ $competencias->reglas }}</p>
+                                    @endif
+
+                                    @if(!empty($competencias->infextra))
+                                        <br>
+                                        <p>Información Extra: {{ $competencias->infextra }}</p>
+                                    @endif
+
+                                    @if(!empty($competencias->costo))
+                                        <br>
+                                        <p>Costo de Inscripción: {{ $competencias->costo }}</p>
+                                    @endif
+
+                                    @if(!empty($competencias->links))
+                                        <br>
+                                        <p>Links de Inscripción Externos: {{ $competencias->links }}</p>
+                                    @endif
+
+                                    @if(!empty($competencias->actividades))
+                                        <br>
+                                        <p>Actividades: {{ $competencias->actividades }}</p>
+                                    @endif
+
                                   <!-- Agrega aquí más detalles del competencias si es necesario -->
                               </div>
                                <!-- Botón para abrir el formulario en el modal-->
@@ -123,8 +162,12 @@
                           <img src="{{ asset('images/eventos.jpg') }}" alt="Card Image" class="imgevento">
                           <div class="card-body eventobodycard">
                               <h5 class="card-title">{{ $competencias->nombreComp }}</h5>
-                              <p class="card-text">{{ $competencias->descripcion }}</p>
-
+                              <p class="card-text"> Descripción:{{ $competencias->descripcion }}</p>
+                              <br>
+                                  <p>Ubicación de la Competencia: {{ $competencias->ubicacionCompetencia }}</p>
+                              <br>
+                                  <p>Número de participantes: {{ $competencias->numeroParticipantes }}</p>
+                              <br>
                               <button type="button" class="btn btn-primary abrirmodales" data-toggle="modal" data-target="#modal-{{ $competencias->idComp }}">
                                   Ver detalles
                               </button>

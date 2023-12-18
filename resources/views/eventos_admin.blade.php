@@ -176,6 +176,26 @@ CHAT GPT -->
                   <br>
                   <p>Fecha de inicio: {{ $proximo->fecha_inicio }}</p>
                   <p>Fecha de fin: {{ $proximo->fecha_fin }}</p>
+                  @if(!empty($proximo->cronograma))  
+                                    <br>
+                                    <p>Cronograma: {{ $proximo->cronograma }}</p>
+                                  @endif
+                                  @if(!empty($proximo->reglas))
+                                    <br>
+                                    <p>Reglas: {{ $proximo->reglas }}</p>
+                                  @endif
+                                  @if(!empty($proximo->infextra))
+                                    <br>
+                                    <p>Información Extra: {{ $proximo->infextra }}</p>
+                                  @endif
+                                  @if(!empty($proximo->costo))
+                                    <br>
+                                    <p>Costo de Inscripción: {{ $proximo->costo }}</p>
+                                  @endif
+                                  @if(!empty($proximo->links))
+                                    <br>
+                                    <p>Links de Inscripción Externos: {{ $proximo->links }}</p>
+                                  @endif
                   <!-- Agrega aquí más detalles del evento si es necesario -->
                 </div>
               </div>
@@ -186,9 +206,9 @@ CHAT GPT -->
           <img src="{{ asset( $proximo->afiche ) }}" alt="Card Image" class="imgevento">
           <div class="card-body eventobodycard">
           <h5 class="card-title">{{ $proximo->nombre }}</h5>
-              <!--<p class="card-text">{{ $proximo->descripcion }}</p>
-              <p class="card-text">{{ $proximo->fecha_inicio }}</p>
-              <p class="card-text">{{ $proximo->fecha_fin }}</p>-->
+              <p>Tipo de Evento: {{ $proximo->tipo }}</p>
+              <br>
+              <p class="card-text">{{ $proximo->descripcion }}</p>
               <p>
                 <button type="button" class="btn btn-color abrirmodales" data-toggle="modal" data-target="#modal-{{ $proximo->id }}">
                   Detalles
@@ -227,11 +247,26 @@ CHAT GPT -->
                   <br>
                   <p>Fecha de inicio: {{ $evento->fecha_inicio }}</p>
                   <p>Fecha de fin: {{ $evento->fecha_fin }}</p>
-                  <br>
-                  <p>{{ $evento->requisitos }}</p>
-                  <br>
-                  <p>{{ $evento->links }}</p>
-                  <br>
+                  @if(!empty($proximo->cronograma))  
+                                    <br>
+                                    <p>Actividades: {{ $proximo->cronograma }}</p>
+                                  @endif
+                                  @if(!empty($evento->reglas))
+                                    <br>
+                                    <p>Reglas: {{ $evento->reglas }}</p>
+                                  @endif
+                                  @if(!empty($evento->infextra))
+                                    <br>
+                                    <p>Información Extra: {{ $evento->infextra }}</p>
+                                  @endif
+                                  @if(!empty($evento->costo))
+                                    <br>
+                                    <p>Costo de Inscripción: {{ $evento->costo }}</p>
+                                  @endif
+                                  @if(!empty($evento->links))
+                                    <br>
+                                    <p>Links de Inscripción Externos: {{ $evento->links }}</p>
+                                  @endif
                   <!-- Agrega aquí más detalles del evento si es necesario -->
                 </div>
               </div>
@@ -240,6 +275,9 @@ CHAT GPT -->
           
             <div id='contenedor'>
                 <h5 class="card-title">{{ $evento->nombre }}</h5>
+                <br>
+                <p>Tipo de Evento: {{ $evento->tipo }}</p>
+                <br>
                 <p class="card-text">{{ $evento->descripcion }}</p>
                 <!--<p class="card-text">{{ $evento->fecha_inicio }}</p>
                 <p class="card-text">{{ $evento->fecha_fin }}</p>-->
