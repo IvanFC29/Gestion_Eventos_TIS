@@ -99,7 +99,7 @@ Route::get('/registro-eventos/{nombre}', [EventoController::class, 'mostrarFormu
 Route::get('/competencias-adm', [EventoController::class, 'mostrarCompetenciasAdmin'])->name('eventos.mostrarCompetenciasAdmin');
 Route::get('/competencias-coach', [EventoController::class, 'mostrarCompetenciasCoach'])->name('eventos.mostrarCompetenciasCoach');
 Route::get('/formcompetencias/{nombre}', [EventoController::class, 'mostrarFormulario'])->name('eventos.mostrarFormulario');
-
+Route::get('/competencias-usuario', [EventoController::class, 'mostrarCompetenciasUsuario'])->name('eventos.mostrarCompetenciasUsuario');
 Route::get('/crearcompetencias', [EventoController::class, 'crearCompetencias'])->name('eventos.crearCompetencias');
 
 Route::post('/guardarCompetencia', [EventoController::class, 'guardarCompetencia'])
@@ -109,7 +109,9 @@ Route::post('/registrarUsuEvent', [EventoController::class, 'registroUsuEvent'])
 ->name('eventos.registroUsuEvent');
 
 Route::get('/buscar-eventos', [EventoController::class, 'buscarEventos'])->name('buscar.eventos');
-
+Route::get('/buscar-eventosA', [EventoController::class, 'buscarEventosA'])->name('buscar.eventosA');
+Route::get('/buscar-competencias', [EventoController::class, 'buscarCompetencias'])->name('buscar.competencias');
+Route::get('/buscar-competenciasU', [EventoController::class, 'buscarCompetenciasU'])->name('buscar.competenciasU');
 Route::get('/registrarUsCompetencia/{nombre}', [EventoController::class, 'registrarUsCompetencia'])
 ->name('eventos.registrarUsCompetencia');
 

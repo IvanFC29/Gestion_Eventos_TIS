@@ -159,6 +159,55 @@ class EventoController extends Controller
 
     }
 
+    public function buscarCompetencias(Request $request)
+    {
+        $query = $request->input('query');
+
+        // Puedes utilizar el modelo para realizar la búsqueda en la base de datos
+        $resultados = Competencia::where('nombreComp', 'LIKE', '%' . $query . '%')
+                    ->orWhere('descripcion', 'LIKE', '%' . $query . '%')
+                    ->orWhere('fecha_inicio', 'LIKE', '%' . $query . '%')
+                    ->orWhere('fecha_fin', 'LIKE', '%' . $query . '%')
+                    ->orWhere('ubicacionCompetencia', 'LIKE', '%' . $query . '%')
+                    ->orWhere('correo_referencia', 'LIKE', '%' . $query . '%')
+                    ->orWhere('cel_referencia', 'LIKE', '%' . $query . '%')
+                    ->orWhere('requisitos', 'LIKE', '%' . $query . '%')
+                    ->orWhere('reglas', 'LIKE', '%' . $query . '%')
+                    ->orWhere('links', 'LIKE', '%' . $query . '%')
+                    ->orWhere('infextra', 'LIKE', '%' . $query . '%')
+                    ->orWhere('costo', 'LIKE', '%' . $query . '%')
+                    ->orWhere('actividades', 'LIKE', '%' . $query . '%')
+                    ->orWhere('umss', 'LIKE', '%' . $query . '%')
+                    ->orWhere('numeroParticipantes', 'LIKE', '%' . $query . '%')
+                    ->get();
+
+        return view('resultadosC', ['listados' => $resultados]);
+    }
+    public function buscarCompetenciasU(Request $request)
+    {
+        $query = $request->input('query');
+
+        // Puedes utilizar el modelo para realizar la búsqueda en la base de datos
+        $resultados = Competencia::where('nombreComp', 'LIKE', '%' . $query . '%')
+                    ->orWhere('descripcion', 'LIKE', '%' . $query . '%')
+                    ->orWhere('fecha_inicio', 'LIKE', '%' . $query . '%')
+                    ->orWhere('fecha_fin', 'LIKE', '%' . $query . '%')
+                    ->orWhere('ubicacionCompetencia', 'LIKE', '%' . $query . '%')
+                    ->orWhere('correo_referencia', 'LIKE', '%' . $query . '%')
+                    ->orWhere('cel_referencia', 'LIKE', '%' . $query . '%')
+                    ->orWhere('requisitos', 'LIKE', '%' . $query . '%')
+                    ->orWhere('reglas', 'LIKE', '%' . $query . '%')
+                    ->orWhere('links', 'LIKE', '%' . $query . '%')
+                    ->orWhere('infextra', 'LIKE', '%' . $query . '%')
+                    ->orWhere('costo', 'LIKE', '%' . $query . '%')
+                    ->orWhere('actividades', 'LIKE', '%' . $query . '%')
+                    ->orWhere('umss', 'LIKE', '%' . $query . '%')
+                    ->orWhere('numeroParticipantes', 'LIKE', '%' . $query . '%')
+                    ->get();
+
+        return view('resultadosCU', ['listados' => $resultados]);
+    }
+
     public function mostrarFormulario($nombreComp)
     {
         return view('registro_competencias')->with('nombreComp', $nombreComp);
@@ -227,9 +276,48 @@ class EventoController extends Controller
         // Puedes utilizar el modelo para realizar la búsqueda en la base de datos
         $resultados = Evento::where('nombre', 'LIKE', '%' . $query . '%')
                         ->orWhere('descripcion', 'LIKE', '%' . $query . '%')
+                        ->orWhere('fecha_inicio', 'LIKE', '%' . $query . '%')
+                        ->orWhere('fecha_fin', 'LIKE', '%' . $query . '%')
+                        ->orWhere('tipo', 'LIKE', '%' . $query . '%')
+                        ->orWhere('editable', 'LIKE', '%' . $query . '%')
+                        ->orWhere('correo_referencia', 'LIKE', '%' . $query . '%')
+                        ->orWhere('cel_referencia', 'LIKE', '%' . $query . '%')
+                        ->orWhere('afiche', 'LIKE', '%' . $query . '%')
+                        ->orWhere('requisitos', 'LIKE', '%' . $query . '%')
+                        ->orWhere('reglas', 'LIKE', '%' . $query . '%')
+                        ->orWhere('links', 'LIKE', '%' . $query . '%')
+                        ->orWhere('infextra', 'LIKE', '%' . $query . '%')
+                        ->orWhere('contenido', 'LIKE', '%' . $query . '%')
+                        ->orWhere('cronograma', 'LIKE', '%' . $query . '%')
+                        ->orWhere('costo', 'LIKE', '%' . $query . '%')
                         ->get();
 
         return view('resultados', ['resultados' => $resultados]);
+    }
+    public function buscarEventosA(Request $request)
+    {
+        $query = $request->input('query');
+
+        // Puedes utilizar el modelo para realizar la búsqueda en la base de datos
+        $resultados = Evento::where('nombre', 'LIKE', '%' . $query . '%')
+                        ->orWhere('descripcion', 'LIKE', '%' . $query . '%')
+                        ->orWhere('fecha_inicio', 'LIKE', '%' . $query . '%')
+                        ->orWhere('fecha_fin', 'LIKE', '%' . $query . '%')
+                        ->orWhere('tipo', 'LIKE', '%' . $query . '%')
+                        ->orWhere('editable', 'LIKE', '%' . $query . '%')
+                        ->orWhere('correo_referencia', 'LIKE', '%' . $query . '%')
+                        ->orWhere('cel_referencia', 'LIKE', '%' . $query . '%')
+                        ->orWhere('afiche', 'LIKE', '%' . $query . '%')
+                        ->orWhere('requisitos', 'LIKE', '%' . $query . '%')
+                        ->orWhere('reglas', 'LIKE', '%' . $query . '%')
+                        ->orWhere('links', 'LIKE', '%' . $query . '%')
+                        ->orWhere('infextra', 'LIKE', '%' . $query . '%')
+                        ->orWhere('contenido', 'LIKE', '%' . $query . '%')
+                        ->orWhere('cronograma', 'LIKE', '%' . $query . '%')
+                        ->orWhere('costo', 'LIKE', '%' . $query . '%')
+                        ->get();
+
+        return view('resultadosA', ['resultados' => $resultados]);
     }
     public function mostrarEventos()
     {
@@ -562,6 +650,17 @@ public function filtrarCompetencias(Request $request)
         }*/
     
         return view('vistaCoach', compact('listados'));
+
+    }
+    public function mostrarCompetenciasUsuario() {
+        $listados = Competencia::get();
+
+        /*foreach ($listados as $i) {
+            $i->fecha_inicio = Carbon::parse($i->fecha_inicio);
+            $i->fecha_fin = Carbon::parse($i->fecha_fin);
+        }*/
+    
+        return view('competencias_Usuario', compact('listados'));
 
     }
 }

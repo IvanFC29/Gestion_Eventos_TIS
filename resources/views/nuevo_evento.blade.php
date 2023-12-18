@@ -116,13 +116,14 @@
                     @else
                         <li class="mx-6">
                             <a href="{{ route('login.index') }}" class="font-semibold hover-bg-indigo-700 py-3 px-4 rounded-md">Log In</a>
-                            </li>
-                            @endif
+                        </li>
+                     @endif
                         
                         </ul>
                     </nav>
                         <!-- /#sidebar-wrapper -->
-
+    </div>
+</div>
                        
         </div>
             <div class="bg-sky-500">
@@ -315,8 +316,6 @@
                         </div>
 
                     </form>   
-                </div>
-        </div>
                 </div>
         </div>
         

@@ -6,13 +6,20 @@
   <title>Eventos</title>
   
   <link rel="stylesheet" href="{{ asset('css/eventos_admin.css') }}" TYPE="text/css">  
-  <link rel="stylesheet" href="{{ asset('css/menu.css') }}" TYPE="text/css">  
-  <link rel="stylesheet" href="{{ asset('css/elbuscar.css') }}" TYPE="text/css"> 
+  <link rel="stylesheet" href="{{ asset('css/loginAdmin.css') }}" type="text/css"> 
+  <link rel="stylesheet" href="{{ asset('css/index.css') }}" type="text/css">  
+  <link rel="stylesheet" href="{{ asset('css/elbuscar.css') }}" TYPE="text/css">  
   <link rel="stylesheet" href="{{ asset('css/elbuscarAdmin.css') }}" TYPE="text/css">  
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
+    
+  
+    
+    
+    <link rel="stylesheet" href="{{ asset('css/index.css') }}" TYPE="text/css">
+
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
@@ -29,9 +36,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css">
 <body>
       
-  <!--MENU SIDEBAR-->  
-
-<header>
+      <!--MENU SIDEBAR-->  
+      <header>
     <!-- Contenido del encabezado (header) -->
     <!-- Page Content -->
     <nav class="navbar custom-navbar navbar-expand-lg">
@@ -59,24 +65,7 @@
  
 
 <!--modal crear evento
-Para rescatar los datos--
-<div class="container mt-4">
-<div class="row">
-@foreach ($eventos_pasados as $i)
-<div class="col-md-4">
-  <div class="card eventocard">
-    <img src="{{ asset('images/eventos.jpg') }}" alt="Card Image" class="imgevento">
-    <div class="card-body eventobodycard">
-      <h5 class="card-title">{{ $i->nombre }}</h5>
-      <p class="card-text">{{ $i->descripcion }}</p>
-      <p class="card-text">{{ $i->fecha_inicio }}</p>
-      <p class="card-text">{{ $i->fecha_fin }}</p>
-    </div>
-  </div>
-  <br>
-</div>
-@endforeach
-</div>
+
 CHAT GPT -->
 
 <div class="container-fluid">
@@ -142,158 +131,112 @@ CHAT GPT -->
             </div>
         </aside>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-<div class="container mt-4">
-          <div class="elbuscar">
-            <div class="elotrobuscar">
-              <form action="{{ route('buscar.eventosA') }}" method="GET">
-                  <div class="cajadebuscar">
-                      <input type="text" name="query" placeholder="Buscar eventos...">
-                  </div>
-                  <button type="submit">Buscar</button>
-              </form>
-            </div>
-          </div>
- <div id="contenido">
-   <!-- Seccion de los eventos proximos o cercanos  -->
-  <div>
-    <h2> Próximos Eventos</h2>
-  </div>  <br>
-  <div class="row">
-    @foreach ($eventos_cercanos as $proximo)
-    <div class="modal" id="modal-{{ $proximo->id }}">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">{{ $proximo->nombre }}</h5>
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                  <p>{{ $proximo->descripcion }}</p>
-                  <br>
-                  <p>Tipo de Evento: {{ $proximo->tipo }}</p>
-                  <br>
-                  <p>Celular de referencia: {{ $proximo->cel_referencia }}</p>
-                  <br>
-                  <p>Fecha de inicio: {{ $proximo->fecha_inicio }}</p>
-                  <p>Fecha de fin: {{ $proximo->fecha_fin }}</p>
-                  <!-- Agrega aquí más detalles del evento si es necesario -->
-                </div>
+
+
+       <div class="elbuscar">
+        <div class="elotrobuscar">
+          <form action="{{ route('buscar.eventosA') }}" method="GET">
+              <div class="cajadebuscar">
+                  <input type="text" name="query" placeholder="Buscar eventos...">
               </div>
-            </div>
-          </div>
-      <div class="col-md-4">
-        <div class="card eventocard">
-          <img src="{{ asset( $proximo->afiche ) }}" alt="Card Image" class="imgevento">
-          <div class="card-body eventobodycard">
-          <h5 class="card-title">{{ $proximo->nombre }}</h5>
-              <!--<p class="card-text">{{ $proximo->descripcion }}</p>
-              <p class="card-text">{{ $proximo->fecha_inicio }}</p>
-              <p class="card-text">{{ $proximo->fecha_fin }}</p>-->
-              <p>
-                <button type="button" class="btn btn-color abrirmodales" data-toggle="modal" data-target="#modal-{{ $proximo->id }}">
-                  Detalles
-                </button>
-                <a type="button" href="{{ route('editar-Evento', ['id' => $proximo->id]) }}" class="btn btn-color">
-                  Editar
-                </a>
-              </p>
-          </div>
+              <button type="submit">Buscar</button>
+          </form>
         </div>
       </div>
-    @endforeach
-  </div>      
-  <br>
-  <hr>
-  <br>
-  <!-- Seccion de los eventos pasados  -->
-  <div class="row">
-  <div>
-    <h2> Eventos pasados </h2>
-  </div>
-        @foreach ($eventos_pasados as $evento)
-          <div class="modal" id="modal-{{ $evento->id }}">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">{{ $evento->nombre }}</h5>
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                  <p>{{ $evento->descripcion }}</p>
-                  <br>
-                  <p>Tipo de Evento: {{ $evento->tipo }}</p>
-                  <br>
-                  <p>Celular de referencia: {{ $evento->cel_referencia }}</p>
-                  <br>
-                  <p>Fecha de inicio: {{ $evento->fecha_inicio }}</p>
-                  <p>Fecha de fin: {{ $evento->fecha_fin }}</p>
-                  <br>
-                  <p>{{ $evento->requisitos }}</p>
-                  <br>
-                  <p>{{ $evento->links }}</p>
-                  <br>
-                  <!-- Agrega aquí más detalles del evento si es necesario -->
-                </div>
-              </div>
-            </div>
+      <div class="container mt-4">
+          <div class="row">
+            @if(count($resultados) > 0)
+                @foreach ($resultados as $resultado)
+                  <div class="modal" id="modal-{{ $resultado->id }}">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <h5 class="modal-title">{{ $resultado->nombre }}</h5>
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              </div>
+                              <div class="modal-body">
+                                  <p>{{ $resultado->descripcion }}</p>
+                                  <br>
+                                  <p>Fecha de inicio: {{ $resultado->fecha_inicio }}</p>
+                                  <p>Fecha de fin: {{ $resultado->fecha_fin }}</p>
+                                  <!-- Agrega aquí más detalles del evento si es necesario -->
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- Agrega un botón para abrir el modal -->
+                  <div class="col-md-4">
+                      <div class="card eventocard">
+                          <img src="{{ asset('images/eventos.jpg') }}" alt="Card Image" class="imgevento">
+                          <div class="card-body eventobodycard">
+                              <h5 class="card-title">{{ $resultado->nombre }}</h5>
+                              <p class="card-text">{{ $resultado->descripcion }}</p>
+                              <p class="card-text">{{ $resultado->fecha_inicio }}</p>
+                              <p class="card-text">{{ $resultado->fecha_fin }}</p>
+                              <button type="button" class="btn btn-primary abrirmodales" data-toggle="modal" data-target="#modal-{{ $resultado->id }}">
+                                  Ver detalles
+                              </button>
+                          </div>
+                      </div>
+                        
+                      <br>
+                  </div>
+                @endforeach
+                @else
+                    <div id='mensaje'>
+                        <div class='alert alert-success alert-dismissible fade show' role='alert'>
+                            <strong> {{ session('success') }}</strong>
+                            <div id="botonMensaje"> 
+                                <a href="#" id="botonMensaje" type="button"> No se encontraron eventos relacionados con la búsqueda.</a>
+                            </div>
+                            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'> </button>
+                    </div>
+                @endif
           </div>
-          
-            <div id='contenedor'>
-                <h5 class="card-title">{{ $evento->nombre }}</h5>
-                <p class="card-text">{{ $evento->descripcion }}</p>
-                <!--<p class="card-text">{{ $evento->fecha_inicio }}</p>
-                <p class="card-text">{{ $evento->fecha_fin }}</p>-->
-                <p> <br>
-                <button type="button" class="btn btn-color abrirmodales" data-toggle="modal" data-target="#modal-{{ $evento->id }}">
-                    Detalles
-                </button>
-                <a type="button" href="{{ route('editar-Evento', ['id' => $evento->id]) }}" class="btn btn-color">
-                  Editar
-                </a></p>
-              <hr>
-            </div>
-          
-          <!-- Agrega un botón para abrir el modal -->
-    <!--<div class="col-md-4">
-        <div class="card eventocard">
-            <img src="{{ asset( $evento->afiche ) }}" alt="Card Image" class="imgevento">
-            <div class="card-body eventobodycard">
-                <h5 class="card-title">{{ $evento->nombre }}</h5>
-                <p class="card-text">{{ $evento->descripcion }}</p>
-                <p class="card-text">{{ $evento->fecha_inicio }}</p>
-                <p class="card-text">{{ $evento->fecha_fin }}</p>
-                <p>
-                <button type="button" class="btn btn-color abrirmodales" data-toggle="modal" data-target="#modal-{{ $evento->id }}">
-                    Detalles
-                </button>
-                <button type="button" class="btn btn-color">
-                    Editar
-                </button></p>
-            </div>
+         </div>
         </div>
-        <br>
-      </div>-->
-      @endforeach
-    </div>
-  </div>
- </div>
-</div>
-    </main>
-  </div>
-</div>
     
 
 
           
-<!-- /#wrapper -->
-<script>      
-    $(document).ready(function() {
-        // Cierra el modal al presionar el botón "Cerrar" dentro del modal
-        $('.modal .close').on('click', function() {
-            $(this).closest('.modal').modal('hide');
-        });
-    });
-</script>
+          <!-- /#wrapper -->
+          <script>
+            $(document).ready(function () {
+              var trigger = $('.hamburger'),
+                  overlay = $('.overlay'),
+                isClosed = false;
+
+                trigger.click(function () {
+                  hamburger_cross();      
+                });
+
+                function hamburger_cross() {
+
+                  if (isClosed == true) {          
+                    overlay.hide();
+                    trigger.removeClass('is-open');
+                    trigger.addClass('is-closed');
+                    isClosed = false;
+                  } else {   
+                    overlay.show();
+                    trigger.removeClass('is-closed');
+                    trigger.addClass('is-open');
+                    isClosed = true;
+                  }
+              }
+              
+              $('[data-toggle="offcanvas"]').click(function () {
+                    $('#wrapper').toggleClass('toggled');
+              });  
+            });
+              $(document).ready(function() {
+                  // Cierra el modal al presionar el botón "Cerrar" dentro del modal
+                  $('.modal .close').on('click', function() {
+                      $(this).closest('.modal').modal('hide');
+                  });
+              });
+          </script>
             
 </body>
 </html>

@@ -122,7 +122,7 @@
                     <a class="nav-link" href="/usuario-eventos">Eventos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Competencias</a>
+                    <a class="nav-link" href="/competencias-usuario">Competencias</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/login">Iniciar Sesion</a>
