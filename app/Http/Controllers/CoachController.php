@@ -16,6 +16,16 @@ class CoachController extends Controller
         return view('editarPerfil');
     }
     public function guardarCoach(Request $request){
+        $messages = [
+            'email.unique' => 'Este correo electrónico ya está registrado en nuestra base de datos.',
+        ];
+    
+        // Validación
+        $request->validate([
+           
+            'email' => 'required|email|unique:users,email',
+            
+        ], $messages);
         $user = User::create([
             'name' => $request->input('nombre'),
             'apellidoP' => $request->input('apellidoP'),

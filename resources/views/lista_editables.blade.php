@@ -37,7 +37,7 @@
                 <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Eventos <span class="caret"></span></a>
                 <ul class="dropdown-menu animated fadeInLeft" role="menu">
                 <li><a href="/crear-evento" class="dropdown-item ">Crear Evento</a></li>
-                <li><a href="/ver-eventos-editables">Eventos Editables</a></li>
+                <li><a href="/home">Eventos Editables</a></li>
                 </ul>
             </li>
             <li class="dropdown">
@@ -67,7 +67,7 @@
             <nav class="navbar custom-navbar navbar-expand-lg">
               <div class="container-fluid">
                 <div class="divtitulom">
-                  <h1 class="titulomalo">Competencias - Programación Bolivia</h1>
+                  <h1 class="titulomalo">ICPC</h1>
                 </div>
               </div>
             </nav>

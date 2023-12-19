@@ -40,7 +40,7 @@
     <nav class="navbar custom-navbar navbar-expand-lg">
         <div class="container-fluid">
             <div class="divtitulom">
-                <h1 class="titulomalo">Competencias Programación Bolivia</h1>
+                <h1 class="titulomalo">ICPC</h1>
             </div>
         </div>
         <div class="collapse navbar-collapse color-letra" id="navbarNav">
@@ -301,10 +301,6 @@
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="chkCronograma" name="chkCronograma">
                                         <label class="form-check-label" for="chkCronograma">Cronograma</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="chkUmss" name="chkUmss">
-                                        <label class="form-check-label" for="chkUmss">Los participantes deben pertenecer a la UMSS</label>
                                     </div>
                                 </div>
                             </div>
