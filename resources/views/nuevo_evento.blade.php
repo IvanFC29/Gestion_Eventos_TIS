@@ -105,7 +105,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/full-calendar">
+                        <a class="nav-link" href="#">
                             Calendario
                         </a>
                     </li>
@@ -117,14 +117,16 @@
                         <li class="mx-6">
                             <a href="{{ route('login.index') }}" class="font-semibold hover-bg-indigo-700 py-3 px-4 rounded-md">Log In</a>
                         </li>
-                     @endif
-                        
-                        </ul>
-                    </nav>
-                        <!-- /#sidebar-wrapper -->
-    </div>
-</div>
-                       
+                    @endif   
+                </ul>
+            </nav>
+            </ul>        <!-- ... (agrega más opciones según sea necesario) ... -->
+            </div>
+        </aside>
+        
+        <!-- Contenido principal -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <!-- Contenido principal de tu página -->                   
         </div>
             <div class="bg-sky-500">
                 @if (session('error'))
@@ -188,12 +190,12 @@
                                     </select>
                                 </div>
                             </div>
-                            <!--<div class="col-md-6">
+                            <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label for="recipient-name" class="col-form-label">Afiche del evento:</label>
-                                    <input type="file" name="aficheEvento" class="form-control-file">
+                                    <label>E-mail de Coach:</label>
+                                    <input type="text" name="emailCoach" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com"  maxlength="50">
                                 </div>
-                            </div>-->
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
@@ -204,8 +206,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label>Telefono/Celular de contacto:<span class="text-danger">*</span></label>
-                                    <input type="text" name="telefonoevento" class="form-control input_user" value="" placeholder="Ingrese numero telef/cel" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); this.value = this.value.replace(/[^0-9]/,'')" minlength="7" maxlength="8" min="40000000" max="79999999" required>
+                                    <label>Telefono/Celular de contacto: <span class="text-danger" id="telefonoError" style="color: red;">*</span></label>
+                                    <input type="text" name="telefonoevento" id="telefonoevento" class="form-control input_user" value="" placeholder="Ingrese numero telef/cel" minlength="8" maxlength="8" pattern="^[764][0-9]{7}$" required>
                                 </div>
                             </div>
                         </div>
@@ -311,13 +313,16 @@
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary guardar" name="editable" value="0">Guardar</button>
-                            <button type="submit" class="btn btn-primary editar" name="editable" value="1">Editar luego</button>
+                            <!--<button type="submit" class="btn btn-primary editar" name="editable" value="1">Editar luego</button>-->
                             <a type="button" href="/eventos" class="btn btn-secondary cancelar">Cancelar</a>
                         </div>
 
                     </form>   
                 </div>
         </div>
+        </main>
+    </div>
+</div>
         
     <!-- Agrega este script al final de tu formulario -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -333,36 +338,7 @@
             });
         });
     </script>
-    <script>
-                $(document).ready(function () {
-                    var trigger = $('.hamburger'),
-                    overlay = $('.overlay'),
-                    isClosed = false;
-
-                    trigger.click(function () {
-                        hamburger_cross();      
-                    });
-
-                    function hamburger_cross() {
-
-                        if (isClosed == true) {          
-                            overlay.hide();
-                            trigger.removeClass('is-open');
-                            trigger.addClass('is-closed');
-                            isClosed = false;
-                        } else {   
-                            overlay.show();
-                            trigger.removeClass('is-closed');
-                            trigger.addClass('is-open');
-                            isClosed = true;
-                        }
-                    }
-              
-                    $('[data-toggle="offcanvas"]').click(function () {
-                            $('#wrapper').toggleClass('toggled');
-                    });  
-                });
-    </script>
+<script src="{{ asset('js/nuevo_evento.js') }}"></script>
 
 
 </body>

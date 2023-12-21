@@ -28,7 +28,7 @@
 }  
 #sidebarTitulo{
  /* background-image: url('/images/foto_banner.png');*/
-  background-color: #fff;
+ background: linear-gradient(to right, #ffcccc, #ccccff, #ffffcc);
 }
 
 /*Sidebar del  baner Bienvenido */
