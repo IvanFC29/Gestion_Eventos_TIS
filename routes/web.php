@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\reporteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\Controller;
@@ -140,15 +140,15 @@ Route::get('/editCoach', [CoachController::class, 'editCoach'])->name("editCoach
 
 Route::put('/actualizarDatos', [CoachController::class, 'update'])->name("update")->middleware('auth.admin');
 
-Route::get('/reportePDF', [EventoController::class, 'mostrarRegistrosPDF']);
+Route::get('/reportePDF', [reporteController::class, 'mostrarRegistrosPDF']);
 Route::get('/reporteEventos', [EventoController::class, 'listarEventos'])->name("reporteE");
 Route::get('/reporteCompetencias', [EventoController::class, 'listarCompetencias'])->name("reporteC");
 Route::post('/reporteEventos', [EventoController::class, 'filtrarEventos'])->name('eventos.filtrar');
 Route::post('/reporteCompetencias', [EventoController::class, 'filtrarCompetencias'])->name('competencias.filtrar');
-Route::get('/reporteCompPDF', [EventoController::class, 'mostrarRegistrosComPDF']);
-Route::get('/pdfComRes', [EventoController::class, 'mostrarResultadoC']);
-Route::get('/pdf', [EventoController::class, 'mostrarEventos']);
-Route::get('/pdfEveRes', [EventoController::class, 'mostrarResultadoE']);
+Route::get('/reporteCompPDF', [reporteController::class, 'mostrarRegistrosComPDF']);
+Route::get('/pdfComRes', [reporteController::class, 'mostrarResultadoC']);
+Route::get('/pdf', [reporteController::class, 'mostrarEventos']);
+Route::get('/pdfEveRes', [reporteController::class, 'mostrarResultadoE']);
 // Rutas Ivan
 Route::post('/guardar-participante', [UserController::class, 'guardarUsuario'])->name('user.guardarUsuario');
 Route::post('/initSesion-participante', [UserController::class, 'store']);

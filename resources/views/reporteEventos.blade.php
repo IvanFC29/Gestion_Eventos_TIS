@@ -182,11 +182,12 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                               
                                 <th>Nombre</th>
                                 <th>Fecha Inicio</th>
-                                <th>Fecha Fin</th>
+                                <th>Correo de Referencia</th>
                                 <th>Tipo </th>
+                                <th>Telefono Referencia </th>
                                 <th>Reporte de Inscritos</th>
                                 <th>Reporte de Resultados</th>
                              
@@ -195,11 +196,14 @@
                         <tbody>
                             @foreach ($eventos as $evento)
                                 <tr>
-                                    <td>{{ $evento->id }}</td>
+                                    
                                     <td>{{ $evento->nombre }}</td>
                                     <td>{{ $evento->fecha_inicio }}</td>
-                                    <td>{{ $evento->fecha_fin }}</td>
+                                    
+                                    <td>{{ $evento->correo_referencia }}</td>
+                                   
                                     <td>{{ $evento->tipo }}</td>
+                                    <td>{{ $evento->cel_referencia }}</td>
                                     <td>
                                       <!-- Enlace para imprimir con estilos de hoja de estilos -->
                                       <a href="#" onclick="imprimirEvento('{{ $evento->nombre}}')" class="btn btn-info">Imprimir </a>

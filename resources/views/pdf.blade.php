@@ -21,17 +21,17 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($registros as $registro)
+            <?php foreach($registros as $registro): ?>
                 <tr>
-                    <td>{{ $registro->id }}</td>
-                    <td>{{ $registro->eventoinscrito }}</td>
-                    <td>{{ $registro->nombre }}</td>
-                    <td>{{ $registro->apellidos }}</td>
-                    <td>{{ $registro->correo }}</td>
-                    <td>{{ $registro->telefono }}</td>
-                    <td>{{ $registro->edad }}</td>
+                    <td><?php echo $registro->id; ?></td>
+                    <td><?php echo $registro->eventoinscrito; ?></td>
+                    <td><?php echo $registro->nombre; ?></td>
+                    <td><?php echo $registro->apellidos; ?></td>
+                    <td><?php echo $registro->correo; ?></td>
+                    <td><?php echo $registro->telefono; ?></td>
+                    <td><?php echo $registro->edad; ?></td>
                 </tr>
-            @endforeach
+            <?php endforeach; ?>
         </tbody>
     </table>
 </body>
