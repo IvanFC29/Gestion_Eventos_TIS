@@ -22,7 +22,7 @@ class AdminOficialController extends Controller {
     }
      public function recuperarC() {
         
-        return view('auth.RecuperarContra');
+        return view('auth.recuperarContra');
     }
     public function sendmail(){
        
