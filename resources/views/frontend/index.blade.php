@@ -72,27 +72,18 @@
                 <p>A nivel universitario, el ICPC es una oportunidad para que los estudiantes de informática de todas las universidades del mundo demuestren sus habilidades de programación. La competencia ayuda a los estudiantes a desarrollar sus habilidades de resolución de problemas, lógica, algoritmos y programación.</p>
 
                 <a href="https://www.umss.edu.bo/competencia-latinoamericana-de-programacion-icpc-2022/" class="btn btn-color" target="_blanck">Visitar</a>
-
-                <a href="https://www.umss.edu.bo/competencia-latinoamericana-de-programacion-icpc-2022/" class="btn btn-color" target="_blanck">Ir</a>
-
             </div>
             <div class="col-md-4">
                 <h4>ICPC-BOLIVIA</h4>
                 <p>A nivel nacional, el ICPC se organiza en diferentes países del mundo. En Bolivia, el ICPC se organiza por la Federación Boliviana de Ciencias de la Computación. La competencia nacional boliviana se celebra anualmente y los equipos ganadores clasifican para la fase regional de América Latina.</p>
 
                 <a href="https://umsa-2023.clei.org/inicio/eventos-asociados/clp/" class="btn btn-color" target="_blanck">Visitar</a>
-
-                <a href="https://umsa-2023.clei.org/inicio/eventos-asociados/clp/" class="btn btn-color" target="_blanck">Ir</a>
-
             </div>
             <div class="col-md-4" >
                 <h4>ICPC-Mundial </h4>
                 <p>A nivel mundial, el ICPC se divide en dos fases: la fase regional y la fase mundial. En la fase regional, los equipos de estudiantes de universidades de todo el mundo compiten entre sí para clasificarse para la fase mundial. La fase regional se celebra en diferentes sedes de todo el mundo, en fechas y horarios diferentes.</p>
 
                 <a href="https://icpc.global/" class="btn btn-color" target="_blanck">Visitar</a>
-
-                <a href="https://icpc.global/" class="btn btn-color" target="_blanck">Ir</a>
-
             </div>
         </div><br>
     </section>
