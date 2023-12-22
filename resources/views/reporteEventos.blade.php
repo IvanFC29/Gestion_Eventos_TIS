@@ -77,7 +77,7 @@
                         <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Coachs <span class="caret"></span></a>
                         <ul class="dropdown-menu animated fadeInLeft" role="menu">
                             <li><a href="/registerCoach" class="dropdown-item ">Nuevo Coach</a></li>
-                            <li><a href="#" class="dropdown-item ">Ver coachs</a></li>
+                            <li><a href="/listaCoachs" class="dropdown-item ">Ver coachs</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
