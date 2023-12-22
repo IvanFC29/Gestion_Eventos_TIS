@@ -40,7 +40,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">   
                         <a class="dropdown-item" href="/perfil">Ver perfil</a>
-                        <a class="dropdown-item" href="/editarPerfil">Editar Perfil</a>
+                        <a class="dropdown-item" href="/editCoach">Editar Perfil</a>
                         <a class="dropdown-item" href="{{ route('login.destroy') }}" >Cerrar Sesion</a>
                     </div>    
                 </li>                   
@@ -69,7 +69,6 @@
                         <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Competencias <span class="caret"></span></a>
                         <ul class="dropdown-menu animated fadeInLeft" role="menu">
                             <li><a href="/competencias-coach" class="dropdown-item ">Ver Competencias</a></li>
-                            <li><a href="/crearcompetencias" class="dropdown-item ">Crear Competencia</a></li>
                         </ul>
                     </li>
                     
