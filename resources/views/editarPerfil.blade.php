@@ -169,11 +169,17 @@
                 <div class="profile-field">
                     <label for="nombre">Nombre:</label>
                     <input type="text" name="name" value="{{ auth()->user()->name }}">
+                    @error('name')
+                      <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <div class="profile-field">
                     <label for="apellidoP">Apellido Paterno:</label>
                     <input type="text" name="apellidoP" value="{{ auth()->user()->apellidoP }}">
+                    @error('apellidoP')
+                      <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
             </div> <!-- Cerrar la primera columna -->
 
@@ -182,21 +188,33 @@
                 <div class="profile-field">
                     <label for="apellidoM">Apellido Materno:</label>
                     <input type="text" name="apellidoM" value="{{ auth()->user()->apellidoM }}">
+                    @error('apellidoM')
+                      <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <div class="profile-field">
                     <label for="carnet">Carnet:</label>
                     <input type="text" name="carnet" value="{{ auth()->user()->carnet }}">
+                    @error('carnet')
+                      <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <div class="profile-field phone">
                     <label for="telefono">Teléfono:</label>
                     <input type="text" name="telefono" value="{{ auth()->user()->telefono}}">
+                    @error('telefono')
+                      <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <div class="profile-field">
                     <label for="direccion">Direccion:</label>
                     <input type="text" name="direccion" value="{{ auth()->user()->direccion}}">
+                    @error('direccion')
+                      <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <div class="button-container">
