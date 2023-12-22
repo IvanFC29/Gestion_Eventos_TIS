@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class AdminAuth
+class CoachAuth
 {
     /**
      * Handle an incoming request.
@@ -18,7 +18,7 @@ class AdminAuth
     {
         if (auth()->check()){
 
-            if (auth()->user()->rol == 'admin'){
+            if (auth()->user()->rol == 'coach'){
                 return $next($request);
             }
         }

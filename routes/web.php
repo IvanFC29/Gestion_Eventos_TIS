@@ -26,7 +26,7 @@ use App\Http\Controllers\CalendarController;
 |
 Route::get('/'', [App\Http\Controllers\Frontend\FrontendController::class,'index']);
 */
-Route::view('/','frontend.index');
+Route::view('/','frontend.index')->middleware('guest');
 
 
 
@@ -92,15 +92,15 @@ Route::get('/registerCoach',[NuevocoachController::class, 'nCoach'])->middleware
 
 // Rutas Rodri
 
-Route::get('/usuario-eventos', [EventoController::class, 'uEventos'])->name('eventos.uEventos');
+Route::get('/usuario-eventos', [EventoController::class, 'uEventos'])->name('eventos.uEventos')->middleware('guest');
 
 Route::get('/registro-eventos/{nombre}', [EventoController::class, 'mostrarFormularioRegistro'])->name('eventos.mostrarFormularioRegistro');
 
-Route::get('/competencias-adm', [EventoController::class, 'mostrarCompetenciasAdmin'])->name('eventos.mostrarCompetenciasAdmin');
-Route::get('/competencias-coach', [EventoController::class, 'mostrarCompetenciasCoach'])->name('eventos.mostrarCompetenciasCoach');
+Route::get('/competencias-adm', [EventoController::class, 'mostrarCompetenciasAdmin'])->name('eventos.mostrarCompetenciasAdmin')->middleware('auth.admin');
+Route::get('/competencias-coach', [EventoController::class, 'mostrarCompetenciasCoach'])->name('eventos.mostrarCompetenciasCoach')->middleware('auth.coach');
 Route::get('/formcompetencias/{nombre}', [EventoController::class, 'mostrarFormulario'])->name('eventos.mostrarFormulario');
-Route::get('/competencias-usuario', [EventoController::class, 'mostrarCompetenciasUsuario'])->name('eventos.mostrarCompetenciasUsuario');
-Route::get('/crearcompetencias', [EventoController::class, 'crearCompetencias'])->name('eventos.crearCompetencias');
+Route::get('/competencias-usuario', [EventoController::class, 'mostrarCompetenciasUsuario'])->name('eventos.mostrarCompetenciasUsuario')->middleware('guest');
+Route::get('/crearcompetencias', [EventoController::class, 'crearCompetencias'])->name('eventos.crearCompetencias')->middleware('auth.admin');
 
 Route::post('/guardarCompetencia', [EventoController::class, 'guardarCompetencia'])
 ->name('eventos.guardarCompetencia');
@@ -134,15 +134,15 @@ Route::get('/loginCoach', [AdminOficialController::class, 'loginC'])
 
 Route::post('/loginCoach', [CoachController::class, 'storeCoach']);
    // ->name('login.store');
-Route::view('/perfil','verPerfil')->middleware('auth.admin');
+Route::view('/perfil','verPerfil')->middleware('auth.coach');
 
-Route::get('/editCoach', [CoachController::class, 'editCoach'])->name("editCoach")->middleware('auth.admin');
+Route::get('/editCoach', [CoachController::class, 'editCoach'])->name("editCoach")->middleware('auth.coach');
 
-Route::put('/actualizarDatos', [CoachController::class, 'update'])->name("update")->middleware('auth.admin');
+Route::put('/actualizarDatos', [CoachController::class, 'update'])->name("update")->middleware('auth.coach');
 
-Route::get('/reportePDF', [reporteController::class, 'mostrarRegistrosPDF']);
-Route::get('/reporteEventos', [EventoController::class, 'listarEventos'])->name("reporteE");
-Route::get('/reporteCompetencias', [EventoController::class, 'listarCompetencias'])->name("reporteC");
+Route::get('/reportePDF', [reporteController::class, 'mostrarRegistrosPDF'])->middleware('auth.admin');
+Route::get('/reporteEventos', [EventoController::class, 'listarEventos'])->name("reporteE")->middleware('auth.admin');
+Route::get('/reporteCompetencias', [EventoController::class, 'listarCompetencias'])->name("reporteC")->middleware('auth.admin');
 Route::post('/reporteEventos', [EventoController::class, 'filtrarEventos'])->name('eventos.filtrar');
 Route::post('/reporteCompetencias', [EventoController::class, 'filtrarCompetencias'])->name('competencias.filtrar');
 Route::get('/reporteCompPDF', [reporteController::class, 'mostrarRegistrosComPDF']);
@@ -153,7 +153,7 @@ Route::get('/pdfEveRes', [reporteController::class, 'mostrarResultadoE']);
 Route::post('/guardar-participante', [UserController::class, 'guardarUsuario'])->name('user.guardarUsuario');
 Route::post('/initSesion-participante', [UserController::class, 'store']);
 Route::post('/guardar-coach', [CoachController::class, 'guardarCoach']);
-Route::get('/escribir-correo', [AdminController::class, 'editorCorreo']);
+Route::get('/escribir-correo', [AdminController::class, 'editorCorreo'])->middleware('auth.admin');
 Route::post('/enviar-cuenta-coach', [AdminController::class, 'sendmail']);
 
 Route::get('/canvas/{image}', [CanvasController::class, 'index'])->middleware('auth.admin')->name('canvas');
@@ -175,5 +175,5 @@ Route::post('/modificar-evento{id}', [EventoController::class, 'modificar'])->mi
 Route::get('/notificar/{emailCoach}/{id}', [EventoController::class, 'notificarCambio'])->middleware('auth.admin')->name('notificar');
 Route::post('/enviar-cambio', [Admin2Controller::class, 'sendmail']);
 
-Route::get('/full-calendar', [CalendarController::class, 'index']);
-Route::get('/calendarioC', [CalendarController::class, 'indexC']);
+Route::get('/full-calendar', [CalendarController::class, 'index'])->middleware('auth.admin');
+Route::get('/calendarioC', [CalendarController::class, 'indexC'])->middleware('auth.coach');
