@@ -15,29 +15,59 @@ class CoachController extends Controller
         
         return view('editarPerfil');
     }
-    public function guardarCoach(Request $request){
+    public function guardarCoach(Request $request)
+    {
+        // Mensajes personalizados
+        $messages = [
+            'nombre.required' => 'El nombre es obligatorio.',
+            'nombre.alpha' => 'El nombre solo puede contener letras.',
+            'apellidoP.required' => 'El apellido paterno es obligatorio.',
+            'apellidoP.alpha' => 'El apellido paterno solo puede contener letras.',
+            'apellidoM.required' => 'El apellido materno es obligatorio.',
+            'apellidoM.alpha' => 'El apellido materno solo puede contener letras.',
+            'email.required' => 'El correo electrónico es obligatorio.',
+            'email.email' => 'Ingresa un correo electrónico válido.',
+            'email.unique' => 'Este correo electrónico ya está registrado.',
+            'password.required' => 'La contraseña es obligatoria.',
+            'password.string' => 'La contraseña debe ser una cadena de texto.',
+            'password.min' => 'La contraseña debe tener al menos :min caracteres.',
+            'password.max' => 'La contraseña no puede tener más de :max caracteres.',
+            
+            'universidad.required' => 'La universidad es obligatoria.',
+            
+            'universidad.alpha' => 'El campo de universidad solo puede contener letras.',
+            
+        ];
+    
+        // Reglas de validación
+        $request->validate([
+            'nombre' => 'required|alpha',
+            'apellidoP' => 'required|alpha',
+            'apellidoM' => 'required|alpha',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string|min:7|max:15',
+            'universidad' => 'required|alpha',         
+            
+        ], $messages);
+    
+        // Crear el usuario
         $user = User::create([
             'name' => $request->input('nombre'),
             'apellidoP' => $request->input('apellidoP'),
             'apellidoM' => $request->input('apellidoM'),
             'email' => $request->input('email'),
             'password' => $request->input('password'),
-            'carnet' => $request->input('ci'),
-            'universidad' => $request->input('universidad'),
-            'telefono' => $request->input('cel'),
-            'fechaN' => $request->input('nacimiento'),
+            'universidad' => $request->input('universidad'),          
             'rol' => 'coach',
-            'direccion' => $request->input('direccion'),
-            'foto' => 'images/fotos/foto_default.jpg', 
+            'direccion' => $request->input('direccion'),           
         ]);
-
-        auth()->login($user);
-        // Guardar usuario
-       
+    
+       // auth()->login($user);
+    
         session()->flash('success', '¡Cuenta creada!');
         return view('auth.registerCoach');
     }
-
+    
     public function storeCoach() {
         $email = request('email');
         $password = request('password');

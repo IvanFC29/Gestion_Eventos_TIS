@@ -22,6 +22,6 @@ class CoachAuth
                 return $next($request);
             }
         }
-        return redirect()->to('/competencias-coach');
+        return redirect()->to('/home');
     }
 }
