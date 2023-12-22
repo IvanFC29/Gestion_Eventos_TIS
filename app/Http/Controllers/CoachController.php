@@ -155,5 +155,47 @@ class CoachController extends Controller
         session()->flash('success', 'Se ha actualizado sus datos correctamente.');
         return redirect()->back();
     }
-    
+    public function listarCoachs()
+    {
+        // Obtener eventos desde el modelo (o desde donde sea que los estés obteniendo)
+        $coachs = user::all();
+
+        // Pasar los coachs a la vista
+        return view('listaCoach')->with('coachs', $coachs);
+    }
+    public function filtrarCoachs(Request $request)
+{
+    $filtroTipo = $request->input('filtroTipo');
+    $filtroTexto = $request->input('filtroTexto');
+
+    // Lógica para filtrar usuarios
+    $coachs = User::where('rol', 'coach')
+        ->when($filtroTipo, function ($query) use ($filtroTipo, $filtroTexto) {
+            // Seleccionar el tipo de filtro y aplicar la condición correspondiente
+            switch ($filtroTipo) {
+                case 'nombre':
+                    $query->where('name', 'LIKE', '%' . $filtroTexto . '%');
+                    break;
+                case 'paterno':
+                    $query->where('apellidoP', 'LIKE', '%' . $filtroTexto . '%');
+                    break;
+                case 'materno':
+                    $query->where('apellidoM', 'LIKE', '%' . $filtroTexto . '%');
+                    break;
+                case 'correo':
+                    $query->where('email', 'LIKE', '%' . $filtroTexto . '%');
+                    break;
+                case 'universidad':
+                    $query->where('universidad', 'LIKE', '%' . $filtroTexto . '%');
+                    break;
+                // Puedes agregar más casos según sea necesario
+            }
+
+            return $query;
+        })
+        ->get();
+
+    return view('listaCoach', compact('coachs'));
+}
+
 }

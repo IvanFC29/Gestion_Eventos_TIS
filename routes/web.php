@@ -137,9 +137,9 @@ Route::post('/loginCoach', [CoachController::class, 'storeCoach']);
 Route::view('/perfil','verPerfil')->middleware('auth.coach');
 
 Route::get('/editCoach', [CoachController::class, 'editCoach'])->name("editCoach")->middleware('auth.coach');
-
+Route::post('/listaCoachs', [CoachController::class, 'filtrarCoachs'])->name('coachs.filtrar');
 Route::put('/actualizarDatos', [CoachController::class, 'update'])->name("update")->middleware('auth.coach');
-
+Route::get('/listaCoachs', [CoachController::class, 'listarCoachs'])->name("listaCoach")->middleware('auth.admin');
 Route::get('/reportePDF', [reporteController::class, 'mostrarRegistrosPDF'])->middleware('auth.admin');
 Route::get('/reporteEventos', [EventoController::class, 'listarEventos'])->name("reporteE")->middleware('auth.admin');
 Route::get('/reporteCompetencias', [EventoController::class, 'listarCompetencias'])->name("reporteC")->middleware('auth.admin');
