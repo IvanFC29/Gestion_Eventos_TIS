@@ -230,5 +230,61 @@ class reporteController extends Controller
         $pdf->Output('I'); // 'I' muestra el PDF directamente en el navegador
         exit; // Asegúrate de detener la ejecución después de enviar el PDF
     }
+    public function mostrarResultadoEU(Request $request)
+    {
+        $idEvento = $request->input('nombre');
+        $registros = RegistroEv::where('eventoinscrito', $idEvento)
+                               ->orderBy('puntaje', 'desc') // Ordenar por 'puntaje' de mayor a menor
+                               ->get();
+
+        $pdf = new \FPDF();
+        $pdf->AddPage();
     
+        // Configurar el contenido del PDF
+        $pdf->SetFont('Arial', 'B', 20); // Font regular
+    
+        // Título del PDF
+        $pdf->Cell(0, 10, 'Resultados del Evento: ' . $idEvento, 0, 1, 'C'); // Alineación centrada
+        $pdf->Ln(10); // Salto de línea
+    
+        // Cabecera de la tabla
+        $pdf->SetFont('Arial', 'B', 10); // Font en negrita
+    
+        // Establecer color de fondo para los encabezados
+        $pdf->SetFillColor(243, 84, 50); // R, G, B
+        $pdf->Cell(20, 10, 'Lugar', 1, 0, 'C', true); // El último parámetro indica si se llena el fondo
+       
+        $pdf->Cell(40, 10, 'Nombre', 1, 0, 'C', true);
+        $pdf->Cell(40, 10, 'Apellidos', 1, 0, 'C', true);
+        $pdf->Cell(40, 10, 'Correo', 1, 0, 'C', true);
+        $pdf->Cell(30, 10, 'Puntaje', 1, 0, 'C', true);
+        $pdf->Ln(); // Salto de línea
+    
+        // Datos de la tabla
+        $id = 1;
+        foreach ($registros as $index => $registro) {
+            $pdf->SetFont('Arial', '', 10); // Volver a la fuente regular
+    
+            // Verificar si la fila actual está dentro de las primeras tres filas
+            if ($index < 3) {
+                // Establecer color de fondo diferente para las primeras tres filas
+                $pdf->SetFillColor(243, 208, 50); // R, G, B
+            } else {
+                $pdf->SetFillColor(255, 255, 255); // Restaurar color de fondo blanco para filas restantes
+            }
+    
+            $pdf->Cell(20, 10, $id, 1, 0, 'C', true);
+        
+            $pdf->Cell(40, 10, utf8_decode($registro->nombre), 1, 0, 'C', true);
+            $pdf->Cell(40, 10, utf8_decode($registro->apellidos), 1, 0, 'C', true);
+            $pdf->Cell(40, 10, utf8_decode($registro->correo), 1, 0, 'C', true);
+            $pdf->Cell(30, 10, $registro->puntaje, 1, 0, 'C', true);
+            $pdf->Ln(); // Salto de línea
+            $id++;
+        }
+    
+        // Devolver el PDF como una respuesta
+        $pdf->Output('I'); // 'I' muestra el PDF directamente en el navegador
+        exit; // Asegúrate de detener la ejecución después de enviar el PDF
+    }
 }

@@ -302,9 +302,9 @@
                         <p class="card-text">{{ $evento->fecha_fin }}</p>-->
                         
                         <p> <br>
-                        <button type="button" class="btn btn-color abrirmodales" data-toggle="modal" data-target="#modal-{{ $evento->id }}">
-                          Detalles
-                        </button>
+                        <button type="button" class="btn btn-color abrirmodales"  onclick="imprimirEvento_res('{{ $evento->nombre}}')"">
+                          Ver Resultados
+                        </button>                       
                       <hr>
                     </div>
                   </div>
@@ -405,6 +405,13 @@
                         $('#registro-form').hide();
                   });
               });
+          </script>
+          <script>
+           
+            function imprimirEvento_res(nombre) {
+                // Redirigir a la página de registros en PDF con el ID como parámetro
+                window.location.href = '/pdfEveResU?nombre=' + nombre;
+            }
           </script>
 </body>
 </html>

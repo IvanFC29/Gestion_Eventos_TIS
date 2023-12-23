@@ -178,3 +178,5 @@ Route::post('/enviar-cambio', [Admin2Controller::class, 'sendmail']);
 Route::get('/full-calendar', [CalendarController::class, 'index'])->middleware('auth');
 
 Route::post('/actualizar-permiso/{id}',[CoachController::class,'actualizarPermiso'])->name('coach.actualizarPermiso');
+
+Route::get('/pdfEveResU', [reporteController::class, 'mostrarResultadoEU']);
