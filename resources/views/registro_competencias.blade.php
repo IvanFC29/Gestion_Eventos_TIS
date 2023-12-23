@@ -33,6 +33,13 @@
     <title>Registro Competencias</title> 
     <!-- Agrega esto en el head de tu documento HTML -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JS y dependencias (jQuery y Popper.js) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 
     <style>
         form {
@@ -212,7 +219,6 @@
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Número de celular:<span class="text-danger">*</span></label>
-                                        <input type="text" name="celular1" class="form-control input_user" value="" required>
                                         <input type="text" name="celular1" class="form-control input_user" value="" placeholder="" minlength="7" title="Se requiere mínimo 7 números" oninput="javascript: if (this.value.length > 0) this.value = this.value.replace(/[^0-9]/g, '');" required>
                                     </div>
                                 </div>

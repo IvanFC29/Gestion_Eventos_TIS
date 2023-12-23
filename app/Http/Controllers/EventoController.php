@@ -519,17 +519,18 @@ public function filtrarCompetencias(Request $request)
         $sis1Exists = Estudiantes::where('codigosis', $request4->input('sis1'))->exists();
         $sis2Exists = Estudiantes::where('codigosis', $request4->input('sis2'))->exists();
 
-        // Si el código SIS no existe, mostrar un mensaje de error
-        if (!$sis1Exists) {
-            $request4->session()->flash('error', '¡Error! El código SIS del participante 1 no existe en la base de datos.');
-            return view('registro_competencias')->with(['nombreComp' => $registroCompetencia->nombreComp, 'umss' => $umssValue , 'numIntegrantes'=>$cantInscritos]);
-        }else{
-            if(!$sis2Exists){
-                $request4->session()->flash('error', '¡Error! El código SIS del participante 2 no existe en la base de datos.');
+        if($umssValue == "Si"){
+            // Si el código SIS no existe, mostrar un mensaje de error
+            if (!$sis1Exists) {
+                $request4->session()->flash('error', '¡Error! El código SIS del participante 1 no existe en la base de datos.');
                 return view('registro_competencias')->with(['nombreComp' => $registroCompetencia->nombreComp, 'umss' => $umssValue , 'numIntegrantes'=>$cantInscritos]);
+            }else{
+                if(!$sis2Exists){
+                    $request4->session()->flash('error', '¡Error! El código SIS del participante 2 no existe en la base de datos.');
+                    return view('registro_competencias')->with(['nombreComp' => $registroCompetencia->nombreComp, 'umss' => $umssValue , 'numIntegrantes'=>$cantInscritos]);
+                }
             }
         }
-        
         $registroCompetencia->sis3 = $request4->input('sis3');
         if (!empty($registroCompetencia->sis3)) {
             $sis3Exists = Estudiantes::where('codigosis', $request4->input('sis3'))->exists();
