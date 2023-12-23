@@ -43,7 +43,22 @@
                 <h1 class="titulomalo">CP Bol - Competencias Programación Bolivia</h1>
             </div>
         </div>
-                     
+        @if(auth()->user()->rol=='coach')
+        <div class="collapse navbar-collapse color-letra" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <b>{{auth()->user()->name}}  {{auth()->user()->apellidoP}}      </b>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">   
+                        <a class="dropdown-item" href="/perfil">Ver perfil</a>
+                        <a class="dropdown-item" href="/editCoach">Editar Perfil</a>
+                        <a class="dropdown-item" href="{{ route('login.destroy') }}" >Cerrar Sesion</a>
+                    </div>    
+                </li>                   
+            </ul>
+        </div> 
+        @endif     
     </nav>
 </header>
 
@@ -53,60 +68,97 @@
         <aside class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
             <div class="sidebar-sticky">
                 <!-- Contenido de tu barra de navegación izquierda -->
-            <nav class="navbar navbar-inverse" id="sidebar-wrapper" role="navigation">
-            <ul class="nav sidebar-nav">
-                <div class="sidebar-header">
-                    <div class="sidebar-brand ">
-                    <i class="bi bi-person-circle"></i>
-                    <a href="#">Admin</a>
-                    </div>        
-                </div>
-                <ul class="nav flex-column">
-                    <li class="dropdown">
-                        <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Eventos <span class="caret"></span></a>
-                        <ul class="dropdown-menu animated fadeInLeft" role="menu">
-                            <li><a href="/crear-evento" class="dropdown-item ">Crear Evento</a></li>
-                            <li><a href="/ver-eventos-editables" class="dropdown-item">Lista de Eventos</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Competencias <span class="caret"></span></a>
-                        <ul class="dropdown-menu animated fadeInLeft" role="menu">
-                            <li><a href="/competencias-adm" class="dropdown-item ">Ver Competencias</a></li>
-                            <li><a href="/crearcompetencias" class="dropdown-item ">Crear Competencia</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Coachs <span class="caret"></span></a>
-                        <ul class="dropdown-menu animated fadeInLeft" role="menu">
-                            <li><a href="/registerCoach" class="dropdown-item ">Nuevo Coach</a></li>
-                            <li><a href="/listaCoachs" class="dropdown-item ">Ver coachs</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Reportes <span class="caret"></span></a>
-                        <ul class="dropdown-menu animated fadeInLeft" role="menu">
-                            <li><a href="{{ route('reporteC') }}" class="dropdown-item ">Competencias</a></li>
-                            <li><a href="{{ route('reporteE') }}">Eventos</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Calendario
-                        </a>
-                    </li>
-                    @if(auth()->check())
-                        <li>
-                            <a href="{{ route('login.destroy') }}" >Cerrar Sesion</a>
+                @if(auth()->user()->rol=='admin')
+                <nav class="navbar navbar-inverse" id="sidebar-wrapper" role="navigation">
+                <ul class="nav sidebar-nav">
+                    <div class="sidebar-header">
+                        <div class="sidebar-brand ">
+                        <i class="bi bi-person-circle"></i>
+                        <a href="#">Admin</a>
+                        </div>        
+                    </div>
+                    <ul class="nav flex-column">
+                        <li class="dropdown">
+                            <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Eventos <span class="caret"></span></a>
+                            <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                                <li><a href="/crear-evento" class="dropdown-item ">Crear Evento</a></li>
+                                <li><a href="/ver-eventos-editables" class="dropdown-item">Lista de Eventos</a></li>
+                            </ul>
                         </li>
-                    @else
-                        <li class="mx-6">
-                            <a href="{{ route('login.index') }}" class="font-semibold hover-bg-indigo-700 py-3 px-4 rounded-md">Log In</a>
+                        <li class="dropdown">
+                            <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Competencias <span class="caret"></span></a>
+                            <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                                <li><a href="/competencias-adm" class="dropdown-item ">Ver Competencias</a></li>
+                                <li><a href="/crearcompetencias" class="dropdown-item ">Crear Competencia</a></li>
+                            </ul>
                         </li>
-                    @endif   
-                </ul>
-            </nav>
-            </ul>        <!-- ... (agrega más opciones según sea necesario) ... -->
+                        <li class="dropdown">
+                            <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Coachs <span class="caret"></span></a>
+                            <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                                <li><a href="/registerCoach" class="dropdown-item ">Nuevo Coach</a></li>
+                                <li><a href="#" class="dropdown-item ">Ver coachs</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Reportes <span class="caret"></span></a>
+                            <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                                <li><a href="{{ route('reporteC') }}" class="dropdown-item ">Competencias</a></li>
+                                <li><a href="{{ route('reporteE') }}">Eventos</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                Calendario
+                            </a>
+                        </li>
+                        @if(auth()->check())
+                            <li>
+                                <a href="{{ route('login.destroy') }}" >Cerrar Sesion</a>
+                            </li>
+                        @else
+                            <li class="mx-6">
+                                <a href="{{ route('login.index') }}" class="font-semibold hover-bg-indigo-700 py-3 px-4 rounded-md">Log In</a>
+                            </li>
+                        @endif   
+                    </ul>
+                </nav>           
+                @else
+                <nav class="navbar navbar-inverse" id="sidebar-wrapper" role="navigation">
+                    <ul class="nav sidebar-nav">
+                        <div class="sidebar-header">
+                            <div class="sidebar-brand ">
+                            <i class="bi bi-person-circle"></i>
+                            <a href="#">Coach</a>
+                            </div>        
+                        </div>
+                        <ul class="nav flex-column">
+                            
+                            <li class="dropdown">
+                                <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Competencias <span class="caret"></span></a>
+                                <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                                    <li><a href="/competencias-adm" class="dropdown-item ">Ver Competencias</a></li>
+                                    <li><a href="/crearcompetencias" class="dropdown-item ">Crear Competencia</a></li>
+                                </ul>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="/full-calendar">
+                                    Calendario
+                                </a>
+                            </li>
+                            @if(auth()->check())
+                                <li>
+                                    <a href="{{ route('login.destroy') }}" >Cerrar Sesion</a>
+                                </li>
+                            @else
+                                <li class="mx-6">
+                                    <a href="{{ route('login.index') }}" class="font-semibold hover-bg-indigo-700 py-3 px-4 rounded-md">Log In</a>
+                                </li>
+                            @endif   
+                        </ul>
+                    </nav>
+                @endif
+                <!-- ... (agrega más opciones según sea necesario) ... -->
             </div>
         </aside>
         

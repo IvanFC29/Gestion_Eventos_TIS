@@ -55,14 +55,19 @@
                 <li class="dropdown">
                     <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Competencias <span class="caret"></span></a>
                     <ul class="dropdown-menu animated fadeInLeft" role="menu">
-                    <li><a href="#" class="dropdown-item ">Ver Competencias</a></li>
+                    @if(auth()->user()->permiso == 1)
+                        <li><a href="/competencias-coach" class="dropdown-item">Ver Competencias</a></li>
+                        <li><a href="/crearcompetencias" class="dropdown-item">Crear Competencia</a></li>
+                    @else
+                        <li><a href="/competencias-coach" class="dropdown-item">Ver Competencias</a></li>
+                    @endif
                     </ul>
                 </li>
                
                 
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="/calendarioC">
+                    <a class="nav-link" href="/full-calendar">
                         Calendario
                     </a>
                 </li>

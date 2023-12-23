@@ -185,14 +185,18 @@
                                     <td>{{ $coach->email }}</td>
                                     <td>{{ $coach->universidad }}</td>
                                     <td style="text-align: center; vertical-align: middle;">
-                                        <button type="submit" class="btn btn-link d-flex align-items-center justify-content-center">
-                                            @if ($coach->permisoCrearCompetencias)
-                                                <i class="fas fa-toggle-on text-success fa-2x"></i>
-                                            @else
-                                                <i class="fas fa-toggle-off text-danger fa-2x"></i>
-                                            @endif
-                                        </button>
+                                        <form action="{{ route('coach.actualizarPermiso', ['id' => $coach->id]) }}" method="post">
+                                            @csrf
+                                            <button type="submit" class="btn btn-link d-flex align-items-center justify-content-center">
+                                                @if ($coach->permiso)
+                                                    <i class="fas fa-toggle-on text-success fa-2x"></i>
+                                                @else
+                                                    <i class="fas fa-toggle-off text-danger fa-2x"></i>
+                                                @endif
+                                            </button>
+                                        </form>
                                     </td>
+                                    
                                     
             
                                    

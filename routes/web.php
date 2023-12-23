@@ -100,7 +100,7 @@ Route::get('/competencias-adm', [EventoController::class, 'mostrarCompetenciasAd
 Route::get('/competencias-coach', [EventoController::class, 'mostrarCompetenciasCoach'])->name('eventos.mostrarCompetenciasCoach')->middleware('auth.coach');
 Route::get('/formcompetencias/{nombre}', [EventoController::class, 'mostrarFormulario'])->name('eventos.mostrarFormulario');
 Route::get('/competencias-usuario', [EventoController::class, 'mostrarCompetenciasUsuario'])->name('eventos.mostrarCompetenciasUsuario')->middleware('guest');
-Route::get('/crearcompetencias', [EventoController::class, 'crearCompetencias'])->name('eventos.crearCompetencias')->middleware('auth.admin');
+Route::get('/crearcompetencias', [EventoController::class, 'crearCompetencias'])->name('eventos.crearCompetencias')->middleware('auth');
 
 Route::post('/guardarCompetencia', [EventoController::class, 'guardarCompetencia'])
 ->name('eventos.guardarCompetencia');
@@ -175,5 +175,6 @@ Route::post('/modificar-evento{id}', [EventoController::class, 'modificar'])->mi
 Route::get('/notificar/{emailCoach}/{id}', [EventoController::class, 'notificarCambio'])->middleware('auth.admin')->name('notificar');
 Route::post('/enviar-cambio', [Admin2Controller::class, 'sendmail']);
 
-Route::get('/full-calendar', [CalendarController::class, 'index'])->middleware('auth.admin');
-Route::get('/calendarioC', [CalendarController::class, 'indexC'])->middleware('auth.coach');
+Route::get('/full-calendar', [CalendarController::class, 'index'])->middleware('auth');
+
+Route::post('/actualizar-permiso/{id}',[CoachController::class,'actualizarPermiso'])->name('coach.actualizarPermiso');

@@ -158,7 +158,7 @@ class CoachController extends Controller
     public function listarCoachs()
     {
         // Obtener eventos desde el modelo (o desde donde sea que los estés obteniendo)
-        $coachs = user::all();
+        $coachs = User::where('rol', 'coach')->get();
 
         // Pasar los coachs a la vista
         return view('listaCoach')->with('coachs', $coachs);
@@ -197,5 +197,17 @@ class CoachController extends Controller
 
     return view('listaCoach', compact('coachs'));
 }
+public function actualizarPermiso($id)
+{
+    $coach = User::find($id);
+
+    if ($coach) {
+        $coach->permiso= !$coach->permiso;
+        $coach->save();
+    }
+
+    return redirect()->back();
+}
+
 
 }
