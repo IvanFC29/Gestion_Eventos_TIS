@@ -87,8 +87,23 @@
             </div>
         </div><br>
     </section>
-<div>
     <br><br><br><br><br>
+    <div class="container">
+        <div class="section-title" data-aos="zoom-out">
+            <h2>Fotos relevantes</h2>
+        </div>
+        <div class="row portfolio-container" data-aos="fade-up">
+            <div class="col-lg-4 col-md-6 portfolio-item">
+                <div class="portfolio-img"><img src="{{ asset('images/noticia.jpg') }}" class="img-fluid" alt="Estudiantes compitiendo"></div>
+                    <div class="portfolio-info">
+                        <h4>Competencias del ICPC</h4>
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
     <!-- Pie de página -->
     <footer class="footerlanding bg-dark text-white text-center py-4">
         <!--<div class="column-right">
@@ -117,7 +132,7 @@
             </div>
         </div>
     </footer>
-</div>
+
     
 <!-- Scripts de Bootstrap y jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

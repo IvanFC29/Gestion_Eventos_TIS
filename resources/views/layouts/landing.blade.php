@@ -12,7 +12,7 @@
     
     <link rel="stylesheet" href="{{ asset('css/index.css') }}" TYPE="text/css">
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/modal.css') }}">
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/sinLogin.css') }}" TYPE="text/css">  
@@ -88,7 +88,7 @@
          @yield('content')
     </section>
 
-    <!-- Pie de página -->
+    <!-- Pie de página 
     <footer class="bg-dark text-white text-center py-0 footer">
         <div class="column-right">
             <div>
@@ -115,7 +115,7 @@
             </div>
         </div>
         
-    </footer>
+    </footer>-->
       
 
     <!-- Scripts de Bootstrap y jQuery -->

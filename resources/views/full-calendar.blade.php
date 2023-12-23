@@ -8,6 +8,7 @@
     
     <link rel="stylesheet" href="{{ asset('css/eventos_admin.css') }}" TYPE="text/css">  
     <link rel="stylesheet" href="{{ asset('css/menu.css') }}" TYPE="text/css">  
+    <link rel="stylesheet" href="{{ asset('css/calendario.css') }}" TYPE="text/css">  
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -18,7 +19,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
-
 </head>
 <body>
 
@@ -154,6 +154,13 @@
         <!-- Contenido principal -->
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
             <!-- Contenido principal de tu página -->
+            <br>
+            <div id="leyenda">
+                <div id="cuadroE" class="texto"> Eventos </div>
+                <div id="cuadroC" class="texto"> Competencias </div>
+                <div id="cuadroF" class="texto"> Feriados </div>
+            </div>
+            <br>
             <div id="calendar"></div>
             <!-- ... -->
         </main>

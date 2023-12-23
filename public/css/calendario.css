@@ -1,0 +1,33 @@
+body{
+    background-color: azure;
+}
+
+main{
+    background-color: azure;
+}
+
+#leyenda{
+    border: 2px solid #111;
+    padding: 2px;
+}    
+
+.texto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#cuadroE{
+    background-color: #dd983d;
+    width: 20%;
+}
+
+#cuadroC{
+    background-color: #48bbbe;   
+    width: 20%;
+}
+
+#cuadroF{
+    background-color: #16c210;
+    width: 20%;
+}

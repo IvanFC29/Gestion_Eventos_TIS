@@ -280,10 +280,10 @@
                                     <p>Links de Inscripción Externos: {{ $evento->links }}</p>
                                   @endif
                               </div>
-                               <!-- Botón para abrir el formulario en el modal -->
+                               <!-- Botón para abrir el formulario en el modal
                                 <a href="{{ url('/registro-eventos', ['nombre' => $evento->nombre]) }}" class="btn btn-color">
                                   Registrase
-                                </a>
+                                </a> -->
                           </div>
                       </div>
                   </div>
