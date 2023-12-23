@@ -30,7 +30,7 @@
     <!-- Tailwind CSS Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css">
    
-    <title>Crear Evento</title> 
+    <title>Registro Competencias</title> 
     <!-- Agrega esto en el head de tu documento HTML -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
@@ -53,7 +53,7 @@
     <nav class="navbar custom-navbar navbar-expand-lg">
         <div class="container-fluid">
             <div class="divtitulom">
-                <h1 class="titulomalo">CP Bol - Competencias Programación Bolivia</h1>
+                <h1 class="titulomalo">ICPC</h1>
             </div>
         </div>
         <div class="collapse navbar-collapse color-letra" id="navbarNav">
@@ -92,7 +92,7 @@
                         <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Eventos <span class="caret"></span></a>
                         <ul class="dropdown-menu animated fadeInLeft" role="menu">
                             <li><a href="/crear-evento" class="dropdown-item ">Crear Evento</a></li>
-                            <li><a href="/ver-eventos-editables" class="dropdown-item">Lista de Eventos</a></li>
+                            <li><a href="/home" class="dropdown-item">Lista de Eventos</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -302,7 +302,7 @@
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Número de celular:<span class="text-danger">*</span></label>
-                                        <input type="text" name="celular4" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com">
+                                        <input type="text" name="celular4" class="form-control input_user" value="" >
                                     </div>
                                 </div>
                                 <div class="col-md-3 sis-field">

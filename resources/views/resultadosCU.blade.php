@@ -39,7 +39,7 @@
 <body>
       
 <nav class="navbar navbar-expand-lg  custom-navbar">
-        <a class="navbar-brand" href="/index">Competencias - Programación Bolivia</a>
+        <a class="navbar-brand" href="/index">ICPC</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -89,6 +89,7 @@
       </div>
       <div class="container mt-4">
           <div class="row">
+            @if(count($resultados) > 0)
               @foreach ($listados as $competencias)
 
 
@@ -142,6 +143,16 @@
                                 
                   
                 @endforeach
+            @else
+                    <div id='mensaje'>
+                        <div class='alert alert-success alert-dismissible fade show' role='alert'>
+                            <strong> {{ session('success') }}</strong>
+                            <div id="botonMensaje"> 
+                                <a href="#" id="botonMensaje" type="button"> No se encontraron eventos relacionados con la búsqueda.</a>
+                            </div>
+                            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'> </button>
+                    </div>
+            @endif
           </div>
       </div>
       
