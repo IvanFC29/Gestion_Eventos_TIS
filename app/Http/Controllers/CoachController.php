@@ -59,6 +59,7 @@ class CoachController extends Controller
             'password' => $request->input('password'),
             'universidad' => $request->input('universidad'),          
             'rol' => 'coach',
+            'permiso' => false,
             'direccion' => $request->input('direccion'),           
         ]);
     
