@@ -188,7 +188,7 @@
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <label>Nombre del Equipo:<span class="text-danger"></span></label>
-                                    <input type="text" name="nombreEquipo" class="form-control" value="" placeholder="Ingrese nombre"  required>
+                                    <input type="text" name="nombreEquipo" class="form-control" value="" placeholder="Ingrese nombre" minlength="5" title="Ingrese al menos 5 letras" required>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -200,25 +200,25 @@
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Nombre:<span class="text-danger">*</span></label>
-                                        <input type="text" name="nombre1" class="form-control" value="" placeholder="Ingrese nombre"  required>
+                                        <input type="text" name="nombre1" class="form-control" value="" placeholder="Ingrese nombre" pattern="[A-Za-z\s]{5,}" oninput="javascript: if (this.value.length > 0) this.value = this.value.replace(/[^A-Za-z\s]/g, '');" title="Solo se permiten carácteres alfabéticos, con un mínimo de 5 caracteres" required>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>E-mail de contacto:<span class="text-danger">*</span></label>
-                                        <input type="text" name="email1" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required >
+                                        <input type="text" name="email1" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required >
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Número de celular:<span class="text-danger">*</span></label>
-                                        <input type="text" name="celular1" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required>
+                                        <input type="text" name="celular1" class="form-control input_user" value="" placeholder="" minlength="7" title="Se requiere mínimo 7 números" oninput="javascript: if (this.value.length > 0) this.value = this.value.replace(/[^0-9]/g, '');" required>
                                     </div>
                                 </div>
                                 <div class="col-md-3 sis-field">
                                     <div class="mb-3">
                                         <label>Código Sis:<span class="text-danger">*</span></label>
-                                        <input type="text" name="sis1" id="sis1" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com">
+                                        <input type="text" name="sis1" id="sis1" class="form-control input_user" value="" placeholder="" minlength="9">
                                     </div>
                                 </div>
                             </div>
@@ -226,25 +226,25 @@
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Nombre:<span class="text-danger">*</span></label>
-                                        <input type="text" name="nombre2" class="form-control" value="" placeholder="Ingrese nombre" required>
+                                        <input type="text" name="nombre2" class="form-control" value="" placeholder="Ingrese nombre" pattern="[A-Za-z\s]{5,}" oninput="javascript: if (this.value.length > 0) this.value = this.value.replace(/[^A-Za-z\s]/g, '');" title="Solo se permiten carácteres alfabéticos, con un mínimo de 5 caracteres" required>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>E-mail de contacto:<span class="text-danger">*</span></label>
-                                        <input type="text" name="email2" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" required>
+                                        <input type="text" name="email2" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Número de celular:<span class="text-danger">*</span></label>
-                                        <input type="text" name="celular2" class="form-control input_user" value="" required >
+                                        <input type="text" name="celular2" class="form-control input_user" value="" placeholder="" minlength="7" title="Se requiere mínimo 7 números" oninput="javascript: if (this.value.length > 0) this.value = this.value.replace(/[^0-9]/g, '');" required >
                                     </div>
                                 </div>
                                 <div class="col-md-3 sis-field">
                                     <div class="mb-3">
                                         <label>Código Sis:<span class="text-danger">*</span></label>
-                                        <input type="text" name="sis2" id="sis2" class="form-control input_user" value="">
+                                        <input type="text" name="sis2" id="sis2" class="form-control input_user" value="" placeholder="" minlength="9">
                                     </div>
                                 </div>
                             </div>
@@ -257,7 +257,7 @@
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Nombre:<span class="text-danger">*</span></label>
-                                        <input type="text" name="nombre3" class="form-control" value="" placeholder="Ingrese nombre">
+                                        <input type="text" name="nombre3" class="form-control" value="" placeholder="Ingrese el nombre del tercer participante" pattern="[A-Za-z\s]{5,}">
                                     </div>
                                 </div>
                                 <div class="col-md-3">                                        <div class="mb-3">
@@ -274,7 +274,7 @@
                                 <div class="col-md-3  sis-field">
                                     <div class="mb-3">
                                         <label>Código Sis:<span class="text-danger">*</span></label>
-                                        <input type="text" name="sis3" id="sis3" class="form-control input_user" value="">
+                                        <input type="text" name="sis3" id="sis3" class="form-control input_user" value="" placeholder="" minlength="9">
                                     </div>
                                 </div>
                             </div>
@@ -290,7 +290,7 @@
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Nombre:<span class="text-danger">*</span></label>
-                                        <input type="text" name="nombre4" class="form-control" value="" placeholder="Ingrese nombre">
+                                        <input type="text" name="nombre4" class="form-control" value="" placeholder="Ingrese el nombre del cuarto participante" pattern="[A-Za-z\s]{5,}">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -308,7 +308,7 @@
                                 <div class="col-md-3 sis-field">
                                     <div class="mb-3">
                                         <label>Código Sis:<span class="text-danger">*</span></label>
-                                        <input type="text" name="sis4" id="sis4" class="form-control input_user" value="">
+                                        <input type="text" name="sis4" id="sis4" class="form-control input_user" value="" placeholder="" minlength="9">
                                     </div>
                                 </div>
                                 <!-- Repite lo mismo para los demás campos que quieres ocultar/mostrar -->
@@ -323,7 +323,7 @@
                         <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="message-text" class="col-form-label">Nombre del Coach:<span class="text-danger">*</span></label>
-                                    <textarea class="form-control" id="coachcompentencia" name="coachEncargado" required></textarea>
+                                    <textarea class="form-control" id="coachcompentencia" name="coachEncargado" pattern="[A-Za-z\s]{5,}" required></textarea>
                                 </div>
                         </div>
                         <div class="modal-footer">

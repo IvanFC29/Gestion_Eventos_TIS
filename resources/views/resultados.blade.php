@@ -90,7 +90,7 @@
           <div class="row">
             @if(count($resultados) > 0)
                 @foreach ($resultados as $resultado)
-                  <div class="modal" id="modal-{{ $evento->id }}">
+                  <div class="modal" id="modal-{{ $resultado->id }}">
                       <div class="modal-dialog">
                           <div class="modal-content">
                               <div class="modal-header">
@@ -117,7 +117,7 @@
                               <p class="card-text">{{ $resultado->descripcion }}</p>
                               <p class="card-text">{{ $resultado->fecha_inicio }}</p>
                               <p class="card-text">{{ $resultado->fecha_fin }}</p>
-                              <button type="button" class="btn btn-primary abrirmodales" data-toggle="modal" data-target="#modal-{{ $evento->id }}">
+                              <button type="button" class="btn btn-primary abrirmodales" data-toggle="modal" data-target="#modal-{{ $resultado->id }}">
                                   Ver detalles
                               </button>
                           </div>
