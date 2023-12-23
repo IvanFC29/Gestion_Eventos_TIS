@@ -107,6 +107,13 @@ class EventoController extends Controller
         $evento->costo = $request->input('costoevento');
         $evento->correo_referencia = $request->input('email');
         $evento->cel_referencia = $request->input('telefonoevento');
+        $evento->requisitos = $request->input('requisitos');
+        $evento->reglas = $request->input('reglas');
+        $evento->links = $request->input('links');
+        $evento->infextra = $request->input('infextra');
+        $evento->contenido = $request->input('contenido');
+        $evento->cronograma = $request->input('cronograma');
+        $evento->costo = $request->input('costo');
         $evento->emailCoach = $request->input('elcoach');
 
         // Guardar el evento actualizado en la base de datos

@@ -71,7 +71,7 @@
                             <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Eventos <span class="caret"></span></a>
                             <ul class="dropdown-menu animated fadeInLeft" role="menu">
                                 <li><a href="/crear-evento" class="dropdown-item ">Crear Evento</a></li>
-                                <li><a href="/ver-eventos-editables" class="dropdown-item">Lista de Eventos</a></li>
+                                <li><a href="/eventos" class="dropdown-item">Lista de Eventos</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -179,10 +179,7 @@ $(document).ready(function () {
         events:'/full-calendar',
         selectable:true,
         selectHelper: true,
-
     });
-    calendar.setUrlHash(null);
-
 });
 </script>
 </body>
