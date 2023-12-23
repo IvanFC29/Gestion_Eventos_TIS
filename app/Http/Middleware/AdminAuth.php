@@ -18,10 +18,10 @@ class AdminAuth
     {
         if (auth()->check()){
 
-            if (auth()->user()->rol == 'admin' || auth()->user()->rol == 'coach'){
+            if (auth()->user()->rol == 'admin'){
                 return $next($request);
             }
         }
-        return redirect()->to('/usuario-eventos');
+        return redirect()->to('/competencias-coach');
     }
 }

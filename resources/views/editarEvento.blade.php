@@ -88,7 +88,7 @@
                         <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Coachs <span class="caret"></span></a>
                         <ul class="dropdown-menu animated fadeInLeft" role="menu">
                             <li><a href="/registerCoach" class="dropdown-item ">Nuevo Coach</a></li>
-                            <li><a href="#" class="dropdown-item ">Ver coachs</a></li>
+                            <li><a href="/listaCoachs" class="dropdown-item ">Ver coachs</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -199,8 +199,8 @@
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label>Telefono/Celular de contacto:<span class="text-danger">*</span></label>
-                                <input type="text" name="telefonoevento" class="form-control input_user" value="{{ $evento_editar->cel_referencia }}"  oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength); this.value = this.value.replace(/[^0-9]/,'')" minlength="7" maxlength="8" min="40000000" max="79999999" required>
+                                <label>Telefono/Celular de contacto: <span class="text-danger" id="telefonoError" style="color: red;">*</span></label>
+                                <input type="text" name="telefonoevento" id="telefonoevento" class="form-control input_user" value="" placeholder="Ingrese numero telef/cel" minlength="8" maxlength="8" pattern="^[764][0-9]{7}$" required>
                             </div>
                         </div>
                     </div>

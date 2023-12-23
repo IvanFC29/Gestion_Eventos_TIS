@@ -38,20 +38,7 @@
                 <h1 class="titulomalo">CP Bol - Competencias Programación Bolivia</h1>
             </div>
         </div>
-        <div class="collapse navbar-collapse color-letra" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <b>{{auth()->user()->name}}  {{auth()->user()->apellidoP}}      </b>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">   
-                        <a class="dropdown-item" href="/perfil">Ver perfil</a>
-                        <a class="dropdown-item" href="/editarPerfil">Editar Perfil</a>
-                        <a class="dropdown-item" href="{{ route('login.destroy') }}" >Cerrar Sesion</a>
-                    </div>    
-                </li>                   
-            </ul>
-        </div>              
+                      
     </nav>
 </header>
 
@@ -90,7 +77,7 @@
                         <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Coachs <span class="caret"></span></a>
                         <ul class="dropdown-menu animated fadeInLeft" role="menu">
                             <li><a href="/registerCoach" class="dropdown-item ">Nuevo Coach</a></li>
-                            <li><a href="#" class="dropdown-item ">Ver coachs</a></li>
+                            <li><a href="/listaCoachs" class="dropdown-item ">Ver coachs</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -182,11 +169,12 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                               
                                 <th>Nombre</th>
                                 <th>Fecha Inicio</th>
-                                <th>Fecha Fin</th>
+                                <th>Correo de Referencia</th>
                                 <th>Tipo </th>
+                                <th>Telefono Referencia </th>
                                 <th>Reporte de Inscritos</th>
                                 <th>Reporte de Resultados</th>
                              
@@ -195,11 +183,14 @@
                         <tbody>
                             @foreach ($eventos as $evento)
                                 <tr>
-                                    <td>{{ $evento->id }}</td>
+                                    
                                     <td>{{ $evento->nombre }}</td>
                                     <td>{{ $evento->fecha_inicio }}</td>
-                                    <td>{{ $evento->fecha_fin }}</td>
+                                    
+                                    <td>{{ $evento->correo_referencia }}</td>
+                                   
                                     <td>{{ $evento->tipo }}</td>
+                                    <td>{{ $evento->cel_referencia }}</td>
                                     <td>
                                       <!-- Enlace para imprimir con estilos de hoja de estilos -->
                                       <a href="#" onclick="imprimirEvento('{{ $evento->nombre}}')" class="btn btn-info">Imprimir </a>
