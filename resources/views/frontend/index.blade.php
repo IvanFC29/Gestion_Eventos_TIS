@@ -15,7 +15,7 @@
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg  custom-navbar">
         <div id="titulo">
-            <h2>Competencias - Programación Bolivia</h2>
+            <h2>ICPC</h2>
         </div>
         <br>
         <div class="collapse navbar-collapse color-letra" id="navbarNav">

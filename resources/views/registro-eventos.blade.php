@@ -94,7 +94,7 @@
 
     <!-- Barra de navegación -->
     <nav class="navbar navbar-expand-lg  custom-navbar">
-        <a class="navbar-brand" href="/index">Competencias - Programación Bolivia</a>
+        <a class="navbar-brand" href="/index">ICPC</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
