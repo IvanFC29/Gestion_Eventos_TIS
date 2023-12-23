@@ -213,6 +213,102 @@
                         </div>
                         <!--  Otro campo -->
                     </div>
+                    <div class="row opcional" id="requisitos">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Requisitos:</label>
+                                    <input type="text" name="requisitos" class="form-control" value="{{ $evento_editar->requisitos }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row opcional" id="reglas">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Reglas:</label>
+                                    <input type="text" name="reglas" class="form-control" value="{{ $evento_editar->reglas }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row opcional" id="links">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Links:</label>
+                                    <input type="text" name="links" class="form-control" value="{{ $evento_editar->links }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row opcional" id="infextra">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Información Extra:</label>
+                                    <input type="text" name="infextra" class="form-control" value="{{ $evento_editar->infextra }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row opcional" id="contenido">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Contenido:</label>
+                                    <!--<input type="text" name="contenido" class="form-control">-->
+                                    <textarea class="form-control" name="contenido" value="{{ $evento_editar->contenido }}"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row opcional"  id="cronograma">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Cronograma:</label>
+                                    <input type="text" name="cronograma" class="form-control" value="{{ $evento_editar->cronograma }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row opcional"  id="costo">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label>Costo:</label>
+                                    <input type="text" name="costo" class="form-control" value="{{ $evento_editar->costo }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="section2">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Campos adicionales:</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="chkRequisitos" name="chkRequisitos">
+                                        <label class="form-check-label" for="chkRequisitos">Requisitos</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="chkReglas" name="chkReglas">
+                                        <label class="form-check-label" for="chkReglas">Reglas</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="chkLinks" name="chkLinks">
+                                        <label class="form-check-label" for="chkLinks">Links</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="chkCosto" name="chkCosto">
+                                        <label class="form-check-label" for="chkCosto">Costo</label>
+                                    </div>
+                                    <!-- Agrega checkboxes para las otras opciones -->
+                                </div>
+                                <div class="col-md-6">
+                                    <label></label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="chkInfextra" name="chkInfextra">
+                                        <label class="form-check-label" for="chkInfextra">Información Extra</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="chkContenido" name="chkContenido">
+                                        <label class="form-check-label" for="chkContenido">Contenido</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="chkCronograma" name="chkCronograma">
+                                        <label class="form-check-label" for="chkCronograma">Cronograma</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary guardar" name="id" value="{{ $evento_editar->id }}">Editar</button>
                         <!-- <button type="submit" class="btn btn-primary editar" name="editable" value="1">Editar luego</button>-->
@@ -223,5 +319,18 @@
         </div>
     </main>
 <script src="{{ asset('js/nuevo_evento.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Oculta inicialmente los campos opcionales
+            $('.opcional').hide();
+
+            // Maneja el cambio en los checkboxes
+            $('input[type="checkbox"]').change(function () {
+                var campo = $(this).attr('id').substring(3).toLowerCase(); // Obtiene el nombre del campo
+                $('#' + campo).toggle(); // Muestra u oculta el campo según el estado del checkbox
+            });
+        });
+    </script>
 </body>
 </html>
