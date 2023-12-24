@@ -128,7 +128,7 @@ CHAT GPT -->
             </ul>        <!-- ... (agrega más opciones según sea necesario) ... -->
             </div>
         </aside>
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
 <div class="container mt-4">
           <div class="elbuscar">
             <div class="elotrobuscar">

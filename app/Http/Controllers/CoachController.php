@@ -59,7 +59,10 @@ class CoachController extends Controller
             'password' => $request->input('password'),
             'universidad' => $request->input('universidad'),          
             'rol' => 'coach',
-            'permiso' => false,
+            'permisoComp' => false,
+            'permisoEve' => false,
+            'permisoCoach' => false,
+            'permisoReportes' => false,
             'direccion' => $request->input('direccion'),           
         ]);
     
@@ -165,50 +168,84 @@ class CoachController extends Controller
         return view('listaCoach')->with('coachs', $coachs);
     }
     public function filtrarCoachs(Request $request)
-{
-    $filtroTipo = $request->input('filtroTipo');
-    $filtroTexto = $request->input('filtroTexto');
+    {
+        $filtroTipo = $request->input('filtroTipo');
+        $filtroTexto = $request->input('filtroTexto');
 
-    // Lógica para filtrar usuarios
-    $coachs = User::where('rol', 'coach')
-        ->when($filtroTipo, function ($query) use ($filtroTipo, $filtroTexto) {
-            // Seleccionar el tipo de filtro y aplicar la condición correspondiente
-            switch ($filtroTipo) {
-                case 'nombre':
-                    $query->where('name', 'LIKE', '%' . $filtroTexto . '%');
-                    break;
-                case 'paterno':
-                    $query->where('apellidoP', 'LIKE', '%' . $filtroTexto . '%');
-                    break;
-                case 'materno':
-                    $query->where('apellidoM', 'LIKE', '%' . $filtroTexto . '%');
-                    break;
-                case 'correo':
-                    $query->where('email', 'LIKE', '%' . $filtroTexto . '%');
-                    break;
-                case 'universidad':
-                    $query->where('universidad', 'LIKE', '%' . $filtroTexto . '%');
-                    break;
-                // Puedes agregar más casos según sea necesario
-            }
+        // Lógica para filtrar usuarios
+        $coachs = User::where('rol', 'coach')
+            ->when($filtroTipo, function ($query) use ($filtroTipo, $filtroTexto) {
+                // Seleccionar el tipo de filtro y aplicar la condición correspondiente
+                switch ($filtroTipo) {
+                    case 'nombre':
+                        $query->where('name', 'LIKE', '%' . $filtroTexto . '%');
+                        break;
+                    case 'paterno':
+                        $query->where('apellidoP', 'LIKE', '%' . $filtroTexto . '%');
+                        break;
+                    case 'materno':
+                        $query->where('apellidoM', 'LIKE', '%' . $filtroTexto . '%');
+                        break;
+                    case 'correo':
+                        $query->where('email', 'LIKE', '%' . $filtroTexto . '%');
+                        break;
+                    case 'universidad':
+                        $query->where('universidad', 'LIKE', '%' . $filtroTexto . '%');
+                        break;
+                    // Puedes agregar más casos según sea necesario
+                }
 
-            return $query;
-        })
-        ->get();
+                return $query;
+            })
+            ->get();
 
-    return view('listaCoach', compact('coachs'));
-}
-public function actualizarPermiso($id)
-{
-    $coach = User::find($id);
-
-    if ($coach) {
-        $coach->permiso= !$coach->permiso;
-        $coach->save();
+        return view('listaCoach', compact('coachs'));
     }
+    
+    public function actualizarPermisoComp($id)
+    {
+        $coach = User::find($id);
 
-    return redirect()->back();
-}
+        if ($coach) {
+            $coach->permisoComp= !$coach->permisoComp;
+            $coach->save();
+        }
+
+        return redirect()->back();
+    }
+    public function actualizarPermisoEve($id)
+    {
+        $coach = User::find($id);
+
+        if ($coach) {
+            $coach->permisoEve= !$coach->permisoEve;
+            $coach->save();
+        }
+
+        return redirect()->back();
+    }
+    public function actualizarPermisoCoach($id)
+    {
+        $coach = User::find($id);
+
+        if ($coach) {
+            $coach->permisoCoach= !$coach->permisoCoach;
+            $coach->save();
+        }
+
+        return redirect()->back();
+    }
+    public function actualizarPermisoReportes($id)
+    {
+        $coach = User::find($id);
+
+        if ($coach) {
+            $coach->permisoReportes= !$coach->permisoReportes;
+            $coach->save();
+        }
+
+        return redirect()->back();
+    }
 
 
 }

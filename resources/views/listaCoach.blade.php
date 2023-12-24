@@ -168,7 +168,10 @@
                                 <th>Apellido Materno</th>
                                 <th>Correo </th>
                                 <th>Universidad </th>
-                                <th>Permiso de Crear Competencias</th>
+                                <th>Permiso de Crear Evento</th>
+                                <th>Permiso de Crear Competencia</th>
+                                <th>Permiso de Crear Coach</th>
+                                <th>Permiso de Ver reportes</th>
                               
                              
                             </tr>
@@ -185,10 +188,46 @@
                                     <td>{{ $coach->email }}</td>
                                     <td>{{ $coach->universidad }}</td>
                                     <td style="text-align: center; vertical-align: middle;">
-                                        <form action="{{ route('coach.actualizarPermiso', ['id' => $coach->id]) }}" method="post">
+                                        <form action="{{ route('coach.actualizarPermisoEve', ['id' => $coach->id]) }}" method="post">
                                             @csrf
                                             <button type="submit" class="btn btn-link d-flex align-items-center justify-content-center">
-                                                @if ($coach->permiso)
+                                                @if ($coach->permisoEve)
+                                                    <i class="fas fa-toggle-on text-success fa-2x"></i>
+                                                @else
+                                                    <i class="fas fa-toggle-off text-danger fa-2x"></i>
+                                                @endif
+                                            </button>
+                                        </form>
+                                    </td>
+                                    <td style="text-align: center; vertical-align: middle;">
+                                        <form action="{{ route('coach.actualizarPermisoComp', ['id' => $coach->id]) }}" method="post">
+                                            @csrf
+                                            <button type="submit" class="btn btn-link d-flex align-items-center justify-content-center">
+                                                @if ($coach->permisoComp)
+                                                    <i class="fas fa-toggle-on text-success fa-2x"></i>
+                                                @else
+                                                    <i class="fas fa-toggle-off text-danger fa-2x"></i>
+                                                @endif
+                                            </button>
+                                        </form>
+                                    </td>
+                                    <td style="text-align: center; vertical-align: middle;">
+                                        <form action="{{ route('coach.actualizarPermisoCoach', ['id' => $coach->id]) }}" method="post">
+                                            @csrf
+                                            <button type="submit" class="btn btn-link d-flex align-items-center justify-content-center">
+                                                @if ($coach->permisoCoach)
+                                                    <i class="fas fa-toggle-on text-success fa-2x"></i>
+                                                @else
+                                                    <i class="fas fa-toggle-off text-danger fa-2x"></i>
+                                                @endif
+                                            </button>
+                                        </form>
+                                    </td>
+                                    <td style="text-align: center; vertical-align: middle;">
+                                        <form action="{{ route('coach.actualizarPermisoReportes', ['id' => $coach->id]) }}" method="post">
+                                            @csrf
+                                            <button type="submit" class="btn btn-link d-flex align-items-center justify-content-center">
+                                                @if ($coach->permisoReportes)
                                                     <i class="fas fa-toggle-on text-success fa-2x"></i>
                                                 @else
                                                     <i class="fas fa-toggle-off text-danger fa-2x"></i>

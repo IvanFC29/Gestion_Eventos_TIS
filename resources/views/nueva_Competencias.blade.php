@@ -96,7 +96,7 @@
                             <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Coachs <span class="caret"></span></a>
                             <ul class="dropdown-menu animated fadeInLeft" role="menu">
                                 <li><a href="/registerCoach" class="dropdown-item ">Nuevo Coach</a></li>
-                                <li><a href="#" class="dropdown-item ">Ver coachs</a></li>
+                                <li><a href="/listaCoachs" class="dropdown-item ">Ver coachs</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -136,11 +136,46 @@
                             <li class="dropdown">
                                 <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Competencias <span class="caret"></span></a>
                                 <ul class="dropdown-menu animated fadeInLeft" role="menu">
-                                    <li><a href="/competencias-adm" class="dropdown-item ">Ver Competencias</a></li>
-                                    <li><a href="/crearcompetencias" class="dropdown-item ">Crear Competencia</a></li>
+                                @if(auth()->user()->permisoComp == 1)
+                                    <li><a href="/competencias-coach" class="dropdown-item">Ver Competencias</a></li>
+                                    <li><a href="/crearcompetencias" class="dropdown-item">Crear Competencia</a></li>
+                                @else
+                                    <li><a href="/competencias-coach" class="dropdown-item">Ver Competencias</a></li>
+                                @endif
                                 </ul>
                             </li>
                             
+                            @if(auth()->user()->permisoCoach == 1)
+                            <li class="dropdown">
+                                <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Coachs <span class="caret"></span></a>
+                                <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                                        <li><a href="/registerCoach" class="dropdown-item ">Nuevo Coach</a></li>
+                                        @if(auth()->user()->permisoReportes == 1)
+                                            <li><a href="/listaCoachs" class="dropdown-item ">Ver coachs</a></li>
+                                        @endif
+                                </ul>
+                            </li>
+                            @endif
+                            <!--revisardespues-->
+                            @if(auth()->user()->permisoReportes == 1)
+                            <li class="dropdown">
+                                <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Coachs <span class="caret"></span></a>
+                                <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                                        
+                                    <li><a href="/listaCoachs" class="dropdown-item ">Ver coachs</a></li>
+                                        
+                                </ul>
+                            </li>
+                            @endif
+                            @if(auth()->user()->permisoReportes == 1)
+                                    <li class="dropdown">
+                                        <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Reportes <span class="caret"></span></a>
+                                        <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                                            <li><a href="{{ route('reporteC') }}" class="dropdown-item ">Competencias</a></li>
+                                            <li><a href="{{ route('reporteE') }}">Eventos</a></li>
+                                        </ul>
+                                    </li>
+                            @endif
                             <li class="nav-item">
                                 <a class="nav-link" href="/full-calendar">
                                     Calendario
