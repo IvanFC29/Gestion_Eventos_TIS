@@ -211,7 +211,7 @@ class EventoController extends Controller
                     ->orWhere('numeroParticipantes', 'LIKE', '%' . $query . '%')
                     ->get();
 
-        return view('resultadosCU', ['listados' => $resultados]);
+        return view('competencias_Usuario', ['listados' => $resultados]);
     }
 
     

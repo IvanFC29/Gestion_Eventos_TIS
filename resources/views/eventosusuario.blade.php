@@ -415,3 +415,14 @@
           </script>
 </body>
 </html>
+<style>
+  /* Estilos para el botón específico */
+  button[type="submit"] {
+    background-color: #3498db; /* Azul más suave */
+    color: white; /* Color del texto blanco */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  }
+</style>
