@@ -105,7 +105,7 @@
     <nav class="navbar custom-navbar navbar-expand-lg">
         <div class="container-fluid">
             <div class="divtitulom">
-                <h1 class="titulomalo">CP Bol - Competencias Programación Bolivia</h1>
+                <h1 class="titulomalo">IPCP</h1>
             </div>
         </div>
         <div class="collapse navbar-collapse color-letra" id="navbarNav">

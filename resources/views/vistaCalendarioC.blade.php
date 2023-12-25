@@ -64,7 +64,17 @@
                     </div>        
                 </div>
                 <ul class="nav flex-column">
-                    
+                    <li class="dropdown">
+                                <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Eventos <span class="caret"></span></a>
+                                <ul class="dropdown-menu animated fadeInLeft" role="menu">
+                                @if(auth()->user()->permisoEve == 1)
+                                    <li><a href="/crear-evento" class="dropdown-item ">Crear Evento</a></li>
+                                    <li><a href="/home" class="dropdown-item">Lista de Eventos</a></li>
+                                @else
+                                <li><a href="/home" class="dropdown-item">Lista de Eventos</a></li>
+                                @endif
+                                </ul>
+                    </li>
                     <li class="dropdown">
                         <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Competencias <span class="caret"></span></a>
                         <ul class="dropdown-menu animated fadeInLeft" role="menu">

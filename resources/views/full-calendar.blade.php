@@ -126,9 +126,9 @@
                                 <ul class="dropdown-menu animated fadeInLeft" role="menu">
                                 @if(auth()->user()->permisoEve == 1)
                                     <li><a href="/crear-evento" class="dropdown-item ">Crear Evento</a></li>
-                                    <li><a href="/ver-eventos-editables" class="dropdown-item">Lista de Eventos</a></li>
+                                    <li><a href="/eventos" class="dropdown-item">Lista de Eventos</a></li>
                                 @else
-                                <li><a href="/ver-eventos-editables" class="dropdown-item">Lista de Eventos</a></li>
+                                <li><a href="/eventos" class="dropdown-item">Lista de Eventos</a></li>
                                 @endif
                                 </ul>
                             </li>
