@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Carbon\Carbon;
@@ -138,22 +138,28 @@ class CoachController extends Controller
     
         // Actualizar otros datos
         $user->update($data);
-    
+       
         // Manejo de la imagen
         if ($request->hasFile('foto')) {
-            // Almacenar la imagen en la carpeta public/images/fotoPerfil
-            $imagePath = $request->file('foto')->store('public/images/fotosPerfil');
-    
-            // Obtener el nombre del archivo de la imagen
-            $imageName = basename($imagePath);
-    
+            // Almacenar la imagen en la carpeta public/images/fotosPerfil
+            $foto = $request->file('foto');
+            
+            // Generar un nombre único para el archivo
+            $nombreArchivo = uniqid() . '.' . $foto->getClientOriginalExtension();
+        
+            // Almacenar la imagen en la nueva ruta
+            $destino = 'images/fotosPerfil/';
+            
+            $foto->move($destino, $nombreArchivo);
+        
             // Eliminar la foto anterior
             if ($user->foto != '') {
-                unlink(storage_path('app/public/images/fotosPerfil/' . $user->foto));
+                // Usar Storage para eliminar el archivo
+                Storage::delete($destino . $user->foto);
             }
-    
+        
             // Actualizar el campo 'foto' en el modelo User con el nombre de la nueva imagen
-            $user->update(['foto' => $imageName]);
+            $user->update(['foto' => $nombreArchivo]);
         }
     
         session()->flash('success', 'Se ha actualizado sus datos correctamente.');

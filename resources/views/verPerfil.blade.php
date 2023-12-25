@@ -208,7 +208,7 @@
         </div>
         <div class="profile-column">
             
-            <img class="profile-picture" src="{{ asset('storage/images/fotosPerfil/' . auth()->user()->foto) }}" alt="Profile Picture">
+            <img class="profile-picture" src="{{ asset('images/fotosPerfil/' . auth()->user()->foto) }}" alt="Profile Picture">
 
             <div class="profile-field">
                 <label for="nombre">Nombre:</label>

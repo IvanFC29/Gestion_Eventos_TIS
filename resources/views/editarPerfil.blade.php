@@ -290,7 +290,7 @@
                         <div class="profile-field">
                             <label for="profile_picture">Foto de perfil:</label>
                             <div class="profile-picture-container">
-                                <img class="profile-picture" src="{{ asset('storage/images/fotosPerfil/' . auth()->user()->foto) }}" alt="Profile Picture">
+                                <img class="profile-picture" src="{{ asset('images/fotosPerfil/' . auth()->user()->foto) }}" alt="Profile Picture">
         
                                 <input type="file" name="foto">
                             </div>
