@@ -164,16 +164,7 @@
                             </li>
                             @endif
                             <!--revisardespues-->
-                            @if(auth()->user()->permisoReportes == 1)
-                            <li class="dropdown">
-                                <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Coachs <span class="caret"></span></a>
-                                <ul class="dropdown-menu animated fadeInLeft" role="menu">
-                                        
-                                    <li><a href="/listaCoachs" class="dropdown-item ">Ver coachs</a></li>
-                                        
-                                </ul>
-                            </li>
-                            @endif
+                           
                             @if(auth()->user()->permisoReportes == 1)
                                     <li class="dropdown">
                                         <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Reportes <span class="caret"></span></a>

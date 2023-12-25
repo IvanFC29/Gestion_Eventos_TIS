@@ -40,6 +40,22 @@
                 <h1 class="titulomalo">ICPC</h1>
             </div>
         </div>
+        @if(auth()->user()->rol=='coach')
+        <div class="collapse navbar-collapse color-letra" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <b>{{auth()->user()->name}}  {{auth()->user()->apellidoP}}      </b>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">   
+                        <a class="dropdown-item" href="/perfil">Ver perfil</a>
+                        <a class="dropdown-item" href="/editCoach">Editar Perfil</a>
+                        <a class="dropdown-item" href="{{ route('login.destroy') }}" >Cerrar Sesion</a>
+                    </div>    
+                </li>                   
+            </ul>
+        </div> 
+        @endif 
                       
     </nav>
 </header>
@@ -169,17 +185,7 @@ CHAT GPT -->
                                 </ul>
                             </li>
                             @endif
-                            <!--revisardespues-->
-                            @if(auth()->user()->permisoReportes == 1)
-                            <li class="dropdown">
-                                <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Coachs <span class="caret"></span></a>
-                                <ul class="dropdown-menu animated fadeInLeft" role="menu">
-                                        
-                                    <li><a href="/listaCoachs" class="dropdown-item ">Ver coachs</a></li>
-                                        
-                                </ul>
-                            </li>
-                            @endif
+                           
                             @if(auth()->user()->permisoReportes == 1)
                                     <li class="dropdown">
                                         <a href="#works" class="dropdown-toggle"  data-toggle="dropdown">Reportes <span class="caret"></span></a>
