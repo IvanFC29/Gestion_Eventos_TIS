@@ -27,7 +27,7 @@
     <!-- Tailwind CSS Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css">
 
-    <link rel="stylesheet" href="{{ asset('css/loginAdmin.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/menu.css') }}" type="text/css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -83,13 +83,15 @@
               <div class="cajadebuscar">
                   <input type="text" name="query" placeholder="Buscar eventos...">
               </div>
-              <button type="submit">Buscar</button>
+              <button type="submit" class="btn btn-color">Buscar</button>
           </form>
         </div>
     </div>
 
+    <!--Proximos-->
     <div class="container mt-4">
-          <div class="row">
+        <b>Proximas Competencias</b> <br>
+          <div class="row">      
               @foreach ($listados as $competencias)
 
 
@@ -168,7 +170,7 @@
                               <br>
                                   <p>Número de participantes: {{ $competencias->numeroParticipantes }}</p>
                               <br>
-                              <button type="button" class="btn btn-primary abrirmodales" data-toggle="modal" data-target="#modal-{{ $competencias->idComp }}">
+                              <button type="button" class="btn btn-color abrirmodales" data-toggle="modal" data-target="#modal-{{ $competencias->idComp }}">
                                   Ver detalles
                               </button>
                           </div>
@@ -188,8 +190,108 @@
                 @endforeach
           </div>
     </div>
-      
-        
+    <br><hr><br>
+     <!--Antiguos-->
+    <div class="container mt-4">
+        <b>Antiguas Competencias</b> <br>
+          <div class="row">      
+              @foreach ($antiguos as $competencias)
+                  <div class="modal" id="modal-{{ $competencias->idComp }}">
+                      <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <h5 class="modal-title">{{ $competencias->nombreComp }}</h5>
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              </div>
+                              <div class="modal-body">
+                                  <p>{{ $competencias->descripcion }}</p>
+                                  <br>
+                                  <p>Número de participantes: {{ $competencias->numeroParticipantes }}</p>
+                                  <br>
+                                  <p>Es requerido que los integrantes sean de la UMSS: {{ $competencias->umss }}</p>
+                                  <br>
+                                  <p class="card-text">Referencias:</p>
+                                  <p class="card-text">{{ $competencias->correo_referencia }}</p>
+                                  <p class="card-text">{{ $competencias->cel_referencia }}</p>
+                                  @if(!empty($competencias->cronograma))  
+                                        <br>
+                                        <p>Cronograma: {{ $competencias->cronograma }}</p>
+                                    @endif
+
+                                    @if(!empty($competencias->requisitos))
+                                        <br>
+                                        <p>Requisitos: {{ $competencias->requisitos }}</p>
+                                    @endif
+
+                                    @if(!empty($competencias->reglas))
+                                        <br>
+                                        <p>Reglas: {{ $competencias->reglas }}</p>
+                                    @endif
+
+                                    @if(!empty($competencias->infextra))
+                                        <br>
+                                        <p>Información Extra: {{ $competencias->infextra }}</p>
+                                    @endif
+
+                                    @if(!empty($competencias->costo))
+                                        <br>
+                                        <p>Costo de Inscripción: {{ $competencias->costo }}</p>
+                                    @endif
+
+                                    @if(!empty($competencias->links))
+                                        <br>
+                                        <p>Links de Inscripción Externos: {{ $competencias->links }}</p>
+                                    @endif
+
+                                    @if(!empty($competencias->actividades))
+                                        <br>
+                                        <p>Actividades: {{ $competencias->actividades }}</p>
+                                    @endif
+
+                                  <!-- Agrega aquí más detalles del competencias si es necesario -->
+                              </div>
+                               <!-- Botón para abrir el formulario en el modal-->
+                                
+
+                          </div>
+                      </div>
+                  </div>
+
+                  
+
+                  <!-- Agrega un botón para abrir el modal -->
+                  <div class="col-md-4">
+                      <div class="card eventocard">
+                          <img src="{{ asset('images/eventos.jpg') }}" alt="Card Image" class="imgevento">
+                          <div class="card-body eventobodycard">
+                              <h5 class="card-title">{{ $competencias->nombreComp }}</h5>
+                              <p class="card-text"> Descripción:{{ $competencias->descripcion }}</p>
+                              <br>
+                                  <p>Ubicación de la Competencia: {{ $competencias->ubicacionCompetencia }}</p>
+                              <br>
+                                  <p>Número de participantes: {{ $competencias->numeroParticipantes }}</p>
+                              <br>
+                              <button type="button" class="btn btn-color abrirmodales" data-toggle="modal" data-target="#modal-{{ $competencias->idComp }}">
+                                  Ver detalles
+                              </button>
+                          </div>
+                      </div>
+                       
+                        
+                      <br>
+                  </div>
+
+                  <div class="modal fade" id="modal-principal" tabindex="-1" role="dialog" aria-labelledby="modal-principal-label" aria-hidden="true">
+                    <!-- ... (código anterior del modal principal) ... -->
+                    
+                  </div>
+
+                                
+                  
+                @endforeach
+          </div>
+    </div>
+         
       
 
 
