@@ -211,7 +211,7 @@ class EventoController extends Controller
                     ->orWhere('numeroParticipantes', 'LIKE', '%' . $query . '%')
                     ->get();
 
-        return view('competencias_Usuario', ['listados' => $resultados]);
+        return view('resultadosCU', ['listados' => $resultados]);
     }
 
     
@@ -631,15 +631,10 @@ public function filtrarCompetencias(Request $request)
     }
     public function mostrarCompetenciasUsuario() {
         $fecha_actual = now();
-        $listados = Competencia::where('fecha_inicio', '>=', $fecha_actual)
-        ->orderBy('fecha_inicio', 'asc') 
-        ->get();
+        $listados = Competencia::get();
 
-        $antiguos = Competencia::where('fecha_inicio', '<', $fecha_actual)
-        ->orderBy('fecha_inicio', 'asc') 
-        ->get();
      
-        return view('competencias_Usuario', compact('listados', 'antiguos'));
+        return view('competencias_Usuario', compact('listados'));
 
     }
 }

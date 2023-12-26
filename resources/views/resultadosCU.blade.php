@@ -79,7 +79,7 @@
       
       <div class="elbuscar">
         <div class="elotrobuscar">
-          <form action="{{ route('buscar.competencias') }}" method="GET">
+          <form action="{{ route('buscar.competenciasU') }}" method="GET">
               <div class="cajadebuscar">
                   <input type="text" name="query" placeholder="Buscar eventos...">
               </div>
@@ -89,7 +89,7 @@
       </div>
       <div class="container mt-4">
           <div class="row">
-            @if(count($resultados) > 0)
+            @if(count($listados) > 0)
               @foreach ($listados as $competencias)
 
 

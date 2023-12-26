@@ -116,7 +116,7 @@
       
         <div class="elbuscar">
           <div class="elotrobuscar">
-            <form action="{{ route('buscar.competenciasU') }}" method="GET">
+            <form action="{{ route('buscar.competencias') }}" method="GET">
                 <div class="cajadebuscar">
                     <input type="text" name="query" placeholder="Buscar eventos...">
                 </div>
