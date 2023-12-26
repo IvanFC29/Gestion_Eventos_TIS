@@ -520,43 +520,15 @@ public function filtrarCompetencias(Request $request)
     public function registroUsuComp(Request $request4){
         //
         $registroCompetencia = new RegistroCompetencias();
-        $lacompetencia = $registroCompetencia->nombreComp;
         $umssValue = Competencia::where('nombreComp', $request4->input('nombreComp'))->value('umss');
         $cantInscritos = Competencia::where('nombreComp', $request4->input('nombreComp'))->value('numeroParticipantes');
-        $sis1Exists = Estudiantes::where('codigosis', $request4->input('sis1'))->exists();
-        $sis2Exists = Estudiantes::where('codigosis', $request4->input('sis2'))->exists();
-
-        // Si el código SIS no existe, mostrar un mensaje de error
-        if (!$sis1Exists) {
-            $request4->session()->flash('error', '¡Error! El código SIS del participante 1 no existe en la base de datos.');
-            return view('registro_competencias')->with(['nombreComp' => $registroCompetencia->nombreComp, 'umss' => $umssValue , 'numIntegrantes'=>$cantInscritos]);
-        }else{
-            if(!$sis2Exists){
-                $request4->session()->flash('error', '¡Error! El código SIS del participante 2 no existe en la base de datos.');
-                return view('registro_competencias')->with(['nombreComp' => $registroCompetencia->nombreComp, 'umss' => $umssValue , 'numIntegrantes'=>$cantInscritos]);
-            }
-        }
         
-        $registroCompetencia->sis3 = $request4->input('sis3');
-        if (!empty($registroCompetencia->sis3)) {
-            $sis3Exists = Estudiantes::where('codigosis', $request4->input('sis3'))->exists();
+        $nombreEquipoExistente = RegistroCompetencias::where('nombreEquipo', $request4->input('nombreEquipo'))->exists();
 
-            // Si el código SIS no existe, mostrar un mensaje de error
-            if (!$sis3Exists) {
-                $request4->session()->flash('error', '¡Error! El código SIS  del participante 3 no existe en la base de datos.');
-                return view('registro_competencias')->with(['nombreComp' => $registroCompetencia->nombreComp, 'umss' => $umssValue , 'numIntegrantes'=>$cantInscritos]);
-            }
-        }    
-        $registroCompetencia->sis4 = $request4->input('sis4');
-        if (!empty($registroCompetencia->sis4)) {
-            $sis4Exists = Estudiantes::where('codigosis', $request4->input('sis4'))->exists();
-
-            // Si el código SIS no existe, mostrar un mensaje de error
-            if (!$sis4Exists) {
-                $request4->session()->flash('error', '¡Error! El código SIS  del participante 4 no existe en la base de datos.');
-                return view('registro_competencias')->with(['nombreComp' => $registroCompetencia->nombreComp, 'umss' => $umssValue , 'numIntegrantes'=>$cantInscritos]);
-            }
-        } 
+        if ($nombreEquipoExistente) {
+            $request4->session()->flash('error', '¡Error! El nombre del equipo ya está registrado.');
+            return view('registro_competencias')->with(['nombreComp' => $request4->input('nombreComp'), 'umss' => $umssValue, 'numIntegrantes' => $cantInscritos]);
+        }
         $registroCompetencia->nombreComp=$request4->input('nombreComp');
         $registroCompetencia->nombreEquipo = $request4->input('nombreEquipo');
         $registroCompetencia->nombre1 = $request4->input('nombre1');
@@ -578,7 +550,7 @@ public function filtrarCompetencias(Request $request)
         $registroCompetencia->coachEncargado = $request4->input('coachEncargado');
         $registroCompetencia->save();
         $request4->session()->flash('success', '¡Registro exitoso! Tu equipo se ha inscrito correctamente.');
-        return view('registro_competencias')->with(['nombreComp' => $registroCompetencia->nombreComp, 'umss' => $umssValue , 'numIntegrantes'=>$cantInscritos]);
+        return view('registro_competencias')->with(['nombreComp' => $request4->input('nombreComp'), 'umss' => $umssValue , 'numIntegrantes'=>$cantInscritos]);
         
     }
     public function mostrarRegistrosComPDF(Request $request) {

@@ -29,6 +29,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
     <!-- Tailwind CSS Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css">
+    <!-- Incluye Bootstrap CSS en la sección head de tu HTML -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Incluye Bootstrap JS justo antes del cierre del body -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
    
     <title>Registro Competencias</title> 
     <!-- Agrega esto en el head de tu documento HTML -->
@@ -41,6 +49,12 @@
         .section {
             background-color: rgb(255, 249, 77) !important;
             margin-top: 3%;
+        }
+        .titulobueno {
+            font-weight: bold;    /* Negrita */
+            font-size: 20px;      /* Tamaño de fuente más grande */
+            font-family: Verdana; /* Utiliza una fuente elegante */
+            /* Agrega otros estilos de letras elegantes si es necesario */
         }
     </style>
 </head>
@@ -255,7 +269,7 @@
                         @endif
                         @csrf
                         <div class="containerTitulo"> 
-                            <p class="titulo" >{{ $nombreComp }}</p>     
+                            <p class="titulo titulobueno" >{{ $nombreComp }}</p>     
                             <!--<h1><b>Registro a Competencia VARIABLE</b></h1>-->
                             <input type="hidden" name="nombreComp" value="{{ $nombreComp }}">
                         </div>
@@ -287,13 +301,13 @@
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Número de celular:<span class="text-danger">*</span></label>
-                                        <input type="text" name="celular1" class="form-control input_user" value="" placeholder="" minlength="7" title="Se requiere mínimo 7 números" oninput="javascript: if (this.value.length > 0) this.value = this.value.replace(/[^0-9]/g, '');" required>
+                                        <input type="text" name="celular1" class="form-control input_user" value="" placeholder="" minlength="7" pattern="[0-9+ ]+" title="Se requiere mínimo 7 números y solo se permiten números, espacios y el símbolo '+'" oninput="javascript: if (this.value.length > 0) this.value = this.value.replace(/[^0-9+ ]/g, '');" required>
                                     </div>
                                 </div>
-                                <div class="col-md-3 sis-field">
+                                <div class="col-md-3  sis-field">
                                     <div class="mb-3">
                                         <label>Código Sis:<span class="text-danger">*</span></label>
-                                        <input type="text" name="sis1" id="sis1" class="form-control input_user" value="" placeholder="" minlength="9">
+                                        <input type="number" name="sis1" id="sis1" class="form-control input_user" value="" placeholder="" min="195000000" max="202400000">
                                     </div>
                                 </div>
                             </div>
@@ -301,7 +315,7 @@
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Nombre:<span class="text-danger">*</span></label>
-                                        <input type="text" name="nombre2" class="form-control" value="" placeholder="Ingrese nombre" pattern="[A-Za-z\s]{5,}" oninput="javascript: if (this.value.length > 0) this.value = this.value.replace(/[^A-Za-z\s]/g, '');" title="Solo se permiten carácteres alfabéticos, con un mínimo de 5 caracteres" required>
+                                        <input type="text" name="nombre2" class="form-control" value="" placeholder="Ingrese nombre del segundo participante" pattern="[A-Za-z\s]{5,}" oninput="javascript: if (this.value.length > 0) this.value = this.value.replace(/[^A-Za-z\s]/g, '');" title="Solo se permiten carácteres alfabéticos, con un mínimo de 5 caracteres" required>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
@@ -316,10 +330,10 @@
                                         <input type="text" name="celular2" class="form-control input_user" value="" placeholder="" minlength="7" title="Se requiere mínimo 7 números" oninput="javascript: if (this.value.length > 0) this.value = this.value.replace(/[^0-9]/g, '');" required >
                                     </div>
                                 </div>
-                                <div class="col-md-3 sis-field">
+                                <div class="col-md-3  sis-field">
                                     <div class="mb-3">
                                         <label>Código Sis:<span class="text-danger">*</span></label>
-                                        <input type="text" name="sis2" id="sis2" class="form-control input_user" value="" placeholder="" minlength="9">
+                                        <input type="number" name="sis2" id="sis2" class="form-control input_user" value="" placeholder="" min="195000000" max="202400000">
                                     </div>
                                 </div>
                             </div>
@@ -332,24 +346,25 @@
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Nombre:<span class="text-danger">*</span></label>
-                                        <input type="text" name="nombre3" class="form-control" value="" placeholder="Ingrese el nombre del tercer participante" pattern="[A-Za-z\s]{5,}">
+                                        <input type="text" name="nombre3" class="form-control" value="" placeholder="Ingrese el nombre del tercer participante" pattern="[A-Za-z\s]{5,}" oninput="javascript: if (this.value.length > 0) this.value = this.value.replace(/[^A-Za-z\s]/g, '');" title="Solo se permiten carácteres alfabéticos, con un mínimo de 5 caracteres">
                                     </div>
                                 </div>
-                                <div class="col-md-3">                                        <div class="mb-3">
+                                <div class="col-md-3">                       
+                                    <div class="mb-3">
                                         <label>E-mail de contacto:<span class="text-danger">*</span></label>
-                                        <input type="text" name="email3" class="form-control input_user" value="">
+                                        <input type="text" name="email3" class="form-control input_user" value=""  placeholder="ej: gpmcheco@mail.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Número de celular:<span class="text-danger">*</span></label>
-                                        <input type="text" name="celular3" class="form-control input_user" value="">
+                                        <input type="text" name="celular3" class="form-control input_user" value="" placeholder="" minlength="7" title="Se requiere mínimo 7 números" oninput="javascript: if (this.value.length > 0) this.value = this.value.replace(/[^0-9]/g, '');" >
                                     </div>
                                 </div>
                                 <div class="col-md-3  sis-field">
                                     <div class="mb-3">
                                         <label>Código Sis:<span class="text-danger">*</span></label>
-                                        <input type="text" name="sis3" id="sis3" class="form-control input_user" value="" placeholder="" minlength="9">
+                                        <input type="number" name="sis3" id="sis3" class="form-control input_user" value="" placeholder="" min="195000000" max="202400000">
                                     </div>
                                 </div>
                             </div>
@@ -365,25 +380,25 @@
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Nombre:<span class="text-danger">*</span></label>
-                                        <input type="text" name="nombre4" class="form-control" value="" placeholder="Ingrese el nombre del cuarto participante" pattern="[A-Za-z\s]{5,}">
+                                        <input type="text" name="nombre4" class="form-control" value="" placeholder="Ingrese el nombre del cuarto participante" pattern="[A-Za-z\s]{5,}" oninput="javascript: if (this.value.length > 0) this.value = this.value.replace(/[^A-Za-z\s]/g, '');" title="Solo se permiten carácteres alfabéticos, con un mínimo de 5 caracteres">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>E-mail de contacto:<span class="text-danger">*</span></label>
-                                        <input type="text" name="email4" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com">
+                                        <input type="text" name="email4" class="form-control input_user" value="" placeholder="ej: gpmcheco@mail.com" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Número de celular:<span class="text-danger">*</span></label>
-                                        <input type="text" name="celular4" class="form-control input_user" value="" >
+                                        <input type="text" name="celular4" class="form-control input_user" value="" placeholder="" minlength="7" title="Se requiere mínimo 7 números" oninput="javascript: if (this.value.length > 0) this.value = this.value.replace(/[^0-9]/g, '');">
                                     </div>
                                 </div>
                                 <div class="col-md-3 sis-field">
                                     <div class="mb-3">
                                         <label>Código Sis:<span class="text-danger">*</span></label>
-                                        <input type="text" name="sis4" id="sis4" class="form-control input_user" value="" placeholder="" minlength="9">
+                                        <input type="number" name="sis4" id="sis4" class="form-control input_user" value="" placeholder="" min="195000000" max="202400000">
                                     </div>
                                 </div>
                                 <!-- Repite lo mismo para los demás campos que quieres ocultar/mostrar -->
@@ -520,6 +535,13 @@
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
+<!-- Incluye Bootstrap CSS en la sección head de tu HTML -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- Incluye Bootstrap JS justo antes del cierre del body -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     
 

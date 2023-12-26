@@ -36,6 +36,22 @@
 <!-- Tailwind CSS Link -->
 <link rel="stylesheet" 
     href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css">
+<style>
+    .eltitulomodal {
+        text-align: center !important;   /* Centrar el texto */
+        font-weight: bold;    /* Negrita */
+        font-size: 20px;      /* Tamaño de fuente más grande */
+        font-family: Verdana; /* Utiliza una fuente elegante */
+        /* Agrega otros estilos de letras elegantes si es necesario */
+    }
+    .divtitulo {
+        text-align: center !important; /* Usa !important para anular estilos más específicos si es necesario */
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+</style>
 <body>
       
 <nav class="navbar navbar-expand-lg  custom-navbar">
@@ -96,8 +112,8 @@
                   <div class="modal" id="modal-{{ $competencias->idComp }}">
                       <div class="modal-dialog">
                           <div class="modal-content">
-                              <div class="modal-header">
-                                  <h5 class="modal-title">{{ $competencias->nombreComp }}</h5>
+                              <div class="modal-header divtitulo">
+                                  <h5 class="modal-title eltitulomodal">{{ $competencias->nombreComp }}</h5>
                                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                               </div>
                               <div class="modal-body">

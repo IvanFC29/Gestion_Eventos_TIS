@@ -347,7 +347,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label>Cantidad de participantes en la Competencia?:</label>
+                                    <label>Cantidad mínima de participantes en la Competencia?:</label>
                                     <select name="numeroParticipantes" class="form-control form-control-lg">
                                         <option>2</option>
                                         <option>3</option>
