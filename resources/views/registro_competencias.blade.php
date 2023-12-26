@@ -301,7 +301,7 @@
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                         <label>Número de celular:<span class="text-danger">*</span></label>
-                                        <input type="text" name="celular1" class="form-control input_user" value="" placeholder="" minlength="7" pattern="[0-9+ ]+" title="Se requiere mínimo 7 números y solo se permiten números, espacios y el símbolo '+'" oninput="javascript: if (this.value.length > 0) this.value = this.value.replace(/[^0-9+ ]/g, '');" required>
+                                        <input type="text" name="celular1" class="form-control input_user" value="" placeholder="" minlength="7" title="Se requiere mínimo 7 números" oninput="javascript: this.value = this.value.replace(/[^0-9+]/g, '').substring(0, 7);" required>
                                     </div>
                                 </div>
                                 <div class="col-md-3  sis-field">
@@ -413,7 +413,7 @@
                         <div class="col-md-4">
                                 <div class="mb-3">
                                     <label for="message-text" class="col-form-label">Nombre del Coach:<span class="text-danger">*</span></label>
-                                    <textarea class="form-control" id="coachcompentencia" name="coachEncargado" pattern="[A-Za-z\s]{5,}" required></textarea>
+                                    <textarea class="form-control" id="coachcompentencia" name="coachEncargado" minlength="5" title="Se requiere un mínimo de 5 caracteres" required></textarea>
                                 </div>
                         </div>
                         <div class="modal-footer">
@@ -429,6 +429,15 @@
         </main>
     </div>
 </div>
+<script>
+    function validateMinLength(element, minLength) {
+        if (element.value.length < minLength) {
+            element.setCustomValidity('El nombre del coach debe tener al menos ' + minLength + ' caracteres.');
+        } else {
+            element.setCustomValidity('');
+        }
+    }
+</script>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 var numIntegrantes = @json($numIntegrantes);
