@@ -630,14 +630,16 @@ public function filtrarCompetencias(Request $request)
 
     }
     public function mostrarCompetenciasUsuario() {
-        $listados = Competencia::get();
+        $fecha_actual = now();
+        $listados = Competencia::where('fecha_inicio', '>=', $fecha_actual)
+        ->orderBy('fecha_inicio', 'asc') 
+        ->get();
 
-        /*foreach ($listados as $i) {
-            $i->fecha_inicio = Carbon::parse($i->fecha_inicio);
-            $i->fecha_fin = Carbon::parse($i->fecha_fin);
-        }*/
-    
-        return view('competencias_Usuario', compact('listados'));
+        $antiguos = Competencia::where('fecha_inicio', '<', $fecha_actual)
+        ->orderBy('fecha_inicio', 'asc') 
+        ->get();
+     
+        return view('competencias_Usuario', compact('listados', 'antiguos'));
 
     }
 }

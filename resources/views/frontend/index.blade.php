@@ -99,11 +99,33 @@
                         <h4>Competencias del ICPC</h4>
                     </div>   
                 </div>
+            </div>         
+        </div>       
+    </div><br>
+    <div class="container">
+        <div class="section-title" data-aos="zoom-out">
+            <h2>Un poco de Historia</h2>
+        </div>
+        <div class="row portfolio-container" data-aos="fade-up">
+            <div class="col-lg-4 col-md-6 portfolio-item">
+                <div class="portfolio-img"></div>
+                    <div class="portfolio-info">
+                        <p>La ACM-ICPC es una competición que se realizó por primera vez en la Universidad A&M de Texas en 1970. La misma pasó a ser una competición con varias rondas clasificatorias en 1977 y la final mundial se organizó en colaboración con la ACM Computer Science Conference.</p>
+                    </div>
+                    <div class="portfolio-info">
+                        <p>De 1977 a 1989, competieron principalmente equipos de Estados Unidos y Canadá. La sede central está ubicada en la Universidad de Baylor desde 1989, las competiciones regionales se ubican en universidades de todo el mundo, bajo el auspicio de la ACM y la colaboración de grandes empresas de la industria informática. La ACM-ICPC ha ido aumentando en número de participantes y países y ahora es una competición mundial con equipos de 84 países (en 2005).</p>
+                    </div> 
+                    <div class="portfolio-info">
+                        <p>Desde 1997 el principal patrocinador es IBM y la participación en la competición se ha incrementado de un 10 a un 20% cada año. En 1997 participaron 840 equipos de 560 universidades. En 2005, 5606 equipos de 1737 universidades.</p>
+                    </div>  
+                </div>
             </div>
         </div>
-    </div>
+    </div> <br>
     <br>
-
+    
+    
+    
     <!-- Pie de página -->
     <footer class="footerlanding bg-dark text-white text-center py-4">
         <!--<div class="column-right">
